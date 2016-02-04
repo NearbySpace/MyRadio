@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/toolbar" />
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="22dp">
+        <TextView 
+            android:id="@+id/add_program_classify_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="17sp"
+            android:text="情感类"/>
+        <EditText 
+            android:id="@+id/add_program_classify_duration"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:inputType="numberDecimal"
+            android:visibility="gone"
+            android:textColor="@color/black_light_color"
+            android:hint="请设置播放时长"/>
+        <CheckBox
+          android:id="@+id/cb_add_program_classify"
+          android:layout_width="30dp"
+          android:layout_height="30dp"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:layout_marginRight="32dp"
+          style="@style/custom_checkbox"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        
+
+        <com.example.toolbar.pulltorefreshlistview.PullToRefreshListView
+            xmlns:ptr="http://schemas.android.com/apk/res/com.example.strawberryradio"
+            android:id="@+id/pull_refresh_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="50dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:divider="#00000000"
+            android:focusable="true"
+            android:padding="8dp"
+            android:scrollbars="@null"
+            ptr:mode="both" >
+        </com.example.toolbar.pulltorefreshlistview.PullToRefreshListView>
+
+        <com.example.toolbar.view.progress.CircularProgress
+            xmlns:app="http://schemas.android.com/apk/res/com.example.strawberryradio"
+            android:id="@+id/progress"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:borderWidth="3dp" />
+        <TextView 
+            android:id="@+id/addProgram_remind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            android:textSize="14sp"
+            android:text="@string/remimd"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"                                    
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/send_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/text_selector"
+                android:text="完成"
+                android:textColor="@color/red" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

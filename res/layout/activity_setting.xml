@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_light3"
+    android:orientation="vertical" >
+
+    <include layout="@layout/toolbar" />
+
+    <RelativeLayout
+        android:id="@+id/setting_safe_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        android:paddingBottom="8dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="18dp"
+        android:paddingTop="8dp" >
+
+        <TextView
+            android:id="@+id/setting_password_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:text="@string/setting_safe"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_more_setting" />
+    </RelativeLayout>
+    
+    <LinearLayout 
+        android:id="@+id/setting_program"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="#FFFFFF"
+        android:paddingBottom="8dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="8dp"
+        android:clickable="true"
+        android:orientation="horizontal">
+        
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:layout_centerVertical="true"
+            android:text="@string/default_program"
+            android:textSize="17sp" />
+        
+        <TextView
+            android:id="@+id/setting_program_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight="1"
+            android:layout_centerVertical="true"
+            android:text="@string/default_program"
+            android:textSize="17sp" />
+    </LinearLayout>
+    
+   
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp" >
+
+        <TextView
+            android:id="@+id/setting_tv_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_color_selector"
+            android:clickable="true"
+            android:paddingBottom="8dp"
+            android:paddingLeft="12dp"
+            android:paddingTop="8dp"
+            android:text="@string/setting_update"
+            android:textSize="17sp" />
+        <TextView 
+            android:id="@+id/setting_tv_vesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:text="1.0"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/setting_exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/text_color_selector"
+        android:clickable="true"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:gravity="center_horizontal"
+        android:text="@string/setting_exit"
+        android:textColor="@color/red"
+        android:textSize="17sp" />
+
+</LinearLayout>

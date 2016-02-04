@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_program_layout_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/listview_item_red_selector" >
+
+    <LinearLayout
+        android:id="@+id/program_list_set_time_ll"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/program_list_set_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="时间" />
+
+        <EditText
+            android:id="@+id/program_list_set_time_et"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:textSize="12sp"
+            android:hint="时间"
+            android:textColor="@color/black_light_color"
+            android:background="@drawable/edit_background"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/program_list_set_time_unit" 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="12sp"
+            android:text="分"/>
+    </LinearLayout>
+
+    <com.example.toolbar.view.MyImageView
+        android:id="@+id/program_list_iv_item"
+        android:layout_width="30dp"
+        android:layout_height="65dp"
+        android:layout_toRightOf="@id/program_list_set_time_ll" />
+
+    <TextView
+        android:id="@+id/program_list_title_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="17dp"
+        android:layout_toRightOf="@id/program_list_iv_item"
+        android:duplicateParentState="true"
+        android:singleLine="true"
+        android:text="每夜唱不停2015/05/01"
+        android:textColor="@color/color_text_black"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/program_list_title_item"
+        android:layout_below="@id/program_list_title_item"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:paddingTop="10dp" >
+
+        <TextView
+            android:id="@+id/program_list_name_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/icon_host2_small"
+            android:drawablePadding="3dp"
+            android:gravity="center_vertical"
+            android:text="梁海泉"
+            android:textColor="#AAAAAA"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/program_list_time_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:drawableLeft="@drawable/icon_time_small"
+            android:gravity="center_vertical"
+            android:text="时长："
+            android:textColor="#AAAAAA"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/program_list_time_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="10"
+            android:textColor="#AAAAAA"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/program_list_unit_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="分钟"
+            android:textColor="#AAAAAA"
+            android:textSize="12sp" />
+    </LinearLayout>
+    
+    <TextView 
+        android:id="@+id/program_list_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="@string/delete"/>
+    
+    <CheckBox
+          android:id="@+id/program_list_checkbox"
+          android:layout_width="30dp"
+          android:layout_height="30dp"
+          android:layout_centerVertical="true"
+          android:layout_toLeftOf="@id/program_list_delete"
+          android:visibility="visible"
+          android:clickable="true"
+          style="@style/custom_checkbox"/>
+
+</RelativeLayout>

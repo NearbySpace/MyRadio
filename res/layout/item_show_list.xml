@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/abc_cab_background_internal_bg"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/attendanceactivity_item_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="07-20"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="20dp"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/attendanceactivity"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_above="@+id/text"
+            android:layout_centerInParent="true"
+            android:src="@drawable/abc_ab_share_pack_mtrl_alpha"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/abc_ab_share_pack_mtrl_alpha" />
+
+        <ImageView
+            android:id="@+id/attendanceactivity_item_round_iv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/abc_btn_switch_to_on_mtrl_00001" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/attendanceactivity_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:orientation="vertical"
+        android:padding="8dp" >
+
+        <ImageView
+            android:id="@+id/attendanceactivity_item_image_enout"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="5dp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/atten"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/show_titel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="每夜唱不停 2015/07/30"
+                android:textColor="@color/gray"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/atten1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/atten11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/bright_foreground_disabled_material_light"
+                        android:src="@drawable/abc_ic_voice_search_api_mtrl_alpha" />
+
+                    <TextView
+                        android:id="@+id/compere"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="每夜唱不停"
+                        android:textColor="@color/gray"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/atten12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/imageView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/bright_foreground_disabled_material_light"
+                        android:src="@drawable/abc_ic_voice_search_api_mtrl_alpha" />
+
+                    <TextView
+                        android:id="@+id/show_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.87"
+                        android:gravity="center_vertical"
+                        android:text="每夜唱不停"
+                        android:textColor="@color/gray"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sdaa14"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.87"
+            android:gravity="center_vertical"
+            android:text="每夜唱不停"
+            android:textColor="@color/gray"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#00ffffff"
+    android:padding="5dp" >
+    <TextView 
+        android:id="@+id/play_radio_item_ranking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:text="1."/>
+    <TextView 
+        android:id="@+id/play_radio_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/play_radio_item_ranking"
+        android:layout_alignTop="@id/play_radio_item_ranking"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:singleLine="true"
+        android:text="大话西游"/>
+    
+    <TextView 
+        android:id="@+id/play_radio_item_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/play_radio_item_ranking"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+         android:textColor="@color/white"
+        android:textSize="12sp"
+        android:text="周星驰"/>
+    
+    <ImageView 
+        android:id="@+id/play_radio_item_iv_download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/btn_download_icon"/>
+    
+
+</RelativeLayout>

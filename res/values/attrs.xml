@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr name="pstsIndicatorColor" format="color" />
+        <attr name="pstsUnderlineColor" format="color" />
+        <attr name="pstsDividerColor" format="color" />
+        <attr name="pstsIndicatorHeight" format="dimension" />
+        <attr name="pstsUnderlineHeight" format="dimension" />
+        <attr name="pstsDividerPadding" format="dimension" />
+        <attr name="pstsTabPaddingLeftRight" format="dimension" />
+        <attr name="pstsScrollOffset" format="dimension" />
+        <attr name="pstsTabBackground" format="reference" />
+        <attr name="pstsShouldExpand" format="boolean" />
+        <attr name="pstsTextAllCaps" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="CircularProgress">
+        <attr name="borderWidth" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="SwipeListView">
+        <attr name="swipeOpenOnLongPress" format="boolean" />
+        <attr name="swipeAnimationTime" format="integer" />
+        <attr name="swipeOffsetLeft" format="dimension" />
+        <attr name="swipeOffsetRight" format="dimension" />
+        <attr name="swipeCloseAllItemsWhenMoveList" format="boolean" />
+        <attr name="swipeFrontView" format="reference" />
+        <attr name="swipeBackView" format="reference" />
+        <attr name="swipeMode" format="enum">
+            <enum name="none" value="0" />
+            <enum name="both" value="1" />
+            <enum name="right" value="2" />
+            <enum name="left" value="3" />
+        </attr>
+        <attr name="swipeActionLeft" format="enum">
+            <enum name="reveal" value="0" />
+            <enum name="dismiss" value="1" />
+            <enum name="choice" value="2" />
+        </attr>
+        <attr name="swipeActionRight" format="enum">
+            <enum name="reveal" value="0" />
+            <enum name="dismiss" value="1" />
+            <enum name="choice" value="2" />
+        </attr>
+        <attr name="swipeDrawableChecked" format="reference" />
+        <attr name="swipeDrawableUnchecked" format="reference" />
+        <attr name="swipeIsDropDownStyle" format="boolean" />
+        <attr name="swipeIsOnBottomStyle" format="boolean" />
+        <attr name="swipeIsAutoLoadOnBottom" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="CrossView">
+        <attr name="lineColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="MultiViewPager">
+
+        <!-- Child view inside a page to match the page size against. -->
+        <attr name="matchChildWidth" format="reference" />
+        <!-- Maximum size. -->
+        <attr name="android:maxWidth" />
+        <!-- Maximum size. -->
+        <attr name="android:maxHeight" />
+    </declare-styleable>
+    <declare-styleable name="OpAnimationView">
+        <attr name="backgroundColor" format="color"></attr>
+        <attr name="shapeColor" format="color"></attr>
+        <attr name="shapeWidth" format="dimension"></attr>
+        <attr name="shapeRadius" format="dimension"></attr>
+    </declare-styleable>
+    
+    <declare-styleable name="MaterialEditText">
+    <!-- the base color of the line and the texts. default is black. -->
+    <attr name="baseColor" format="color"/>
+    <!-- the highlight color of the line, and the floating label if the highlightFloatingLabel is true. -->
+    <attr name="primaryColor" format="color"/>
+    <!-- how the floating label should be shown. default is none -->
+    <attr name="floatingLabel">
+      <enum name="none" value="0"/>
+      <enum name="normal" value="1"/>
+      <enum name="highlight" value="2"/>
+    </attr>
+    <!-- the color for when something is wrong.(e.g. exceeding max characters) -->
+    <attr name="errorColor" format="color"/>
+    <!-- characters count limit. 0 means no limit. -->
+    <attr name="maxCharacters" format="integer"/>
+    <!-- whether to show the bottom ellipsis in singleLine mode -->
+    <attr name="singleLineEllipsis" format="boolean"/>
+  </declare-styleable>
+
+</resources>

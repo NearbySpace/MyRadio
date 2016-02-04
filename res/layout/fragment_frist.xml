@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" xmlns:app="http://schemas.android.com/apk/res/com.example.strawberryradio">
+
+    <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/pull_refresh_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ptr:ptrAnimationStyle="flip"
+        ptr:ptrMode="both" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp" >
+
+                <FrameLayout
+                    android:id="@+id/framelayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="150dip"
+                    android:background="#ffffff" >
+
+                    <com.example.toolbar.view.loopviewpager.LoopViewPager
+                        xmlns:app="http://schemas.android.com/apk/res/com.example.strawberryradio"
+                        android:id="@+id/loop_viewpager"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/white"
+                        android:visibility="gone"
+                        app:sidebuffer="5" />
+
+                    <com.example.toolbar.widget.flowview.MyViewFlow
+                        android:id="@+id/viewflow"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+                    </com.example.toolbar.widget.flowview.MyViewFlow>
+
+                    <LinearLayout
+                        android:id="@+id/lunbo"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_gravity="bottom"
+                        android:background="#88252525"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                         >
+
+                        <TextView
+                            android:id="@+id/title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="" />
+
+                        <com.example.toolbar.widget.flowview.CircleFlowIndicator
+                            android:id="@+id/viewflowindic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:radius_circel="4dp"
+                            app:circleSeparation="10dp"
+                            app:activeColor="@color/color_head" />
+                    </LinearLayout>
+
+                    <com.example.toolbar.view.progress.CircularProgress
+                        xmlns:app="http://schemas.android.com/apk/res/com.example.strawberryradio"
+                        android:id="@+id/progress"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal|center"
+                        app:borderWidth="3dp" />
+                </FrameLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/top_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/left44_10"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:text="热门推荐"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="3dp" >
+
+                    <com.example.toolbar.view.MyGridView
+                        android:id="@+id/gridView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:numColumns="3" >
+                    </com.example.toolbar.view.MyGridView>
+
+                    <com.example.toolbar.widget.flowview.MyViewFlow
+                        xmlns:app="http://schemas.android.com/apk/res/com.example.strawberryradio"
+                        android:id="@+id/top_viewflow"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/white"
+                        android:visibility="gone"
+                        app:sidebuffer="5" >
+                    </com.example.toolbar.widget.flowview.MyViewFlow>
+
+                    <LinearLayout
+                        android:id="@+id/container"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:clipChildren="false"
+                        android:gravity="center_horizontal"
+                        android:layerType="software"
+                        android:orientation="horizontal"
+                        android:visibility="gone" >
+
+                        <android.support.v4.view.ViewPager
+                            android:id="@+id/viewpager"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clipChildren="false"
+                            android:visibility="gone" >
+                        </android.support.v4.view.ViewPager>
+                    </LinearLayout>
+                </LinearLayout>
+				 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="17dp"
+                    android:background="#DDDDDD" 
+                    android:layout_marginTop="5dp"/>
+                
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/hot_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/left44_10"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="热播节目"
+                        android:textSize="18sp" />
+                </RelativeLayout>
+
+               
+                <com.example.toolbar.view.MyListView
+                    android:id="@+id/main_radio_frag_listview_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:paddingTop="3dp" >
+                </com.example.toolbar.view.MyListView>
+            </LinearLayout>
+        </LinearLayout>
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
+
+</LinearLayout>

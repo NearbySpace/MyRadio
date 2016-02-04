@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="listview_scrollbar_width">2dp</dimen>
+    <dimen name="attention_round_size">90dp</dimen>
+    <dimen name="attention_usericon_size">80dp</dimen>
+    <dimen name="attention_userifo_layout">200dp</dimen>
+    <dimen name="page_margin">10dp</dimen>
+    <!-- 自定义输入框参数 -->
+    <dimen name="default_padding_top">8dp</dimen>
+    <dimen name="default_padding_bottom">8dp</dimen>
+    <dimen name="inner_padding_left">0dp</dimen>
+    <dimen name="inner_padding_right">0dp</dimen>
+    <dimen name="floating_label_text_size">12dp</dimen>
+    <dimen name="inner_components_spacing">8dp</dimen>
+    <dimen name="bottom_ellipsis_height">4dp</dimen>
+
+</resources>

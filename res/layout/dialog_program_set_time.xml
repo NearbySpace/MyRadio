@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/red" />
+
+    <TextView
+        android:id="@+id/dialog_program_set_time_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
+        android:text="@string/DIY_time"
+        android:textSize="17sp" />
+
+    <LinearLayout
+        android:id="@+id/dialog_program_set_time_ll"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialog_program_set_time_title"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/dialog_program_set_time_et"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_input" />
+    </LinearLayout>
+
+</RelativeLayout>

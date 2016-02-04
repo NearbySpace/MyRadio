@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF" >
+
+    <ImageView
+        android:id="@+id/iv_item_gv_guess"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" />
+
+    <TextView
+        android:id="@+id/tv_title_item_gv_guess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_item_gv_guess"
+        android:layout_marginLeft="10dp"
+        android:text="jojo"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/tv_subtitle_item_gv_guess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title_item_gv_guess"
+        android:layout_marginLeft="10dp"
+        android:textSize="15sp"
+        android:text="jojo" />
+    <LinearLayout 
+        android:layout_below="@id/tv_subtitle_item_gv_guess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+        android:id="@+id/tv_love_item_gv_guess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/guess1"
+        android:layout_marginLeft="10dp"
+        android:text="23" />
+        <TextView
+        android:id="@+id/tv_information_item_gv_guess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/guess2"
+        android:layout_marginLeft="7dp"
+        android:text="23" />
+        <TextView
+        android:id="@+id/tv_linstener_item_gv_guess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/guess3"
+        android:layout_marginLeft="7dp"
+        android:text="23" />
+    </LinearLayout>
+    
+    
+
+</RelativeLayout>
