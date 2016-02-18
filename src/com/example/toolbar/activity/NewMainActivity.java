@@ -1,7 +1,9 @@
 package com.example.toolbar.activity;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -12,13 +14,19 @@ import com.example.toolbar.adapter.AddProgramSelectAdapter;
 import com.example.toolbar.application.MyApplication;
 import com.example.toolbar.bean.SelectProgram;
 import com.example.toolbar.bean.UserInfo;
+import com.example.toolbar.common.utils.Common;
+import com.example.toolbar.common.utils.FileUtils;
 import com.example.toolbar.common.utils.LogHelper;
+import com.example.toolbar.common.utils.NetUtil;
 import com.example.toolbar.fragment.NewFirstFragment;
 import com.example.toolbar.fragment.NewTwoFragment;
+import com.example.toolbar.framework.UpdateApk;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.utils.ConfigUtils;
 import com.example.toolbar.utils.ControlActivity;
 import com.example.toolbar.utils.ImageUtils;
 import com.example.toolbar.utils.IntentUtils;
+import com.example.toolbar.utils.ToastUtils;
 import com.example.toolbar.utils.UserUtils;
 import com.example.toolbar.widget.MaterialDialog;
 import com.google.gson.Gson;
@@ -27,11 +35,16 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -42,6 +55,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -72,6 +86,7 @@ public class NewMainActivity extends AppCompatActivity implements OnClickListene
 		setContentView(R.layout.activity_new_main);
 		ControlActivity.getInstance().addActivity(NewMainActivity.this);
 		initView();
+		UpdateApk.checkVersion(NewMainActivity.this,1);
 	}
 	
 	@Override
@@ -280,6 +295,97 @@ public class NewMainActivity extends AppCompatActivity implements OnClickListene
 			break;
 		}
 		
+	}
+	
+	/**
+	 * 检查是否有新版本
+	 * 
+	 * @param context
+	 *            上下文
+	 * @param isCheckApk
+	 *            防止频繁弹出toast
+	 */
+	public void checkVersion(final Context context) {
+		if (!NetUtil.isNetConnected(context)) {
+			return;
+		}
+		MyApplication app = MyApplication.getInstance();
+		final PackageInfo pinfo = app.getPackageInfo();
+		new AsyncTask<Object, Object, String>() {
+			protected String doInBackground(Object... params) {
+
+				String url = ConfigUtils.baseurl
+						+ "index.php?d=android&c=api&m=android_version";
+				return com.example.toolbar.http.HttpUtils.getString(url);
+			}
+
+			protected void onPostExecute(String version) {
+				if (version == null) {
+					ToastUtils.showShort(context, "网络错误,请稍候尝试!");
+					return;
+				}
+				if (version.equals("")) {
+					ToastUtils.showShort(context, "网络错误 ,请稍候尝试!");
+					return;
+				}
+				Map<String, String> map = Common.str2mapstr(version);
+				// 发现新版本
+				if (map.isEmpty()) {
+					ToastUtils.showShort(context, "网络错误 ,无法检查更新！");
+					return;
+				}
+				if (map.containsKey("version")
+						&& !map.get("version").equals(pinfo.versionName)) {
+
+					AlertDialog.Builder builder = new AlertDialog.Builder(
+							context);
+					builder.setTitle("海豚电台客户端有新的版本啦,V" + map.get("version"));
+					builder.setMessage(Html.fromHtml(map.get("message")));
+					builder.setPositiveButton("立即更新",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int which) {
+									ToastUtils
+											.show(context, "开始下载新版本安装包...", 1);
+									boolean isEnough = FileUtils
+											.isSKCardSpaceEnough(); // 计算存储卡的大小
+									if (isEnough) {
+										File file = new File(
+												ConfigUtils.SDcardPath);
+
+										if (!file.exists()) {
+											file.mkdirs();
+										}
+										new UpdateApk(context)
+												.doNewVersionUpdate();
+									} else {
+										Toast.makeText(context,
+												"内存卡不可用或者空间不足...请检查后再进行下载！", 1)
+												.show();
+									}
+
+								}
+							});
+
+					builder.setNegativeButton("暂不",
+							new DialogInterface.OnClickListener() {
+
+								@Override
+								public void onClick(DialogInterface dialog,
+										int arg1) {
+									// TODO Auto-generated method stub
+									dialog.dismiss();
+								}
+
+							});
+					// builder.setCancelable(false);
+					builder.show();
+
+				} else {
+					// ToastUtils.showShort(context, "您以是最新版本，暂无更新！");
+				}
+			}
+		}.execute();
 	}
 	
 	

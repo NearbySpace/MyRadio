@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/head_info_color"
+    android:orientation="vertical"
+    android:padding="7dp" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/dialog_download_title"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:background="@color/white"
+        android:textColor="@color/head_info_color"
+        android:textSize="26sp" />
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/head_info_color"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp" >
+
+        <LinearLayout
+            android:id="@+id/dialog_download_select_sure_or_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:padding="5dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/dialog_download_select_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:textSize="17sp"
+                android:text="@string/cancel" />
+
+            <Button
+                android:id="@+id/dialog_download_select_sure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:text="@string/ok"
+                android:textSize="17sp"
+                android:textColor="@color/head_info_color" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/dialog_download_select_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/dialog_download_select_sure_or_cancel"
+            android:background="@color/white" >
+        </ListView>
+    </RelativeLayout>
+
+</LinearLayout>

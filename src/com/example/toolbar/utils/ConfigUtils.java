@@ -5,10 +5,10 @@ import android.os.Environment;
 
 public class ConfigUtils {
 	public static String appSharePreferenceName = "strawberryradio_sharepreference";
-	public static String apkName = "strawberryradio.apk";
+	public static String apkName = "DolphinRadio.apk";
 	public static String baseurl = "http://vroad.bbrtv.com/cmradio/";
 	public static String SDRootPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-	public static String SDcardPath = SDRootPath + "/Strawberry/"; // App主目录	
+	public static String SDcardPath = SDRootPath + "/DolphinRadio/"; // App主目录	
 	public static String SDDownloadPath = SDcardPath + "Download/"; // App文件下载目录	
 	public static String SDImageCachePath = SDcardPath + "/ImageCache/"; // 图片缓存目录
 //	public static String ROMDownloadPath="/data/data/com.example.strawberryradio/Download/";//内存中的下载路径

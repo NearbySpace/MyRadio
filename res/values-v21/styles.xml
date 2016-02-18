@@ -22,6 +22,8 @@
         <!-- 菜单项点击selector -->
         <item name="actionBarItemBackground">@drawable/abc_item_background_holo_dark</item>
         <item name="android:windowBackground">@color/color_gray_light2</item>
+        <!-- 设置activity切换动画 -->
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
     </style>
     <!-- 左边的箭头指示 -->
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
@@ -50,6 +52,15 @@
     
      <style name="FullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
          <item name="android:windowTranslucentStatus">true</item>
+         <item name="android:windowAnimationStyle">@style/activityAnimation</item>
      </style>
+     
+     <!-- animation 样式 -->
+     <style name="activityAnimation" parent="@android:style/Animation">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+    </style>
     
 </resources>

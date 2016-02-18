@@ -196,6 +196,7 @@ public class PickerView extends View {
 //		Log.i("PickerView", "size值："+size);
 		mPaint.setAlpha((int) ((mMaxTextAlpha - mMinTextAlpha) * scale + mMinTextAlpha));
 		mPaint.setColor(0xffffaa33);
+		mPaint.setFakeBoldText(true);
 		// text居中绘制，注意baseline的计算才能达到居中，y值是text中心坐标
 		float x = (float) (mViewWidth / 2.0);
 		float y = (float) (mViewHeight / 2.0 + mMoveLen);
@@ -211,11 +212,16 @@ public class PickerView extends View {
 		// 绘制上方data
 		for (int i = 1; (mCurrentSelected - i) >= 0; i++) {
 			drawOtherText(canvas, i, -1);
+			drawOtherText2(canvas, i, -2);
 		}
 		// 绘制下方data
 		for (int i = 1; (mCurrentSelected + i) < mPickerBean.list.size(); i++) {
 			drawOtherText(canvas, i, 1);
 		}
+		
+//		for (int i = 1; (mCurrentSelected - i) >= 0; i++) {
+//			drawOtherText(canvas, i-1, -2);
+//		}
 
 	}
 
@@ -234,11 +240,30 @@ public class PickerView extends View {
 		mPaint.setTextSize(size);
 		mPaint.setAlpha((int) ((mMaxTextAlpha - mMinTextAlpha) * scale + mMinTextAlpha));
 		mPaint.setColor(mColorText);
+		mPaint.setFakeBoldText(true);
+		float y = (float) (mViewHeight / 2.0 + type * d);
+		FontMetricsInt fmi = mPaint.getFontMetricsInt();
+		float baseline = (float) (y - (fmi.bottom / 2.0 + fmi.top / 2.0));
+		Log.i(TAG, "type: "+type+"-------->position:"+ type * position);
+		canvas.drawText(
+				mPickerBean.list.get(mCurrentSelected + type * position).title+"频道",
+				(float) (mViewWidth / 2.0), baseline, mPaint);
+	}
+	
+	private void drawOtherText2(Canvas canvas, int position, int type) {
+		float d = (float) (MARGIN_ALPHA * mMinTextSize * position + type
+				* mMoveLen);
+		float scale = parabola(mViewHeight / 4.0f, d);
+		float size = (mMaxTextSize - mMinTextSize) * scale + mMinTextSize;
+		mPaint.setTextSize(size);
+		mPaint.setAlpha((int) ((mMaxTextAlpha - mMinTextAlpha) * scale + mMinTextAlpha));
+		mPaint.setColor(mColorText);
+		mPaint.setFakeBoldText(true);
 		float y = (float) (mViewHeight / 2.0 + type * d);
 		FontMetricsInt fmi = mPaint.getFontMetricsInt();
 		float baseline = (float) (y - (fmi.bottom / 2.0 + fmi.top / 2.0));
 		canvas.drawText(
-				mPickerBean.list.get(mCurrentSelected + type * position).title+"频道",
+				mPickerBean.list.get(mCurrentSelected + (-1) * position).title+"频道",
 				(float) (mViewWidth / 2.0), baseline, mPaint);
 	}
 

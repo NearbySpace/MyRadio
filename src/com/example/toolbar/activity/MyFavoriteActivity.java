@@ -144,12 +144,12 @@ public class MyFavoriteActivity extends AppCompatActivity implements
 					adapter = new FavoriteAdapter(MyFavoriteActivity.this, 
 							programLists,programs);
 					slideCutListView.setAdapter(adapter);
-					progress.setVisibility(View.GONE);
 				}else{
 					//提示用户没有收藏有节目
 					tv_show_number.setText("您还没有收藏的节目");
 				}
 				tv_show_number.setVisibility(View.VISIBLE);
+				progress.setVisibility(View.GONE);
 				// LogHelper.e("获取节目数据：" + show.toString());
 			}
 

@@ -70,12 +70,6 @@ public class MyVisualizerView extends View {
 
 	}
 
-//	public void updateVisualizer(byte[] ftt) {
-//		bytes = ftt;
-//		// 通知该组件重绘自己。
-//		invalidate();
-//	}
-	
 	public void updateVisualizer(byte[] ftt)
     {
     	mData = ftt;

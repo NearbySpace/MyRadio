@@ -69,15 +69,13 @@ public class UpdateApk {
 
 	}
 
+	
 	/**
-	 * 检查是否有新版本
-	 * 
+	 * 检查是否有版本更新
 	 * @param context
-	 *            上下文
-	 * @param isCheckApk
-	 *            防止频繁弹出toast
+	 * @param flag  用于标记是首页请求检查更新还是设置页请求检查更新 .1为首页，2设置页
 	 */
-	public static void checkVersion(final Context context) {
+	public static void checkVersion(final Context context ,final int flag) {
 		if (!NetUtil.isNetConnected(context)) {
 			return;
 		}
@@ -112,7 +110,7 @@ public class UpdateApk {
 
 					AlertDialog.Builder builder = new AlertDialog.Builder(
 							context);
-					builder.setTitle("草莓电台客户端有新的版本啦,V" + map.get("version"));
+					builder.setTitle("海豚电台客户端有新的版本啦,V" + map.get("version"));
 					builder.setMessage(Html.fromHtml(map.get("message")));
 					builder.setPositiveButton("立即更新",
 							new DialogInterface.OnClickListener() {
@@ -155,7 +153,9 @@ public class UpdateApk {
 					builder.show();
 
 				} else {
-					ToastUtils.showShort(context, "您以是最新版本，暂无更新！");
+					if(flag == 2){
+						ToastUtils.showShort(context, "您以是最新版本，暂无更新！");
+					}
 				}
 			}
 		}.execute();
@@ -175,7 +175,7 @@ public class UpdateApk {
 						activity.getPackageName(),
 						R.layout.updateapk_progressbar);
 				notification.contentView.setTextViewText(R.id.updateapk_tv1,
-						"草莓电台客户端下载完成!");
+						"海豚电台客户端下载完成!");
 				notification.contentView.setTextViewText(R.id.updateapk_tv2,
 						"100%");
 				notification.contentView.setProgressBar(
@@ -248,6 +248,9 @@ public class UpdateApk {
 					if (is != null) {
 						File file = new File(ConfigUtils.SDcardPath,
 								ConfigUtils.apkName);
+						if(file.exists()){
+							file.delete();
+						}
 						fileOutputStream = new FileOutputStream(file);
 						byte[] b = new byte[1024];
 						int charb = -1;

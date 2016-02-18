@@ -1,8 +1,11 @@
 package com.example.toolbar.activity;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 
 import org.apache.http.Header;
 
@@ -12,25 +15,32 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.Toolbar.OnMenuItemClickListener;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.strawberryradio.R;
+import com.example.toolbar.adapter.DialogDownloadSelectAdapter;
 import com.example.toolbar.adapter.ProgramListAdapter;
+import com.example.toolbar.bean.DownloadEntry;
 import com.example.toolbar.bean.PlayInfo;
 import com.example.toolbar.bean.ProgramClassifyListBean;
 import com.example.toolbar.bean.ProgramListBean;
@@ -41,8 +51,11 @@ import com.example.toolbar.bean.ProgrammeEditInfo;
 import com.example.toolbar.common.utils.Common;
 import com.example.toolbar.common.utils.ImageLoaderHelper;
 import com.example.toolbar.common.utils.LogHelper;
+import com.example.toolbar.db.DBUtil;
+import com.example.toolbar.download.DownloadManager;
 import com.example.toolbar.http.HttpManage;
 import com.example.toolbar.service.PlayerManage;
+import com.example.toolbar.utils.ConfigUtils;
 import com.example.toolbar.utils.UserUtils;
 import com.example.toolbar.view.MyListView;
 import com.example.toolbar.view.MyToast;
@@ -89,8 +102,10 @@ public class ProgramListActivity extends AppCompatActivity implements
 	private String mid;
 
 	private List<String> checkedIdList;
-	private AlarmManager mAlarmManager;
-
+	private List<ProgramListInfo> downloadList;//要下载节目的id集
+//	private List<Map<String,Map<String,String>>> downloadList;
+//	private Map<String, Map<String,String>> downloadInfo;
+	
 	private DragSortListView.DropListener onDrop = new DragSortListView.DropListener() {
 
 		@Override
@@ -108,6 +123,8 @@ public class ProgramListActivity extends AppCompatActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_list);
 		checkedIdList = new ArrayList<String>();
+		downloadList = new ArrayList<ProgramListInfo>();
+//		downloadInfo = new HashMap<String, Map<String,String>>();
 		programme_id = getIntent().getStringExtra("programme_id");
 		mid = UserUtils.getUid();
 		Log.i("ProgramListActivity", "数据加载programme_id---->" + programme_id);
@@ -143,7 +160,6 @@ public class ProgramListActivity extends AppCompatActivity implements
 
 	private void initViews() {
 		mImageLoader = ImageLoader.getInstance();
-		mAlarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 		mToolbar = (Toolbar) findViewById(R.id.toolbar);
 		mToolbar.setTitle("节目单");
 		setSupportActionBar(mToolbar);
@@ -172,6 +188,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 		add_program.setOnClickListener(this);
 		sure_editor.setOnClickListener(this);
 		cancel_editor.setOnClickListener(this);
+		download.setOnClickListener(this);
 
 		mDragSortListView = (DragSortListView) findViewById(R.id.show_list);
 		mDragSortListView.setDivider(null);
@@ -394,7 +411,10 @@ public class ProgramListActivity extends AppCompatActivity implements
 			intent1.putExtra(Intent.EXTRA_TEXT, "推荐您使用一款软件,名称叫：海豚电台");
 			startActivity(intent1);
 			break;
-
+		case R.id.program_list_tv_donwload:
+			//弹出对话框，显示可下载的内容
+			showDownloadDialog();
+			break;
 		case R.id.program_list_add:
 			Intent addProgram= new Intent(ProgramListActivity.this,
 					SelectProgramActivity.class);
@@ -422,6 +442,147 @@ public class ProgramListActivity extends AppCompatActivity implements
 
 	}
 
+	private void showDownloadDialog() {
+		final AlertDialog dialog;
+		AlertDialog.Builder builder = new AlertDialog.Builder(ProgramListActivity.this);
+		View view = LayoutInflater.from(ProgramListActivity.this).inflate(R.layout.dialog_download_select, null);
+		ListView lv = (ListView) view.findViewById(R.id.dialog_download_select_lv);
+		Button cancel = (Button) view.findViewById(R.id.dialog_download_select_cancel);
+		Button sure = (Button) view.findViewById(R.id.dialog_download_select_sure);
+		final DialogDownloadSelectAdapter ddsa = new DialogDownloadSelectAdapter(this, bean.list);
+		lv.setAdapter(ddsa);
+		builder.setView(view);
+		dialog = builder.show();
+		lv.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				ProgramListInfo pli = (ProgramListInfo)ddsa.getItem(position);
+				String program_id = pli.id;
+				CheckBox cb = (CheckBox) view.findViewById(R.id.item_dialog_download_select_checkbox);
+				if(cb.isChecked()){
+					cb.setChecked(false);
+//					if(downloadIdList.contains(program_id)) 
+//						downloadIdList.remove(program_id);
+//					if(downloadInfo.containsKey(program_id))
+//						downloadInfo.remove(program_id);
+					
+				}else{
+					cb.setChecked(true);
+//					downloadIdList.add(program_id);
+//					Map<String, String> map = new HashMap<String, String>();
+//					map.put("url", pli.path);
+//					map.put("title", pli.title);
+//					downloadInfo.put(program_id, map);
+//					downloadList.add(downloadInfo);
+					downloadList.add(pli);
+				}
+			}
+		});
+		cancel.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			}
+		});
+		
+		sure.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+//				for( Map<String, String> map : downloadInfo.values()){
+//					Log.i("ProgramListAcivity", map.get("title")+"------>"+map.get("url"));
+//				}
+				for(ProgramListInfo l : downloadList){
+					downloadProgram(l);
+				}
+				dialog.dismiss();
+			}
+		});
+		
+	}
+	
+	/**
+	 * 下载节目
+	 * @param url  下载地址
+	 * @param name 歌名
+	 */
+	@SuppressWarnings("unused")
+	private void downloadProgram(ProgramListInfo programlistInfo) {
+		// String state = ConfigUtils.DownloadState_WAITTING;
+		int end = programlistInfo.path.lastIndexOf(".");
+		String format = programlistInfo.path.substring(end);// 文件的格式
+		String completeName = programlistInfo.title + format;
+		boolean isSame = isFileSame(completeName);// 判断节目是否已经被下载过
+		if (isSame) {
+			Toast.makeText(this, "已经缓存", 0).show();
+			return;
+		}
+		// 检查数据库看是否有正在下载的任务
+		// DBUtil db = DBUtil.getInstance(this);
+		// Cursor cursor = db.selectData(SQLHelper.TABLE_DOWNLOAD, null, null,
+		// null, null, null, null);
+		// int count = cursor.getCount();
+		//
+		// cursor.close();
+		String thumb = programlistInfo.thumb;
+		String path = ConfigUtils.getDownloadPath(this)
+				+ completeName;
+
+		// 初始化下载对象
+		DownloadEntry downloadEntry = new DownloadEntry();
+		downloadEntry.setProgram_id(programlistInfo.id);
+		downloadEntry.setAuthor("无名");
+		downloadEntry.setThumb(thumb);
+		downloadEntry.setStoragePath(path);
+		downloadEntry.setUrl(programlistInfo.path);
+		downloadEntry.setTitle(programlistInfo.title);
+		// 开始下载
+		DownloadManager.getInstance().beginDownloadFile(this,
+				downloadEntry, DBUtil.getInstance(this));
+
+	}
+	
+	/**
+	 * 判断文件是否相同
+	 * 
+	 * @param name
+	 * @return
+	 */
+	private boolean isFileSame(String name) {
+		File sd_file = new File(ConfigUtils.SDDownloadPath);
+		// File rom_file = new File(getFilesDir().getPath() + "/Download/");
+		File[] files;
+		String fileName;
+		Vector<String> vecFile = new Vector<String>();
+		if (sd_file.exists()) {
+			// 取得SD卡下的Download目录下的所有文件
+			files = sd_file.listFiles();
+		} else {
+			sd_file.mkdirs();
+			return false;
+			// 取得ROM下的Download目录下的所有文件
+			// files = rom_file.listFiles();
+			// Log.i(TAG, "ROM卡下" + files);
+		}
+		// 历遍判断文件名是否相同
+		if (files == null)
+			return false;
+		for (int iFileLength = 0; iFileLength < files.length; iFileLength++) {
+			// 判断是否为文件夹
+			if (!files[iFileLength].isDirectory()) {
+				fileName = files[iFileLength].getName();
+				if (name.equals(fileName)) {
+					return true;
+				} 
+			}
+		}
+		return false;
+	}
+
+
 	/**
 	 * 取消编辑状态的设置
 	 */
@@ -433,6 +594,11 @@ public class ProgramListActivity extends AppCompatActivity implements
 		mDragSortListView.setDividerHeight(0);
 	}
 	
+	/**
+	 * 提交更改信息
+	 * @param mid
+	 * @param programme_id
+	 */
 	private void submitEditInfo(String mid,String programme_id){
 		ArrayList<ProgrammeEditInfo> list =new ArrayList<ProgrammeEditInfo>();
 		String json;

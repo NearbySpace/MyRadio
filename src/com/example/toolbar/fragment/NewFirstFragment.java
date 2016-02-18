@@ -1,10 +1,14 @@
 package com.example.toolbar.fragment;
 
+import java.io.File;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.Vector;
 
 import org.apache.http.Header;
 
@@ -38,14 +42,18 @@ import android.widget.Toast;
 
 import com.example.strawberryradio.R;
 import com.example.toolbar.activity.NewMainActivity;
+import com.example.toolbar.activity.RadioPlayActivity;
 import com.example.toolbar.adapter.PlayRadioAdapter;
 import com.example.toolbar.application.MyApplication;
+import com.example.toolbar.bean.DownloadEntry;
 import com.example.toolbar.bean.Favorite;
 import com.example.toolbar.bean.PickerBean;
 import com.example.toolbar.bean.PlayInfo;
 import com.example.toolbar.bean.ProgramClassifyListBean;
 import com.example.toolbar.common.utils.Common;
 import com.example.toolbar.common.utils.NetUtil;
+import com.example.toolbar.db.DBUtil;
+import com.example.toolbar.download.DownloadManager;
 import com.example.toolbar.entity.PlayButton;
 import com.example.toolbar.http.HttpManage;
 import com.example.toolbar.service.PlayerManage;
@@ -68,10 +76,6 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	private FocusedTextView musicTitle; // 正在播放的音乐名
 	private TextView endtimeTime;// 当前播放曲目的总时长
 	private TextView currentTimeProgress; // 当前播放曲目的播放时间
-	private TextView time_clock;
-	private TextView time_second;
-	private TextView time_clock_bg;
-	private TextView time_second_bg;
 	private ImageView previousIV; // 上一首
 	private ImageView playIV; // 播放
 	private ImageView nextIV; // 下一首
@@ -80,6 +84,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	private ImageView menue_or_back;// 侧栏菜单或放回键
 	private ImageView program_list;//节目列表
 	private ImageView first_more;
+	private ImageView download;
 	private RelativeLayout pickerLinearLayout;
 	private PickerView mPickerView;
 	private Button pickerBtn;
@@ -233,6 +238,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		tv_channelName=(TextView) view.findViewById(R.id.new_main_channel_name);
 		first_more = (ImageView) view.findViewById(R.id.more_frist);
 		menue_or_back = (ImageView) view.findViewById(R.id.Silding_menu);
+		download = (ImageView) view.findViewById(R.id.new_main_download);
 		seekBar=(SeekBar) view.findViewById(R.id.new_main_SeekBar);
 		seekBar.setEnabled(false);
 		pickerLinearLayout = (RelativeLayout) view
@@ -424,6 +430,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		collect.setOnClickListener(this);
 		pickerBtn.setOnClickListener(this);
 		program_list.setOnClickListener(this);
+		download.setOnClickListener(this);
 	}
 
 	private void initData() {
@@ -557,6 +564,9 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 				collection();
 			}
 			break;
+		case R.id.new_main_download:
+			getDownloadInfo(program_id);
+			break;
 		case R.id.new_main_program_list:
 			isVisibility = !isVisibility;
 			showOrHidePlayList(isVisibility);
@@ -582,10 +592,11 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		if(isVisibility){
 			program_list.setImageResource(R.drawable.program_list_show);
 			if(adapter==null){
-				adapter=new PlayRadioAdapter(getActivity(), mList);
+				adapter=new PlayRadioAdapter(getActivity(), PlayerManage.getInstance().getPlayInfos());
 				play_list.setAdapter(adapter);
 			}
 			play_list.setVisibility(View.VISIBLE);
+			adapter.notifyDataSetChanged();
 		}else{
 			program_list.setImageResource(R.drawable.program_list_hide);
 			play_list.setVisibility(View.GONE);
@@ -650,6 +661,114 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 					});
 		}
 
+	}
+	
+	private void getDownloadInfo(String program_id){
+		HttpManage.downloadProgram(new AsyncHttpResponseHandler() {
+
+			@Override
+			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+				String content = new String(arg2);
+				Map<String, String> map = new HashMap<String, String>();
+				Gson gson = new Gson();
+				Type type = new TypeToken<Map<String, String>>() {
+				}.getType();
+				map = gson.fromJson(content, type);
+				Log.i("RadioPlayActivity", "下载地址----->" + map.get("path"));
+				Log.i("RadioPlayActivity", "歌名----->" + map.get("title"));
+				String path = map.get("path");
+				String name = map.get("title");
+				downloadProgram(path, name);
+			}
+
+			@Override
+			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+					Throwable arg3) {
+				Log.i(TAG, "失败");
+
+			}
+		}, program_id);
+	}
+	
+	/**
+	 * 下载节目
+	 * @param url  下载地址
+	 * @param name 歌名
+	 */
+	@SuppressWarnings("unused")
+	private void downloadProgram(String url, String name) {
+		// String state = ConfigUtils.DownloadState_WAITTING;
+		int end = url.lastIndexOf(".");
+		String format = url.substring(end);// 文件的格式
+		String completeName = name + format;
+		boolean isSame = isFileSame(completeName);// 判断节目是否已经被下载过
+		if (isSame) {
+			Toast.makeText(getActivity(), "已经缓存", 0).show();
+			return;
+		}
+		// 检查数据库看是否有正在下载的任务
+		// DBUtil db = DBUtil.getInstance(this);
+		// Cursor cursor = db.selectData(SQLHelper.TABLE_DOWNLOAD, null, null,
+		// null, null, null, null);
+		// int count = cursor.getCount();
+		//
+		// cursor.close();
+		String thumb = playdatas.getThumb();
+		String path = ConfigUtils.getDownloadPath(getActivity())
+				+ completeName;
+
+		// 初始化下载对象
+		DownloadEntry downloadEntry = new DownloadEntry();
+		if(program_id!=null){
+			downloadEntry.setProgram_id(program_id);
+		}
+		downloadEntry.setAuthor("无名");
+		downloadEntry.setThumb(thumb);
+		downloadEntry.setStoragePath(path);
+		downloadEntry.setUrl(url);
+		downloadEntry.setTitle(name);
+		// 开始下载
+		DownloadManager.getInstance().beginDownloadFile(getActivity(),
+				downloadEntry, DBUtil.getInstance(getActivity()));
+
+	}
+	
+	/**
+	 * 判断文件是否相同
+	 * 
+	 * @param name
+	 * @return
+	 */
+	private boolean isFileSame(String name) {
+		File sd_file = new File(ConfigUtils.SDDownloadPath);
+		// File rom_file = new File(getFilesDir().getPath() + "/Download/");
+		File[] files;
+		String fileName;
+		Vector<String> vecFile = new Vector<String>();
+		if (sd_file.exists()) {
+			// 取得SD卡下的Download目录下的所有文件
+			files = sd_file.listFiles();
+			Log.i(TAG, "SD卡下" + files);
+		} else {
+			sd_file.mkdirs();
+			return false;
+			// 取得ROM下的Download目录下的所有文件
+			// files = rom_file.listFiles();
+			// Log.i(TAG, "ROM卡下" + files);
+		}
+		// 历遍判断文件名是否相同
+		if (files == null)
+			return false;
+		for (int iFileLength = 0; iFileLength < files.length; iFileLength++) {
+			// 判断是否为文件夹
+			if (!files[iFileLength].isDirectory()) {
+				fileName = files[iFileLength].getName();
+				if (name.equals(fileName)) {
+					return true;
+				} 
+			}
+		}
+		return false;
 	}
 
 	// 是否进入播放音乐

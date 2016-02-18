@@ -12,6 +12,7 @@ import com.example.toolbar.bean.ProgramListBean.ProgramListInfo;
 import com.example.toolbar.common.utils.ImageLoaderHelper;
 import com.example.toolbar.http.HttpManage;
 import com.example.toolbar.service.PlayerManage;
+import com.example.toolbar.view.progress.CircularProgress;
 import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
@@ -41,6 +42,8 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 public class ProgramClassifyListActivity extends AppCompatActivity{
 	private final String TAG="ProgramClassifyListActivity";
 	private ListView mListView;
+	private CircularProgress mCircularProgress;
+	private TextView tv_remind;
 	private Toolbar mToolbar;
 	private PullToRefreshListView mPullToRefreshListView;
 	private ProgramClassifyAdapter mAdapter;
@@ -62,6 +65,8 @@ public class ProgramClassifyListActivity extends AppCompatActivity{
 	private void initView() {
 		type_id=getIntent().getStringExtra("type_id");
 		top_name=getIntent().getStringExtra("top_name");
+		mCircularProgress=(CircularProgress) findViewById(R.id.program_classify_progress);
+		tv_remind=(TextView) findViewById(R.id.program_classify_remind);
 		mImageLoader=ImageLoader.getInstance();
 		mToolbar=(Toolbar) findViewById(R.id.toolbar);
 		mToolbar.setTitle(top_name);
@@ -74,26 +79,26 @@ public class ProgramClassifyListActivity extends AppCompatActivity{
 				finish();
 			}
 		});
-//		mPullToRefreshListView=(PullToRefreshListView) findViewById(R.id.program_classify_list_ptrlv);
-//		mListView=mPullToRefreshListView.getRefreshableView();
-//		mPullToRefreshListView.setOnRefreshListener(new OnRefreshListener2<ListView>() {
-//
-//			@Override
-//			public void onPullDownToRefresh(
-//					PullToRefreshBase<ListView> refreshView) {
-//				page = +1;
-//				initData();
-//				
-//			}
-//
-//			@Override
-//			public void onPullUpToRefresh(
-//					PullToRefreshBase<ListView> refreshView) {
-//				page = 0;
-//				initData();
-//			}
-//		});
-		mListView=(ListView) findViewById(R.id.program_classify_list_lv);
+		mPullToRefreshListView=(PullToRefreshListView) findViewById(R.id.program_classify_list_ptrlv);
+		mListView=mPullToRefreshListView.getRefreshableView();
+		mPullToRefreshListView.setOnRefreshListener(new OnRefreshListener2<ListView>() {
+
+			@Override
+			public void onPullDownToRefresh(
+					PullToRefreshBase<ListView> refreshView) {
+				page = +1;
+				initData();
+				
+			}
+
+			@Override
+			public void onPullUpToRefresh(
+					PullToRefreshBase<ListView> refreshView) {
+				page = 0;
+				initData();
+			}
+		});
+//		mListView=(ListView) findViewById(R.id.program_classify_list_lv);
 		mListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -154,16 +159,20 @@ public class ProgramClassifyListActivity extends AppCompatActivity{
 				if(mAdapter==null){
 					mAdapter=new ProgramClassifyAdapter();
 					mListView.setAdapter(mAdapter);
-					return;
+				}else{
+					mAdapter.notifyDataSetChanged();
 				}
-				mAdapter.notifyDataSetChanged();
+				mPullToRefreshListView.onRefreshComplete();
+				mCircularProgress.setVisibility(View.GONE);
+				tv_remind.setVisibility(View.GONE);
 				
 			}
 			
 			@Override
 			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
 				// TODO Auto-generated method stub
-				
+				mCircularProgress.setVisibility(View.GONE);
+				tv_remind.setVisibility(View.VISIBLE);
 			}
 		});
 	}

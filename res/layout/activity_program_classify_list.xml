@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" 
-    android:orientation="vertical">
-    <include 
-        layout="@layout/toolbar"/>
-    <com.handmark.pulltorefresh.library.PullToRefreshListView
-        android:id="@+id/program_classify_list_ptrlv"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/toolbar" />
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        
-    </com.handmark.pulltorefresh.library.PullToRefreshListView>
-    
-    <ListView 
-        android:id="@+id/program_classify_list_lv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        
-    </ListView>
-    
+        android:layout_height="match_parent" >
+
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/program_classify_list_ptrlv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+        <com.example.toolbar.view.progress.CircularProgress
+            android:id="@+id/program_classify_progress"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:id="@+id/program_classify_remind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@string/remimd" />
+    </RelativeLayout>
 
 </LinearLayout>

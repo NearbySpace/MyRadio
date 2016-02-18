@@ -120,7 +120,7 @@ public class DownloadTask extends AsyncTask<Void, Object, Integer>{
 					while(!isFinish){
 						publishProgress(downloadedSize,speed);
 						try {
-							Thread.sleep(1000);
+							Thread.sleep(500);
 							speed=(downloadedSize - oldDownloadedSize);
 							oldDownloadedSize=downloadedSize;
 						} catch (InterruptedException e) {
@@ -204,9 +204,10 @@ public class DownloadTask extends AsyncTask<Void, Object, Integer>{
 				.remove(downloadEntry);
 //				db.deleteDownloadEntry(downloadEntry.getUrl());
 				}
+			//告诉DownlaodingFramgent,下载完毕更新数据更新
 			for (DownloadManager.DownloadStatusListener l : DownloadManager
 					.getInstance().getDownloadStatusListeners()) {
-				l.onProgress(downloadEntry, 46);
+				l.onProgress(downloadEntry, 0);
 			}
 			queueNext();
 		}else{

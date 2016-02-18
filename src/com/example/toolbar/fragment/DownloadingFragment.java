@@ -67,6 +67,7 @@ public class DownloadingFragment extends Fragment {
 				mDownloadStatusListener);
 		return view;
 	}
+	
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {

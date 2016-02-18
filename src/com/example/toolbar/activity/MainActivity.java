@@ -799,7 +799,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
 					AlertDialog.Builder builder = new AlertDialog.Builder(
 							context);
-					builder.setTitle("草莓电台客户端有新的版本啦,V" + map.get("version"));
+					builder.setTitle("海豚电台客户端有新的版本啦,V" + map.get("version"));
 					builder.setMessage(Html.fromHtml(map.get("message")));
 					builder.setPositiveButton("立即更新",
 							new DialogInterface.OnClickListener() {

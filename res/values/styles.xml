@@ -12,7 +12,7 @@
         <item name="android:textColorPrimary">@android:color/white</item>
         <!-- 溢出菜单图标颜色 -->
         <item name="colorControlNormal">@android:color/white</item>
-		<item name="android:textColor">@color/color_text_black</item>
+        <item name="android:textColor">@color/color_text_black</item>
         <!-- 箭头 -->
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
         <!-- 溢出菜单文字颜色 -->
@@ -20,6 +20,8 @@
         <!-- 菜单项点击selector -->
         <item name="actionBarItemBackground">@drawable/abc_item_background_holo_dark</item>
         <item name="android:windowBackground">@color/color_gray_light2</item>
+        <!-- 设置activity切换动画 -->
+		<item name="android:windowAnimationStyle">@style/activityAnimation</item>
     </style>
     <!-- 左边的箭头指示 -->
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
@@ -35,8 +37,8 @@
     <style name="custom_checkbox" parent="@android:style/Widget.CompoundButton.CheckBox">
         <item name="android:button">@drawable/check_box_bg</item>
     </style>
-    
-     <style name="Widget.SeekBar.Normal" parent="@android:style/Widget.SeekBar">
+
+    <style name="Widget.SeekBar.Normal" parent="@android:style/Widget.SeekBar">
         <item name="android:maxHeight">5.0dip</item>
         <item name="android:indeterminateOnly">false</item>
         <item name="android:indeterminateDrawable">@android:drawable/progress_indeterminate_horizontal</item>
@@ -45,8 +47,17 @@
         <item name="android:thumb">@drawable/thumb</item>
         <item name="android:thumbOffset">10dip</item>
     </style>
-    
-     <style name="FullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
-     </style>
-    
+
+    <style name="FullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+    </style>
+
+    <!-- animation 样式 -->
+    <style name="activityAnimation" parent="@android:style/Animation">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+    </style>
+
 </resources>
