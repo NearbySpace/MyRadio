@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="#FFFFFF"
+                android:background="@drawable/text_color_selector"
                 android:paddingBottom="12dp"
                 android:paddingLeft="12dp"
                 android:paddingRight="18dp"
@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
-                android:background="#FFFFFF"
+                android:background="@drawable/text_color_selector"
                 android:clickable="true"
                 android:orientation="horizontal"
                 android:paddingBottom="12dp"
@@ -81,13 +81,13 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/text_color_selector"
                 android:layout_marginTop="12dp" >
 
                 <TextView
                     android:id="@+id/setting_tv_update"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/text_color_selector"
                     android:clickable="true"
                     android:paddingBottom="12dp"
                     android:paddingLeft="12dp"

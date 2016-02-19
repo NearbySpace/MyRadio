@@ -87,7 +87,6 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	private ImageView download;
 	private RelativeLayout pickerLinearLayout;
 	private PickerView mPickerView;
-	private Button pickerBtn;
 	private ListView play_list;
 	// 分享
 	private ImageView imageViewFenxiang;
@@ -244,7 +243,6 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		pickerLinearLayout = (RelativeLayout) view
 				.findViewById(R.id.new_main_picker_ll);
 		mPickerView = (PickerView) view.findViewById(R.id.new_main_picker);
-		pickerBtn = (Button) view.findViewById(R.id.new_main_picker_sure);
 		if (!isMain) {
 			first_more.setVisibility(View.GONE);
 			menue_or_back.setImageResource(R.drawable.login_back);
@@ -428,7 +426,6 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		first_more.setOnClickListener(this);
 		share.setOnClickListener(this);
 		collect.setOnClickListener(this);
-		pickerBtn.setOnClickListener(this);
 		program_list.setOnClickListener(this);
 		download.setOnClickListener(this);
 	}
@@ -570,9 +567,6 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		case R.id.new_main_program_list:
 			isVisibility = !isVisibility;
 			showOrHidePlayList(isVisibility);
-			break;
-		case R.id.new_main_picker_sure:
-			getOneClassifyContent(1, pickerCurrentId);
 			break;
 		default:
 			break;

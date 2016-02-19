@@ -26,7 +26,8 @@ public class PickerView extends View {
 	/**
 	 * text之间间距和minTextSize之比
 	 */
-	public static final float MARGIN_ALPHA = 2.8f;
+	public static final float MARGIN_ALPHA = 1.8f;
+//	public static final float MARGIN_ALPHA = 2.8f;
 	/**
 	 * 自动回滚到中间的速度
 	 */
@@ -191,7 +192,7 @@ public class PickerView extends View {
 		// 先绘制选中的text再往上往下绘制其余的text
 		float scale = parabola(mViewHeight / 4.0f, mMoveLen);
 //		float size = (mMaxTextSize - mMinTextSize) * scale + mMinTextSize;
-		float size = (mMaxTextSize - mMinTextSize) * scale + 30;
+		float size = (mMaxTextSize - mMinTextSize) * scale + 20;
 		mPaint.setTextSize(size);
 //		Log.i("PickerView", "size值："+size);
 		mPaint.setAlpha((int) ((mMaxTextAlpha - mMinTextAlpha) * scale + mMinTextAlpha));
@@ -212,7 +213,6 @@ public class PickerView extends View {
 		// 绘制上方data
 		for (int i = 1; (mCurrentSelected - i) >= 0; i++) {
 			drawOtherText(canvas, i, -1);
-			drawOtherText2(canvas, i, -2);
 		}
 		// 绘制下方data
 		for (int i = 1; (mCurrentSelected + i) < mPickerBean.list.size(); i++) {
@@ -236,36 +236,26 @@ public class PickerView extends View {
 		float d = (float) (MARGIN_ALPHA * mMinTextSize * position + type
 				* mMoveLen);
 		float scale = parabola(mViewHeight / 4.0f, d);
-		float size = (mMaxTextSize - mMinTextSize) * scale + mMinTextSize;
+		float size = (mMaxTextSize - mMinTextSize) * scale + 30;
 		mPaint.setTextSize(size);
 		mPaint.setAlpha((int) ((mMaxTextAlpha - mMinTextAlpha) * scale + mMinTextAlpha));
 		mPaint.setColor(mColorText);
-		mPaint.setFakeBoldText(true);
+//		mPaint.setFakeBoldText(true);
 		float y = (float) (mViewHeight / 2.0 + type * d);
 		FontMetricsInt fmi = mPaint.getFontMetricsInt();
-		float baseline = (float) (y - (fmi.bottom / 2.0 + fmi.top / 2.0));
+		float baseline ;
+		if(position == 1){
+			baseline = (float) (y - (fmi.bottom / 2.0 + fmi.top / 2.0))+10*type;
+		}else{
+			baseline = (float) (y - (fmi.bottom / 2.0 + fmi.top / 2.0));
+		}
 		Log.i(TAG, "type: "+type+"-------->position:"+ type * position);
 		canvas.drawText(
 				mPickerBean.list.get(mCurrentSelected + type * position).title+"频道",
 				(float) (mViewWidth / 2.0), baseline, mPaint);
 	}
 	
-	private void drawOtherText2(Canvas canvas, int position, int type) {
-		float d = (float) (MARGIN_ALPHA * mMinTextSize * position + type
-				* mMoveLen);
-		float scale = parabola(mViewHeight / 4.0f, d);
-		float size = (mMaxTextSize - mMinTextSize) * scale + mMinTextSize;
-		mPaint.setTextSize(size);
-		mPaint.setAlpha((int) ((mMaxTextAlpha - mMinTextAlpha) * scale + mMinTextAlpha));
-		mPaint.setColor(mColorText);
-		mPaint.setFakeBoldText(true);
-		float y = (float) (mViewHeight / 2.0 + type * d);
-		FontMetricsInt fmi = mPaint.getFontMetricsInt();
-		float baseline = (float) (y - (fmi.bottom / 2.0 + fmi.top / 2.0));
-		canvas.drawText(
-				mPickerBean.list.get(mCurrentSelected + (-1) * position).title+"频道",
-				(float) (mViewWidth / 2.0), baseline, mPaint);
-	}
+	
 
 	/**
 	 * 抛物线

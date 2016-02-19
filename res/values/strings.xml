@@ -79,5 +79,6 @@
     <string name="delete">删除</string>
     <string name="slogan">悦耳动心</string>
     <string name="dialog_download_title">选择要下载的节目</string>
+    <string name="loading_setting">正在检查中</string>
 
 </resources>

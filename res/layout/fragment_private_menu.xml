@@ -179,7 +179,7 @@
                     android:layout_height="42dp"
                     android:layout_marginBottom="20dp"
                     android:orientation="horizontal" >
-
+                    
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -189,6 +189,8 @@
                         android:paddingLeft="10dp"
                         android:text="  软件设置"
                         android:textSize="16dp" />
+
+                    
 
                     <TextView
                         android:layout_width="wrap_content"

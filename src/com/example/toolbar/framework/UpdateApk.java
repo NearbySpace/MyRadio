@@ -32,6 +32,7 @@ import android.widget.RemoteViews;
 import android.widget.Toast;
 
 import com.example.strawberryradio.R;
+import com.example.toolbar.activity.SettingActivity;
 import com.example.toolbar.application.MyApplication;
 import com.example.toolbar.common.utils.Common;
 import com.example.toolbar.common.utils.FileUtils;
@@ -83,7 +84,12 @@ public class UpdateApk {
 		final PackageInfo pinfo = app.getPackageInfo();
 		new AsyncTask<Object, Object, String>() {
 			protected String doInBackground(Object... params) {
-
+				try {
+					Thread.sleep(1500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				String url = ConfigUtils.baseurl
 						+ "index.php?d=android&c=api&m=android_version";
 				return HttpUtils.getString(url);
@@ -107,7 +113,9 @@ public class UpdateApk {
 				}
 				if (map.containsKey("version")
 						&& !map.get("version").equals(pinfo.versionName)) {
-
+					if(context instanceof SettingActivity){
+						((SettingActivity) context).closeCheckDialog();;
+					}
 					AlertDialog.Builder builder = new AlertDialog.Builder(
 							context);
 					builder.setTitle("海豚电台客户端有新的版本啦,V" + map.get("version"));
@@ -154,12 +162,17 @@ public class UpdateApk {
 
 				} else {
 					if(flag == 2){
+						if(context instanceof SettingActivity){
+							((SettingActivity) context).closeCheckDialog();;
+						}
 						ToastUtils.showShort(context, "您以是最新版本，暂无更新！");
 					}
 				}
 			}
 		}.execute();
 	}
+	
+	
 
 	public Handler handler = new Handler() {
 

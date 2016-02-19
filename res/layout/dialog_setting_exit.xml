@@ -3,34 +3,37 @@
     android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:padding="13dp"
     android:background="#FFFFFF"
-	android:orientation="vertical">
-    <TextView 
+    android:orientation="vertical">
+
+    <TextView
         android:id="@+id/cuetom_dialog_tv_exit_radio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:clickable="true"
         android:layout_marginTop="10dp"
-        android:textSize="17sp"
-        android:text="@string/exit_radio"/>
-    <TextView 
+        android:padding="8dp" 
+        android:background="@drawable/text_color_selector"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:text="@string/exit_radio"
+        android:textSize="17sp" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_margin="10dp"
-		android:background="#DDDDDD"/>
-    
-    <TextView 
+        android:background="#DDDDDD" />
+
+    <TextView
         android:id="@+id/cuetom_dialog_tv_exit_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:padding="8dp" 
+        android:background="@drawable/text_color_selector"
         android:clickable="true"
-        android:textSize="17sp"
         android:gravity="center_horizontal"
-        android:text="@string/exit_account"/>
-    
-    
+        android:text="@string/exit_account"
+        android:textSize="17sp" />
 
 </LinearLayout>

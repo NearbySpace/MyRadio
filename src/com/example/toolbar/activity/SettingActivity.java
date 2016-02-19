@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.http.Header;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,13 +12,16 @@ import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.strawberryradio.R;
@@ -38,6 +40,7 @@ public class SettingActivity extends AppCompatActivity implements
 	private LayoutInflater layoutInflater;
 	private TextView tv_verson;
 	private TextView tv_program_name;
+	private AlertDialog checkUpdateDialog ;
 
 	private FindBean bean;
 	private List<FindBean.ProgramClassify> mProgramClassify;
@@ -124,7 +127,8 @@ public class SettingActivity extends AppCompatActivity implements
 			break;
 		case R.id.setting_tv_update:
 			// 检查更新
-			UpdateApk.checkVersion(this,2);
+			showCheckDialog();
+			UpdateApk.checkVersion(SettingActivity.this,2);
 			break;
 
 		default:
@@ -132,6 +136,20 @@ public class SettingActivity extends AppCompatActivity implements
 		}
 
 	}
+
+	private void showCheckDialog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(SettingActivity.this);
+		View view = View.inflate(SettingActivity.this, R.layout.dialog_check_update, null);
+		builder.setView(view);
+		checkUpdateDialog = builder.show();
+		
+	}
+	
+	public void closeCheckDialog() {
+		checkUpdateDialog.dismiss();
+	}
+	
+	
 
 	private void initProgramData() {
 		HttpManage.getFindData(new AsyncHttpResponseHandler() {

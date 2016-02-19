@@ -163,16 +163,8 @@
         <com.example.toolbar.view.PickerView
             android:id="@+id/new_main_picker"
             android:layout_width="172dp"
-            android:layout_height="140dp"
+            android:layout_height="200dp"
             android:layout_centerInParent="true" />
-
-        <Button
-            android:id="@+id/new_main_picker_sure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/ok"
-            android:visibility="gone" />
 
         <RelativeLayout
             android:layout_width="match_parent"
