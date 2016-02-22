@@ -213,6 +213,7 @@ public class MyFavoriteActivity extends AppCompatActivity implements
 				return;
 			}else{
 				Intent intent=new Intent(MyFavoriteActivity.this,NewRadioPlayActivity.class);
+//				intent.putExtra("channelName", )
 //				Bundle bundle=new Bundle();
 //				bundle.putString("favorite", "favorite");
 //				bundle.putString("id", favorite.getId());
@@ -225,7 +226,7 @@ public class MyFavoriteActivity extends AppCompatActivity implements
 					for(Favorite info : programs){
 						PlayInfo playInfo = new PlayInfo(info.getId(), info.getTitle(),
 								"", info.getPath(), "", "", "", "", info.getThumb(), "",
-								"", "","","");
+								"", info.getOwner(),"","");
 						PlayerManage.getInstance().addPlayInfo(playInfo);
 					}
 				}

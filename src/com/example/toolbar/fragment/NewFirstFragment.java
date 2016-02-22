@@ -35,6 +35,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -85,9 +86,9 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	private ImageView program_list;//节目列表
 	private ImageView first_more;
 	private ImageView download;
-	private RelativeLayout pickerLinearLayout;
 	private PickerView mPickerView;
 	private ListView play_list;
+	private ProgressBar mProgressBar;
 	// 分享
 	private ImageView imageViewFenxiang;
 
@@ -115,6 +116,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	private boolean isLocad = false;// 是否本地资源播放
 	private boolean isMain = true;// 是否主页
 	private boolean isAgain = false;// 播放完后，是否重新播放
+	private boolean isReload = false;//是否重新加载数据
 
 	private NewPlayerReceiver playerReceiver;
 	private SeekBar seekBar;
@@ -238,19 +240,19 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		first_more = (ImageView) view.findViewById(R.id.more_frist);
 		menue_or_back = (ImageView) view.findViewById(R.id.Silding_menu);
 		download = (ImageView) view.findViewById(R.id.new_main_download);
+		mProgressBar = (ProgressBar) view.findViewById(R.id.new_main_progressbar);
 		seekBar=(SeekBar) view.findViewById(R.id.new_main_SeekBar);
 		seekBar.setEnabled(false);
-		pickerLinearLayout = (RelativeLayout) view
-				.findViewById(R.id.new_main_picker_ll);
 		mPickerView = (PickerView) view.findViewById(R.id.new_main_picker);
 		if (!isMain) {
 			first_more.setVisibility(View.GONE);
 			menue_or_back.setImageResource(R.drawable.login_back);
 			mPickerView.setVisibility(View.GONE);
+			tv_channelName.setTextSize(40);
 			tv_channelName.setVisibility(View.VISIBLE);
 			tv_channelName.setClickable(false);
 		}else{
-			tv_channelName.setTextSize(17);
+//			tv_channelName.setTextSize(17);
 			tv_channelName.setClickable(true);
 			tv_channelName.setOnClickListener(this);
 		}
@@ -281,7 +283,6 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 				
 			}
 		});
-		tv_channelName.setTextSize(40);
 	}
 	
 
@@ -308,7 +309,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 
 		listPosition = 0;
 //		getOneClassifyContent(1, map.get("classifyID"));
-		
+		mProgressBar.setVisibility(View.VISIBLE);
 		HttpManage.getNewMainPickerData(new AsyncHttpResponseHandler() {
 
 			@Override
@@ -325,22 +326,30 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 				if (mPickerBean.list == null) {
 					tv_channelName.setVisibility(View.VISIBLE);
 					tv_channelName.setText("数据加载失败，请点击重新加载");
+					isReload = true;
+					mPickerView.setVisibility(View.GONE);
 					Log.i(TAG, "mPickerBean.list-------->是空");
 				}else{
 					Log.i(TAG, "mPickerBean.list-------->是不空");
+					mPickerView.setVisibility(View.VISIBLE);
 					mPickerView.setData(mPickerBean);
 					mPickerView.setSelected(0);
 					tv_channelName.setVisibility(View.GONE);
 					getOneClassifyContent(1,mPickerBean.list.get(0).id);
 					channelName = mPickerBean.list.get(0).title ;
+					isReload = false;
 				}
+				mProgressBar.setVisibility(View.GONE);
 			}
 
 			@Override
 			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
 					Throwable arg3) {
-				// TODO Auto-generated method stub
-
+				mPickerView.setVisibility(View.GONE);
+				tv_channelName.setVisibility(View.VISIBLE);
+				tv_channelName.setText("数据加载失败，请点击重新加载");
+				isReload = true;
+				mProgressBar.setVisibility(View.GONE);
 			}
 		});
 
@@ -353,7 +362,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	 * @param classifyID
 	 */
 	private void getOneClassifyContent(int page, String classifyID) {
-		
+		//重置数据
 		PlayerManage.position = 0;
 		if(bean!=null){
 			bean=null;
@@ -394,6 +403,8 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 							initData();
 						}
 						isCompleteGetOneClassifyContent=true;
+						tv_channelName.setVisibility(View.GONE);
+						isReload = false;
 					}
 
 					@Override
@@ -401,6 +412,9 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 							Throwable arg3) {
 						// TODO Auto-generated method stub
 						isCompleteGetOneClassifyContent=true;
+						tv_channelName.setVisibility(View.VISIBLE);
+						tv_channelName.setText("数据加载失败，请点击重新加载");
+						isReload = true;
 					}
 				});
 	}
@@ -412,8 +426,10 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		mList=PlayerManage.getInstance().getPlayInfos();
 		listPosition=PlayerManage.position;
 		channelName=getActivity().getIntent().getStringExtra("channelName");
-		if(!channelName.isEmpty()){
+		if(channelName != null && !channelName.isEmpty()){
 			tv_channelName.setText(channelName);
+		}else{
+			channelName = " ";
 		}
 		initData();
 	}
@@ -532,7 +548,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.new_main_channel_name:
-			initMainData();
+			if(isReload)  initMainData();
 			break;
 		case R.id.new_main_previous:
 			previous_music();
@@ -1068,6 +1084,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 				duration = intent.getIntExtra("duration", -1);
 				 seekBar.setMax(duration);
 				endtimeTime.setText(MediaUtil.formatTime(duration));
+				mProgressBar.setVisibility(View.GONE);
 				boolean isPlay = intent.getBooleanExtra("isPlay", false);
 				if (isPlay) {
 				}

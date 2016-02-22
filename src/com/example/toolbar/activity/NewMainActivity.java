@@ -417,4 +417,13 @@ public class NewMainActivity extends AppCompatActivity implements OnClickListene
 		}
 	}
 
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		viewList.clear();
+	}
+	
+	
+
 }

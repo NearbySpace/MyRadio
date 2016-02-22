@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,11 +38,15 @@ public class FindImgAdapter extends BaseAdapter {
 	private ViewHolder viewHolder;
 	private ImageLoader mImageLoader;
 
-	public FindImgAdapter(Context context, ArrayList<IconTop> radio_list) {
+	public FindImgAdapter(LayoutInflater inflater, ArrayList<IconTop> radio_list) {
 		super();
 		// TODO Auto-generated constructor stub
-		this.mContext = context;
-		mInflater = LayoutInflater.from(context);
+//		this.mContext = context;
+//		if(context == null){
+//			Log.i("FindImgAdapter", "context为空");
+//		}
+//		mInflater = LayoutInflater.from(context);
+		mInflater = inflater;
 		this.radio_list = radio_list;
 		mImageLoader = ImageLoader.getInstance();
 //		mImageLoader.init(ImageLoaderConfiguration.createDefault(mContext));

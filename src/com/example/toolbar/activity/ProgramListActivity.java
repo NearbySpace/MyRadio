@@ -467,7 +467,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 //						downloadIdList.remove(program_id);
 //					if(downloadInfo.containsKey(program_id))
 //						downloadInfo.remove(program_id);
-					
+					if(downloadList.contains(pli))  downloadList.remove(pli);
 				}else{
 					cb.setChecked(true);
 //					downloadIdList.add(program_id);

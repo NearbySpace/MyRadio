@@ -50,6 +50,7 @@ public class FindFragment extends BaseFragment {
 	private CircularProgress progress;
 
 	private LinearLayout pointGroup;
+	private LayoutInflater mLayoutInflater;
 
 	private MyGridView gridView_top;
 	private MyGridView gridView_classify;
@@ -86,6 +87,7 @@ public class FindFragment extends BaseFragment {
 		if (mView == null) {
 			mView = inflater.inflate(R.layout.fragment_find, null);
 			mContext = getActivity();
+			mLayoutInflater = inflater;
 			initView();
 			initData();
 		}
@@ -153,7 +155,7 @@ public class FindFragment extends BaseFragment {
 				String result = new String(arg2);
 				Gson gson = new Gson();
 				bean = gson.fromJson(result, FindBean.class);
-				mAdapter = new FindImgAdapter(getActivity(), bean.radio_list);
+				mAdapter = new FindImgAdapter(mLayoutInflater, bean.radio_list);
 				gridView_classify.setAdapter(new FindClassAdapter(
 						getActivity(), bean.type_list));
 				gridView_top.setAdapter(mAdapter);
