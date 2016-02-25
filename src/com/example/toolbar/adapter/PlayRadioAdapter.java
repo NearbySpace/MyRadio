@@ -19,6 +19,8 @@ public class PlayRadioAdapter extends BaseAdapter {
 	private Holder holder;
 	private Context context;
 	private PlayInfo info;
+	private int currentPosition = 0;
+	
 	public PlayRadioAdapter(Context context,List<PlayInfo> mlist) {
 		super();
 		this.context=context;
@@ -42,6 +44,16 @@ public class PlayRadioAdapter extends BaseAdapter {
 		// TODO Auto-generated method stub
 		return position;
 	}
+	
+	/**
+	 * 用于标记当前播放歌曲的位置
+	 * @param currentPosition
+	 */
+	public void setCurrentPosition(int currentPosition){
+		if(this.currentPosition == currentPosition) return;
+		this.currentPosition = currentPosition;
+		notifyDataSetChanged();
+	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
@@ -60,6 +72,10 @@ public class PlayRadioAdapter extends BaseAdapter {
 		holder.tv_ranking.setText((position+1)+".");
 		holder.tv_title.setText(info.getTitle());
 		holder.tv_subtitle.setText(info.getOwner());
+		convertView.setBackgroundColor(0x00000000);
+		if(currentPosition == position){
+			convertView.setBackgroundColor(0x8801AED9);
+		}
 		holder.iv_download.setOnClickListener(new OnClickListener() {
 			
 			@Override

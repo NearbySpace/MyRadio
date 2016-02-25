@@ -215,7 +215,7 @@
         android:layout_height="match_parent"
         android:layout_above="@id/new_main_play_ll"
         android:layout_marginLeft="55dp"
-        android:background="#88000000"
+        android:background="@drawable/black"
         android:visibility="gone" >
     </ListView>
 

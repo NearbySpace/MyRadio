@@ -9,6 +9,8 @@ import java.io.InputStream;
 import java.io.OutputStreamWriter;
 
 
+import java.util.Vector;
+
 import android.content.Context;
 import android.os.Environment;
 import android.os.StatFs;
@@ -342,6 +344,43 @@ public class FileUtils {
 		}
 		return status;
 
+	}
+	
+	/**
+	 * 判断一个文件夹下是否有相同的文件
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public static boolean isFileSame(String name,String path) {
+		File sd_file = new File(path);
+		// File rom_file = new File(getFilesDir().getPath() + "/Download/");
+		File[] files;
+		String fileName;
+		Vector<String> vecFile = new Vector<String>();
+		if (sd_file.exists()) {
+			// 取得SD卡下的Download目录下的所有文件
+			files = sd_file.listFiles();
+		} else {
+			sd_file.mkdirs();
+			return false;
+			// 取得ROM下的Download目录下的所有文件
+			// files = rom_file.listFiles();
+			// Log.i(TAG, "ROM卡下" + files);
+		}
+		// 历遍判断文件名是否相同
+		if (files == null)
+			return false;
+		for (int iFileLength = 0; iFileLength < files.length; iFileLength++) {
+			// 判断是否为文件夹
+			if (!files[iFileLength].isDirectory()) {
+				fileName = files[iFileLength].getName();
+				if (name.equals(fileName)) {
+					return true;
+				} 
+			}
+		}
+		return false;
 	}
 	
 	/**

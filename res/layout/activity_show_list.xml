@@ -175,7 +175,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#FFFFFF"
-                    android:listSelector="#FF0000"
+                    android:drawSelectorOnTop="true"
                     dslv:collapsed_height="1px"
                     dslv:drag_enabled="true"
                     dslv:drag_handle_id="@id/program_list_iv_item"

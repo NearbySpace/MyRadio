@@ -12,16 +12,25 @@ import java.util.Vector;
 
 import org.apache.http.Header;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.AudioManager;
 import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.renderscript.Allocation;
+import android.renderscript.RenderScript;
+import android.renderscript.ScriptIntrinsicBlur;
 import android.support.v4.app.Fragment;
 import android.text.format.Time;
 import android.util.Log;
@@ -52,6 +61,7 @@ import com.example.toolbar.bean.PickerBean;
 import com.example.toolbar.bean.PlayInfo;
 import com.example.toolbar.bean.ProgramClassifyListBean;
 import com.example.toolbar.common.utils.Common;
+import com.example.toolbar.common.utils.FileUtils;
 import com.example.toolbar.common.utils.NetUtil;
 import com.example.toolbar.db.DBUtil;
 import com.example.toolbar.download.DownloadManager;
@@ -83,7 +93,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	private ImageView share;// 分享
 	private ImageView collect;// 收藏
 	private ImageView menue_or_back;// 侧栏菜单或放回键
-	private ImageView program_list;//节目列表
+	private ImageView program_list;// 节目列表
 	private ImageView first_more;
 	private ImageView download;
 	private PickerView mPickerView;
@@ -101,12 +111,12 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	private String music_id = "";
 	private String music_url = "";
 	private String music_title = "";
-	private String time_limit = "";//播放的时间限制
+	private String time_limit = "";// 播放的时间限制
 	private String program_id;// 当前节目ID
 	private String uid;
 	private String id;// 网络请求所需的节目id==当前节目ID
 	private String channelName = "草莓电台";
-	private String pickerCurrentId="";
+	private String pickerCurrentId = "";
 
 	private int listPosition = -1; // 播放歌曲的位置
 	private int currentTime; // 当前歌曲播放时间
@@ -116,7 +126,11 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	private boolean isLocad = false;// 是否本地资源播放
 	private boolean isMain = true;// 是否主页
 	private boolean isAgain = false;// 播放完后，是否重新播放
-	private boolean isReload = false;//是否重新加载数据
+
+	/**
+	 * 是否重新加载数据
+	 */
+	private boolean isReload = false;
 
 	private NewPlayerReceiver playerReceiver;
 	private SeekBar seekBar;
@@ -168,7 +182,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		} else {
 			initHeadActionBar();
 		}
-//		initPopupWindow();
+		// initPopupWindow();
 		myOnClickLisenter();
 	}
 
@@ -186,7 +200,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	public void onStart() {
 		// TODO Auto-generated method stub
 		super.onStart();
-		
+
 		if (isMain && isRecoveryPlayInfo) {
 			recoveryPlayInfo();
 			if (IS_PLAY) {
@@ -234,14 +248,15 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		MyApplication.host_id = host_id;
 	}
 
-
 	public void initView() {
-		tv_channelName=(TextView) view.findViewById(R.id.new_main_channel_name);
+		tv_channelName = (TextView) view
+				.findViewById(R.id.new_main_channel_name);
 		first_more = (ImageView) view.findViewById(R.id.more_frist);
 		menue_or_back = (ImageView) view.findViewById(R.id.Silding_menu);
 		download = (ImageView) view.findViewById(R.id.new_main_download);
-		mProgressBar = (ProgressBar) view.findViewById(R.id.new_main_progressbar);
-		seekBar=(SeekBar) view.findViewById(R.id.new_main_SeekBar);
+		mProgressBar = (ProgressBar) view
+				.findViewById(R.id.new_main_progressbar);
+		seekBar = (SeekBar) view.findViewById(R.id.new_main_SeekBar);
 		seekBar.setEnabled(false);
 		mPickerView = (PickerView) view.findViewById(R.id.new_main_picker);
 		if (!isMain) {
@@ -251,8 +266,8 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 			tv_channelName.setTextSize(40);
 			tv_channelName.setVisibility(View.VISIBLE);
 			tv_channelName.setClickable(false);
-		}else{
-//			tv_channelName.setTextSize(17);
+		} else {
+			// tv_channelName.setTextSize(17);
 			tv_channelName.setClickable(true);
 			tv_channelName.setOnClickListener(this);
 		}
@@ -264,29 +279,27 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		endtimeTime = (TextView) view.findViewById(R.id.new_main_total_time);
 		currentTimeProgress = (TextView) view
 				.findViewById(R.id.new_main_current_time);
-		
-		program_list=(ImageView) view.findViewById(R.id.new_main_program_list);
+
+		program_list = (ImageView) view
+				.findViewById(R.id.new_main_program_list);
 		previousIV = (ImageView) view.findViewById(R.id.new_main_previous);
 		playIV = (ImageView) view.findViewById(R.id.new_main_play);
 		nextIV = (ImageView) view.findViewById(R.id.new_main_next);
-		play_list=(ListView) view.findViewById(R.id.new_main_play_list);
+		play_list = (ListView) view.findViewById(R.id.new_main_play_list);
 		play_list.setOnItemClickListener(new MyOnItemClickListener());
 		mPickerView.setOnSelectListener(new onSelectListener() {
 			@Override
 			public void onSelect(String title, String classifyId) {
-				pickerCurrentId=classifyId;
-				channelName=title;
-				Log.i(TAG, "classifyId---->"+classifyId);
-				if(isCompleteGetOneClassifyContent){
+				pickerCurrentId = classifyId;
+				channelName = title;
+				Log.i(TAG, "classifyId---->" + classifyId);
+				if (isCompleteGetOneClassifyContent) {
 					getOneClassifyContent(1, pickerCurrentId);
 				}
-				
+
 			}
 		});
 	}
-	
-
-
 
 	// 初始化音乐播放监听广播
 	private void registerReceiver() {
@@ -304,11 +317,11 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 
 	private void initMainData() {
 		picker_string = new ArrayList<String>();
-//		map = MyApplication.getInstance().getSpUtil().getDefaultProgram();
-//		channelName = map.get("classifyName");
+		// map = MyApplication.getInstance().getSpUtil().getDefaultProgram();
+		// channelName = map.get("classifyName");
 
 		listPosition = 0;
-//		getOneClassifyContent(1, map.get("classifyID"));
+		// getOneClassifyContent(1, map.get("classifyID"));
 		mProgressBar.setVisibility(View.VISIBLE);
 		HttpManage.getNewMainPickerData(new AsyncHttpResponseHandler() {
 
@@ -320,8 +333,6 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 				mPickerBean = gson.fromJson(result, PickerBean.class);
 				for (int i = 0; i < mPickerBean.list.size(); i++) {
 					picker_string.add(mPickerBean.list.get(i).title);
-					Log.i(TAG, "picker" + i + ":"
-							+ mPickerBean.list.get(i).title+"------>id:"+mPickerBean.list.get(i).id);
 				}
 				if (mPickerBean.list == null) {
 					tv_channelName.setVisibility(View.VISIBLE);
@@ -329,14 +340,14 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 					isReload = true;
 					mPickerView.setVisibility(View.GONE);
 					Log.i(TAG, "mPickerBean.list-------->是空");
-				}else{
+				} else {
 					Log.i(TAG, "mPickerBean.list-------->是不空");
 					mPickerView.setVisibility(View.VISIBLE);
 					mPickerView.setData(mPickerBean);
 					mPickerView.setSelected(0);
 					tv_channelName.setVisibility(View.GONE);
-					getOneClassifyContent(1,mPickerBean.list.get(0).id);
-					channelName = mPickerBean.list.get(0).title ;
+					getOneClassifyContent(1, mPickerBean.list.get(0).id);
+					channelName = mPickerBean.list.get(0).title;
 					isReload = false;
 				}
 				mProgressBar.setVisibility(View.GONE);
@@ -355,20 +366,22 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 
 	}
 
-	private boolean isCompleteGetOneClassifyContent =true;
+	private boolean isCompleteGetOneClassifyContent = true;
+
 	/**
 	 * 获得一个分类的内容
+	 * 
 	 * @param page
 	 * @param classifyID
 	 */
 	private void getOneClassifyContent(int page, String classifyID) {
-		//重置数据
+		// 重置数据
 		PlayerManage.position = 0;
-		if(bean!=null){
-			bean=null;
-			isCompleteGetOneClassifyContent=false;
+		if (bean != null) {
+			bean = null;
+			isCompleteGetOneClassifyContent = false;
 		}
-		
+
 		HttpManage.getProgramClassifyListData(page, classifyID,
 				new AsyncHttpResponseHandler() {
 
@@ -378,11 +391,12 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 						Gson gson = new Gson();
 						bean = gson.fromJson(result,
 								ProgramClassifyListBean.class);
-						if(bean.list.size()<=0){
-							Toast.makeText(getActivity(), "不存在节目", Toast.LENGTH_SHORT).show();
-							isCompleteGetOneClassifyContent=true;
+						if (bean.list.size() <= 0) {
+							Toast.makeText(getActivity(), "不存在节目",
+									Toast.LENGTH_SHORT).show();
+							isCompleteGetOneClassifyContent = true;
 							return;
-						}else{
+						} else {
 							PlayerManage.getInstance().getPlayInfos().clear();
 						}
 						for (int i = 0; i < bean.list.size(); i++) {
@@ -391,18 +405,21 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 									bean.list.get(i).title, "", bean.list
 											.get(i).path, "", "", "", "",
 									bean.list.get(i).thumb, "", "", bean.list
-											.get(i).owner,"","");
+											.get(i).owner, "", "");
 							PlayerManage.getInstance().addPlayInfo(playInfo);
 						}
-						mList=PlayerManage.getInstance().getPlayInfos();
-						Log.i(TAG, "mList长度："+mList.size());
-						listPosition=PlayerManage.position;
-						if(mList.size()==0){
+						mList = PlayerManage.getInstance().getPlayInfos();
+						Log.i(TAG, "mList长度：" + mList.size());
+						listPosition = PlayerManage.position;
+						if (mList.size() == 0) {
 							getOneClassifyContent(1, pickerCurrentId);
-						}else{
+						} else {
 							initData();
 						}
-						isCompleteGetOneClassifyContent=true;
+						if (adapter != null) {
+							adapter.setCurrentPosition(0);
+						}
+						isCompleteGetOneClassifyContent = true;
 						tv_channelName.setVisibility(View.GONE);
 						isReload = false;
 					}
@@ -411,24 +428,24 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
 							Throwable arg3) {
 						// TODO Auto-generated method stub
-						isCompleteGetOneClassifyContent=true;
+						isCompleteGetOneClassifyContent = true;
 						tv_channelName.setVisibility(View.VISIBLE);
 						tv_channelName.setText("数据加载失败，请点击重新加载");
 						isReload = true;
 					}
 				});
 	}
-	
+
 	public void initHeadActionBar() {
 		// super.initHeadActionBar();
 		// head_action_title.setText(R.string.app_name);
-//		mList = new ArrayList<PlayInfo>();
-		mList=PlayerManage.getInstance().getPlayInfos();
-		listPosition=PlayerManage.position;
-		channelName=getActivity().getIntent().getStringExtra("channelName");
-		if(channelName != null && !channelName.isEmpty()){
+		// mList = new ArrayList<PlayInfo>();
+		mList = PlayerManage.getInstance().getPlayInfos();
+		listPosition = PlayerManage.position;
+		channelName = getActivity().getIntent().getStringExtra("channelName");
+		if (channelName != null && !channelName.isEmpty()) {
 			tv_channelName.setText(channelName);
-		}else{
+		} else {
 			channelName = " ";
 		}
 		initData();
@@ -448,9 +465,8 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 
 	private void initData() {
 		mImageLoader = ImageLoader.getInstance();
-		if(mList.size()<=0){
-			Toast.makeText(getActivity(), "歌曲不存在", Toast.LENGTH_SHORT)
-			.show();
+		if (mList.size() <= 0) {
+			Toast.makeText(getActivity(), "歌曲不存在", Toast.LENGTH_SHORT).show();
 			return;
 		}
 		if (listPosition < 0 && mList.size() > 0) {
@@ -458,17 +474,17 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 					.show();
 			return;
 		}
-		
+
 		playdatas = mList.get(listPosition);
-//		for(PlayInfo info : PlayerManage.getInstance().getPlayInfos()){
-//			if(info.getType_id().equals("2")){
-//				getOneClassifyContent(1, info.getId());
-//				isTypeTwo=true;
-//			}else{
-//				isTypeTwo=false;
-//			}
-//		}
-		
+		// for(PlayInfo info : PlayerManage.getInstance().getPlayInfos()){
+		// if(info.getType_id().equals("2")){
+		// getOneClassifyContent(1, info.getId());
+		// isTypeTwo=true;
+		// }else{
+		// isTypeTwo=false;
+		// }
+		// }
+
 		titleMusicString = playdatas.getTitle();
 		host_name = playdatas.getOwner();
 		if (host_name == null) {
@@ -478,7 +494,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		group_id = "";
 		program_id = playdatas.getId();
 		music_id = playdatas.getId();
-		time_limit=playdatas.getTimespan();
+		time_limit = playdatas.getTimespan();
 		music_url = playdatas.getPath();
 		music_title = playdatas.getTitle();
 
@@ -492,7 +508,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		// ImageLoaderHelper.getDisplayImageUnDefaultOptions());
 		// setMusicThumb(playdatas.getThumb());
 		firstEnter();
-		
+
 		// Progress.setVisibility(View.GONE);
 		// initCollect();
 	}
@@ -548,7 +564,8 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.new_main_channel_name:
-			if(isReload)  initMainData();
+			if (isReload)
+				initMainData();
 			break;
 		case R.id.new_main_previous:
 			previous_music();
@@ -578,7 +595,9 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 			}
 			break;
 		case R.id.new_main_download:
-			getDownloadInfo(program_id);
+//			getDownloadInfo(program_id);
+			downloadProgram(PlayerManage.getInstance().getPlayInfos()
+					.get(PlayerManage.getInstance().position));
 			break;
 		case R.id.new_main_program_list:
 			isVisibility = !isVisibility;
@@ -589,7 +608,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		}
 	}
 
-	private void share(){
+	private void share() {
 		Intent intent1 = new Intent();
 		intent1.setAction("android.intent.action.SEND");
 		intent1.addCategory(Intent.CATEGORY_DEFAULT);
@@ -597,22 +616,63 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		intent1.putExtra(Intent.EXTRA_TEXT, "推荐您收听一个节目,名称叫：海豚电台");
 		startActivity(intent1);
 	}
-	
-	private void showOrHidePlayList(boolean isVisibility){
-		if(isVisibility){
+
+	private void showOrHidePlayList(boolean isVisibility) {
+		if (isVisibility) {
 			program_list.setImageResource(R.drawable.program_list_show);
-			if(adapter==null){
-				adapter=new PlayRadioAdapter(getActivity(), PlayerManage.getInstance().getPlayInfos());
+			if (adapter == null) {
+				adapter = new PlayRadioAdapter(getActivity(), PlayerManage
+						.getInstance().getPlayInfos());
 				play_list.setAdapter(adapter);
+				if (Build.VERSION.SDK_INT > 16) {
+					// 为listview设置毛玻璃效果
+					// BitmapFactory.Options options = new
+					// BitmapFactory.Options();
+					// options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+					Bitmap bitmap = BitmapFactory.decodeResource(
+							getResources(), R.drawable.black);
+					blur(play_list, bitmap);
+				}
 			}
+			adapter.notifyDataSetChanged();// 当滚动滑轮的时候，数据发送了改变，显示是通知数据改变
 			play_list.setVisibility(View.VISIBLE);
-			adapter.notifyDataSetChanged();
-		}else{
+		} else {
 			program_list.setImageResource(R.drawable.program_list_hide);
 			play_list.setVisibility(View.GONE);
 		}
 	}
 
+	@SuppressLint("NewApi")
+	private void blur(View view, Bitmap bkg) {
+		// Bitmap overlay = Bitmap.createBitmap(
+		// 102,
+		// 102,
+		// Bitmap.Config.ARGB_8888);
+		// Canvas canvas = new Canvas(overlay);
+		// canvas.drawBitmap(bkg, -view.getLeft(),
+		// -view.getTop(), null);
+		RenderScript rs = RenderScript.create(getActivity());
+		Allocation overlayAlloc = Allocation.createFromBitmap(rs, bkg);
+		ScriptIntrinsicBlur blur = ScriptIntrinsicBlur.create(rs,
+				overlayAlloc.getElement());
+		blur.setInput(overlayAlloc);
+		blur.setRadius(25);
+		blur.forEach(overlayAlloc);
+		overlayAlloc.copyTo(bkg);
+		view.setBackground(new BitmapDrawable(getResources(), bkg));
+		rs.destroy();
+
+		// RenderScript rs = RenderScript.create(getActivity());
+		// Allocation overlayAlloc = Allocation.createFromBitmap(rs, bitmap);
+		// ScriptIntrinsicBlur blur = ScriptIntrinsicBlur.create(rs,
+		// overlayAlloc.getElement());
+		// blur.setInput(overlayAlloc);
+		// blur.setRadius(20);
+		// blur.forEach(overlayAlloc);
+		// overlayAlloc.copyTo(bitmap);
+		// view.setBackground(new BitmapDrawable(getResources(), bitmap));
+		// rs.destroy();
+	}
 
 	/**
 	 * 添加或取消收藏
@@ -672,8 +732,8 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		}
 
 	}
-	
-	private void getDownloadInfo(String program_id){
+
+	private void getDownloadInfo(String program_id) {
 		HttpManage.downloadProgram(new AsyncHttpResponseHandler() {
 
 			@Override
@@ -688,7 +748,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 				Log.i("RadioPlayActivity", "歌名----->" + map.get("title"));
 				String path = map.get("path");
 				String name = map.get("title");
-				downloadProgram(path, name);
+//				downloadProgram(path, name);
 			}
 
 			@Override
@@ -699,19 +759,26 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 			}
 		}, program_id);
 	}
-	
+
 	/**
 	 * 下载节目
-	 * @param url  下载地址
-	 * @param name 歌名
+	 * 
+	 * @param url
+	 *            下载地址
+	 * @param name
+	 *            歌名
 	 */
 	@SuppressWarnings("unused")
-	private void downloadProgram(String url, String name) {
+	private void downloadProgram(PlayInfo playInfo) {
 		// String state = ConfigUtils.DownloadState_WAITTING;
+		String url = playInfo.getPath();
+		String name = playInfo.getTitle();
 		int end = url.lastIndexOf(".");
 		String format = url.substring(end);// 文件的格式
 		String completeName = name + format;
-		boolean isSame = isFileSame(completeName);// 判断节目是否已经被下载过
+		// 判断节目是否已经被下载过
+		boolean isSame = FileUtils.checkFileExists(ConfigUtils.SDDownloadPath
+				+ completeName);
 		if (isSame) {
 			Toast.makeText(getActivity(), "已经缓存", 0).show();
 			return;
@@ -723,15 +790,12 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		// int count = cursor.getCount();
 		//
 		// cursor.close();
-		String thumb = playdatas.getThumb();
-		String path = ConfigUtils.getDownloadPath(getActivity())
-				+ completeName;
+		String thumb = playInfo.getThumb();
+		String path = ConfigUtils.getDownloadPath(getActivity()) + completeName;
 
 		// 初始化下载对象
 		DownloadEntry downloadEntry = new DownloadEntry();
-		if(program_id!=null){
-			downloadEntry.setProgram_id(program_id);
-		}
+		downloadEntry.setProgram_id(playInfo.getId());
 		downloadEntry.setAuthor("无名");
 		downloadEntry.setThumb(thumb);
 		downloadEntry.setStoragePath(path);
@@ -741,44 +805,6 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		DownloadManager.getInstance().beginDownloadFile(getActivity(),
 				downloadEntry, DBUtil.getInstance(getActivity()));
 
-	}
-	
-	/**
-	 * 判断文件是否相同
-	 * 
-	 * @param name
-	 * @return
-	 */
-	private boolean isFileSame(String name) {
-		File sd_file = new File(ConfigUtils.SDDownloadPath);
-		// File rom_file = new File(getFilesDir().getPath() + "/Download/");
-		File[] files;
-		String fileName;
-		Vector<String> vecFile = new Vector<String>();
-		if (sd_file.exists()) {
-			// 取得SD卡下的Download目录下的所有文件
-			files = sd_file.listFiles();
-			Log.i(TAG, "SD卡下" + files);
-		} else {
-			sd_file.mkdirs();
-			return false;
-			// 取得ROM下的Download目录下的所有文件
-			// files = rom_file.listFiles();
-			// Log.i(TAG, "ROM卡下" + files);
-		}
-		// 历遍判断文件名是否相同
-		if (files == null)
-			return false;
-		for (int iFileLength = 0; iFileLength < files.length; iFileLength++) {
-			// 判断是否为文件夹
-			if (!files[iFileLength].isDirectory()) {
-				fileName = files[iFileLength].getName();
-				if (name.equals(fileName)) {
-					return true;
-				} 
-			}
-		}
-		return false;
 	}
 
 	// 是否进入播放音乐
@@ -809,7 +835,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 			playdatas = mList.get(listPosition);
 			program_id = playdatas.getId();
 			music_id = playdatas.getId();
-			time_limit=playdatas.getTimespan();
+			time_limit = playdatas.getTimespan();
 			music_url = playdatas.getPath();
 			music_title = playdatas.getTitle();
 			host_name = playdatas.getOwner();
@@ -823,16 +849,16 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 			uploadMusicProgram(playdatas);
 			return;
 		}
-		PlayerManage.position-=1;
+		PlayerManage.position -= 1;
 		listPosition = PlayerManage.position;
 		if (listPosition >= 0) {
 			playdatas = mList.get(listPosition);
 			// titleMusicString = playdatas.getTitle();
-//			host_id = playdatas.getId();
-//			group_id = "";
+			// host_id = playdatas.getId();
+			// group_id = "";
 			program_id = playdatas.getId();
 			music_id = playdatas.getId();
-			time_limit=playdatas.getTimespan();
+			time_limit = playdatas.getTimespan();
 			music_url = playdatas.getPath();
 			music_title = playdatas.getTitle();
 			host_name = playdatas.getOwner();
@@ -849,13 +875,13 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 			Intent intent = new Intent();
 			intent.setAction("com.myradio.media.MUSIC_SERVICE");
 			intent.setPackage("com.example.strawberryradio");
-//			intent.putExtra("url", music_url);
-//			intent.putExtra("listPosition", listPosition);
-//			intent.putExtra("time_limit", time_limit);
+			// intent.putExtra("url", music_url);
+			// intent.putExtra("listPosition", listPosition);
+			// intent.putExtra("time_limit", time_limit);
 			intent.putExtra("MSG", PlayButton.PlayerMsg.PLAY_MSG);
-//			if(playdatas.getType_id().equals("2")){
-//				intent.putExtra("isTypeTwo", true);
-//			}
+			// if(playdatas.getType_id().equals("2")){
+			// intent.putExtra("isTypeTwo", true);
+			// }
 			getActivity().startService(intent);
 			uploadMusicProgram(playdatas);
 		} else {
@@ -883,16 +909,16 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 			// musicRating.setRating(Integer.valueOf(map.get("playtimes")));
 			return;
 		}
-		PlayerManage.position+=1;
+		PlayerManage.position += 1;
 		listPosition = PlayerManage.position;
 		if (listPosition <= mList.size() - 1) {
 			playdatas = mList.get(listPosition);
 			// titleMusicString = playdatas.getTitle();
-//			host_id = playdatas.getId();
-//			group_id = "";
+			// host_id = playdatas.getId();
+			// group_id = "";
 			program_id = playdatas.getId();
 			music_id = playdatas.getId();
-			time_limit=playdatas.getTimespan();
+			time_limit = playdatas.getTimespan();
 			music_url = playdatas.getPath();
 			music_title = playdatas.getTitle();
 			host_name = playdatas.getOwner();
@@ -910,14 +936,15 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 			intent.putExtra("time_limit", time_limit);
 			intent.putExtra("listPosition", listPosition);
 			intent.putExtra("MSG", PlayButton.PlayerMsg.PLAY_MSG);
-//			if(playdatas.getType_id().equals("2")){
-//				intent.putExtra("isTypeTwo", true);
-//			}
+			// if(playdatas.getType_id().equals("2")){
+			// intent.putExtra("isTypeTwo", true);
+			// }
 			getActivity().startService(intent);
 			uploadMusicProgram(playdatas);
 
 		} else {
-			PlayerManage.position = PlayerManage.getInstance().getPlayInfos().size()-1;
+			PlayerManage.position = PlayerManage.getInstance().getPlayInfos()
+					.size() - 1;
 			Toast.makeText(getActivity(), "没有下一首了", Toast.LENGTH_SHORT).show();
 		}
 	}
@@ -955,10 +982,10 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		Intent intent = new Intent();
 		intent.setAction("com.myradio.media.MUSIC_SERVICE");
 		intent.setPackage("com.example.strawberryradio");
-//		intent.putExtra("url", music_url);
-//		intent.putExtra("time_limit", time_limit);
-//		intent.putExtra("listPosition", listPosition);
-//		intent.putExtra("isTypeTwo", isTypeTwo);
+		// intent.putExtra("url", music_url);
+		// intent.putExtra("time_limit", time_limit);
+		// intent.putExtra("listPosition", listPosition);
+		// intent.putExtra("isTypeTwo", isTypeTwo);
 		intent.putExtra("isLocad", isLocad);
 		intent.putExtra("MSG", PlayButton.PlayerMsg.PLAY_MSG);
 
@@ -1052,19 +1079,20 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		musicTitle.setText(music_title);
 		host.setText("主播：" + host_name);
 	}
-	
-	class MyOnItemClickListener implements OnItemClickListener{
+
+	class MyOnItemClickListener implements OnItemClickListener {
 
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			PlayerManage.position=position;
+			PlayerManage.position = position;
+			adapter.setCurrentPosition(position);
 			playdatas = mList.get(PlayerManage.position);
 			musicTitle.setText(playdatas.getTitle());
 			host.setText("主播：" + playdatas.getOwner());
 			play();
 		}
-		
+
 	}
 
 	public class NewPlayerReceiver extends BroadcastReceiver {
@@ -1082,18 +1110,20 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 				}
 			} else if (action.equals(MUSIC_DURATION)) {
 				duration = intent.getIntExtra("duration", -1);
-				 seekBar.setMax(duration);
+				seekBar.setMax(duration);
 				endtimeTime.setText(MediaUtil.formatTime(duration));
 				mProgressBar.setVisibility(View.GONE);
 				boolean isPlay = intent.getBooleanExtra("isPlay", false);
 				if (isPlay) {
 				}
 			} else if (action.equals(UPDATE_ACTION)) {
-				if(intent.getBooleanExtra("without", false)){
-					Toast.makeText(getActivity(), "没有下一首了,将重头开始", Toast.LENGTH_SHORT).show();
+				if (intent.getBooleanExtra("without", false)) {
+					Toast.makeText(getActivity(), "没有下一首了,将重头开始",
+							Toast.LENGTH_SHORT).show();
 					return;
 				}
-				playdatas = PlayerManage.getInstance().getPlayInfos().get(PlayerManage.position);
+				playdatas = PlayerManage.getInstance().getPlayInfos()
+						.get(PlayerManage.position);
 				titleMusicString = playdatas.getTitle();
 				host_name = playdatas.getOwner();
 				if (host_name == null) {
@@ -1103,7 +1133,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 				group_id = "";
 				program_id = playdatas.getId();
 				music_id = playdatas.getId();
-				time_limit=playdatas.getTimespan();
+				time_limit = playdatas.getTimespan();
 				music_url = playdatas.getPath();
 				music_title = playdatas.getTitle();
 

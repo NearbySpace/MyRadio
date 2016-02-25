@@ -21,6 +21,7 @@
     <color name="gray_white">#D1D1D1</color> <!-- 白灰色  -->
     <color name="gray_white_light">#E8E8E8</color> <!-- 浅白灰色 -->
     <color name="head_info_color">#01AED9</color> <!-- 标题蓝色 -->
+    <color name="head_info_color_transparent">#8801AED9</color> <!-- 半透明标题蓝色 -->
     <color name="black_light_color">#1A1A1A</color> <!-- 浅黑色 -->
 
     <color name="background_tab_pressed">#6633B5E5</color>

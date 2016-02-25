@@ -49,6 +49,7 @@ import com.example.toolbar.bean.ProgramListBean.ProgrammeInfo;
 import com.example.toolbar.bean.ProgramListBean.ProgramListInfo;
 import com.example.toolbar.bean.ProgrammeEditInfo;
 import com.example.toolbar.common.utils.Common;
+import com.example.toolbar.common.utils.FileUtils;
 import com.example.toolbar.common.utils.ImageLoaderHelper;
 import com.example.toolbar.common.utils.LogHelper;
 import com.example.toolbar.db.DBUtil;
@@ -506,8 +507,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 	
 	/**
 	 * 下载节目
-	 * @param url  下载地址
-	 * @param name 歌名
+	 * 
 	 */
 	@SuppressWarnings("unused")
 	private void downloadProgram(ProgramListInfo programlistInfo) {
@@ -515,7 +515,8 @@ public class ProgramListActivity extends AppCompatActivity implements
 		int end = programlistInfo.path.lastIndexOf(".");
 		String format = programlistInfo.path.substring(end);// 文件的格式
 		String completeName = programlistInfo.title + format;
-		boolean isSame = isFileSame(completeName);// 判断节目是否已经被下载过
+//		boolean isSame = isFileSame(completeName);// 判断节目是否已经被下载过
+		boolean isSame = FileUtils.checkFileExists(ConfigUtils.SDDownloadPath+completeName);
 		if (isSame) {
 			Toast.makeText(this, "已经缓存", 0).show();
 			return;
@@ -545,43 +546,6 @@ public class ProgramListActivity extends AppCompatActivity implements
 
 	}
 	
-	/**
-	 * 判断文件是否相同
-	 * 
-	 * @param name
-	 * @return
-	 */
-	private boolean isFileSame(String name) {
-		File sd_file = new File(ConfigUtils.SDDownloadPath);
-		// File rom_file = new File(getFilesDir().getPath() + "/Download/");
-		File[] files;
-		String fileName;
-		Vector<String> vecFile = new Vector<String>();
-		if (sd_file.exists()) {
-			// 取得SD卡下的Download目录下的所有文件
-			files = sd_file.listFiles();
-		} else {
-			sd_file.mkdirs();
-			return false;
-			// 取得ROM下的Download目录下的所有文件
-			// files = rom_file.listFiles();
-			// Log.i(TAG, "ROM卡下" + files);
-		}
-		// 历遍判断文件名是否相同
-		if (files == null)
-			return false;
-		for (int iFileLength = 0; iFileLength < files.length; iFileLength++) {
-			// 判断是否为文件夹
-			if (!files[iFileLength].isDirectory()) {
-				fileName = files[iFileLength].getName();
-				if (name.equals(fileName)) {
-					return true;
-				} 
-			}
-		}
-		return false;
-	}
-
 
 	/**
 	 * 取消编辑状态的设置
