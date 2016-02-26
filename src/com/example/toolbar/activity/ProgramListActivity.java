@@ -511,11 +511,10 @@ public class ProgramListActivity extends AppCompatActivity implements
 	 */
 	@SuppressWarnings("unused")
 	private void downloadProgram(ProgramListInfo programlistInfo) {
-		// String state = ConfigUtils.DownloadState_WAITTING;
 		int end = programlistInfo.path.lastIndexOf(".");
 		String format = programlistInfo.path.substring(end);// 文件的格式
 		String completeName = programlistInfo.title + format;
-//		boolean isSame = isFileSame(completeName);// 判断节目是否已经被下载过
+		// 判断节目是否已经被下载过
 		boolean isSame = FileUtils.checkFileExists(ConfigUtils.SDDownloadPath+completeName);
 		if (isSame) {
 			Toast.makeText(this, "已经缓存", 0).show();

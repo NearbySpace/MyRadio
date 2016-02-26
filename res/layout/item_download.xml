@@ -61,6 +61,7 @@
         android:layout_below="@id/ll_download_info"
         android:layout_alignLeft="@id/ll_download_info"
         android:progressDrawable="@drawable/seekbar_horizontal"
+        style="@android:style/Widget.ProgressBar.Horizontal"
         android:maxHeight="5dp"/>
 
     <TextView

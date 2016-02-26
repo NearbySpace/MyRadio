@@ -106,41 +106,50 @@ public class DownloadTask extends AsyncTask<Void, Object, Integer>{
 			conn.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.2; Trident/4.0; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)");	//客户端用户代理
 			conn.setRequestProperty("Connection", "Keep-Alive");	//使用长连接
 			conn.setRequestProperty("Accept-Encoding", "identity"); 
-			fileSize=conn.getContentLength();
-			Log.i(TAG, "fileSize--->"+fileSize);
-			if(fileSize<=0) throw new Exception("unkonw file size");
-			InputStream is=conn.getInputStream();
-			FileOutputStream fos=new FileOutputStream(storagePath);
-			byte[] buffer = new byte[4*1024];	//设置本地数据缓存的大小为5k
-			int offset = 0;	//设置每次读取的数据量
-			//每一秒更新一次进度
-			new Thread(new Runnable() {
-				@Override
-				public void run() {
-					while(!isFinish){
-						publishProgress(downloadedSize,speed);
-						try {
-							Thread.sleep(500);
-							speed=(downloadedSize - oldDownloadedSize);
-							oldDownloadedSize=downloadedSize;
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					}
-					Log.i(TAG, "下载进度线程结束");
+			int code = conn.getResponseCode();
+			if(code == 200){
+				fileSize=conn.getContentLength();
+				Log.i(TAG, "fileSize--->"+fileSize);
+				if(fileSize<=0) {
+//					throw new Exception("unkonw file size");
+					return isSuccess = 0;
 				}
-			}).start();
-			
-			while((offset=is.read(buffer))!=-1){
-				fos.write(buffer);
-				downloadedSize+=offset;
+				InputStream is=conn.getInputStream();
+				
+				FileOutputStream fos=new FileOutputStream(storagePath);
+				Log.i(TAG, "storagePath2--->"+storagePath);
+				byte[] buffer = new byte[4*1024];	//设置本地数据缓存的大小为5k
+				int offset = 0;	//设置每次读取的数据量
+				//每一秒更新一次进度
+				new Thread(new Runnable() {
+					@Override
+					public void run() {
+						while(!isFinish){
+							publishProgress(downloadedSize,speed);
+							try {
+								Thread.sleep(1000);
+								speed=(downloadedSize - oldDownloadedSize);
+								oldDownloadedSize=downloadedSize;
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+						Log.i(TAG, "下载进度线程结束");
+					}
+				}).start();
+				
+				while((offset=is.read(buffer))!=-1){
+					fos.write(buffer);
+					downloadedSize+=offset;
+				}
+				this.isFinish=true;
+				fos.flush();
+				isSuccess=1;
+				is.close();
+				fos.close();
 			}
-			this.isFinish=true;
-			fos.flush();
-			isSuccess=1;
-			is.close();
-			fos.close();
+			
 		} catch (MalformedURLException e) {
 			Log.i(TAG, "URL有误");
 			e.printStackTrace();

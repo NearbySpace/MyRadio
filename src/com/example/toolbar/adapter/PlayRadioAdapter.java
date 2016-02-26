@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.example.strawberryradio.R;
 import com.example.toolbar.bean.PlayInfo;
+import com.example.toolbar.download.DownloadUtils;
+import com.example.toolbar.service.PlayerManage;
 
 public class PlayRadioAdapter extends BaseAdapter {
 	private List<PlayInfo> mlist;
@@ -81,7 +83,7 @@ public class PlayRadioAdapter extends BaseAdapter {
 			@Override
 			public void onClick(View v) {
 				// 下载操作
-				
+				DownloadUtils.downloadProgram(context,info);
 			}
 		});
 		return convertView;

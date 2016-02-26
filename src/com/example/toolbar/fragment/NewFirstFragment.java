@@ -65,6 +65,7 @@ import com.example.toolbar.common.utils.FileUtils;
 import com.example.toolbar.common.utils.NetUtil;
 import com.example.toolbar.db.DBUtil;
 import com.example.toolbar.download.DownloadManager;
+import com.example.toolbar.download.DownloadUtils;
 import com.example.toolbar.entity.PlayButton;
 import com.example.toolbar.http.HttpManage;
 import com.example.toolbar.service.PlayerManage;
@@ -595,9 +596,13 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 			}
 			break;
 		case R.id.new_main_download:
-//			getDownloadInfo(program_id);
-			downloadProgram(PlayerManage.getInstance().getPlayInfos()
-					.get(PlayerManage.getInstance().position));
+			// getDownloadInfo(program_id);
+			DownloadUtils.downloadProgram(
+					getActivity(),
+					PlayerManage.getInstance().getPlayInfos()
+							.get(PlayerManage.position));
+			// downloadProgram(PlayerManage.getInstance().getPlayInfos()
+			// .get(PlayerManage.getInstance().position));
 			break;
 		case R.id.new_main_program_list:
 			isVisibility = !isVisibility;
@@ -634,7 +639,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 					blur(play_list, bitmap);
 				}
 			}
-			adapter.notifyDataSetChanged();// 当滚动滑轮的时候，数据发送了改变，显示是通知数据改变
+			adapter.notifyDataSetChanged();// 当滚动滑轮的时候，数据发生了改变，显示是通知数据改变
 			play_list.setVisibility(View.VISIBLE);
 		} else {
 			program_list.setImageResource(R.drawable.program_list_hide);
@@ -748,7 +753,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 				Log.i("RadioPlayActivity", "歌名----->" + map.get("title"));
 				String path = map.get("path");
 				String name = map.get("title");
-//				downloadProgram(path, name);
+				// downloadProgram(path, name);
 			}
 
 			@Override

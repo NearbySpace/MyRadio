@@ -1,5 +1,7 @@
 package com.example.toolbar.utils;
 
+import java.io.File;
+
 import android.content.Context;
 import android.os.Environment;
 
@@ -24,6 +26,10 @@ public class ConfigUtils {
 	
 	public static String getDownloadPath(Context context){
 		if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+			File file = new File(SDDownloadPath);
+			if(!file.exists()){
+				file.mkdirs();
+			}
 			return SDDownloadPath;
 		}
 		return context.getFilesDir().getPath()+"/ImageDownload";
