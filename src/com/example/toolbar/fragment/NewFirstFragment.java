@@ -857,6 +857,9 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		PlayerManage.position -= 1;
 		listPosition = PlayerManage.position;
 		if (listPosition >= 0) {
+			if (adapter != null) {
+				adapter.setCurrentPosition(PlayerManage.position);
+			}
 			playdatas = mList.get(listPosition);
 			// titleMusicString = playdatas.getTitle();
 			// host_id = playdatas.getId();
@@ -917,6 +920,9 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		PlayerManage.position += 1;
 		listPosition = PlayerManage.position;
 		if (listPosition <= mList.size() - 1) {
+			if (adapter != null) {
+				adapter.setCurrentPosition(PlayerManage.position);
+			}
 			playdatas = mList.get(listPosition);
 			// titleMusicString = playdatas.getTitle();
 			// host_id = playdatas.getId();

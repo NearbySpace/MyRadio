@@ -147,10 +147,10 @@
         android:layout_marginLeft="12dp"
         android:ellipsize="marquee"
         android:gravity="center_horizontal"
-        android:singleLine="true"
+        android:singleLine="false"
         android:text="@string/app_name"
         android:textColor="#FFFFFF"
-        android:textSize="27sp" />
+        android:textSize="17sp" />
 
     <RelativeLayout
         android:id="@+id/new_main_picker_ll"
