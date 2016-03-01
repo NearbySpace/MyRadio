@@ -336,7 +336,6 @@ public class NewMainActivity extends AppCompatActivity implements OnClickListene
 				}
 				if (map.containsKey("version")
 						&& !map.get("version").equals(pinfo.versionName)) {
-
 					AlertDialog.Builder builder = new AlertDialog.Builder(
 							context);
 					builder.setTitle("海豚电台客户端有新的版本啦,V" + map.get("version"));

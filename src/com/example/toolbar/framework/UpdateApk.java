@@ -112,7 +112,7 @@ public class UpdateApk {
 					return;
 				}
 				if (map.containsKey("version")
-						&& !map.get("version").equals(pinfo.versionName)) {
+						&& Float.valueOf(map.get("version")) > Float.valueOf(pinfo.versionName)) {
 					if(context instanceof SettingActivity){
 						((SettingActivity) context).closeCheckDialog();;
 					}

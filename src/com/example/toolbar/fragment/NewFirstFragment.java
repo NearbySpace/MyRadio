@@ -46,6 +46,7 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -100,6 +101,8 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	private PickerView mPickerView;
 	private ListView play_list;
 	private ProgressBar mProgressBar;
+	private ScrollView mScrollView;
+	private TextView tv_introduction;//频道说明词
 	// 分享
 	private ImageView imageViewFenxiang;
 
@@ -252,6 +255,8 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	public void initView() {
 		tv_channelName = (TextView) view
 				.findViewById(R.id.new_main_channel_name);
+		mScrollView = (ScrollView) view.findViewById(R.id.new_main_sv_introduction);
+		tv_introduction = (TextView) view.findViewById(R.id.new_main_tv_introduction);
 		first_more = (ImageView) view.findViewById(R.id.more_frist);
 		menue_or_back = (ImageView) view.findViewById(R.id.Silding_menu);
 		download = (ImageView) view.findViewById(R.id.new_main_download);
@@ -290,10 +295,10 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		play_list.setOnItemClickListener(new MyOnItemClickListener());
 		mPickerView.setOnSelectListener(new onSelectListener() {
 			@Override
-			public void onSelect(String title, String classifyId) {
+			public void onSelect(String title, String classifyId,String content) {
 				pickerCurrentId = classifyId;
 				channelName = title;
-				Log.i(TAG, "classifyId---->" + classifyId);
+				tv_introduction.setText(content);
 				if (isCompleteGetOneClassifyContent) {
 					getOneClassifyContent(1, pickerCurrentId);
 				}
@@ -320,7 +325,6 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		picker_string = new ArrayList<String>();
 		// map = MyApplication.getInstance().getSpUtil().getDefaultProgram();
 		// channelName = map.get("classifyName");
-
 		listPosition = 0;
 		// getOneClassifyContent(1, map.get("classifyID"));
 		mProgressBar.setVisibility(View.VISIBLE);
@@ -334,6 +338,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 				mPickerBean = gson.fromJson(result, PickerBean.class);
 				for (int i = 0; i < mPickerBean.list.size(); i++) {
 					picker_string.add(mPickerBean.list.get(i).title);
+					Log.i(TAG, mPickerBean.list.get(i).title);
 				}
 				if (mPickerBean.list == null) {
 					tv_channelName.setVisibility(View.VISIBLE);
@@ -346,8 +351,9 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 					mPickerView.setVisibility(View.VISIBLE);
 					mPickerView.setData(mPickerBean);
 					mPickerView.setSelected(0);
+					tv_introduction.setText(mPickerBean.list.get(mPickerBean.list.size() / 2).content);
 					tv_channelName.setVisibility(View.GONE);
-					getOneClassifyContent(1, mPickerBean.list.get(0).id);
+					getOneClassifyContent(1, mPickerBean.list.get(mPickerBean.list.size() / 2).id);
 					channelName = mPickerBean.list.get(0).title;
 					isReload = false;
 				}
@@ -449,6 +455,8 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		} else {
 			channelName = " ";
 		}
+		tv_introduction.setVisibility(View.GONE);
+		musicTitle.setVisibility(View.VISIBLE);
 		initData();
 	}
 

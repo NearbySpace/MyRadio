@@ -69,8 +69,7 @@ public class SplashActivity extends Activity {
 		setContentView(R.layout.splash_activity);
 		tv_version = (TextView) findViewById(R.id.tv_version);
 		tv_version.setText("" + getVersionName());
-		mPlayer = MediaPlayer.create(this, R.raw.dolphin);
-		mPlayer.start();
+		
 		if (isUpdata) {
 			// 停2秒，联网检查版本是否有跟新
 			getConnetUpdate();
@@ -81,7 +80,10 @@ public class SplashActivity extends Activity {
 				@Override
 				public void run() {
 					try {
-						Thread.sleep(2000);
+						Thread.sleep(1000);
+						mPlayer = MediaPlayer.create(SplashActivity.this, R.raw.dolphin);
+						mPlayer.start();
+						Thread.sleep(1000);
 						enterHome();
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block

@@ -136,12 +136,13 @@ public class ProgramListActivity extends AppCompatActivity implements
 	@Override
 	protected void onActivityResult(int arg0, int arg1, Intent arg2) {
 		// TODO Auto-generated method stub
-		Log.i("ProgramListAcivity", "触发了onActivityResult");
-		initData();
+//		Log.i("ProgramListAcivity", "触发了onActivityResult");
+//		initData();
 		super.onActivityResult(arg0, arg1, arg2);
-//		if(Activity.RESULT_OK==arg1){
-//			initData();
-//		}
+		if(Activity.RESULT_OK==arg1){
+			initData();
+//			Log.i("ProgramListAcivity", "触发了onActivityResult初始化");
+		}
 	}
 
 	@Override
@@ -219,6 +220,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 					ll_editor.setVisibility(View.VISIBLE);
 					int marginButtomHeight = ll_editor.getHeight();
 					ll_main_info.setPadding(0, 0, 0, marginButtomHeight);
+					Log.i("ProgramListActivity", "marginButtomHeight:"+marginButtomHeight);
 
 					if (mProgramListAdapter == null) {
 						mProgramListAdapter = new ProgramListAdapter(
@@ -276,9 +278,16 @@ public class ProgramListActivity extends AppCompatActivity implements
 //							mProgramListAdapter = new ProgramListAdapter(
 //									ProgramListActivity.this, bean.list);
 //						}
-						mProgramListAdapter = new ProgramListAdapter(
-								ProgramListActivity.this, bean.list);
-						mDragSortListView.setAdapter(mProgramListAdapter);
+						if(mProgramListAdapter == null){
+							mProgramListAdapter = new ProgramListAdapter(
+									ProgramListActivity.this, bean.list);
+							mDragSortListView.setAdapter(mProgramListAdapter);
+						}else{
+							
+							mProgramListAdapter.setDate(bean.list);
+						}
+						
+						
 						sv.smoothScrollTo(0, 20);
 						sv.setVisibility(View.VISIBLE);
 						progress.setVisibility(View.GONE);

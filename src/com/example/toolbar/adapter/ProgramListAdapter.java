@@ -47,6 +47,11 @@ public class ProgramListAdapter extends BaseAdapter {
 	public void setIsSure(boolean isSure) {
 		this.isSure = isSure;
 	}
+	
+	public void setDate(ArrayList<ProgramListInfo> ProgramListInfos){
+		mProgramListInfos = ProgramListInfos;
+		notifyDataSetChanged();
+	}
 
 	@Override
 	public int getCount() {

@@ -100,7 +100,8 @@ public class PickerView extends View {
 			// mSelectListener.onSelect(mDataList.get(mCurrentSelected));
 			mSelectListener.onSelect(
 					mPickerBean.list.get(mCurrentSelected).title,
-					mPickerBean.list.get(mCurrentSelected).id);
+					mPickerBean.list.get(mCurrentSelected).id,
+					mPickerBean.list.get(mCurrentSelected).content);
 	}
 
 	public void setData(PickerBean pickerData) {
@@ -249,7 +250,6 @@ public class PickerView extends View {
 		}else{
 			baseline = (float) (y - (fmi.bottom / 2.0 + fmi.top / 2.0));
 		}
-		Log.i(TAG, "type: "+type+"-------->position:"+ type * position);
 		canvas.drawText(
 				mPickerBean.list.get(mCurrentSelected + type * position).title+"频道",
 				(float) (mViewWidth / 2.0), baseline, mPaint);
@@ -342,6 +342,6 @@ public class PickerView extends View {
 	}
 
 	public interface onSelectListener {
-		void onSelect(String title, String classifyId);
+		void onSelect(String title, String classifyId,String content);
 	}
 }

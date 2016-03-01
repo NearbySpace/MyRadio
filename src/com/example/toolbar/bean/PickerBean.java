@@ -9,5 +9,6 @@ public class PickerBean {
 		public String id;
 		public String thumb;
 		public String title;
+		public String content;
 	}
 }
