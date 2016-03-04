@@ -127,7 +127,7 @@ public class SettingActivity extends AppCompatActivity implements
 			break;
 		case R.id.setting_tv_update:
 			// 检查更新
-			showCheckDialog();
+			checkUpdateDialog = showCheckDialog();
 			UpdateApk.checkVersion(SettingActivity.this,2);
 			break;
 
@@ -137,11 +137,13 @@ public class SettingActivity extends AppCompatActivity implements
 
 	}
 
-	private void showCheckDialog() {
+	private AlertDialog showCheckDialog() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(SettingActivity.this);
 		View view = View.inflate(SettingActivity.this, R.layout.dialog_check_update, null);
 		builder.setView(view);
-		checkUpdateDialog = builder.show();
+		AlertDialog dialog = builder.show();
+		dialog.setCancelable(false);
+		return dialog;
 		
 	}
 	

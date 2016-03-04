@@ -60,6 +60,7 @@ import com.example.toolbar.utils.ConfigUtils;
 import com.example.toolbar.utils.UserUtils;
 import com.example.toolbar.view.MyListView;
 import com.example.toolbar.view.MyToast;
+import com.example.toolbar.view.OverScrollView;
 import com.example.toolbar.view.progress.CircularProgress;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -71,7 +72,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 	private ShareActionProvider mShareActionProvider;
 	private Toolbar mToolbar;
 	private ImageLoader mImageLoader;
-	private ScrollView sv;
+	private OverScrollView sv;
 	private LinearLayout ll_editor;
 	private LinearLayout ll_main_info;
 
@@ -165,7 +166,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 		mToolbar = (Toolbar) findViewById(R.id.toolbar);
 		mToolbar.setTitle("节目单");
 		setSupportActionBar(mToolbar);
-		sv = (ScrollView) findViewById(R.id.program_list_scrollview);
+		sv = (OverScrollView) findViewById(R.id.program_list_scrollview);
 		show_img = (ImageView) findViewById(R.id.show_img);
 		user_icon = (ImageView) findViewById(R.id.user_icon);
 		user_icon.setOnClickListener(this);
@@ -218,10 +219,16 @@ public class ProgramListActivity extends AppCompatActivity implements
 				switch (arg0.getItemId()) {
 				case R.id.menu_editor:
 					ll_editor.setVisibility(View.VISIBLE);
-					int marginButtomHeight = ll_editor.getHeight();
-					ll_main_info.setPadding(0, 0, 0, marginButtomHeight);
-					Log.i("ProgramListActivity", "marginButtomHeight:"+marginButtomHeight);
-
+					//ll_editor第一次显示的时候直接getHeight()得到的值为0，
+					//view.post方法中Runnable是在view测绘好宽高后才执行的
+					ll_editor.post(new Runnable() {
+						@Override
+						public void run() {
+							int marginButtomHeight = ll_editor.getHeight();
+							ll_main_info.setPadding(0, 0, 0, marginButtomHeight);
+						}
+					});
+					
 					if (mProgramListAdapter == null) {
 						mProgramListAdapter = new ProgramListAdapter(
 								ProgramListActivity.this, bean.list);
@@ -288,16 +295,13 @@ public class ProgramListActivity extends AppCompatActivity implements
 						}
 						
 						
-						sv.smoothScrollTo(0, 20);
-						sv.setVisibility(View.VISIBLE);
+//						sv.smoothScrollTo(0, 20);
 						progress.setVisibility(View.GONE);
 					}
 
 					@Override
 					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
 							Throwable arg3) {
-						Log.i("ProgramListActivity", "数据加载失败：id---->"
-								+ "该id不存在");
 						progress.setVisibility(View.GONE);
 						remind.setVisibility(View.VISIBLE);
 					}
@@ -323,8 +327,6 @@ public class ProgramListActivity extends AppCompatActivity implements
 	public void removeProgramId(String id) {
 		if (checkedIdList.contains(id))
 			checkedIdList.remove(id);
-		Log.i("ProgramListActivity",
-				"移除后checkedIdList的长度:" + checkedIdList.size());
 	}
 
 	@Override

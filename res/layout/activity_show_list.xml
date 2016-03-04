@@ -14,10 +14,10 @@
 
         <include layout="@layout/toolbar" />
 
-        <ScrollView
+        <com.example.toolbar.view.OverScrollView
             android:id="@+id/program_list_scrollview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:visibility="visible" >
 
             <LinearLayout
@@ -197,7 +197,7 @@
                     android:textColor="@color/color_text_black"
                     android:textSize="17sp" />
             </LinearLayout>
-        </ScrollView>
+        </com.example.toolbar.view.OverScrollView>
     </LinearLayout>
 
     <com.example.toolbar.view.progress.CircularProgress
