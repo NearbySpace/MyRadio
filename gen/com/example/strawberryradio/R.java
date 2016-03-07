@@ -3585,7 +3585,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int myradio_seekbar_style=0x7f020106;
         public static final int notification_download_content=0x7f020107;
         public static final int notification_download_icon=0x7f020108;
-        public static final int notification_template_icon_bg=0x7f02014d;
+        public static final int notification_template_icon_bg=0x7f02014e;
         public static final int person_rank=0x7f020109;
         public static final int person_selector=0x7f02010a;
         public static final int play_background=0x7f02010b;
@@ -3641,20 +3641,21 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int t=0x7f02013d;
         public static final int text_black_bg=0x7f02013e;
         public static final int text_color_selector=0x7f02013f;
-        public static final int text_color_selector1=0x7f020140;
-        public static final int text_normal=0x7f020141;
+        public static final int text_normal=0x7f020140;
+        public static final int text_normal_light_white=0x7f020141;
         public static final int text_normal_white=0x7f020142;
         public static final int text_pressed=0x7f020143;
         public static final int text_selector=0x7f020144;
-        public static final int thumb=0x7f020145;
-        public static final int transparent_background=0x7f020146;
-        public static final int user_icon=0x7f020147;
-        public static final int usericon_bg=0x7f020148;
-        public static final int volume_grey=0x7f020149;
-        public static final int volume_red=0x7f02014a;
-        public static final int volumn_white_bg=0x7f02014b;
-        public static final int welcome=0x7f02014c;
-        public static final int window_background=0x7f02014e;
+        public static final int text_selector_menu=0x7f020145;
+        public static final int thumb=0x7f020146;
+        public static final int transparent_background=0x7f020147;
+        public static final int user_icon=0x7f020148;
+        public static final int usericon_bg=0x7f020149;
+        public static final int volume_grey=0x7f02014a;
+        public static final int volume_red=0x7f02014b;
+        public static final int volumn_white_bg=0x7f02014c;
+        public static final int welcome=0x7f02014d;
+        public static final int window_background=0x7f02014f;
     }
     public static final class id {
         public static final int IndicatorLayout=0x7f070203;
@@ -4445,6 +4446,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int loading_setting=0x7f080065;
         public static final int login=0x7f080021;
         public static final int login_message=0x7f080020;
+        public static final int network_remind=0x7f080066;
         public static final int new_password=0x7f08002b;
         public static final int new_password2=0x7f08002c;
         public static final int new_password_hint=0x7f08002d;

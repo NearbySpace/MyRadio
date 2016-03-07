@@ -45,13 +45,11 @@
     <string name="downloading">正在下载</string>
     <string name="downloaded">下载完成</string>
     <string name="download_hint">没有下载任务</string>
-    
     <string name="setting_safe">安全与账号</string>
     <string name="setting_exit">退出</string>
     <string name="setting_update">检查更新</string>
     <string name="exit_radio">退出电台</string>
     <string name="exit_account">退出账户</string>
-    
     <string name="find_remimd">数据加载失败,请下拉刷新</string>
     <string name="remimd">数据加载失败，请重新加载或检查网络连接</string>
     <string name="search_content_remimd">没有搜索到相关内容</string>
@@ -67,7 +65,6 @@
     <string name="search_remind">没有搜索到相关的内容</string>
     <string name="suggestion_title">您的意见：</string>
     <string name="ok">确定</string>
-    
     <string name="find">发现</string>
     <string name="ranking">排行榜</string>
     <string name="default_program">设置默认节目</string>
@@ -80,5 +77,6 @@
     <string name="slogan">悦耳动心</string>
     <string name="dialog_download_title">选择要下载的节目</string>
     <string name="loading_setting">正在检查中</string>
+    <string name="network_remind">您现在使用的是数据流量，播放该节目需要大量数据流量，是否继续播放</string>
 
 </resources>

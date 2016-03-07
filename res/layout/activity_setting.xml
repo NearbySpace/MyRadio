@@ -33,6 +33,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:background="@drawable/text_color_selector"
                     android:clickable="true"
                     android:text="@string/setting_safe"
                     android:textSize="17sp" />
@@ -89,6 +90,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
+                    android:background="@drawable/text_color_selector"
                     android:paddingBottom="12dp"
                     android:paddingLeft="12dp"
                     android:paddingTop="12dp"

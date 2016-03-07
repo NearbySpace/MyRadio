@@ -58,6 +58,7 @@
                     android:id="@+id/new_my_program"
                     android:layout_width="match_parent"
                     android:layout_height="42dp"
+                    android:background="@drawable/text_selector_menu"
                     android:orientation="horizontal" >
 
                     <TextView
@@ -89,6 +90,7 @@
                     android:id="@+id/new_my_favorite"
                     android:layout_width="match_parent"
                     android:layout_height="42dp"
+                    android:background="@drawable/text_selector_menu"
                     android:orientation="horizontal" >
 
                     <TextView
@@ -119,6 +121,7 @@
                     android:id="@+id/new_more_shre"
                     android:layout_width="match_parent"
                     android:layout_height="42dp"
+                    android:background="@drawable/text_selector_menu"
                     android:orientation="horizontal" >
 
                     <TextView
@@ -148,6 +151,7 @@
                     android:id="@+id/new_addusers"
                     android:layout_width="match_parent"
                     android:layout_height="42dp"
+                    android:background="@drawable/text_selector_menu"
                     android:orientation="horizontal" >
 
                     <TextView
@@ -177,6 +181,7 @@
                     android:id="@+id/new_setting"
                     android:layout_width="match_parent"
                     android:layout_height="42dp"
+                    android:background="@drawable/text_selector_menu"
                     android:layout_marginBottom="20dp"
                     android:orientation="horizontal" >
                     

@@ -52,7 +52,12 @@ public class NetUtil {
 		    return false;  
 		}
 		
-		//获取当前网络连接的类型信息	
+		
+		/**
+		 * 获取当前网络连接的类型信息	
+		 * @param context
+		 * @return  
+		 */
 		public static int getConnectedType(Context context) {  
 		    if (context != null) {  
 		        ConnectivityManager mConnectivityManager = (ConnectivityManager) context  

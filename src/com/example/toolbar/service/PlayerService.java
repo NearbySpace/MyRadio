@@ -13,13 +13,16 @@ import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.media.audiofx.Visualizer;
+import android.net.ConnectivityManager;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.SystemClock;
 import android.util.Log;
+import android.widget.Switch;
 
 import com.example.toolbar.application.MyApplication;
+import com.example.toolbar.common.utils.NetUtil;
 import com.example.toolbar.entity.PlayButton;
 /***
  * 
@@ -228,7 +231,6 @@ public class PlayerService extends Service {
 //		path = intent.getStringExtra("url") + "";		//歌曲路径
 //		current = intent.getIntExtra("listPosition", -1);	//当前播放歌曲的在mp3Infos的位置
 		msg = intent.getIntExtra("MSG", 0);			//播放信息
-		Log.i("PlayService", "PlayerManage.position:"+PlayerManage.position);
 		String timespan=PlayerManage.getInstance().getPlayInfos().get(PlayerManage.position).getTimespan();
 		try {
 			Float time=Float.valueOf(timespan);
@@ -236,7 +238,7 @@ public class PlayerService extends Service {
 		} catch (Exception e) {
 			time_limit=0;
 		}
-		Log.i("PlayService", "时间限制---->time_limt:"+time_limit);
+//		Log.i("PlayService", "时间限制---->time_limt:"+time_limit);
 //		String time=PlayerManage.getInstance().getPlayInfos().get(PlayerManage.position).getTimespan();
 //		if(time != null && !time.isEmpty()){
 //			Float times=Float.valueOf(time);
@@ -363,6 +365,7 @@ public class PlayerService extends Service {
 	 * @param position
 	 */
 	private void play(int currentTime) {
+		
 		try {
 			//initLrc();
 			mediaPlayer.reset();// 把各项参数恢复到初始状态
@@ -394,6 +397,18 @@ public class PlayerService extends Service {
 			if(isLocad){
 				mediaPlayer.prepare(); // 进行缓冲，播放本地音乐时使用
 			}else{
+				switch (NetUtil.getConnectedType(getApplicationContext())) {
+				case -1: //无网络连接
+					return;
+				case ConnectivityManager.TYPE_WIFI:
+					
+					break;
+				case ConnectivityManager.TYPE_MOBILE:
+					
+					break;
+				default:
+					break;
+				}
 				mediaPlayer.prepareAsync();//播放网络资源时使用
 			}
 			handler.sendEmptyMessage(1);

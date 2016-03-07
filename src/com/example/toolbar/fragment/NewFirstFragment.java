@@ -15,6 +15,7 @@ import org.apache.http.Header;
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
@@ -32,6 +33,7 @@ import android.renderscript.Allocation;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -70,6 +72,7 @@ import com.example.toolbar.download.DownloadUtils;
 import com.example.toolbar.entity.PlayButton;
 import com.example.toolbar.http.HttpManage;
 import com.example.toolbar.service.PlayerManage;
+import com.example.toolbar.service.PlayerService;
 import com.example.toolbar.utils.ConfigUtils;
 import com.example.toolbar.utils.MediaUtil;
 import com.example.toolbar.utils.SharePreferenceUtil;
@@ -149,6 +152,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	public static final String SHOW_LRC = "com.myradio.action.SHOW_LRC"; // 通知显示歌词
 	public static final String MUSIC_FINISH = "com.myradio.action.MUSIC_FINISH";// 音乐播放完
 	public static final String OPEN_BTN_CHANGE = "com.myradio.vlook.action.OPEN_BTN_CHANGE";// 音乐播放按钮的更新
+	public static final String NETWORK_STATE = "com.myradio.action.NETWORK_STATE";//网络状态
 
 	private SharePreferenceUtil mSharePreferenceUtil;
 	private Bundle bundle;// 歌曲全部信息传递
@@ -318,6 +322,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		filter.addAction(MUSIC_DURATION);
 		filter.addAction(MUSIC_FINISH);
 		filter.addAction(OPEN_BTN_CHANGE);
+		filter.addAction(NETWORK_STATE);
 		getActivity().registerReceiver(playerReceiver, filter);
 	}
 
@@ -1007,7 +1012,6 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		// intent.putExtra("isTypeTwo", isTypeTwo);
 		intent.putExtra("isLocad", isLocad);
 		intent.putExtra("MSG", PlayButton.PlayerMsg.PLAY_MSG);
-
 		getActivity().startService(intent);
 		openMusicAnimation();
 	}
@@ -1200,8 +1204,41 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 					IS_PLAY = false;
 					// mHeadImageView.clearAnimation();
 				}
+			}else if(action.equals(NETWORK_STATE)){
+				showAlerDialog();
 			}
 		}
+
+	}
+	
+	private void showAlerDialog() {
+		AlertDialog dialog ;
+		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+		builder.setTitle("警告");
+		builder.setMessage(R.string.network_remind);
+		builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+//				Intent intent = new Intent(getActivity(),PlayerService.class);
+//				intent.putExtra("isContinue", true);
+				dialog.dismiss();
+				play();
+			}
+		});
+		builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				dialog.dismiss();
+				getActivity().finish();
+			}
+			
+		});
+		dialog = builder.show();
+		
 	}
 
 }
