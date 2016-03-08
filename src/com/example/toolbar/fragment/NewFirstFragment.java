@@ -55,6 +55,7 @@ import android.widget.Toast;
 
 import com.example.strawberryradio.R;
 import com.example.toolbar.activity.NewMainActivity;
+import com.example.toolbar.activity.ProgramListActivity;
 import com.example.toolbar.activity.RadioPlayActivity;
 import com.example.toolbar.adapter.PlayRadioAdapter;
 import com.example.toolbar.application.MyApplication;
@@ -74,8 +75,10 @@ import com.example.toolbar.http.HttpManage;
 import com.example.toolbar.service.PlayerManage;
 import com.example.toolbar.service.PlayerService;
 import com.example.toolbar.utils.ConfigUtils;
+import com.example.toolbar.utils.DialogUtils;
 import com.example.toolbar.utils.MediaUtil;
 import com.example.toolbar.utils.SharePreferenceUtil;
+import com.example.toolbar.utils.ToastUtils;
 import com.example.toolbar.utils.UserUtils;
 import com.example.toolbar.view.FocusedTextView;
 import com.example.toolbar.view.PickerView;
@@ -105,7 +108,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	private ListView play_list;
 	private ProgressBar mProgressBar;
 	private ScrollView mScrollView;
-	private TextView tv_introduction;//频道说明词
+	private TextView tv_introduction;// 频道说明词
 	// 分享
 	private ImageView imageViewFenxiang;
 
@@ -133,6 +136,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	private boolean isLocad = false;// 是否本地资源播放
 	private boolean isMain = true;// 是否主页
 	private boolean isAgain = false;// 播放完后，是否重新播放
+	private boolean isAlreadyRemind=false;//是否已经提醒过了（关于网络状况）
 
 	/**
 	 * 是否重新加载数据
@@ -152,7 +156,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	public static final String SHOW_LRC = "com.myradio.action.SHOW_LRC"; // 通知显示歌词
 	public static final String MUSIC_FINISH = "com.myradio.action.MUSIC_FINISH";// 音乐播放完
 	public static final String OPEN_BTN_CHANGE = "com.myradio.vlook.action.OPEN_BTN_CHANGE";// 音乐播放按钮的更新
-	public static final String NETWORK_STATE = "com.myradio.action.NETWORK_STATE";//网络状态
+	public static final String NETWORK_STATE = "com.myradio.action.NETWORK_STATE";// 网络状态
 
 	private SharePreferenceUtil mSharePreferenceUtil;
 	private Bundle bundle;// 歌曲全部信息传递
@@ -259,8 +263,10 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	public void initView() {
 		tv_channelName = (TextView) view
 				.findViewById(R.id.new_main_channel_name);
-		mScrollView = (ScrollView) view.findViewById(R.id.new_main_sv_introduction);
-		tv_introduction = (TextView) view.findViewById(R.id.new_main_tv_introduction);
+		mScrollView = (ScrollView) view
+				.findViewById(R.id.new_main_sv_introduction);
+		tv_introduction = (TextView) view
+				.findViewById(R.id.new_main_tv_introduction);
 		first_more = (ImageView) view.findViewById(R.id.more_frist);
 		menue_or_back = (ImageView) view.findViewById(R.id.Silding_menu);
 		download = (ImageView) view.findViewById(R.id.new_main_download);
@@ -299,7 +305,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		play_list.setOnItemClickListener(new MyOnItemClickListener());
 		mPickerView.setOnSelectListener(new onSelectListener() {
 			@Override
-			public void onSelect(String title, String classifyId,String content) {
+			public void onSelect(String title, String classifyId, String content) {
 				pickerCurrentId = classifyId;
 				channelName = title;
 				tv_introduction.setText(content);
@@ -322,7 +328,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		filter.addAction(MUSIC_DURATION);
 		filter.addAction(MUSIC_FINISH);
 		filter.addAction(OPEN_BTN_CHANGE);
-		filter.addAction(NETWORK_STATE);
+		filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
 		getActivity().registerReceiver(playerReceiver, filter);
 	}
 
@@ -350,15 +356,16 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 					tv_channelName.setText("数据加载失败，请点击重新加载");
 					isReload = true;
 					mPickerView.setVisibility(View.GONE);
-					Log.i(TAG, "mPickerBean.list-------->是空");
 				} else {
-					Log.i(TAG, "mPickerBean.list-------->是不空");
 					mPickerView.setVisibility(View.VISIBLE);
 					mPickerView.setData(mPickerBean);
 					mPickerView.setSelected(0);
-					tv_introduction.setText(mPickerBean.list.get(mPickerBean.list.size() / 2).content);
+					tv_introduction.setText(mPickerBean.list
+							.get(mPickerBean.list.size() / 2).content);
 					tv_channelName.setVisibility(View.GONE);
-					getOneClassifyContent(1, mPickerBean.list.get(mPickerBean.list.size() / 2).id);
+					getOneClassifyContent(
+							1,
+							mPickerBean.list.get(mPickerBean.list.size() / 2).id);
 					channelName = mPickerBean.list.get(0).title;
 					isReload = false;
 				}
@@ -426,7 +433,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 						if (mList.size() == 0) {
 							getOneClassifyContent(1, pickerCurrentId);
 						} else {
-							initData();
+							initData();//初始化播放数据
 						}
 						if (adapter != null) {
 							adapter.setCurrentPosition(0);
@@ -514,17 +521,8 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 
 		musicTitle.setText(music_title);
 		host.setText("主播：" + host_name);
-		// SavePlayInfo(music_title, host_name);
 		initCollect();
-		// LogHelper.e("music_url:" +music_url +"/nmusic_title" + music_title +
-		// "/nthumb" + playdatas.getThumb());
-		// mImageLoader.displayImage(playdatas.getThumb(), mHeadImageView,
-		// ImageLoaderHelper.getDisplayImageUnDefaultOptions());
-		// setMusicThumb(playdatas.getThumb());
 		firstEnter();
-
-		// Progress.setVisibility(View.GONE);
-		// initCollect();
 	}
 
 	/**
@@ -610,10 +608,8 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 			break;
 		case R.id.new_main_download:
 			// getDownloadInfo(program_id);
-			DownloadUtils.downloadProgram(
-					getActivity(),
-					PlayerManage.getInstance().getPlayInfos()
-							.get(PlayerManage.position));
+			DownloadUtils.downloadProgram(getActivity(), PlayerManage
+					.getInstance().getPlayInfos().get(PlayerManage.position));
 			// downloadProgram(PlayerManage.getInstance().getPlayInfos()
 			// .get(PlayerManage.getInstance().position));
 			break;
@@ -652,8 +648,10 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 					blur(play_list, bitmap);
 				}
 			}
-			adapter.notifyDataSetChanged();// 当滚动滑轮的时候，数据发生了改变，显示是通知数据改变
+			adapter.setCurrentPosition(PlayerManage.position);
+//			adapter.notifyDataSetChanged();// 当滚动滑轮的时候，数据发生了改变，显示是通知数据改变
 			play_list.setVisibility(View.VISIBLE);
+			
 		} else {
 			program_list.setImageResource(R.drawable.program_list_hide);
 			play_list.setVisibility(View.GONE);
@@ -827,13 +825,35 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 
 	// 是否进入播放音乐
 	private void firstEnter() {
-
-		if (NetUtil.getConnectedType(getActivity()) == ConnectivityManager.TYPE_WIFI
-				&& getActivity().getIntent().getStringExtra("is_notify") == null
-				&& getActivity().getIntent().getStringExtra(
-						"userinfo_shoucang_id") == null) {
+		if(isMain){
+			if(!isAlreadyRemind){
+				switch (NetUtil.getConnectedType(getActivity())) {
+				case -1: //无网络连接
+					ToastUtils.show(getActivity(), "无网络连接", Toast.LENGTH_SHORT);
+					break;
+				case ConnectivityManager.TYPE_MOBILE:
+					showAlerDialog();
+					break;
+				case ConnectivityManager.TYPE_WIFI:
+					play();
+					break;
+				default:
+					break;
+				}
+//				isAlreadyRemind = true;
+			}else{
+				play();
+			}
+		}else{
 			play();
 		}
+		
+//		if (NetUtil.getConnectedType(getActivity()) == ConnectivityManager.TYPE_WIFI
+//				&& getActivity().getIntent().getStringExtra("is_notify") == null
+//				&& getActivity().getIntent().getStringExtra(
+//						"userinfo_shoucang_id") == null) {
+//			play();
+//		}
 	}
 
 	/**
@@ -1204,41 +1224,45 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 					IS_PLAY = false;
 					// mHeadImageView.clearAnimation();
 				}
-			}else if(action.equals(NETWORK_STATE)){
-				showAlerDialog();
+			} else if (action.equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
+				switch (NetUtil.getConnectedType(getActivity())) {
+				case -1: //无网络连接
+					ToastUtils.show(getActivity(), "网络连接已断开", Toast.LENGTH_SHORT);
+					break;
+				case ConnectivityManager.TYPE_WIFI:
+					ToastUtils.show(getActivity(), "已经连上Wifi", Toast.LENGTH_SHORT);
+					break;
+				case ConnectivityManager.TYPE_MOBILE:
+					ToastUtils.show(getActivity(), "已切换为3G或4G网络", Toast.LENGTH_SHORT);
+					break;
+				default:
+					break;
+				}
 			}
 		}
 
 	}
-	
+
 	private void showAlerDialog() {
-		AlertDialog dialog ;
-		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-		builder.setTitle("警告");
-		builder.setMessage(R.string.network_remind);
-		builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-			
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				// TODO Auto-generated method stub
-//				Intent intent = new Intent(getActivity(),PlayerService.class);
-//				intent.putExtra("isContinue", true);
-				dialog.dismiss();
-				play();
-			}
-		});
-		builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+		DialogUtils.showNetWorkAlerDialog(getActivity()
+				,new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+						dialog.dismiss();
+						play();
+						isAlreadyRemind = true;
+					}
+				} 
+		, new DialogInterface.OnClickListener(){
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
 				dialog.dismiss();
-				getActivity().finish();
-			}
-			
-		});
-		dialog = builder.show();
-		
+			}});
+
 	}
 
 }

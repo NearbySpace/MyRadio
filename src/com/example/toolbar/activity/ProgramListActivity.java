@@ -12,8 +12,10 @@ import org.apache.http.Header;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -52,11 +54,14 @@ import com.example.toolbar.common.utils.Common;
 import com.example.toolbar.common.utils.FileUtils;
 import com.example.toolbar.common.utils.ImageLoaderHelper;
 import com.example.toolbar.common.utils.LogHelper;
+import com.example.toolbar.common.utils.NetUtil;
 import com.example.toolbar.db.DBUtil;
 import com.example.toolbar.download.DownloadManager;
 import com.example.toolbar.http.HttpManage;
 import com.example.toolbar.service.PlayerManage;
 import com.example.toolbar.utils.ConfigUtils;
+import com.example.toolbar.utils.DialogUtils;
+import com.example.toolbar.utils.ToastUtils;
 import com.example.toolbar.utils.UserUtils;
 import com.example.toolbar.view.MyListView;
 import com.example.toolbar.view.MyToast;
@@ -102,6 +107,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 	private boolean isCollected = false;
 	private String programme_id;
 	private String mid;
+	private boolean isAlreadyRemind = false;//是否已经提醒过了（关于网络状况）
 
 	private List<String> checkedIdList;
 	private List<ProgramListInfo> downloadList;//要下载节目的id集
@@ -129,7 +135,6 @@ public class ProgramListActivity extends AppCompatActivity implements
 //		downloadInfo = new HashMap<String, Map<String,String>>();
 		programme_id = getIntent().getStringExtra("programme_id");
 		mid = UserUtils.getUid();
-		Log.i("ProgramListActivity", "数据加载programme_id---->" + programme_id);
 		initViews();
 		initData();
 	}
@@ -198,6 +203,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 		mDragSortListView.setOnItemClickListener(new MyOnItemClickListener());
 		mDragSortListView.setDropListener(onDrop);// 设置拖动监听
 		mDragSortListView.setDragEnabled(false);
+		mDragSortListView.setFocusable(false);
 		// 设置左上角的图标
 		mToolbar.setNavigationContentDescription(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -345,7 +351,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long arg3) {
 
-			Intent intent = new Intent(ProgramListActivity.this,
+			final Intent intent = new Intent(ProgramListActivity.this,
 					NewRadioPlayActivity.class);
 			if (!isPlayingThisList) {
 				PlayerManage.getInstance().clearList();
@@ -372,20 +378,15 @@ public class ProgramListActivity extends AppCompatActivity implements
 					}
 				}
 			}
-//			for (PlayInfo info : PlayerManage.getInstance().getPlayInfos()) {
-//				if (info.getType_id().equals("2")) {
-//					getOneClassifyContent(1, info.getId());
-//				}
-//			}
 			isPlayingThisList = true;// 当要播放本页的节目的时候，isPlayingThisList赋值true
-
 			PlayerManage.position = position;
 			intent.putExtra("channelName", bean.row.programme_name);
-			// bundle.putSerializable("ProgramListBean", bean);
-			// bundle.putInt("position", position);
-			// intent.putExtra("bundle", bundle);
-			startActivity(intent);
-
+			//网络状况的提醒
+			if(!isAlreadyRemind){
+				showNetWorkRemindDialog(intent);
+			}else{
+				startActivity(intent);
+			}
 		}
 
 	}
@@ -452,6 +453,40 @@ public class ProgramListActivity extends AppCompatActivity implements
 			break;
 		}
 
+	}
+	
+	private void showNetWorkRemindDialog(final Intent intent){
+		switch (NetUtil.getConnectedType(ProgramListActivity.this)) {
+		case -1: //无网络连接
+			ToastUtils.show(ProgramListActivity.this, "无网络连接", Toast.LENGTH_SHORT);
+			break;
+		case ConnectivityManager.TYPE_MOBILE:
+			DialogUtils.showNetWorkAlerDialog(ProgramListActivity.this
+					, new DialogInterface.OnClickListener() {
+						
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							// TODO Auto-generated method stub
+							dialog.dismiss();
+							isAlreadyRemind = true;
+							startActivity(intent);
+						}
+					}
+				   , new DialogInterface.OnClickListener(){
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+						
+					}});
+			break;
+		case ConnectivityManager.TYPE_WIFI:
+			startActivity(intent);
+			break;
+		default:
+			ToastUtils.show(ProgramListActivity.this, "未知网络类型", Toast.LENGTH_SHORT);
+			break;
+		}
 	}
 
 	private void showDownloadDialog() {

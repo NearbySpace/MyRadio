@@ -47,6 +47,7 @@ public class PlayerService extends Service {
 	private boolean isLocad=false;//是否本地播放
 	private boolean isFromAlarmManager = false;
 	private boolean isTypeTwo = false;
+	private boolean isContinue = false;//当网络不为WiFi是是否继续播放
 //	private boolean isAgain=false;//是否重新播放
 	private String classifyID;
 	
@@ -58,7 +59,6 @@ public class PlayerService extends Service {
 	public static final String MUSIC_CURRENT = "com.myradio.action.MUSIC_CURRENT";	//当前音乐播放时间更新动作
 	public static final String MUSIC_DURATION = "com.myradio.action.MUSIC_DURATION";//新音乐长度更新动作
 	public static final String MUSIC_FINISH = "com.myradio.action.MUSIC_FINISH";//音乐播放完
-	
 	//	public static final String SHOW_LRC = "com.myradio.action.SHOW_LRC";			//通知显示歌词
 	private NotificationManager notificationManager;// 通知管理类
 	private AlarmManager mAlarmManager;
@@ -397,18 +397,6 @@ public class PlayerService extends Service {
 			if(isLocad){
 				mediaPlayer.prepare(); // 进行缓冲，播放本地音乐时使用
 			}else{
-				switch (NetUtil.getConnectedType(getApplicationContext())) {
-				case -1: //无网络连接
-					return;
-				case ConnectivityManager.TYPE_WIFI:
-					
-					break;
-				case ConnectivityManager.TYPE_MOBILE:
-					
-					break;
-				default:
-					break;
-				}
 				mediaPlayer.prepareAsync();//播放网络资源时使用
 			}
 			handler.sendEmptyMessage(1);
