@@ -52,6 +52,14 @@
             android:layout_marginTop="20dp"
             android:visibility="gone"
             android:text="@string/search_remind"/>
+        <TextView
+            android:id="@+id/selectProgram_remind_net"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:text="@string/remimd"/>
 
         <com.example.toolbar.view.progress.CircularProgress
             xmlns:app="http://schemas.android.com/apk/res/com.example.strawberryradio"

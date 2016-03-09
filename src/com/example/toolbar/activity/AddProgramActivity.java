@@ -46,6 +46,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 public class AddProgramActivity extends AppCompatActivity implements
 		OnClickListener {
 	private final String TAG = "AddProgramActivity";
+	private final int OK = 32;
 	private ShareActionProvider mShareActionProvider;
 	private Toolbar mToolbar;
 	private Button sendInfo;
@@ -369,7 +370,7 @@ public class AddProgramActivity extends AppCompatActivity implements
 				
 			} 
 			intent.putStringArrayListExtra("program_ids", idList);
-			setResult(Activity.RESULT_OK, intent);
+			setResult(OK, intent);
 			finish();
 			// dialog();
 			break;

@@ -12,16 +12,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.strawberryradio.R;
 import com.example.toolbar.bean.DownloadEntry;
+import com.example.toolbar.common.utils.ImageLoaderHelper;
 import com.example.toolbar.db.DBUtil;
 import com.example.toolbar.db.SQLHelper;
 import com.example.toolbar.download.DownloadManager;
 import com.example.toolbar.utils.Utils;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class DownloadingFragment extends Fragment {
 	private View view;
@@ -31,6 +34,7 @@ public class DownloadingFragment extends Fragment {
 	private MyAdapter adapder;
 	private ArrayList<DownloadEntry> mFileList = new ArrayList<DownloadEntry>();
 	private String speed1=0+"";
+	private ImageLoader mImageLoader;
 	private final String TAG="DownloadingFragment";
 	
 	DownloadManager.DownloadStatusListener mDownloadStatusListener = new DownloadManager.SimpleDownloadStatusListener(){
@@ -57,6 +61,7 @@ public class DownloadingFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		mImageLoader = ImageLoader.getInstance();
 	}
 
 	@Override
@@ -116,6 +121,7 @@ public class DownloadingFragment extends Fragment {
 	}
 
 	class MyAdapter extends BaseAdapter{
+		private DownloadEntry entry;
 		Holder holder;
 		@Override
 		public int getCount() {
@@ -140,6 +146,7 @@ public class DownloadingFragment extends Fragment {
 			if(convertView==null){
 				convertView=LayoutInflater.from(getActivity()).inflate(R.layout.item_download, null);
 				holder=new Holder();
+				holder.image=(ImageView) convertView.findViewById(R.id.downloading_iv);
 				holder.title=(TextView) convertView.findViewById(R.id.download_title_item);
 				holder.speed=(TextView) convertView.findViewById(R.id.download_speed_item);
 				holder.percent=(TextView) convertView.findViewById(R.id.download_percent_item);
@@ -149,14 +156,18 @@ public class DownloadingFragment extends Fragment {
 			}else{
 				holder=(Holder) convertView.getTag();
 			}
-			holder.title.setText(list.get(position).getTitle());
-			state=list.get(position).getState();
+			entry = list.get(position);
+			
+			holder.title.setText(entry.getTitle());
+			mImageLoader.displayImage(entry.getThumb(), holder.image,
+					ImageLoaderHelper.getDisplayImageOptions());
+			state=entry.getState();
 			if(state.equals("1")){
-				holder.percent.setText(list.get(position).getFileProgress()+"%");
+				holder.percent.setText(entry.getFileProgress()+"%");
 				holder.pb.setVisibility(View.VISIBLE);
 				holder.state.setVisibility(View.GONE);
 				holder.speed.setText(speed1);
-				holder.pb.setProgress(list.get(position).getFileProgress());
+				holder.pb.setProgress(entry.getFileProgress());
 			}else{
 				holder.pb.setVisibility(View.GONE);
 				holder.state.setVisibility(View.VISIBLE);
@@ -169,6 +180,7 @@ public class DownloadingFragment extends Fragment {
 		}
 		
 		class Holder{
+			ImageView image;
 			TextView title;
 			TextView speed;
 			TextView percent;

@@ -47,4 +47,5 @@ public class MyToast {
     public static void removeView(){
     	 wm.removeView(tv);
     }
+    
 }

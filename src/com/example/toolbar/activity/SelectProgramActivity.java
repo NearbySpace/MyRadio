@@ -53,6 +53,7 @@ import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
 public class SelectProgramActivity extends AppCompatActivity implements OnClickListener{
+	private final int OK = 32;//返回码
 	private ShareActionProvider mShareActionProvider;
 	private Toolbar mToolbar;
 	private PullToRefreshListView mPullRefreshListView;
@@ -61,6 +62,7 @@ public class SelectProgramActivity extends AppCompatActivity implements OnClickL
 	private TextView mTextViewMunber;
 	private Button mButtonSubmit;
 	private TextView tv_remind;
+	private TextView remind_net;
 	private ListView listView;
 	private CircularProgress progress;
 	private AddProgramSelectAdapter adapter;
@@ -97,7 +99,7 @@ public class SelectProgramActivity extends AppCompatActivity implements OnClickL
 	protected void onActivityResult(int arg0, int arg1, Intent arg2) {
 		// TODO Auto-generated method stub
 		Log.i(TAG, "触发onActivityResult,------返回码："+arg1);
-		if(Activity.RESULT_OK != arg1){
+		if(OK != arg1){
 			return;
 		}
 		int programSize=0;
@@ -123,9 +125,10 @@ public class SelectProgramActivity extends AppCompatActivity implements OnClickL
 		for(ArrayList<String> l:map.values()){
 			programSize+=l.size();
 		}
+		
 		mMaxSize= programSize ;
 //		idList.addAll(arg2.getStringArrayListExtra("program_ids"));
-		mTextViewMunber.setText("已选择了（ "+programSize+" ）个节目");
+		mTextViewMunber.setText("已选择了（ "+(programSize+map_classify.size())+" ）个节目");
 			
 		super.onActivityResult(arg0, arg1, arg2);
 	}
@@ -188,6 +191,7 @@ public class SelectProgramActivity extends AppCompatActivity implements OnClickL
 		mButtonSubmit=(Button) findViewById(R.id.select_program_bt_submit);
 		mButtonSubmit.setOnClickListener(this);
 		tv_remind=(TextView) findViewById(R.id.selectProgram_remind_info);
+		remind_net= (TextView) findViewById(R.id.selectProgram_remind_net);
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
 		// listView = (ListView) findViewById(R.id.select_program);
 		listView = mPullRefreshListView.getRefreshableView();
@@ -231,6 +235,7 @@ public class SelectProgramActivity extends AppCompatActivity implements OnClickL
 			@Override
 			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
 				progress.setVisibility(View.GONE);
+				remind_net.setVisibility(View.GONE);
 				String result = new String(arg2);
 				Gson gson = new Gson();
 				LogHelper.e("选择节目数据：" + result);
@@ -250,6 +255,8 @@ public class SelectProgramActivity extends AppCompatActivity implements OnClickL
 			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
 					Throwable arg3) {
 				// LogHelper.e("获取数据失败");
+				progress.setVisibility(View.GONE);
+				remind_net.setVisibility(View.VISIBLE);
 			}
 		}, page);
 	}

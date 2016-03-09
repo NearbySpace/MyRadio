@@ -510,6 +510,8 @@ public class ProgramListActivity extends AppCompatActivity implements
 				CheckBox cb = (CheckBox) view.findViewById(R.id.item_dialog_download_select_checkbox);
 				if(cb.isChecked()){
 					cb.setChecked(false);
+					cb.setTag(-1);
+					
 //					if(downloadIdList.contains(program_id)) 
 //						downloadIdList.remove(program_id);
 //					if(downloadInfo.containsKey(program_id))
@@ -517,6 +519,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 					if(downloadList.contains(pli))  downloadList.remove(pli);
 				}else{
 					cb.setChecked(true);
+					cb.setTag(position);
 //					downloadIdList.add(program_id);
 //					Map<String, String> map = new HashMap<String, String>();
 //					map.put("url", pli.path);
@@ -636,12 +639,13 @@ public class ProgramListActivity extends AppCompatActivity implements
 //						mProgramListAdapter.notifyDataSetChanged();
 						initData();
 						progress.setVisibility(View.GONE);
+						ToastUtils.show(ProgramListActivity.this, "节目编辑成功", Toast.LENGTH_SHORT);
 					}
 					
 					@Override
 					public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
 						// TODO Auto-generated method stub
-						MyToast.show("节目信息上传失败", ProgramListActivity.this);
+						ToastUtils.show(ProgramListActivity.this, "节目编辑信息上传失败", Toast.LENGTH_SHORT);
 						mProgramListAdapter.notifyDataSetChanged();
 						progress.setVisibility(View.GONE);
 					}
@@ -672,7 +676,8 @@ public class ProgramListActivity extends AppCompatActivity implements
 					@Override
 					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
 							Throwable arg3) {
-						MyToast.show("排序结果提交失败", ProgramListActivity.this);
+						progress.setVisibility(View.GONE);
+						ToastUtils.show(ProgramListActivity.this, "排序结果提交失败", Toast.LENGTH_SHORT);
 					}
 				});
 	}

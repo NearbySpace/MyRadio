@@ -17,14 +17,24 @@ import com.example.toolbar.bean.ProgramListBean.ProgramListInfo;
 public class DialogDownloadSelectAdapter extends BaseAdapter {
 	private Context context;
 	private List<ProgramListInfo> list;
-	private Holder holder;
 	private ProgramListInfo info;
+//	private List<Integer> checked;
 	
 	public DialogDownloadSelectAdapter(Context context,ArrayList<ProgramListInfo> list) {
 		super();
 		this.context = context;
 		this.list = list;
 	}
+	
+//	public void addPosiotion(int position){
+//		checked.add(position);
+//	}
+//	
+//	public void removePosition(int position){
+//		if(checked.contains(position)){
+//			checked.remove(position);
+//		}
+//	}
 
 	@Override
 	public int getCount() {
@@ -46,7 +56,7 @@ public class DialogDownloadSelectAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		
+		Holder holder;
 		if(convertView == null){
 			holder = new Holder();
 			convertView = LayoutInflater.from(context).inflate(R.layout.item_dialog_download_select, null);
@@ -58,6 +68,19 @@ public class DialogDownloadSelectAdapter extends BaseAdapter {
 		}
 		info = list.get(position);
 		holder.tv_name.setText(info.title);
+		if(holder.cb.getTag() == null){
+			holder.cb.setTag(-1);
+		}else if((Integer)holder.cb.getTag() == position){
+			holder.cb.setChecked(true);
+		}else{
+			holder.cb.setChecked(false);
+		}
+//		if((Integer)holder.cb.getTag() == position){
+//			holder.cb.setChecked(true);
+//		}else{
+//			holder.cb.setChecked(false);
+//		}
+		
 		return convertView;
 	}
 	
