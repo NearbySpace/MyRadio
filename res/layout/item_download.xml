@@ -72,6 +72,7 @@
         android:layout_below="@id/ll_download_info"
         android:layout_alignLeft="@id/ll_download_info"
         android:layout_marginLeft="8dp"
+        android:visibility="gone"
         android:text="等待下载"
         android:textSize="12sp" />
     

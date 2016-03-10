@@ -94,6 +94,10 @@ public class DownloadTask extends AsyncTask<Void, Object, Integer>{
 	@Override
 	protected Integer doInBackground(Void... params) {
 		int isSuccess=0;
+		for (DownloadManager.DownloadStatusListener l : DownloadManager
+				.getInstance().getDownloadStatusListeners()) {
+			l.onStart(downloadEntry);
+		}
 		try {
 			URL downloadurl=new URL(url);
 			HttpURLConnection conn=(HttpURLConnection) downloadurl.openConnection();
@@ -108,6 +112,7 @@ public class DownloadTask extends AsyncTask<Void, Object, Integer>{
 			conn.setRequestProperty("Accept-Encoding", "identity"); 
 			int code = conn.getResponseCode();
 			if(code == 200){
+				
 				fileSize=conn.getContentLength();
 				Log.i(TAG, "fileSize--->"+fileSize);
 				if(fileSize<=0) {
@@ -186,6 +191,7 @@ public class DownloadTask extends AsyncTask<Void, Object, Integer>{
 	@Override
 	protected void onPostExecute(Integer result) {
 		if(result==1){
+			
 			Toast.makeText(mContext, "下载完成", Toast.LENGTH_LONG).show();
 			mRemoteViews.setTextViewText(R.id.downloadSumText,"下载完成" );
 			mRemoteViews.setProgressBar(R.id.downloadProgress, 100,
@@ -214,14 +220,20 @@ public class DownloadTask extends AsyncTask<Void, Object, Integer>{
 //				db.deleteDownloadEntry(downloadEntry.getUrl());
 				}
 			//告诉DownlaodingFramgent,下载完毕更新数据更新
+			downloadEntry.setFileProgress(100);
 			for (DownloadManager.DownloadStatusListener l : DownloadManager
 					.getInstance().getDownloadStatusListeners()) {
-				l.onProgress(downloadEntry, 0);
+				l.onFinish(downloadEntry);
 			}
-			queueNext();
+//			queueNext();
 		}else{
 			Toast.makeText(mContext, "下载失败", Toast.LENGTH_LONG).show();
+			if (!DownloadManager.getInstance().getDownloadQueue().isEmpty()){
+				DownloadManager.getInstance().getDownloadQueue()
+				.remove(downloadEntry);
+				}
 		}
+		queueNext();
 		super.onPostExecute(result);
 	}
 
@@ -293,10 +305,15 @@ public class DownloadTask extends AsyncTask<Void, Object, Integer>{
 					&& !ConfigUtils.DownloadState_DOING.equals(downloadEntry.getState())) {
 				downloadEntry.setState(ConfigUtils.DownloadState_DOING);
 				new DownloadTask(mContext,downloadEntry,db).execute();
+				
 //				boolean isSuccess=db.updateDownloadEntry(downloadEntry);//更新数据库
 //				if(isSuccess)Log.i("queueNext", "更新成功");else Log.i("queueNext", "更新失败");
 			}
 		} else {
+			for (DownloadManager.DownloadStatusListener l : DownloadManager
+					.getInstance().getDownloadStatusListeners()) {
+				l.onFinish(downloadEntry);
+			}
 //			mNotificationManager.cancel(NOTIFY_ID);
 			Toast.makeText(mContext, "已没有下载任务，全部下载完成", 0).show();
 		}
