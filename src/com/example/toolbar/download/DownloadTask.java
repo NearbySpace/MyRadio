@@ -94,10 +94,10 @@ public class DownloadTask extends AsyncTask<Void, Object, Integer>{
 	@Override
 	protected Integer doInBackground(Void... params) {
 		int isSuccess=0;
-		for (DownloadManager.DownloadStatusListener l : DownloadManager
-				.getInstance().getDownloadStatusListeners()) {
-			l.onStart(downloadEntry);
-		}
+//		for (DownloadManager.DownloadStatusListener l : DownloadManager
+//				.getInstance().getDownloadStatusListeners()) {
+//			l.onStart(downloadEntry);
+//		}
 		try {
 			URL downloadurl=new URL(url);
 			HttpURLConnection conn=(HttpURLConnection) downloadurl.openConnection();

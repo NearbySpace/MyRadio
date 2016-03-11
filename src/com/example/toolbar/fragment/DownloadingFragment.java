@@ -40,22 +40,19 @@ public class DownloadingFragment extends Fragment {
 	private ProgressBar head_pb;
 
 	private List<DownloadEntry> list;
-	private List<DownloadEntry> waitDownloadList;
-	private DownloadEntry headDownloadEntry;
 	private MyAdapter adapder;
-	private ArrayList<DownloadEntry> mFileList = new ArrayList<DownloadEntry>();
 	private String speed1 = 0 + "";
 	private ImageLoader mImageLoader;
 	private final String TAG = "DownloadingFragment";
 
 	DownloadManager.DownloadStatusListener mDownloadStatusListener = new DownloadManager.SimpleDownloadStatusListener() {
 		
-		@Override
-		public void onStart(DownloadEntry entry) {
-			// TODO Auto-generated method stub
-			super.onStart(entry);
-			initHeadView();
-		}
+//		@Override
+//		public void onStart(DownloadEntry entry) {
+//			// TODO Auto-generated method stub
+//			super.onStart(entry);
+//			initHeadView();
+//		}
 
 		@Override
 		public void onProgress(DownloadEntry entry, int speed) {
@@ -72,6 +69,19 @@ public class DownloadingFragment extends Fragment {
 				adapder = new MyAdapter();
 			else
 				adapder.notifyDataSetChanged();
+			lv.post(new Runnable() {
+				
+				@Override
+				public void run() {
+					if (lv.getChildAt(lv.getFirstVisiblePosition()) != null) {
+						Log.i(TAG, "initHeadView()----->headView不是空");
+						initHeadView();
+					} else {
+						Log.i(TAG, "initHeadView()----->headView是空");
+					}
+					
+				}
+			});
 		}
 
 	};
@@ -81,7 +91,6 @@ public class DownloadingFragment extends Fragment {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		mImageLoader = ImageLoader.getInstance();
-		waitDownloadList = new ArrayList<DownloadEntry>();
 	}
 
 	@Override
@@ -117,7 +126,7 @@ public class DownloadingFragment extends Fragment {
 				// TODO Auto-generated method stub
 				if (lv.getChildAt(lv.getFirstVisiblePosition()) != null) {
 					Log.i(TAG, "headView不是空");
-					 initHeadView();
+					initHeadView();
 					DownloadManager.getInstance().addDownloadStatusListener(
 							 mDownloadStatusListener);
 				} else {
@@ -125,21 +134,10 @@ public class DownloadingFragment extends Fragment {
 				}
 			}
 		});
-		// if(lv.getChildAt(lv.getFirstVisiblePosition()) != null){
-		// initHeadView();
-		// }else{
-		// Log.i(TAG, "headView是空");
-		// }
 		 
 	}
 
 	private void initHeadView() {
-		if (lv.getChildAt(lv.getFirstVisiblePosition()) != null) {
-			Log.i(TAG, "initHeadView()----->headView不是空");
-//			 initHeadView();
-		} else {
-			Log.i(TAG, "initHeadView()----->headView是空");
-		}
 		headView = lv.getChildAt(lv.getFirstVisiblePosition());
 		head_image = (ImageView) headView.findViewById(R.id.downloading_iv);
 		head_pb = (ProgressBar) headView.findViewById(R.id.download_pb_item);
@@ -154,34 +152,6 @@ public class DownloadingFragment extends Fragment {
 
 	private void initData() {
 		list = DownloadManager.getInstance().getDownloadQueue();
-		// if (1 < list.size()) {
-		// for (int i = 0; i < list.size(); i++) {
-		// if (!list.get(i).getState().equals("1")) {
-		// waitDownloadList.add(list.get(i));
-		// }
-		// }
-		// }else{
-		// waitDownloadList.clear();
-		// }
-		// if (headDownloadEntry != null) {
-		// mImageLoader.displayImage(headDownloadEntry.getThumb(), head_image,
-		// ImageLoaderHelper.getDisplayImageOptions());
-		// head_title.setText(headDownloadEntry.getTitle());
-		// }
-
-		// list=new ArrayList<DownloadEntry>();
-		// DBUtil db=DBUtil.getInstance(getActivity());
-		// Cursor cursor=db.selectData(SQLHelper.TABLE_DOWNLOAD, null, null,
-		// null, null, null, null);
-		// while(cursor.moveToNext()){
-		// DownloadEntry bean=new DownloadEntry();
-		// bean.setId(cursor.getInt(cursor.getColumnIndex("id")));
-		// bean.setTitle(cursor.getString(cursor.getColumnIndex("name")));
-		// bean.setUrl(cursor.getString(cursor.getColumnIndex("url")));
-		// bean.setStoragePath(cursor.getString(cursor.getColumnIndex("storage_path")));
-		// bean.setState(cursor.getString(cursor.getColumnIndex("state")));
-		// list.add(bean);
-		// }
 
 	}
 

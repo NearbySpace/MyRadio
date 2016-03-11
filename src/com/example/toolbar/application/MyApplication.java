@@ -5,13 +5,17 @@ import java.io.File;
 import org.apache.http.util.VersionInfo;
 
 import android.app.Application;
+import android.app.Service;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.Vibrator;
 import android.view.Display;
 import android.view.WindowManager;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.example.toolbar.bean.UserInfo;
+import com.example.toolbar.service.LocationService;
 import com.example.toolbar.top.MyDiskCache;
 import com.example.toolbar.uncaughtexception.DefaultExceptionHandler;
 import com.example.toolbar.utils.ConfigUtils;
@@ -36,6 +40,9 @@ public class MyApplication extends Application {
 	public String longlat = ""; // 当前所在 经纬度
 	public static boolean myradio_music_is_open = false;// 是否在播放音乐
 	public static String host_id = "";// 播放的音乐id
+	
+	public LocationService locationService;
+    public Vibrator mVibrator;
 //	public UserInfo mUserInfo;
 //	
 //	public void setUserInfo(UserInfo info){
@@ -56,6 +63,12 @@ public class MyApplication extends Application {
 		initImageLoader(getApplicationContext());
 		Thread.setDefaultUncaughtExceptionHandler(new DefaultExceptionHandler(
 				getApplicationContext()));
+		/***
+         * 初始化定位sdk，建议在Application中创建
+         */
+        locationService = new LocationService(getApplicationContext());
+        mVibrator =(Vibrator)getApplicationContext().getSystemService(Service.VIBRATOR_SERVICE);
+        SDKInitializer.initialize(getApplicationContext());  
 	}
 
 	private void initMyDate() {

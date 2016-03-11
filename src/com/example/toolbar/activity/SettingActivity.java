@@ -80,6 +80,7 @@ public class SettingActivity extends AppCompatActivity implements
 		findViewById(R.id.setting_tv_update).setOnClickListener(this);
 		findViewById(R.id.setting_program).setOnClickListener(this);
 		tv_verson.setText("当前版本：" + getVesionName());
+		findViewById(R.id.setting_location_info).setOnClickListener(this);
 	}
 
 	private String getVesionName() {
@@ -129,6 +130,10 @@ public class SettingActivity extends AppCompatActivity implements
 			// 检查更新
 			checkUpdateDialog = showCheckDialog();
 			UpdateApk.checkVersion(SettingActivity.this,2);
+			break;
+		case R.id.setting_location_info:
+			intent.setClass(SettingActivity.this, LocationActivity.class);
+			startActivity(intent);
 			break;
 
 		default:

@@ -87,6 +87,7 @@ public class NewMainActivity extends AppCompatActivity implements OnClickListene
 		ControlActivity.getInstance().addActivity(NewMainActivity.this);
 		initView();
 		UpdateApk.checkVersion(NewMainActivity.this,1);
+		visitStatistics();
 	}
 	
 	@Override
@@ -297,95 +298,103 @@ public class NewMainActivity extends AppCompatActivity implements OnClickListene
 		
 	}
 	
+	
 	/**
-	 * 检查是否有新版本
-	 * 
-	 * @param context
-	 *            上下文
-	 * @param isCheckApk
-	 *            防止频繁弹出toast
+	 * 访问统计
 	 */
-	public void checkVersion(final Context context) {
-		if (!NetUtil.isNetConnected(context)) {
-			return;
-		}
-		MyApplication app = MyApplication.getInstance();
-		final PackageInfo pinfo = app.getPackageInfo();
-		new AsyncTask<Object, Object, String>() {
-			protected String doInBackground(Object... params) {
-
-				String url = ConfigUtils.baseurl
-						+ "index.php?d=android&c=api&m=android_version";
-				return com.example.toolbar.http.HttpUtils.getString(url);
-			}
-
-			protected void onPostExecute(String version) {
-				if (version == null) {
-					ToastUtils.showShort(context, "网络错误,请稍候尝试!");
-					return;
-				}
-				if (version.equals("")) {
-					ToastUtils.showShort(context, "网络错误 ,请稍候尝试!");
-					return;
-				}
-				Map<String, String> map = Common.str2mapstr(version);
-				// 发现新版本
-				if (map.isEmpty()) {
-					ToastUtils.showShort(context, "网络错误 ,无法检查更新！");
-					return;
-				}
-				if (map.containsKey("version")
-						&& !map.get("version").equals(pinfo.versionName)) {
-					AlertDialog.Builder builder = new AlertDialog.Builder(
-							context);
-					builder.setTitle("海豚电台客户端有新的版本啦,V" + map.get("version"));
-					builder.setMessage(Html.fromHtml(map.get("message")));
-					builder.setPositiveButton("立即更新",
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog,
-										int which) {
-									ToastUtils
-											.show(context, "开始下载新版本安装包...", 1);
-									boolean isEnough = FileUtils
-											.isSKCardSpaceEnough(); // 计算存储卡的大小
-									if (isEnough) {
-										File file = new File(
-												ConfigUtils.SDcardPath);
-
-										if (!file.exists()) {
-											file.mkdirs();
-										}
-										new UpdateApk(context)
-												.doNewVersionUpdate();
-									} else {
-										Toast.makeText(context,
-												"内存卡不可用或者空间不足...请检查后再进行下载！", 1)
-												.show();
-									}
-
-								}
-							});
-
-					builder.setNegativeButton("暂不",
-							new DialogInterface.OnClickListener() {
-
-								@Override
-								public void onClick(DialogInterface dialog,
-										int arg1) {
-									// TODO Auto-generated method stub
-									dialog.dismiss();
-								}
-
-							});
-					// builder.setCancelable(false);
-					builder.show();
-
-				} else {
-					// ToastUtils.showShort(context, "您以是最新版本，暂无更新！");
-				}
-			}
-		}.execute();
+	private void visitStatistics(){
+		
 	}
+	
+//	/**
+//	 * 检查是否有新版本
+//	 * 
+//	 * @param context
+//	 *            上下文
+//	 * @param isCheckApk
+//	 *            防止频繁弹出toast
+//	 */
+//	public void checkVersion(final Context context) {
+//		if (!NetUtil.isNetConnected(context)) {
+//			return;
+//		}
+//		MyApplication app = MyApplication.getInstance();
+//		final PackageInfo pinfo = app.getPackageInfo();
+//		new AsyncTask<Object, Object, String>() {
+//			protected String doInBackground(Object... params) {
+//
+//				String url = ConfigUtils.baseurl
+//						+ "index.php?d=android&c=api&m=android_version";
+//				return com.example.toolbar.http.HttpUtils.getString(url);
+//			}
+//
+//			protected void onPostExecute(String version) {
+//				if (version == null) {
+//					ToastUtils.showShort(context, "网络错误,请稍候尝试!");
+//					return;
+//				}
+//				if (version.equals("")) {
+//					ToastUtils.showShort(context, "网络错误 ,请稍候尝试!");
+//					return;
+//				}
+//				Map<String, String> map = Common.str2mapstr(version);
+//				// 发现新版本
+//				if (map.isEmpty()) {
+//					ToastUtils.showShort(context, "网络错误 ,无法检查更新！");
+//					return;
+//				}
+//				if (map.containsKey("version")
+//						&& !map.get("version").equals(pinfo.versionName)) {
+//					AlertDialog.Builder builder = new AlertDialog.Builder(
+//							context);
+//					builder.setTitle("海豚电台客户端有新的版本啦,V" + map.get("version"));
+//					builder.setMessage(Html.fromHtml(map.get("message")));
+//					builder.setPositiveButton("立即更新",
+//							new DialogInterface.OnClickListener() {
+//								public void onClick(DialogInterface dialog,
+//										int which) {
+//									ToastUtils
+//											.show(context, "开始下载新版本安装包...", 1);
+//									boolean isEnough = FileUtils
+//											.isSKCardSpaceEnough(); // 计算存储卡的大小
+//									if (isEnough) {
+//										File file = new File(
+//												ConfigUtils.SDcardPath);
+//
+//										if (!file.exists()) {
+//											file.mkdirs();
+//										}
+//										new UpdateApk(context)
+//												.doNewVersionUpdate();
+//									} else {
+//										Toast.makeText(context,
+//												"内存卡不可用或者空间不足...请检查后再进行下载！", 1)
+//												.show();
+//									}
+//
+//								}
+//							});
+//
+//					builder.setNegativeButton("暂不",
+//							new DialogInterface.OnClickListener() {
+//
+//								@Override
+//								public void onClick(DialogInterface dialog,
+//										int arg1) {
+//									// TODO Auto-generated method stub
+//									dialog.dismiss();
+//								}
+//
+//							});
+//					// builder.setCancelable(false);
+//					builder.show();
+//
+//				} else {
+//					// ToastUtils.showShort(context, "您以是最新版本，暂无更新！");
+//				}
+//			}
+//		}.execute();
+//	}
 	
 	
 	@Override

@@ -484,6 +484,40 @@ public class HttpManage {
 		AsyncHttpClient httpClient = new AsyncHttpClient();
 		httpClient.post(url, params, responseHandler);
 	}
+	
+	/**
+	 * 访问统计
+	 * @param uid  用户id  如果是首次安装则为0
+	 * @param city 所在城市名称
+	 * @param district  城区
+	 * @param lnglat 经纬度 ，格式如：108.34534,22.83012
+	 * @param version 客户端版本号
+	 * @param OSVersion  手机系统版本
+	 * @param PhoneModel 手机型号
+	 * @param PhoneBrand 手机品牌
+	 * @param PhoneOS 手机操作系统
+	 * @param isfirst 是否首次安装
+	 */
+	public static void visitStatistics(String mid,String city,String district
+			,String lnglat,String version,String OSVersion,String PhoneModel
+			,String PhoneBrand,String PhoneOS,String isfirst,AsyncHttpResponseHandler responseHandler){
+//		http://vroad.bbrtv.com/cmradio/index.php?c=stat&m=base_save
+		String url = address + "?c=stat&m=base_save";
+		RequestParams params = new RequestParams();
+		params.put("mid", mid);
+		params.put("city", city);
+		params.put("district", district);
+		params.put("lnglat", lnglat);
+		params.put("version", version);
+		params.put("os_version", OSVersion);
+		params.put("phone_model", PhoneModel);
+		params.put("phone_brand", PhoneBrand);
+		params.put("phone_os", PhoneOS);
+		params.put("isfirst", isfirst);
+		AsyncHttpClient httpClient = new AsyncHttpClient();
+		httpClient.post(url, params, responseHandler);
+	}
+	
 	/**
 	 * 获取课程表入口
 	 * 
