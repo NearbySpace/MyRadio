@@ -501,8 +501,8 @@ public class HttpManage {
 	public static void visitStatistics(String mid,String city,String district
 			,String lnglat,String version,String OSVersion,String PhoneModel
 			,String PhoneBrand,String PhoneOS,String isfirst,AsyncHttpResponseHandler responseHandler){
-//		http://vroad.bbrtv.com/cmradio/index.php?c=stat&m=base_save
-		String url = address + "?c=stat&m=base_save";
+//		http://vroad.bbrtv.com/cmradio/index.php?d=android&c=api&m=base_save
+		String url = address + "?d=android&c=api&m=base_save";
 		RequestParams params = new RequestParams();
 		params.put("mid", mid);
 		params.put("city", city);

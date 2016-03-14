@@ -9,6 +9,9 @@ import java.util.TimerTask;
 
 import org.apache.http.Header;
 
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.Poi;
 import com.example.strawberryradio.R;
 import com.example.toolbar.adapter.AddProgramSelectAdapter;
 import com.example.toolbar.application.MyApplication;
@@ -17,15 +20,18 @@ import com.example.toolbar.bean.UserInfo;
 import com.example.toolbar.common.utils.Common;
 import com.example.toolbar.common.utils.FileUtils;
 import com.example.toolbar.common.utils.LogHelper;
+import com.example.toolbar.common.utils.MyJsonUtils;
 import com.example.toolbar.common.utils.NetUtil;
 import com.example.toolbar.fragment.NewFirstFragment;
 import com.example.toolbar.fragment.NewTwoFragment;
 import com.example.toolbar.framework.UpdateApk;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.service.LocationService;
 import com.example.toolbar.utils.ConfigUtils;
 import com.example.toolbar.utils.ControlActivity;
 import com.example.toolbar.utils.ImageUtils;
 import com.example.toolbar.utils.IntentUtils;
+import com.example.toolbar.utils.SharePreferenceUtil;
 import com.example.toolbar.utils.ToastUtils;
 import com.example.toolbar.utils.UserUtils;
 import com.example.toolbar.widget.MaterialDialog;
@@ -39,12 +45,14 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -71,48 +79,52 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class NewMainActivity extends AppCompatActivity implements OnClickListener{
+public class NewMainActivity extends AppCompatActivity implements
+		OnClickListener {
 	private DrawerLayout mDrawerLayout;
 	private ViewPager mViewPager;
 	private List<Fragment> viewList;
 	private ImageView usericon;
 	private TextView nikename;
 	private LinearLayout linearlayout;
-	private boolean isToLogin=false;
-	
+	private boolean isToLogin = false;
+	private LocationService locationService;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_main);
 		ControlActivity.getInstance().addActivity(NewMainActivity.this);
 		initView();
-		UpdateApk.checkVersion(NewMainActivity.this,1);
-		visitStatistics();
+		initLocationService();
+		UpdateApk.checkVersion(NewMainActivity.this, 1);
 	}
-	
+
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
 		super.onStart();
-		if(isToLogin){
-			if(!MyApplication.getInstance().getSpUtil().getUid().isEmpty()){
+		if (isToLogin) {
+			if (!MyApplication.getInstance().getSpUtil().getUid().isEmpty()) {
 				initUserData();
 			}
 		}
 	}
+
 	private void initView() {
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.new_drawer);
 		linearlayout = (LinearLayout) findViewById(R.id.new_main_linearlayout);
 		usericon = (ImageView) findViewById(R.id.new_usericon);
 		nikename = (TextView) findViewById(R.id.new_nikename);
 		mViewPager = (ViewPager) findViewById(R.id.new_main_pager);
-	    Fragment fargmentFirst=new NewFirstFragment();
-	    Fragment fragmentTwo=new NewTwoFragment();
-	    viewList = new ArrayList<Fragment>();// 将要分页显示的View装入数组中       
-	    viewList.add(fargmentFirst);  
-	    viewList.add(fragmentTwo); 
-	    mViewPager.setAdapter(new MyViewPagerAdapter(this.getSupportFragmentManager()));
-	    findViewById(R.id.new_add_progmer_button).setOnClickListener(this);
+		Fragment fargmentFirst = new NewFirstFragment();
+		Fragment fragmentTwo = new NewTwoFragment();
+		viewList = new ArrayList<Fragment>();// 将要分页显示的View装入数组中
+		viewList.add(fargmentFirst);
+		viewList.add(fragmentTwo);
+		mViewPager.setAdapter(new MyViewPagerAdapter(this
+				.getSupportFragmentManager()));
+		findViewById(R.id.new_add_progmer_button).setOnClickListener(this);
 		findViewById(R.id.new_my_program).setOnClickListener(this);
 		findViewById(R.id.new_my_favorite).setOnClickListener(this);
 		findViewById(R.id.new_setting).setOnClickListener(this);
@@ -121,39 +133,47 @@ public class NewMainActivity extends AppCompatActivity implements OnClickListene
 		LogHelper.e(MyApplication.getInstance().getSpUtil().getNick());
 		nikename.setText(MyApplication.getInstance().getSpUtil().getNick());
 		usericon.setOnClickListener(this);
-		if(!MyApplication.getInstance().getSpUtil().getUid().isEmpty()){
+		if (!MyApplication.getInstance().getSpUtil().getUid().isEmpty()) {
 			initUserData();
 		}
 	}
-	
-	@SuppressLint("NewApi") 
-	private void setLayoutBackground(int resId){
-		Bitmap bm=ImageUtils.getMatchBitmap(NewMainActivity.this, resId);
-		Drawable drawable=new BitmapDrawable(getResources(), bm);
+
+	private void initLocationService() {
+		locationService = ((MyApplication) getApplication()).locationService;
+		locationService.registerListener(mListener);
+		locationService.setLocationOption(locationService
+				.getDefaultLocationClientOption());
+		locationService.start();
+	}
+
+	@SuppressLint("NewApi")
+	private void setLayoutBackground(int resId) {
+		Bitmap bm = ImageUtils.getMatchBitmap(NewMainActivity.this, resId);
+		Drawable drawable = new BitmapDrawable(getResources(), bm);
 		linearlayout.setBackground(drawable);
 	}
-	
+
 	@Override
 	protected void onActivityResult(int arg0, int arg1, Intent arg2) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(arg0, arg1, arg2);
 		switch (arg0) {
 		case 1:
-			if(arg1==1){
+			if (arg1 == 1) {
 				initUserData();
 			}
-			
+
 			break;
 
 		default:
 			break;
 		}
-		
+
 	}
-	
+
 	private void initUserData() {
-		isToLogin=UserUtils.checkLogin(this);
-		if(isToLogin){
+		isToLogin = UserUtils.checkLogin(this);
+		if (isToLogin) {
 			return;
 		}
 		String uid = MyApplication.getInstance().getSpUtil().getUid();
@@ -174,22 +194,21 @@ public class NewMainActivity extends AppCompatActivity implements OnClickListene
 				Gson gson = new Gson();
 				UserInfo info = gson.fromJson(data, UserInfo.class);
 				nikename.setText(info.nickname);
-				ImageLoader.getInstance().displayImage(info.avatar,
-						usericon);
+				ImageLoader.getInstance().displayImage(info.avatar, usericon);
 			}
 		});
 	}
-	
-	public void switchFragment(int position){
+
+	public void switchFragment(int position) {
 		mViewPager.setCurrentItem(position);
 	}
 	
-	public void openDrawerLayout(){
+	public void openDrawerLayout() {
 		mDrawerLayout.openDrawer(Gravity.LEFT);
 		initUserData();
 	}
-	
-	public class MyViewPagerAdapter extends FragmentPagerAdapter{
+
+	public class MyViewPagerAdapter extends FragmentPagerAdapter {
 
 		public MyViewPagerAdapter(FragmentManager fm) {
 			super(fm);
@@ -207,17 +226,18 @@ public class NewMainActivity extends AppCompatActivity implements OnClickListene
 			// TODO Auto-generated method stub
 			return viewList.get(arg0);
 		}
-		
+
 	}
 
 	private MaterialDialog mMaterialDialog;
+
 	@Override
 	public void onClick(View v) {
-		isToLogin=UserUtils.checkLogin(this);
-		if(isToLogin){
+		isToLogin = UserUtils.checkLogin(this);
+		if (isToLogin) {
 			return;
 		}
-		
+
 		Intent intent = new Intent();
 		switch (v.getId()) {
 		case R.id.new_usericon:
@@ -226,25 +246,25 @@ public class NewMainActivity extends AppCompatActivity implements OnClickListene
 			// startActivityForResult(intent, SET_STUDENT_ICON);
 			startActivityForResult(intent, 1);
 			break;
-			
+
 		case R.id.new_my_program:
 			intent.setClass(NewMainActivity.this, MyProgramActivity.class);
 			// startActivityForResult(intent, SET_STUDENT_ICON);
 			startActivity(intent);
 			break;
-			
+
 		case R.id.new_my_favorite:
 			intent.setClass(NewMainActivity.this, MyFavoriteActivity.class);
 			// startActivityForResult(intent, SET_STUDENT_ICON);
 			startActivity(intent);
 			break;
-			
+
 		case R.id.new_more_shre:
 			intent.setClass(NewMainActivity.this, MyDownLoadActivity.class);
 			// startActivityForResult(intent, SET_STUDENT_ICON);
 			startActivity(intent);
 			break;
-			
+
 		case R.id.new_setting:
 			intent.setClass(NewMainActivity.this, SettingActivity.class);
 			// startActivityForResult(intent, SET_STUDENT_ICON);
@@ -254,7 +274,7 @@ public class NewMainActivity extends AppCompatActivity implements OnClickListene
 			intent.setClass(NewMainActivity.this, SuggestionActivity.class);
 			startActivity(intent);
 			break;
-			
+
 		case R.id.new_add_progmer_button:
 			// 自定义布局
 			final EditText editText;
@@ -271,11 +291,12 @@ public class NewMainActivity extends AppCompatActivity implements OnClickListene
 					@Override
 					public void onClick(View arg0) {
 						String titel = editText.getText().toString();
-						if(titel.isEmpty()){
+						if (titel.isEmpty()) {
 							editText.setHint("频道名不能为空");
 							return;
 						}
-						IntentUtils.startActivityForString(NewMainActivity.this,
+						IntentUtils.startActivityForString(
+								NewMainActivity.this,
 								SelectProgramActivity.class, "titel", titel);
 						// startActivityForResult(int ent, SET_STUDENT_ICON);
 						mMaterialDialog.dismiss();
@@ -295,116 +316,87 @@ public class NewMainActivity extends AppCompatActivity implements OnClickListene
 		default:
 			break;
 		}
-		
+
 	}
 	
 	
+	private boolean isCommitSuccess = false;
+	private boolean isAgainCommit = true;//是否再次提交
 	/**
 	 * 访问统计
 	 */
-	private void visitStatistics(){
+	private void visitStatistics(String city, String district, String lnglat) {
+		SharedPreferences sp = getSharedPreferences("phoneInfo", MODE_PRIVATE);
+		String isFirst = sp.getString("isFirst", "0");
+		String phone_model = sp.getString("phone_model", "null");
+		String phone_brand = sp.getString("phone_brand", "null");
+		String phone_os = "1";
+		SharePreferenceUtil spu = new SharePreferenceUtil(NewMainActivity.this,
+				ConfigUtils.appSharePreferenceName);
+		String mid = spu.getUid();
+		if(mid.equals("")){
+			mid = "0";
+		}
 		
+		HttpManage.visitStatistics(mid, city, district, lnglat, getIntent().getStringExtra("version"),
+				Build.VERSION.RELEASE, phone_model, phone_brand, phone_os, isFirst,
+				new AsyncHttpResponseHandler() {
+					
+					@Override
+					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+						String result;
+						result = new String(arg2);
+						Log.i("NewMainActivity", "访问统计返回的结果："+result);
+						isCommitSuccess = MyJsonUtils.isCheckStringState(result);
+						if(isCommitSuccess){
+							locationService.stop();
+						}else{
+							isAgainCommit = true;
+						}
+						
+					}
+					
+					@Override
+					public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+						Log.i("NewMainActivity", "访问统计返回的结果：联网失败");
+						isAgainCommit = true;
+					}
+				});
 	}
+
 	
-//	/**
-//	 * 检查是否有新版本
-//	 * 
-//	 * @param context
-//	 *            上下文
-//	 * @param isCheckApk
-//	 *            防止频繁弹出toast
-//	 */
-//	public void checkVersion(final Context context) {
-//		if (!NetUtil.isNetConnected(context)) {
-//			return;
-//		}
-//		MyApplication app = MyApplication.getInstance();
-//		final PackageInfo pinfo = app.getPackageInfo();
-//		new AsyncTask<Object, Object, String>() {
-//			protected String doInBackground(Object... params) {
-//
-//				String url = ConfigUtils.baseurl
-//						+ "index.php?d=android&c=api&m=android_version";
-//				return com.example.toolbar.http.HttpUtils.getString(url);
-//			}
-//
-//			protected void onPostExecute(String version) {
-//				if (version == null) {
-//					ToastUtils.showShort(context, "网络错误,请稍候尝试!");
-//					return;
-//				}
-//				if (version.equals("")) {
-//					ToastUtils.showShort(context, "网络错误 ,请稍候尝试!");
-//					return;
-//				}
-//				Map<String, String> map = Common.str2mapstr(version);
-//				// 发现新版本
-//				if (map.isEmpty()) {
-//					ToastUtils.showShort(context, "网络错误 ,无法检查更新！");
-//					return;
-//				}
-//				if (map.containsKey("version")
-//						&& !map.get("version").equals(pinfo.versionName)) {
-//					AlertDialog.Builder builder = new AlertDialog.Builder(
-//							context);
-//					builder.setTitle("海豚电台客户端有新的版本啦,V" + map.get("version"));
-//					builder.setMessage(Html.fromHtml(map.get("message")));
-//					builder.setPositiveButton("立即更新",
-//							new DialogInterface.OnClickListener() {
-//								public void onClick(DialogInterface dialog,
-//										int which) {
-//									ToastUtils
-//											.show(context, "开始下载新版本安装包...", 1);
-//									boolean isEnough = FileUtils
-//											.isSKCardSpaceEnough(); // 计算存储卡的大小
-//									if (isEnough) {
-//										File file = new File(
-//												ConfigUtils.SDcardPath);
-//
-//										if (!file.exists()) {
-//											file.mkdirs();
-//										}
-//										new UpdateApk(context)
-//												.doNewVersionUpdate();
-//									} else {
-//										Toast.makeText(context,
-//												"内存卡不可用或者空间不足...请检查后再进行下载！", 1)
-//												.show();
-//									}
-//
-//								}
-//							});
-//
-//					builder.setNegativeButton("暂不",
-//							new DialogInterface.OnClickListener() {
-//
-//								@Override
-//								public void onClick(DialogInterface dialog,
-//										int arg1) {
-//									// TODO Auto-generated method stub
-//									dialog.dismiss();
-//								}
-//
-//							});
-//					// builder.setCancelable(false);
-//					builder.show();
-//
-//				} else {
-//					// ToastUtils.showShort(context, "您以是最新版本，暂无更新！");
-//				}
-//			}
-//		}.execute();
-//	}
-	
-	
+
+	private BDLocationListener mListener = new BDLocationListener() {
+
+		@Override
+		public void onReceiveLocation(BDLocation location) {
+			// TODO Auto-generated method stub
+			if (null != location
+					&& location.getLocType() != BDLocation.TypeServerError) {
+				StringBuffer sb = new StringBuffer(256);
+				String city = location.getCity();
+				String district = location.getDistrict();
+				String lnglat = location.getLongitude()+","+location.getLatitude();
+				if(isAgainCommit){ //需要判断是否需要重新提交一次，不然会提交多次
+					visitStatistics(city, district, lnglat);
+					isAgainCommit = false;
+				}
+				
+			}
+		}
+
+	};
+
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			
 			exitBy2Click(); // 调用双击退出函数
 		}
 		return false;
 	}
-	
+
 	private static Boolean isExit = false;
 
 	private void exitBy2Click() {
@@ -431,7 +423,5 @@ public class NewMainActivity extends AppCompatActivity implements OnClickListene
 		super.onDestroy();
 		viewList.clear();
 	}
-	
-	
 
 }

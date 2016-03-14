@@ -302,7 +302,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 					return;
 				}
 				// TODO Auto-generated method stub
-
+				loadingDialog.dismiss();
 			}
 		}, getUserName, getPassWord);
 

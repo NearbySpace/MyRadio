@@ -120,13 +120,6 @@
                 android:text="@string/setting_exit"
                 android:textColor="@color/red"
                 android:textSize="17sp" />
-            <TextView 
-                android:id="@+id/setting_location_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:clickable="true"
-                android:text="定位"/>
         </LinearLayout>
     </com.example.toolbar.view.OverScrollView>
 
