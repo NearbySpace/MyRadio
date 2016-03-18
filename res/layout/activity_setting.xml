@@ -23,6 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/text_color_selector"
+                android:clickable="true"
                 android:paddingBottom="12dp"
                 android:paddingLeft="12dp"
                 android:paddingRight="18dp"
@@ -33,8 +34,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/text_color_selector"
-                    android:clickable="true"
                     android:text="@string/setting_safe"
                     android:textSize="17sp" />
 

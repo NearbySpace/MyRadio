@@ -560,13 +560,17 @@ public class ProgramListActivity extends AppCompatActivity implements
 	 */
 	@SuppressWarnings("unused")
 	private void downloadProgram(ProgramListInfo programlistInfo) {
+		if(programlistInfo.path == null || programlistInfo.path.isEmpty()){
+			ToastUtils.showShort(this, programlistInfo.title+"没有下载地址");
+			return;
+		}
 		int end = programlistInfo.path.lastIndexOf(".");
 		String format = programlistInfo.path.substring(end);// 文件的格式
 		String completeName = programlistInfo.title + format;
 		// 判断节目是否已经被下载过
 		boolean isSame = FileUtils.checkFileExists(ConfigUtils.SDDownloadPath+completeName);
 		if (isSame) {
-			Toast.makeText(this, "已经缓存", 0).show();
+			ToastUtils.showShort(this, "已经缓存");
 			return;
 		}
 		// 检查数据库看是否有正在下载的任务

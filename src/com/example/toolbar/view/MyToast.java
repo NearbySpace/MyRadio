@@ -41,7 +41,7 @@ public class MyToast {
                 | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;  
   
         wm.addView(tv, params); 
-  
+        
     }  
     
     public static void removeView(){

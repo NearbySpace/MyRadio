@@ -71,7 +71,17 @@ public class MyDownLoadActivity extends AppCompatActivity implements
 		if(intent.getBooleanExtra("downloading", false)){
 			current=0;
 		}
-		ft.replace(R.id.framelayout_download, fragments.get(current)).commit();
+		ft.add(R.id.framelayout_download, fragments.get(0));
+		ft.add(R.id.framelayout_download, fragments.get(1));
+		if(current == 0){
+			ft.show(fragments.get(0));
+			ft.hide(fragments.get(1));
+		}else{
+			ft.show(fragments.get(1));
+			ft.hide(fragments.get(0));
+		}
+		ft.commit();
+//		ft.replace(R.id.framelayout_download, fragments.get(current)).commit();
 		iv_downloaded=(ImageView) findViewById(R.id.downloaded_iv);
 		iv_downloading=(ImageView) findViewById(R.id.downloading_iv);
 		tv_downloaded = (TextView) findViewById(R.id.downloaded_tv);
@@ -97,8 +107,12 @@ public class MyDownLoadActivity extends AppCompatActivity implements
 				iv_downloading.setVisibility(View.VISIBLE);
 				tv_downloaded.setTextColor(Color.parseColor("#000000"));
 				iv_downloaded.setVisibility(View.GONE);
-				getSupportFragmentManager().beginTransaction()
-				.replace(R.id.framelayout_download, fragments.get(0)).commit();
+//				getSupportFragmentManager().beginTransaction()
+//				.replace(R.id.framelayout_download, fragments.get(0)).commit();
+				FragmentTransaction f = getSupportFragmentManager().beginTransaction();
+				f.show(fragments.get(0));
+				f.hide(fragments.get(1));
+				f.commit();
 				current=0;
 			}
 			break;
@@ -108,8 +122,12 @@ public class MyDownLoadActivity extends AppCompatActivity implements
 				iv_downloaded.setVisibility(View.VISIBLE);
 				tv_downloading.setTextColor(Color.parseColor("#000000"));
 				iv_downloading.setVisibility(View.GONE);
-				getSupportFragmentManager().beginTransaction()
-				.replace(R.id.framelayout_download, fragments.get(1)).commit();
+//				getSupportFragmentManager().beginTransaction()
+//				.replace(R.id.framelayout_download, fragments.get(1)).commit();
+				FragmentTransaction f = getSupportFragmentManager().beginTransaction();
+				f.show(fragments.get(1));
+				f.hide(fragments.get(0));
+				f.commit();
 				current=1;
 			}
 			break;

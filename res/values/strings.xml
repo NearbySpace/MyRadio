@@ -76,7 +76,7 @@
     <string name="delete">删除</string>
     <string name="slogan">悦耳动心</string>
     <string name="dialog_download_title">选择要下载的节目</string>
-    <string name="loading_setting">正在检查中</string>
+    <string name="loading_setting">正在检查中...</string>
     <string name="network_remind">没有检测到Wifi，您现在使用的是3G或4G网络播放节目，是否继续播放</string>
 
 </resources>

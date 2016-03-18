@@ -7,6 +7,12 @@
     android:background="#AA000000"
     android:orientation="horizontal" >
     
+    <ProgressBar 
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:indeterminate="false"
+        android:indeterminateDrawable="@drawable/loading"/>
+    
     <TextView 
         android:id="@+id/dialog_check_update_tv"
         android:layout_width="wrap_content"
@@ -15,11 +21,5 @@
         android:textSize="17sp"
         android:textColor="@color/white"
         android:text="@string/loading_setting"/>
-    <ProgressBar 
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:indeterminate="false"
-        android:indeterminateDrawable="@drawable/loading"/>
-    
 
 </LinearLayout>

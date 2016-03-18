@@ -27,6 +27,7 @@ import com.example.toolbar.bean.DownloadEntry;
 import com.example.toolbar.db.DBUtil;
 import com.example.toolbar.db.SQLHelper;
 import com.example.toolbar.utils.ConfigUtils;
+import com.example.toolbar.utils.ToastUtils;
 import com.example.toolbar.utils.Utils;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -191,8 +192,7 @@ public class DownloadTask extends AsyncTask<Void, Object, Integer>{
 	@Override
 	protected void onPostExecute(Integer result) {
 		if(result==1){
-			
-			Toast.makeText(mContext, "下载完成", Toast.LENGTH_LONG).show();
+//			Toast.makeText(mContext, "下载完成", Toast.LENGTH_LONG).show();
 			mRemoteViews.setTextViewText(R.id.downloadSumText,"下载完成" );
 			mRemoteViews.setProgressBar(R.id.downloadProgress, 100,
 					100, false);
@@ -227,7 +227,8 @@ public class DownloadTask extends AsyncTask<Void, Object, Integer>{
 			}
 //			queueNext();
 		}else{
-			Toast.makeText(mContext, "下载失败", Toast.LENGTH_LONG).show();
+			ToastUtils.showShort(mContext, "下载失败");
+//			Toast.makeText(mContext, "下载失败", Toast.LENGTH_LONG).show();
 			if (!DownloadManager.getInstance().getDownloadQueue().isEmpty()){
 				DownloadManager.getInstance().getDownloadQueue()
 				.remove(downloadEntry);

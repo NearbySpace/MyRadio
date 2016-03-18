@@ -13,6 +13,7 @@ import com.example.toolbar.bean.DownloadEntry;
 import com.example.toolbar.db.DBUtil;
 import com.example.toolbar.db.SQLHelper;
 import com.example.toolbar.utils.ConfigUtils;
+import com.example.toolbar.utils.ToastUtils;
 
 public class DownloadManager {
 	private static DownloadManager instance = null;
@@ -128,16 +129,19 @@ public class DownloadManager {
 				new DownloadTask(context,downloadEntry,db).execute();
 //				values.put("state", ConfigUtils.DownloadState_DOING);
 //				mQueue.add(downloadEntry);
-				Toast.makeText(context, "正在下载", 0).show();
+//				Toast.makeText(context, "正在下载", 0).show();
+				ToastUtils.showShort(context, "正在下载");
 			} else {
-				Toast.makeText(context, "已加入下载队列，等待下载", 0).show();
+//				Toast.makeText(context, "已加入下载队列，等待下载", 0).show();
+				ToastUtils.showShort(context, "已加入下载队列，等待下载");
 //				values.put("state", ConfigUtils.DownloadState_WAITTING);
 				downloadEntry.setState(ConfigUtils.DownloadState_WAITTING);
 			}
 //			db.insertData(SQLHelper.TABLE_DOWNLOAD, values);
 //			Log.i("AAAAA", "数据库插入了一条下载信息");
 		}else{
-			Toast.makeText(context, "下载任务已经存在", 0).show();
+//			Toast.makeText(context, "下载任务已经存在", 0).show();
+			ToastUtils.showShort(context, "下载任务已经存在");
 		}
 	}
 }

@@ -75,7 +75,7 @@ public class SettingActivity extends AppCompatActivity implements
 		tv_program_name.setText(MyApplication.getInstance().getSpUtil()
 				.getDefaultProgram().get("classifyName"));
 		
-		findViewById(R.id.setting_password_tv).setOnClickListener(this);
+		findViewById(R.id.setting_safe_rl).setOnClickListener(this);
 		findViewById(R.id.setting_exit).setOnClickListener(this);
 		findViewById(R.id.setting_tv_update).setOnClickListener(this);
 		findViewById(R.id.setting_program).setOnClickListener(this);
@@ -111,7 +111,7 @@ public class SettingActivity extends AppCompatActivity implements
 	public void onClick(View v) {
 		Intent intent = new Intent();
 		switch (v.getId()) {
-		case R.id.setting_password_tv:
+		case R.id.setting_safe_rl:
 			UserUtils.checkLogin(SettingActivity.this);
 			// 跳转到密码更换页面
 			intent.setClass(SettingActivity.this, ChangePasswordActivity.class);

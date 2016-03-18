@@ -266,6 +266,7 @@ public class UpUserIconActivity extends AppCompatActivity implements
 			imageView.setImageBitmap(photo);
 			addSignatureToGallery(photo);
 			btn_sure.setEnabled(true);
+			btn_sure.setBackgroundResource(R.drawable.corners_selector);
 		}
 
 	}
