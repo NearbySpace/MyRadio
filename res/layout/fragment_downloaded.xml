@@ -2,13 +2,49 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    
-    <ListView 
+
+    <ListView
         android:id="@+id/downloaded_lv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        
+        android:layout_height="wrap_content" >
     </ListView>
-    
+
+    <LinearLayout
+        android:id="@+id/downloaded_ll_editor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/downloaded_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:background="@drawable/text_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/head_info_color" />
+
+        <TextView
+            android:id="@+id/downloaded_sure"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:background="@drawable/text_color_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/ok"
+            android:textSize="18dp" />
+    </LinearLayout>
 
 </RelativeLayout>

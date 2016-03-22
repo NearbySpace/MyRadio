@@ -213,7 +213,6 @@ public class DownloadTask extends AsyncTask<Void, Object, Integer>{
 			values.put("author", downloadEntry.getAuthor());
 			values.put("storage_path", downloadEntry.getStoragePath());
 			db.insertData(SQLHelper.TABLE_DOWNLOADED, values);
-			Log.i(TAG, "TABLE_DOWNLOADED------>条数据插入已下载的数据库表");
 			if (!DownloadManager.getInstance().getDownloadQueue().isEmpty()){
 				DownloadManager.getInstance().getDownloadQueue()
 				.remove(downloadEntry);
@@ -223,6 +222,8 @@ public class DownloadTask extends AsyncTask<Void, Object, Integer>{
 			downloadEntry.setFileProgress(100);
 			for (DownloadManager.DownloadStatusListener l : DownloadManager
 					.getInstance().getDownloadStatusListeners()) {
+				l.onProgress(downloadEntry, 0);
+				
 				l.onFinish(downloadEntry);
 			}
 //			queueNext();
@@ -238,65 +239,65 @@ public class DownloadTask extends AsyncTask<Void, Object, Integer>{
 		super.onPostExecute(result);
 	}
 
-	public void Download(){
-		HttpUtils http=new HttpUtils();
-		HttpHandler<File> handler=http.download(
-				url, 
-				storagePath,
-				true, 
-				true, 
-				new RequestCallBack<File>(){
-			
-
-					@Override
-					public void onCancelled() {
-						// TODO Auto-generated method stub
-						super.onCancelled();
-					}
-
-					@Override
-					public void onLoading(long total, long current,
-							boolean isUploading) {
-//						mNotificationManager=(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-						super.onLoading(total, current, isUploading);
-					}
-
-					@Override
-					public void onFailure(HttpException arg0, String arg1) {
-						Log.i("Download", "下载失败");
-						if (!DownloadManager.getInstance().getDownloadQueue().isEmpty()){
-							DownloadManager.getInstance().getDownloadQueue()
-							.remove(downloadEntry);
-							downloadEntry.setState(ConfigUtils.DownloadState_FAIL);
-							db.updateDownloadEntry(downloadEntry);
-						}
-						queueNext();
-					}
-
-					@Override
-					public void onSuccess(ResponseInfo<File> arg0) {
-						Log.i("Download", "下载成功");
-						Log.i(TAG, "name:"+downloadEntry.getTitle());
-						Log.i(TAG, "storage_path:"+downloadEntry.getStoragePath());
-						// 将该条数据插入已下载的数据库表
-						ContentValues values = new ContentValues();
-//						values.put("id", downloadEntry.getId());
-						values.put("name", downloadEntry.getTitle());
-						values.put("thumb", downloadEntry.getThumb());
-						values.put("author", downloadEntry.getAuthor());
-						values.put("storage_path", downloadEntry.getStoragePath());
-						db.insertData(SQLHelper.TABLE_DOWNLOADED, values);
-						Log.i(TAG, "TABLE_DOWNLOADED------>条数据插入已下载的数据库表");
-						if (!DownloadManager.getInstance().getDownloadQueue().isEmpty()){
-							DownloadManager.getInstance().getDownloadQueue()
-							.remove(downloadEntry);
-							db.deleteDownloadEntry(downloadEntry.getUrl());
-							}
-						queueNext();
-					}
-			
-		} );
-	}
+//	public void Download(){
+//		HttpUtils http=new HttpUtils();
+//		HttpHandler<File> handler=http.download(
+//				url, 
+//				storagePath,
+//				true, 
+//				true, 
+//				new RequestCallBack<File>(){
+//			
+//
+//					@Override
+//					public void onCancelled() {
+//						// TODO Auto-generated method stub
+//						super.onCancelled();
+//					}
+//
+//					@Override
+//					public void onLoading(long total, long current,
+//							boolean isUploading) {
+////						mNotificationManager=(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+//						super.onLoading(total, current, isUploading);
+//					}
+//
+//					@Override
+//					public void onFailure(HttpException arg0, String arg1) {
+//						Log.i("Download", "下载失败");
+//						if (!DownloadManager.getInstance().getDownloadQueue().isEmpty()){
+//							DownloadManager.getInstance().getDownloadQueue()
+//							.remove(downloadEntry);
+//							downloadEntry.setState(ConfigUtils.DownloadState_FAIL);
+//							db.updateDownloadEntry(downloadEntry);
+//						}
+//						queueNext();
+//					}
+//
+//					@Override
+//					public void onSuccess(ResponseInfo<File> arg0) {
+//						Log.i("Download", "下载成功");
+//						Log.i(TAG, "name:"+downloadEntry.getTitle());
+//						Log.i(TAG, "storage_path:"+downloadEntry.getStoragePath());
+//						// 将该条数据插入已下载的数据库表
+//						ContentValues values = new ContentValues();
+////						values.put("id", downloadEntry.getId());
+//						values.put("name", downloadEntry.getTitle());
+//						values.put("thumb", downloadEntry.getThumb());
+//						values.put("author", downloadEntry.getAuthor());
+//						values.put("storage_path", downloadEntry.getStoragePath());
+//						db.insertData(SQLHelper.TABLE_DOWNLOADED, values);
+//						Log.i(TAG, "TABLE_DOWNLOADED------>条数据插入已下载的数据库表");
+//						if (!DownloadManager.getInstance().getDownloadQueue().isEmpty()){
+//							DownloadManager.getInstance().getDownloadQueue()
+//							.remove(downloadEntry);
+//							db.deleteDownloadEntry(downloadEntry.getUrl());
+//							}
+//						queueNext();
+//					}
+//			
+//		} );
+//	}
 	
 	private void queueNext() {
 		if (!DownloadManager.getInstance().getDownloadQueue().isEmpty()) {
@@ -311,10 +312,10 @@ public class DownloadTask extends AsyncTask<Void, Object, Integer>{
 //				if(isSuccess)Log.i("queueNext", "更新成功");else Log.i("queueNext", "更新失败");
 			}
 		} else {
-			for (DownloadManager.DownloadStatusListener l : DownloadManager
-					.getInstance().getDownloadStatusListeners()) {
-				l.onFinish(downloadEntry);
-			}
+//			for (DownloadManager.DownloadStatusListener l : DownloadManager
+//					.getInstance().getDownloadStatusListeners()) {
+//				l.onFinish(downloadEntry);
+//			}
 //			mNotificationManager.cancel(NOTIFY_ID);
 			Toast.makeText(mContext, "已没有下载任务，全部下载完成", 0).show();
 		}

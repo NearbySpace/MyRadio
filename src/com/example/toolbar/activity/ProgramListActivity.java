@@ -511,21 +511,10 @@ public class ProgramListActivity extends AppCompatActivity implements
 				if(cb.isChecked()){
 					cb.setChecked(false);
 					cb.setTag(-1);
-					
-//					if(downloadIdList.contains(program_id)) 
-//						downloadIdList.remove(program_id);
-//					if(downloadInfo.containsKey(program_id))
-//						downloadInfo.remove(program_id);
 					if(downloadList.contains(pli))  downloadList.remove(pli);
 				}else{
 					cb.setChecked(true);
 					cb.setTag(position);
-//					downloadIdList.add(program_id);
-//					Map<String, String> map = new HashMap<String, String>();
-//					map.put("url", pli.path);
-//					map.put("title", pli.title);
-//					downloadInfo.put(program_id, map);
-//					downloadList.add(downloadInfo);
 					downloadList.add(pli);
 				}
 			}

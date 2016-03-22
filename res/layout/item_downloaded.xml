@@ -51,7 +51,17 @@
         android:textSize="12sp"
         android:text="上次已播放到2分钟/共10分钟"/>
     
-    
+    <CheckBox 
+        android:id="@+id/downloaded_checkbox_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/custom_checkbox"
+        android:visibility="gone"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="18dp"
+        android:layout_centerVertical="true"
+        android:clickable="false"
+        android:focusable="false"/>
     
 
     

@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.strawberryradio.R;
+import com.example.toolbar.activity.MyDownLoadActivity;
 import com.example.toolbar.bean.DownloadEntry;
 import com.example.toolbar.common.utils.ImageLoaderHelper;
 import com.example.toolbar.db.DBUtil;
@@ -43,6 +44,7 @@ public class DownloadingFragment extends Fragment {
 	private MyAdapter adapder;
 	private String speed1 = 0 + "";
 	private ImageLoader mImageLoader;
+	private DownloadedFragment mDownloadedFragment;
 	private final String TAG = "DownloadingFragment";
 
 	DownloadManager.DownloadStatusListener mDownloadStatusListener = new DownloadManager.SimpleDownloadStatusListener() {
@@ -69,17 +71,15 @@ public class DownloadingFragment extends Fragment {
 				adapder = new MyAdapter();
 			else
 				adapder.notifyDataSetChanged();
+			
+			//保证getFirstVisiblePosition的值不为空，要listview绘制完才使用
 			lv.post(new Runnable() {
 				
 				@Override
 				public void run() {
 					if (lv.getChildAt(lv.getFirstVisiblePosition()) != null) {
-						Log.i(TAG, "initHeadView()----->headView不是空");
 						initHeadView();
-					} else {
-						Log.i(TAG, "initHeadView()----->headView是空");
-					}
-					
+					} 
 				}
 			});
 		}

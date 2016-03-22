@@ -12,9 +12,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -29,10 +32,12 @@ public class MyDownLoadActivity extends AppCompatActivity implements
 	private TextView tv_downloaded;
 	private ImageView iv_downloading;
 	private ImageView iv_downloaded;
-	private ArrayList<Fragment> fragments;
 	private int current=1;//当前位置
 	private Intent intent;
-
+	public ArrayList<Fragment> fragments;
+	private Menu mMenu;
+	private DownloadedFragment mDownloadedFragment;
+	private DownloadingFragment mDownloadingFragment;
 //	/**
 //	 * 根据情况设置默认页 
 //	 * @param current 值只能是0或1
@@ -63,8 +68,10 @@ public class MyDownLoadActivity extends AppCompatActivity implements
 			}
 		});
 		fragments=new ArrayList<Fragment>();
-		fragments.add(new DownloadingFragment());
-		fragments.add(new DownloadedFragment());
+		mDownloadingFragment = new DownloadingFragment();
+		mDownloadedFragment = new DownloadedFragment();
+		fragments.add(mDownloadingFragment);
+		fragments.add(mDownloadedFragment);
 		FragmentManager fm = getSupportFragmentManager();
 		FragmentTransaction ft = fm.beginTransaction();
 		intent=getIntent();
@@ -97,6 +104,34 @@ public class MyDownLoadActivity extends AppCompatActivity implements
 		tv_downloading.setOnClickListener(this);
 
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.editor, menu);
+		mMenu = menu;
+		return super.onCreateOptionsMenu(menu);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_editor:
+			mDownloadedFragment.setLinearLayoutVisibility(View.VISIBLE);
+			break;
+
+		default:
+			break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+	
+	private void showMenu(){
+		mMenu.findItem(R.id.menu_editor).setVisible(true);
+	}
+	
+	private void hideMenu(){
+		mMenu.findItem(R.id.menu_editor).setVisible(false);
+	}
 
 	@Override
 	public void onClick(View v) {
@@ -107,6 +142,7 @@ public class MyDownLoadActivity extends AppCompatActivity implements
 				iv_downloading.setVisibility(View.VISIBLE);
 				tv_downloaded.setTextColor(Color.parseColor("#000000"));
 				iv_downloaded.setVisibility(View.GONE);
+				hideMenu();
 //				getSupportFragmentManager().beginTransaction()
 //				.replace(R.id.framelayout_download, fragments.get(0)).commit();
 				FragmentTransaction f = getSupportFragmentManager().beginTransaction();
@@ -122,6 +158,8 @@ public class MyDownLoadActivity extends AppCompatActivity implements
 				iv_downloaded.setVisibility(View.VISIBLE);
 				tv_downloading.setTextColor(Color.parseColor("#000000"));
 				iv_downloading.setVisibility(View.GONE);
+				showMenu();
+				mDownloadedFragment.changeData();
 //				getSupportFragmentManager().beginTransaction()
 //				.replace(R.id.framelayout_download, fragments.get(1)).commit();
 				FragmentTransaction f = getSupportFragmentManager().beginTransaction();

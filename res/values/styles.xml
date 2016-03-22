@@ -22,6 +22,7 @@
         <item name="android:windowBackground">@color/color_gray_light2</item>
         <!-- 设置activity切换动画 -->
 		<item name="android:windowAnimationStyle">@style/activityAnimation</item>
+		<item name="actionMenuTextColor">@color/white</item>
     </style>
     <!-- 左边的箭头指示 -->
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">

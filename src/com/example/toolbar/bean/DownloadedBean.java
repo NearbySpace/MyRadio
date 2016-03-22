@@ -9,8 +9,16 @@ public class DownloadedBean implements Serializable {
 	private String size;
 	private String author;
 	private String storagePath;
+	//用于标记CheckBox的状态，防止listview的item复用的时候checkbox的状态混乱
+	private Boolean checked_state = false; 
 	
 	
+	public Boolean getChecked_state() {
+		return checked_state;
+	}
+	public void setChecked_state(Boolean checked_state) {
+		this.checked_state = checked_state;
+	}
 	public String getProgramId() {
 		return programId;
 	}
