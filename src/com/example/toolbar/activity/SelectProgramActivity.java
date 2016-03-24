@@ -75,7 +75,7 @@ public class SelectProgramActivity extends AppCompatActivity implements OnClickL
 	private String show_titel;
 	private String page = "0";
 	private String TAG="SelectProgramActivity";
-	private boolean isSend=false;
+	private boolean isSendSuccess=false;
 	
 	private final Timer timer = new Timer();
 	private TimerTask task;
@@ -311,25 +311,14 @@ public class SelectProgramActivity extends AppCompatActivity implements OnClickL
 	
 	private void sendProgram() {
 		String mid = MyApplication.getInstance().getSpUtil().getUid();
-//		String id;
+		//添加节目失败时，为避免重复，要把idList清空
+		for(ArrayList<String> l :map.values()){
+			idList.addAll(l);
+		}
 		Log.i("SelectProgramActivity", "idList--------->"+idList);
 		if(idList != null && idList.size() != 0 || map_classify.size() != 0){
-//			LogHelper.e("获取节目ID：" + idList.get(0));
-//			// LogHelper.e("获取节目标题：" + titel);
-//			id = idList.get(0);
-////			StringBuffer s4 = new StringBuffer(idList.get(0));  
-//			if (idList.size() >= 1) {
-//				for (int i = 1; i < idList.size(); i++) {
-//					id += "," + idList.get(i).toString();
-////					s4.append(","+idList.get(i).toString());
-//					// id = (new
-//					// StringBuilder(",")).append(idList.get(i)).toString();
-//				}
-//				Log.i("id", id);
-//				LogHelper.e("节目ID数组---->" + id);
-//			}
 			String result;
-			result=initUploadProgramList();
+			result=initUploadProgramList(idList);
 			if(getIntent().getStringExtra("from") !=null){
 				if(getIntent().getStringExtra("from").equals("Programme")){
 					String programme_id=getIntent().getStringExtra("programme_id");
@@ -346,8 +335,8 @@ public class SelectProgramActivity extends AppCompatActivity implements OnClickL
 								
 								@Override
 								public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
-									// TODO Auto-generated method stub
 									
+									idList.clear();
 								}
 							});
 				}
@@ -360,14 +349,14 @@ public class SelectProgramActivity extends AppCompatActivity implements OnClickL
 						String result = new String(arg2);
 						LogHelper.e("返回的结果："+result);
 						Toast.makeText(SelectProgramActivity.this, "节目添加成功", Toast.LENGTH_SHORT).show();
-						isSend=true;
+						isSendSuccess=true;
 					}
 
 					@Override
 					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
 							Throwable arg3) {
 						String result = new String(arg2);
-						LogHelper.e("onFailure"+result);
+						idList.clear();
 						Toast.makeText(SelectProgramActivity.this, "添加节目失败，请重试一次", 0).show();
 					}
 				}, mid, result, show_titel);
@@ -382,7 +371,7 @@ public class SelectProgramActivity extends AppCompatActivity implements OnClickL
 	/**
 	 * 初始化要上传内容的格式
 	 */
-	private String initUploadProgramList(){
+	private String initUploadProgramList(List<String> idList){
 		List<ProgramInfo> programInfos=new ArrayList<SelectProgramActivity.ProgramInfo>();
 		for(Map<String,String> map : map_classify.values()){
 			ProgramInfo p=new SelectProgramActivity.ProgramInfo();
@@ -440,10 +429,8 @@ public class SelectProgramActivity extends AppCompatActivity implements OnClickL
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.select_program_bt_submit:
-			for(ArrayList<String> l :map.values()){
-				idList.addAll(l);
-			}	
-			if(!isSend){
+				
+			if(!isSendSuccess){
 				sendProgram();
 			}else{
 				ToastUtils.show(SelectProgramActivity.this, "已经提交过了，请勿重复提交", Toast.LENGTH_SHORT);

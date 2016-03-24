@@ -6,6 +6,8 @@ import java.util.List;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -38,6 +40,17 @@ public class MyDownLoadActivity extends AppCompatActivity implements
 	private Menu mMenu;
 	private DownloadedFragment mDownloadedFragment;
 	private DownloadingFragment mDownloadingFragment;
+	
+	public Handler handle = new Handler(){
+
+		@Override
+		public void handleMessage(Message msg) {
+			// TODO Auto-generated method stub
+			super.handleMessage(msg);
+			mDownloadedFragment.changeData();
+		}
+		
+	};
 //	/**
 //	 * 根据情况设置默认页 
 //	 * @param current 值只能是0或1
@@ -159,7 +172,7 @@ public class MyDownLoadActivity extends AppCompatActivity implements
 				tv_downloading.setTextColor(Color.parseColor("#000000"));
 				iv_downloading.setVisibility(View.GONE);
 				showMenu();
-				mDownloadedFragment.changeData();
+//				mDownloadedFragment.changeData();
 //				getSupportFragmentManager().beginTransaction()
 //				.replace(R.id.framelayout_download, fragments.get(1)).commit();
 				FragmentTransaction f = getSupportFragmentManager().beginTransaction();

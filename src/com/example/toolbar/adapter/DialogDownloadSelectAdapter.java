@@ -17,7 +17,6 @@ import com.example.toolbar.bean.ProgramListBean.ProgramListInfo;
 public class DialogDownloadSelectAdapter extends BaseAdapter {
 	private Context context;
 	private List<ProgramListInfo> list;
-	private ProgramListInfo info;
 //	private List<Integer> checked;
 	
 	public DialogDownloadSelectAdapter(Context context,ArrayList<ProgramListInfo> list) {
@@ -66,15 +65,20 @@ public class DialogDownloadSelectAdapter extends BaseAdapter {
 		}else{
 			holder = (Holder) convertView.getTag();
 		}
-		info = list.get(position);
+		ProgramListInfo info = list.get(position);
 		holder.tv_name.setText(info.title);
-		if(holder.cb.getTag() == null){
-			holder.cb.setTag(-1);
-		}else if((Integer)holder.cb.getTag() == position){
+		if(info.download_checkBox_state){
 			holder.cb.setChecked(true);
 		}else{
 			holder.cb.setChecked(false);
 		}
+//		if(holder.cb.getTag() == null){
+//			holder.cb.setTag(-1);
+//		}else if((Integer)holder.cb.getTag() == position){
+//			holder.cb.setChecked(true);
+//		}else{
+//			holder.cb.setChecked(false);
+//		}
 //		if((Integer)holder.cb.getTag() == position){
 //			holder.cb.setChecked(true);
 //		}else{

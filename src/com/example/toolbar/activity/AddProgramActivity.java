@@ -60,6 +60,7 @@ public class AddProgramActivity extends AppCompatActivity implements
 	private CircularProgress progress;
 	private ArrayList<String> idList;
 	private List<String> titleList;
+	private AddProgram bean;
 	private int page = 0;
 	private String titel;
 	private String typeId;
@@ -68,8 +69,6 @@ public class AddProgramActivity extends AppCompatActivity implements
 	private final Timer timer = new Timer();
 	private TimerTask task;
 	private Intent intent;
-	private int startSize;
-	private int endSize;
 	private MaterialDialog mMaterialDialog;
 
 	@Override
@@ -88,7 +87,6 @@ public class AddProgramActivity extends AppCompatActivity implements
 		} else {
 			idList = new ArrayList<String>();
 		}
-		startSize = idList.size();
 		mToolbar = (Toolbar) findViewById(R.id.toolbar);
 		// toolbar.setLogo(R.drawable.ic_launcher);
 		mToolbar.setTitle("添加节目");
@@ -186,9 +184,19 @@ public class AddProgramActivity extends AppCompatActivity implements
 				progress.setVisibility(View.GONE);
 				String result = new String(arg2);
 				Gson gson = new Gson();
-				AddProgram bean = gson.fromJson(result, AddProgram.class);
+				bean = gson.fromJson(result, AddProgram.class);
+				for(AddProgramInfo info : bean.list){
+					if(idList.isEmpty()){
+						break;
+					}
+					for(String id :idList){
+						if(info.id.equals(id)){
+							info.checkBox_status = true;
+						}
+					}
+				}
 				adapter = new AddProgramAdapter(AddProgramActivity.this,
-						bean.list, idList, onItemClickClass);
+						bean.list, onItemClickClass);
 				listView.setAdapter(adapter);
 				mPullRefreshListView.onRefreshComplete();
 				load_fail_remind.setVisibility(View.GONE);
@@ -249,6 +257,7 @@ public class AddProgramActivity extends AppCompatActivity implements
 				// 获得选中项的对象
 				String id = data.id;
 				idList.remove(id);
+				bean.list.get(Position).checkBox_status = false;
 				Log.i(TAG, "img remove position->" + Position);
 			} else {
 				checkBox.setChecked(true);
@@ -257,6 +266,7 @@ public class AddProgramActivity extends AppCompatActivity implements
 				String id = data.id;
 				// title = (new StringBuilder(" ")).append(title).toString();
 				idList.add(id);
+				bean.list.get(Position).checkBox_status = true;
 			}
 		}
 	};

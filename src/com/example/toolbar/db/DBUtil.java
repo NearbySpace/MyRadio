@@ -57,16 +57,16 @@ public class DBUtil {
         return cursor;
     }
     
-//    /**
-//     * 查询最后一列的数据
-//     * @param tableName
-//     * @return
-//     */
-//    public Cursor selectOneData(String tableName){
-//    	String sql = "select * from "+tableName+" order by _id desc limit 0 , 1";
-//		Cursor cursor = mSQLiteDatabase.rawQuery(sql, null);
-//		return cursor;
-//    }
+    /**
+     * 查询最后一列的数据
+     * @param tableName
+     * @return
+     */
+    public Cursor selectLastData(String tableName){
+    	String sql = "select * from "+tableName+" order by _id desc limit 0 , 1";
+		Cursor cursor = mSQLiteDatabase.rawQuery(sql, null);
+		return cursor;
+    }
     
     public boolean updateDownloadEntry(DownloadEntry downloadEntry) {
 		String whereClause = SQLHelper.DOWNLOAD_URL + " = ? ";

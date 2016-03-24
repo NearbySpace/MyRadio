@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -49,12 +50,21 @@ public class DownloadingFragment extends Fragment {
 
 	DownloadManager.DownloadStatusListener mDownloadStatusListener = new DownloadManager.SimpleDownloadStatusListener() {
 		
-//		@Override
-//		public void onStart(DownloadEntry entry) {
-//			// TODO Auto-generated method stub
-//			super.onStart(entry);
-//			initHeadView();
-//		}
+		@Override
+		public void onStart(DownloadEntry entry) {
+			// TODO Auto-generated method stub
+			super.onStart(entry);
+			//保证getFirstVisiblePosition的值不为空，要listview绘制完才使用
+			lv.post(new Runnable() {
+				
+				@Override
+				public void run() {
+					if (lv.getChildAt(lv.getFirstVisiblePosition()) != null) {
+						initHeadView();
+					} 
+				}
+			});
+		}
 
 		@Override
 		public void onProgress(DownloadEntry entry, int speed) {
@@ -71,20 +81,13 @@ public class DownloadingFragment extends Fragment {
 				adapder = new MyAdapter();
 			else
 				adapder.notifyDataSetChanged();
-			
-			//保证getFirstVisiblePosition的值不为空，要listview绘制完才使用
-			lv.post(new Runnable() {
-				
-				@Override
-				public void run() {
-					if (lv.getChildAt(lv.getFirstVisiblePosition()) != null) {
-						initHeadView();
-					} 
-				}
-			});
+			MyDownLoadActivity mdla = (MyDownLoadActivity) getActivity();
+			mdla.handle.sendEmptyMessage(1);
 		}
 
 	};
+	
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -158,7 +161,7 @@ public class DownloadingFragment extends Fragment {
 	private void updateProgress(DownloadEntry entry, String speed) {
 		head_pb.setProgress(entry.getFileProgress());
 		head_percent.setText(entry.getFileProgress() + "%");
-		head_speed.setText(speed);
+		head_speed.setText(speed+"/s");
 
 	}
 

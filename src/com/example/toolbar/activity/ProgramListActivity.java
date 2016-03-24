@@ -109,7 +109,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 	private String mid;
 	private boolean isAlreadyRemind = false;//是否已经提醒过了（关于网络状况）
 
-	private List<String> checkedIdList;
+	private List<ProgramListInfo> deleteProgramList;
 	private List<ProgramListInfo> downloadList;//要下载节目的id集
 //	private List<Map<String,Map<String,String>>> downloadList;
 //	private Map<String, Map<String,String>> downloadInfo;
@@ -130,7 +130,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_list);
-		checkedIdList = new ArrayList<String>();
+		deleteProgramList = new ArrayList<ProgramListInfo>();
 		downloadList = new ArrayList<ProgramListInfo>();
 //		downloadInfo = new HashMap<String, Map<String,String>>();
 		programme_id = getIntent().getStringExtra("programme_id");
@@ -142,12 +142,9 @@ public class ProgramListActivity extends AppCompatActivity implements
 	@Override
 	protected void onActivityResult(int arg0, int arg1, Intent arg2) {
 		// TODO Auto-generated method stub
-//		Log.i("ProgramListAcivity", "触发了onActivityResult");
-//		initData();
 		super.onActivityResult(arg0, arg1, arg2);
 		if(Activity.RESULT_OK==arg1){
 			initData();
-//			Log.i("ProgramListAcivity", "触发了onActivityResult初始化");
 		}
 	}
 
@@ -203,7 +200,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 		mDragSortListView.setOnItemClickListener(new MyOnItemClickListener());
 		mDragSortListView.setDropListener(onDrop);// 设置拖动监听
 		mDragSortListView.setDragEnabled(false);
-		mDragSortListView.setFocusable(false);
+		mDragSortListView.setFocusable(false);//将listview从顶部开始显示
 		// 设置左上角的图标
 		mToolbar.setNavigationContentDescription(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -316,23 +313,23 @@ public class ProgramListActivity extends AppCompatActivity implements
 	}
 
 	/**
-	 * 将要删除的节目的id添加到集合checkedIdList
+	 * 将要删除的节目添加到集合deleteProgramList
 	 * 
 	 * @param id
 	 */
-	public void addDeleteProgramId(String id) {
-		if (checkedIdList == null) {
-			checkedIdList = new ArrayList<String>();
+	public void addDeleteProgramId(ProgramListInfo programListInfo) {
+		if (deleteProgramList == null) {
+			deleteProgramList = new ArrayList<ProgramListInfo>();
 		}
-		if (!checkedIdList.contains(id)) {
-			checkedIdList.add(id);
+		if (!deleteProgramList.contains(programListInfo)) {
+			deleteProgramList.add(programListInfo);
 		}
-		Log.i("ProgramListActivity", "checkedIdList的长度:" + checkedIdList.size());
+		Log.i("ProgramListActivity", "deleteProgramList的长度:" + deleteProgramList.size());
 	}
 
-	public void removeProgramId(String id) {
-		if (checkedIdList.contains(id))
-			checkedIdList.remove(id);
+	public void removeProgramId(ProgramListInfo programListInfo) {
+		if (deleteProgramList.contains(programListInfo))
+			deleteProgramList.remove(programListInfo);
 	}
 
 	@Override
@@ -439,7 +436,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 			cancelEditor();
 			mProgramListAdapter.setIsSure(true);
 			//更新限制时间（timespan）的数据
-			mProgramListAdapter.notifyDataSetChanged();
+//			mProgramListAdapter.notifyDataSetChanged();
 			programSort(programme_id);
 			isPlayingThisList = false;
 			break;
@@ -496,7 +493,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 		ListView lv = (ListView) view.findViewById(R.id.dialog_download_select_lv);
 		Button cancel = (Button) view.findViewById(R.id.dialog_download_select_cancel);
 		Button sure = (Button) view.findViewById(R.id.dialog_download_select_sure);
-		final DialogDownloadSelectAdapter ddsa = new DialogDownloadSelectAdapter(this, bean.list);
+		DialogDownloadSelectAdapter ddsa = new DialogDownloadSelectAdapter(this, bean.list);
 		lv.setAdapter(ddsa);
 		builder.setView(view);
 		dialog = builder.show();
@@ -505,16 +502,15 @@ public class ProgramListActivity extends AppCompatActivity implements
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				ProgramListInfo pli = (ProgramListInfo)ddsa.getItem(position);
-				String program_id = pli.id;
+				ProgramListInfo pli = (ProgramListInfo) parent.getAdapter().getItem(position);
 				CheckBox cb = (CheckBox) view.findViewById(R.id.item_dialog_download_select_checkbox);
 				if(cb.isChecked()){
 					cb.setChecked(false);
-					cb.setTag(-1);
+					pli.download_checkBox_state = false;
 					if(downloadList.contains(pli))  downloadList.remove(pli);
 				}else{
 					cb.setChecked(true);
-					cb.setTag(position);
+					pli.download_checkBox_state = true;
 					downloadList.add(pli);
 				}
 			}
@@ -609,16 +605,16 @@ public class ProgramListActivity extends AppCompatActivity implements
 		String json;
 		for(int i=0;i<bean.list.size();i++){
 			ProgrammeEditInfo info=new ProgrammeEditInfo();
-			info.setId(bean.list.get(i).program_id);
+			info.setId(bean.list.get(i).program_id);//有问题
 			info.setType(bean.list.get(i).type_id);
-			info.setIs_delete(checkedIdList.contains(bean.list.get(i).program_id)?"1":"0");
+			info.setIs_delete(deleteProgramList.contains(bean.list.get(i))?"1":"0");
 			info.setTime(bean.list.get(i).timespan);
 			Log.i("ProgramListActivity","info.setTime(bean.list.get(i).timespan)="+ bean.list.get(i).timespan);
 			list.add(info);
 		}
 		Gson gson=new Gson();
 		json=gson.toJson(list);
-		Log.i("ProgramListActivity", "json:"+json);
+		Log.i("ProgramListActivity", "提交的json:"+json);
 		json=json.replace("\"", "-");
 		
 		HttpManage.editProgramme(mid, programme_id, json, 
@@ -628,7 +624,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
 						// TODO Auto-generated method stub
 						isPlayingThisList = false;
-						checkedIdList.clear();
+						deleteProgramList.clear();
 //						mProgramListAdapter.notifyDataSetChanged();
 						initData();
 						progress.setVisibility(View.GONE);
@@ -662,8 +658,18 @@ public class ProgramListActivity extends AppCompatActivity implements
 					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
 						String result = new String(arg2);
 						Log.i("programListSort", result);
-						// 排完序再操作
-						submitEditInfo(mid, programme_id);
+						Map<String,String> map = Common.str3map(result);
+						int status = Integer.valueOf(map.get("status"));
+						switch (status) {
+						case 0://操作成功
+							// 排完序再操作
+							submitEditInfo(mid, programme_id);
+							break;
+
+						default:
+							break;
+						}
+						
 					}
 
 					@Override

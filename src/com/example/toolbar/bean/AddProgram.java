@@ -25,6 +25,7 @@ public class AddProgram {
 		public String mid;
 		public String owner;
 		public String path;
+		public boolean checkBox_status; 
 	}
 	
 

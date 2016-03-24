@@ -3,16 +3,13 @@ package com.example.toolbar.adapter;
 import java.util.ArrayList;
 
 import android.content.Context;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -25,10 +22,8 @@ import com.example.toolbar.view.MyImageView;
 
 public class ProgramListAdapter extends BaseAdapter {
 	// private ProgramListBean bean;
-	private final String TAG="ProgramListAdapter";
+	private final String TAG = "ProgramListAdapter";
 	private Context context;
-	private Holder holder;
-	private ProgramListInfo info;
 	private ArrayList<ProgramListInfo> mProgramListInfos;
 	private boolean isEditor = false;
 	private boolean isSure = false;
@@ -47,8 +42,8 @@ public class ProgramListAdapter extends BaseAdapter {
 	public void setIsSure(boolean isSure) {
 		this.isSure = isSure;
 	}
-	
-	public void setDate(ArrayList<ProgramListInfo> ProgramListInfos){
+
+	public void setDate(ArrayList<ProgramListInfo> ProgramListInfos) {
 		mProgramListInfos = ProgramListInfos;
 		notifyDataSetChanged();
 	}
@@ -70,7 +65,6 @@ public class ProgramListAdapter extends BaseAdapter {
 		// TODO Auto-generated method stub
 		return position;
 	}
-	
 
 	// 实现移除操作
 	public void remove(int position) {
@@ -86,6 +80,7 @@ public class ProgramListAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
+		Holder holder = null;
 		if (convertView == null) {
 			convertView = LayoutInflater.from(context).inflate(
 					R.layout.item_program_list_item, null);
@@ -106,10 +101,12 @@ public class ProgramListAdapter extends BaseAdapter {
 					.findViewById(R.id.program_list_name_item);
 			holder.tv_time = (TextView) convertView
 					.findViewById(R.id.program_list_time_time);
+			holder.rl_layout_delete = (RelativeLayout) convertView
+					.findViewById(R.id.program_list_rl_delete);
 			holder.checkBox = (CheckBox) convertView
 					.findViewById(R.id.program_list_checkbox);
 			holder.tv_delete = (TextView) convertView
-					.findViewById(R.id.program_list_delete);
+					.findViewById(R.id.program_list_tv_delete);
 			convertView.setTag(holder);
 		} else {
 			holder = (Holder) convertView.getTag();
@@ -123,49 +120,52 @@ public class ProgramListAdapter extends BaseAdapter {
 					.getColor(R.color.color_gray_light3));
 
 		}
-		
+
 		if (isEditor) {
 			holder.et_set_time.setVisibility(View.VISIBLE);
 			holder.tv_set_unit.setVisibility(View.VISIBLE);
-			holder.checkBox.setVisibility(View.VISIBLE);
-			holder.tv_delete.setVisibility(View.VISIBLE);
+			holder.rl_layout_delete.setVisibility(View.VISIBLE);
 			holder.tv_set_unit.setVisibility(View.VISIBLE);
 			holder.tv_set_time.setVisibility(View.GONE);
 			holder.iv.setBackgroundColor(0xFF01AED9);
 		} else {
 			holder.et_set_time.setVisibility(View.GONE);
-			holder.checkBox.setVisibility(View.GONE);
 			holder.tv_set_unit.setVisibility(View.GONE);
-			holder.tv_delete.setVisibility(View.GONE);
 			holder.tv_set_unit.setVisibility(View.GONE);
+			holder.rl_layout_delete.setVisibility(View.GONE);
 			holder.tv_set_time.setVisibility(View.VISIBLE);
 			holder.iv.setBackgroundColor(0x00000000);
 		}
-		info = mProgramListInfos.get(position);
+
+		ProgramListInfo info = mProgramListInfos.get(position);
 		holder.tv_title.setText(info.title + info.addtime);
 		holder.tv_host_name.setText(info.nickname);
 		holder.tv_time.setText(info.program_time);
-		if(!info.timespan.isEmpty()){
+		if (!info.timespan.isEmpty()) {
 			float timespan = Float.valueOf(info.timespan);
 			holder.tv_set_time.setText(MediaUtil
 					.formatTime((long) (timespan * 60 * 1000)));
 		}
-		
-		
+
 		if (isSure) {
 			String str = holder.et_set_time.getText().toString().trim();
 
 			if (!str.isEmpty()) {
 				float time = Float.valueOf(str);
-				info.timespan=str;
-				Log.i(TAG, "设置的时间str---->"+str);
+				info.timespan = str;
+				Log.i(TAG, "设置的时间str---->" + str);
 				holder.tv_set_time.setText(MediaUtil
 						.formatTime((long) (time * 60 * 1000)));
 			}
 		}
 
-		holder.checkBox
-				.setOnCheckedChangeListener(new MyOnCheckedChangeListener(info.program_id));
+		if (info.checkBox_state) {
+			holder.checkBox.setChecked(true);
+		} else {
+			holder.checkBox.setChecked(false);
+		}
+		holder.rl_layout_delete.setOnClickListener(new MyOnClickListener(info,
+				holder.checkBox));
 		return convertView;
 	}
 
@@ -178,32 +178,37 @@ public class ProgramListAdapter extends BaseAdapter {
 		private TextView tv_host_name;
 		private TextView tv_time;
 		private RelativeLayout rl_layout;
+		private RelativeLayout rl_layout_delete;
 		private CheckBox checkBox;
 		private TextView tv_delete;
 	}
 
-	class MyOnCheckedChangeListener implements OnCheckedChangeListener {
-		private String programId;
+	class MyOnClickListener implements OnClickListener {
+		private CheckBox checkBox;
+		private ProgramListInfo programListInfo;
 
-		public MyOnCheckedChangeListener(String id) {
+		public MyOnClickListener(ProgramListInfo info, CheckBox cb) {
 			super();
-			programId = id;
-
+			checkBox = cb;
+			programListInfo = info;
 		}
 
 		@Override
-		public void onCheckedChanged(CompoundButton buttonView,
-				boolean isChecked) {
-			if (isChecked) {
-				if (context instanceof ProgramListActivity) {
-					((ProgramListActivity) context)
-							.addDeleteProgramId(programId);
-					Log.i("ProgramListAdapter", "programId:" + programId);
-				}
+		public void onClick(View v) {
+
+			if (!(context instanceof ProgramListActivity))
+				return;
+
+			if (!checkBox.isChecked()) {
+				checkBox.setChecked(true);
+				((ProgramListActivity) context)
+						.addDeleteProgramId(programListInfo);
+				programListInfo.checkBox_state = true;
 			} else {
-				if (context instanceof ProgramListActivity) {
-					((ProgramListActivity) context).removeProgramId(programId);
-				}
+				checkBox.setChecked(false);
+				((ProgramListActivity) context)
+						.removeProgramId(programListInfo);
+				programListInfo.checkBox_state = false;
 			}
 
 		}

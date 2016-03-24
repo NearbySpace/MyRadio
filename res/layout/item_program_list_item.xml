@@ -10,8 +10,8 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:gravity="center_horizontal"
         android:layout_marginLeft="10dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
         <TextView
@@ -26,20 +26,21 @@
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:gravity="center"
-            android:inputType="numberDecimal"
-            android:textSize="12sp"
-            android:hint="时间"
-            android:textColor="@color/black_light_color"
             android:background="@drawable/edit_background"
-            android:visibility="gone"/>
+            android:gravity="center"
+            android:hint="时间"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black_light_color"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
         <TextView
-            android:id="@+id/program_list_set_time_unit" 
+            android:id="@+id/program_list_set_time_unit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:text="分"
             android:textSize="12sp"
-            android:text="分"/>
+            android:visibility="gone" />
     </LinearLayout>
 
     <com.example.toolbar.view.MyImageView
@@ -110,23 +111,31 @@
             android:textColor="#AAAAAA"
             android:textSize="12sp" />
     </LinearLayout>
-    
-    <TextView 
-        android:id="@+id/program_list_delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+
+    <RelativeLayout
+        android:id="@+id/program_list_rl_delete"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_centerVertical="true"
-        android:text="@string/delete"/>
-    
-    <CheckBox
-          android:id="@+id/program_list_checkbox"
-          android:layout_width="30dp"
-          android:layout_height="30dp"
-          android:layout_centerVertical="true"
-          android:layout_toLeftOf="@id/program_list_delete"
-          android:visibility="visible"
-          android:clickable="true"
-          style="@style/custom_checkbox"/>
+        android:clickable="true"
+        android:layout_toRightOf="@id/program_list_iv_item" >
+
+        <TextView
+            android:id="@+id/program_list_tv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="@string/delete" />
+
+        <CheckBox
+            android:id="@+id/program_list_checkbox"
+            style="@style/custom_checkbox"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/program_list_tv_delete"
+            android:clickable="false"/>
+    </RelativeLayout>
 
 </RelativeLayout>

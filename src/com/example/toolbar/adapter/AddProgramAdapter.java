@@ -33,7 +33,6 @@ public class AddProgramAdapter extends BaseAdapter {
 	public Context context;
 	private LayoutInflater inflater;
 	private List<AddProgramInfo> list;
-	private ArrayList<String> idList;
 	private ViewHolder viewHolder;
 	OnItemClickClass onItemClickClass;
 	private ImageLoader mImageLoader;
@@ -48,13 +47,12 @@ public class AddProgramAdapter extends BaseAdapter {
 	}
 
 	public AddProgramAdapter(Context context, List<AddProgramInfo> list,
-			ArrayList<String> idList,OnItemClickClass onItemClickClass) {
+			OnItemClickClass onItemClickClass) {
 		// TODO Auto-generated constructor stub
 		this.context = context;
 		inflater = LayoutInflater.from(context);
 		this.onItemClickClass = onItemClickClass;
 		this.list = list;
-		this.idList=idList;
 		mImageLoader = ImageLoader.getInstance();
 	}
 
@@ -110,14 +108,11 @@ public class AddProgramAdapter extends BaseAdapter {
 		// .get("truename")));
 		viewHolder.time_tt.setText("时长 ："
 				+ list.get(position).program_time);
-		if(idList!=null&&0<idList.size()){
-			for(int i=0;i<idList.size();i++){
-				if(idList.get(i).equals(list.get(position).id)){
-					viewHolder.checkBox.setChecked(true);
-				}
-			}
+		if(list.get(position).checkBox_status){
+			viewHolder.checkBox.setChecked(true);
+		}else{
+			viewHolder.checkBox.setChecked(false);
 		}
-		
 		// 加载图片
 		if (list.get(position).thumb == null) {
 			viewHolder.thumb.setVisibility(View.GONE);

@@ -43,6 +43,8 @@ public class ProgramListBean{
 		public String timespan;
 		public String sort;
 		public String type_id;
+		public boolean checkBox_state;
+		public boolean download_checkBox_state;//用于标记下载弹出框中CheckBox的状态
 		public ArrayList<ProgramInfo> contentlist;
 		
 		public static class ProgramInfo{
