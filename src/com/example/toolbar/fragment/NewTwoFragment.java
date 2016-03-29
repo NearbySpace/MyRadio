@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.activity.NewMainActivity;
 
 public class NewTwoFragment extends Fragment implements OnClickListener{

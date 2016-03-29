@@ -28,7 +28,7 @@ import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.activity.RadioPlayActivity;
 import com.example.toolbar.adapter.DownloadedFragmentAdapter;
 import com.example.toolbar.bean.DownloadedBean;
@@ -60,6 +60,7 @@ public class DownloadedFragment extends Fragment implements OnClickListener {
 		mList = new ArrayList<DownloadedBean>();
 		delList = new ArrayList<DownloadedBean>();
 		initData();
+		Log.i("DownloadedFragment", "onCreate");
 	}
 
 	@Override
@@ -67,12 +68,14 @@ public class DownloadedFragment extends Fragment implements OnClickListener {
 			Bundle savedInstanceState) {
 		view = mLayoutInflater.inflate(R.layout.fragment_downloaded, null);
 		initView();
+		Log.i("DownloadedFragment", "onCreateView");
 		return view;
 	}
 
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
+		Log.i("DownloadedFragment", "onViewCreated");
 		adapter = new DownloadedFragmentAdapter(getActivity(), mList);
 		lv.setAdapter(adapter);
 		lv.setOnItemLongClickListener(new MyOnItemLongClickListener());
@@ -139,6 +142,7 @@ public class DownloadedFragment extends Fragment implements OnClickListener {
 				mList.add(info);
 			}
 		}
+		cursor.close();
 	}
 
 	// 设置编辑栏的取消和确认按钮可见
@@ -290,6 +294,7 @@ public class DownloadedFragment extends Fragment implements OnClickListener {
 			info.setChecked_state(false);
 			mList.add(info);
 		}
+		cursor.close();
 		if (adapter != null) {
 			adapter.notifyDataSetChanged();
 		}
@@ -321,6 +326,12 @@ public class DownloadedFragment extends Fragment implements OnClickListener {
 			break;
 		}
 
+	}
+
+	@Override
+	public void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
 	}
 
 }

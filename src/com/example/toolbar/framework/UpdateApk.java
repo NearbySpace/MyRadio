@@ -31,7 +31,7 @@ import android.text.Html;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.activity.SettingActivity;
 import com.example.toolbar.application.MyApplication;
 import com.example.toolbar.common.utils.Common;

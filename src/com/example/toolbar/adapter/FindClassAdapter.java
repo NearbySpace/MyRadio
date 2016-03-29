@@ -2,7 +2,7 @@ package com.example.toolbar.adapter;
 
 import java.util.ArrayList;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.activity.ProgramClassifyListActivity;
 import com.example.toolbar.bean.FindBean.ProgramClassify;
 import com.example.toolbar.utils.DensityUtil;

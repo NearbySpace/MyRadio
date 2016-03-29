@@ -9,7 +9,7 @@
 //import android.view.View;
 //import android.view.View.OnClickListener;
 //
-//import com.example.strawberryradio.R;
+//import com.example.dolphinradio.R;
 //
 //public class ThreeActivity extends Activity{
 //	

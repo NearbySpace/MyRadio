@@ -23,7 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class TopicAdvertisementLayout extends LinearLayout {

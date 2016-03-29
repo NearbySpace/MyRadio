@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.bean.Click_Ranking;
 import com.example.toolbar.bean.Hot;
 import com.example.toolbar.bean.Top;

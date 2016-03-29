@@ -15,7 +15,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 
 
 

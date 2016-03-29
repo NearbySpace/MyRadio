@@ -1,11 +1,7 @@
 package com.example.toolbar.fragment;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
-import android.content.Context;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -18,12 +14,10 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.activity.MyDownLoadActivity;
 import com.example.toolbar.bean.DownloadEntry;
 import com.example.toolbar.common.utils.ImageLoaderHelper;
-import com.example.toolbar.db.DBUtil;
-import com.example.toolbar.db.SQLHelper;
 import com.example.toolbar.download.DownloadManager;
 import com.example.toolbar.utils.Utils;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -45,7 +39,6 @@ public class DownloadingFragment extends Fragment {
 	private MyAdapter adapder;
 	private String speed1 = 0 + "";
 	private ImageLoader mImageLoader;
-	private DownloadedFragment mDownloadedFragment;
 	private final String TAG = "DownloadingFragment";
 
 	DownloadManager.DownloadStatusListener mDownloadStatusListener = new DownloadManager.SimpleDownloadStatusListener() {
@@ -77,12 +70,12 @@ public class DownloadingFragment extends Fragment {
 		public void onFinish(DownloadEntry entry) {
 			// TODO Auto-generated method stub
 			super.onFinish(entry);
-			if (adapder == null)
-				adapder = new MyAdapter();
-			else
-				adapder.notifyDataSetChanged();
+			adapder.notifyDataSetChanged();
 			MyDownLoadActivity mdla = (MyDownLoadActivity) getActivity();
 			mdla.handle.sendEmptyMessage(1);
+			if(headView == null){
+				Log.i(TAG, "onFinish:headView是空");
+			}
 		}
 
 	};
@@ -94,6 +87,7 @@ public class DownloadingFragment extends Fragment {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		mImageLoader = ImageLoader.getInstance();
+		Log.i("DownloadingFragment", "onCreate");
 	}
 
 	@Override
@@ -101,7 +95,7 @@ public class DownloadingFragment extends Fragment {
 			Bundle savedInstanceState) {
 		view = LayoutInflater.from(getActivity()).inflate(
 				R.layout.fragment_downloading, null);
-
+		Log.i("DownloadingFragment", "onCreateView");
 		return view;
 	}
 
@@ -110,18 +104,18 @@ public class DownloadingFragment extends Fragment {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
 		// initHeadView();
+		Log.i("DownloadingFragment", "onActivityCreated");
 		lv = (ListView) view.findViewById(R.id.downloading_lv);
 		tv_hint = (TextView) view.findViewById(R.id.downloading_fragment_tv);
 		initData();
+		adapder = new MyAdapter();
 		if (list.size() != 0) {
 			Log.i("DownloadingFragment", "list长度：" + list.size());
 			tv_hint.setVisibility(View.GONE);
-			adapder = new MyAdapter();
-			lv.setAdapter(adapder);
 		} else {
 			tv_hint.setVisibility(View.VISIBLE);
-			lv.setAdapter(new MyAdapter());
 		}
+		lv.setAdapter(adapder);
 		lv.post(new Runnable() {
 
 			@Override
@@ -138,6 +132,36 @@ public class DownloadingFragment extends Fragment {
 			}
 		});
 		 
+	}
+	
+	//当执行show或hide时都会调用
+	@Override
+	public void onHiddenChanged(boolean hidden) {
+		// TODO Auto-generated method stub
+		super.onHiddenChanged(hidden);
+		if(list != null && list.size() != 0){
+			if(headView == null && adapder !=null){
+				adapder.notifyDataSetChanged();
+				lv.post(new Runnable() {
+
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+						if (lv.getChildAt(lv.getFirstVisiblePosition()) != null) {
+							Log.i(TAG, "headView不是空");
+							initHeadView();
+							if(DownloadManager.getInstance().getDownloadStatusListeners().size() == 0){
+								DownloadManager.getInstance().addDownloadStatusListener(
+										 mDownloadStatusListener);
+							}
+						} else {
+							Log.i(TAG, "onHiddenChanged:headView是空");
+						}
+					}
+				});
+				
+			}
+		}
 	}
 
 	private void initHeadView() {
@@ -169,6 +193,7 @@ public class DownloadingFragment extends Fragment {
 	public void onDestroy() {
 		DownloadManager.getInstance().removeDownloadStatusListener(
 				mDownloadStatusListener);
+		Log.i("DownloadingFragment", "onDestroy");
 		super.onDestroy();
 	}
 
@@ -256,6 +281,35 @@ public class DownloadingFragment extends Fragment {
 			ProgressBar pb;
 		}
 
+	}
+	
+
+	@Override
+	public void onDestroyView() {
+		// TODO Auto-generated method stub
+		super.onDestroyView();
+		Log.i("DownloadingFragment", "onDestroyView");
+	}
+
+	@Override
+	public void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		Log.i("DownloadingFragment", "onPause");
+	}
+
+	@Override
+	public void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+		Log.i("DownloadingFragment", "onStart");
+	}
+
+	@Override
+	public void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		Log.i("DownloadingFragment", "onStop");
 	}
 
 }

@@ -9,7 +9,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.activity.MyFavoriteActivity;
 import com.example.toolbar.bean.Favorite;
 import com.example.toolbar.bean.LocalFileDirInfo;

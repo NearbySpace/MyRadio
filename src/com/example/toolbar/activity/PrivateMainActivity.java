@@ -1,5 +1,6 @@
 package com.example.toolbar.activity;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.http.Header;
@@ -20,18 +21,17 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.adapter.AddProgramAdapter;
 import com.example.toolbar.adapter.PMprogerAdapter;
 import com.example.toolbar.application.MyApplication;
-import com.example.toolbar.bean.FindBean.IconTop;
 import com.example.toolbar.bean.PrivateMain;
 import com.example.toolbar.bean.PrivateMain_Progtam;
 import com.example.toolbar.common.utils.ImageLoaderHelper;
 import com.example.toolbar.common.utils.LogHelper;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.example.toolbar.utils.ImageUtils;
 import com.example.toolbar.view.MyListView;
 import com.example.toolbar.view.OpAnimationView;
@@ -130,18 +130,21 @@ public class PrivateMainActivity extends AppCompatActivity implements
 	}
 
 	private void initData() {
-		
+		String url = HttpManage.personDataUrl;
 		if(getIntent().getStringExtra("host_id") != null){
-			
 			hostId = getIntent().getStringExtra("host_id");
 			LogHelper.e(hostId);
 		}
 		mImageLoader = ImageLoader.getInstance();
-		String zid = MyApplication.getInstance().getSpUtil().getUid();
 		String mid = MyApplication.getInstance().getSpUtil().getUid();
-		HttpManage.getPrivateData(new AsyncHttpResponseHandler() {
+		Map<String, Object> paramsMap = new HashMap<String, Object>();
+		paramsMap.put("zid", hostId);
+		paramsMap.put("mid", mid);
+		HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+			
 			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			public void onSuccess(byte[] arg2) {
+
 				// TODO Auto-generated method stub
 				String result = new String(arg2);
 
@@ -163,16 +166,50 @@ public class PrivateMainActivity extends AppCompatActivity implements
 				progress.setVisibility(View.GONE);
 				sv.smoothScrollTo(0, 20);
 				getHeadIcon();
+			
 			}
-
+			
 			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-					Throwable arg3) {
+			public void onFailure(byte[] arg2, Throwable arg3) {
 				// TODO Auto-generated method stub
 				LogHelper.e("获取数据失败");
-
 			}
-		}, hostId, mid);
+		});
+		
+//		HttpManage.getPrivateData(new AsyncHttpResponseHandler() {
+//			@Override
+//			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//				// TODO Auto-generated method stub
+//				String result = new String(arg2);
+//
+//				Gson gson = new Gson();
+//				PrivateMain pm = gson.fromJson(result, PrivateMain.class);
+//				nickname.setText(pm.getNickname());
+//				pathString = pm.getAvatar();
+//
+//				collect_number.setText("被收藏" + pm.getFoo_playbill_num()+ "次");// 收藏数
+//				
+//				focus_number.setText(pm.getFavorite_num());// 关注数
+//				shows_number.setText(pm.getPlaybill_num());// 节目数
+//				fans_number.setText(pm.getFans_num());// 粉丝数
+//
+//				PMprogerAdapter pmAdapter = new PMprogerAdapter(
+//						PrivateMainActivity.this, pm.getProgramme());
+//				//LogHelper.e("获取节目列表：" + pm.getProgramme());
+//				listView.setAdapter(pmAdapter);
+//				progress.setVisibility(View.GONE);
+//				sv.smoothScrollTo(0, 20);
+//				getHeadIcon();
+//			}
+//
+//			@Override
+//			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+//					Throwable arg3) {
+//				// TODO Auto-generated method stub
+//				LogHelper.e("获取数据失败");
+//
+//			}
+//		}, hostId, mid);
 		// getListdata();
 	}
 

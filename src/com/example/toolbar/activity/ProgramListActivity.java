@@ -39,7 +39,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.adapter.DialogDownloadSelectAdapter;
 import com.example.toolbar.adapter.ProgramListAdapter;
 import com.example.toolbar.bean.DownloadEntry;
@@ -58,6 +58,7 @@ import com.example.toolbar.common.utils.NetUtil;
 import com.example.toolbar.db.DBUtil;
 import com.example.toolbar.download.DownloadManager;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.example.toolbar.service.PlayerManage;
 import com.example.toolbar.utils.ConfigUtils;
 import com.example.toolbar.utils.DialogUtils;
@@ -111,6 +112,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 
 	private List<ProgramListInfo> deleteProgramList;
 	private List<ProgramListInfo> downloadList;//要下载节目的id集
+	private Menu mMenu;
 //	private List<Map<String,Map<String,String>>> downloadList;
 //	private Map<String, Map<String,String>> downloadInfo;
 	
@@ -146,6 +148,13 @@ public class ProgramListActivity extends AppCompatActivity implements
 		if(Activity.RESULT_OK==arg1){
 			initData();
 		}
+	}
+	
+	@Override
+	protected void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+//		mMenu.findItem(R.id.menu_editor).setVisible(false);
 	}
 
 	@Override
@@ -254,61 +263,121 @@ public class ProgramListActivity extends AppCompatActivity implements
 	}
 
 	private void initData() {
-		HttpManage.getProgramListData(programme_id,
-				new AsyncHttpResponseHandler() {
+		String url = HttpManage.programmeDataUrl ;
+		Map<String, Object> paramsMap = new HashMap<String, Object>();
+		paramsMap.put("programme_id", programme_id);
+		HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+			
+			@Override
+			public void onSuccess(byte[] arg2) {
 
-					@Override
-					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-						String result = new String(arg2);
-						Gson gson = new Gson();
-						try {
-							bean = gson.fromJson(result, ProgramListBean.class);
-						} catch (Exception e) {
-							MyToast.show("数据有误，请稍后加载", ProgramListActivity.this);
-							progress.setVisibility(View.GONE);
-							return;
-						}
-						mImageLoader.displayImage(bean.row.programme_thumb,
-								show_img,
-								ImageLoaderHelper.getDisplayImageOptions());
-						mImageLoader.displayImage(bean.row.member_thumb,
-								user_icon,
-								ImageLoaderHelper.getDisplayImageOptions());
-						user_nikename.setText(bean.row.member_name);
-						showlist_name.setText(bean.row.programme_name);
-						collect_number.setText(bean.row.programme_fav);
-						if (bean.row.is_favorite.equals("1")) {
-							changeDrawable(id[0]);
-						} else {
-							changeDrawable(id[1]);
-						}
-						comment_icon.setText(bean.row.programme_comment);
-						share_number.setText(bean.row.programme_share);
-//						if(mProgramListAdapter==null){
+				String result = new String(arg2);
+				Gson gson = new Gson();
+				try {
+					bean = gson.fromJson(result, ProgramListBean.class);
+				} catch (Exception e) {
+					MyToast.show("数据有误，请稍后加载", ProgramListActivity.this);
+					progress.setVisibility(View.GONE);
+					return;
+				}
+				if(mid==null || !mid.equals(bean.row.member_id)){
+					//不是作者本人，不能编辑本节目单
+					mMenu.findItem(R.id.menu_editor).setVisible(false);
+				}else{
+					mMenu.findItem(R.id.menu_editor).setVisible(true);
+				}
+				mImageLoader.displayImage(bean.row.programme_thumb,
+						show_img,
+						ImageLoaderHelper.getDisplayImageOptions());
+				mImageLoader.displayImage(bean.row.member_thumb,
+						user_icon,
+						ImageLoaderHelper.getDisplayImageOptions());
+				user_nikename.setText(bean.row.member_name);
+				showlist_name.setText(bean.row.programme_name);
+				collect_number.setText(bean.row.programme_fav);
+				if (bean.row.is_favorite.equals("1")) {
+					changeDrawable(id[0]);
+				} else {
+					changeDrawable(id[1]);
+				}
+				comment_icon.setText(bean.row.programme_comment);
+				share_number.setText(bean.row.programme_share);
+				if(mProgramListAdapter == null){
+					mProgramListAdapter = new ProgramListAdapter(
+							ProgramListActivity.this, bean.list);
+					mDragSortListView.setAdapter(mProgramListAdapter);
+				}else{
+					
+					mProgramListAdapter.setDate(bean.list);
+				}
+				
+				
+				progress.setVisibility(View.GONE);
+			}
+			
+			@Override
+			public void onFailure(byte[] arg2, Throwable arg3) {
+
+				progress.setVisibility(View.GONE);
+				remind.setVisibility(View.VISIBLE);
+			}
+		});
+		
+//		HttpManage.getProgramListData(programme_id,
+//				new AsyncHttpResponseHandler() {
+//
+//					@Override
+//					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//						String result = new String(arg2);
+//						Gson gson = new Gson();
+//						try {
+//							bean = gson.fromJson(result, ProgramListBean.class);
+//						} catch (Exception e) {
+//							MyToast.show("数据有误，请稍后加载", ProgramListActivity.this);
+//							progress.setVisibility(View.GONE);
+//							return;
+//						}
+//						mImageLoader.displayImage(bean.row.programme_thumb,
+//								show_img,
+//								ImageLoaderHelper.getDisplayImageOptions());
+//						mImageLoader.displayImage(bean.row.member_thumb,
+//								user_icon,
+//								ImageLoaderHelper.getDisplayImageOptions());
+//						user_nikename.setText(bean.row.member_name);
+//						showlist_name.setText(bean.row.programme_name);
+//						collect_number.setText(bean.row.programme_fav);
+//						if (bean.row.is_favorite.equals("1")) {
+//							changeDrawable(id[0]);
+//						} else {
+//							changeDrawable(id[1]);
+//						}
+//						comment_icon.setText(bean.row.programme_comment);
+//						share_number.setText(bean.row.programme_share);
+////						if(mProgramListAdapter==null){
+////							mProgramListAdapter = new ProgramListAdapter(
+////									ProgramListActivity.this, bean.list);
+////						}
+//						if(mProgramListAdapter == null){
 //							mProgramListAdapter = new ProgramListAdapter(
 //									ProgramListActivity.this, bean.list);
+//							mDragSortListView.setAdapter(mProgramListAdapter);
+//						}else{
+//							
+//							mProgramListAdapter.setDate(bean.list);
 //						}
-						if(mProgramListAdapter == null){
-							mProgramListAdapter = new ProgramListAdapter(
-									ProgramListActivity.this, bean.list);
-							mDragSortListView.setAdapter(mProgramListAdapter);
-						}else{
-							
-							mProgramListAdapter.setDate(bean.list);
-						}
-						
-						
-//						sv.smoothScrollTo(0, 20);
-						progress.setVisibility(View.GONE);
-					}
-
-					@Override
-					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-							Throwable arg3) {
-						progress.setVisibility(View.GONE);
-						remind.setVisibility(View.VISIBLE);
-					}
-				});
+//						
+//						
+////						sv.smoothScrollTo(0, 20);
+//						progress.setVisibility(View.GONE);
+//					}
+//
+//					@Override
+//					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+//							Throwable arg3) {
+//						progress.setVisibility(View.GONE);
+//						remind.setVisibility(View.VISIBLE);
+//					}
+//				});
 
 	}
 
@@ -336,6 +405,7 @@ public class ProgramListActivity extends AppCompatActivity implements
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// 取得菜单布局
 		getMenuInflater().inflate(R.menu.editor, menu);
+		mMenu = menu;
 		return super.onCreateOptionsMenu(menu);
 	}
 
@@ -394,8 +464,17 @@ public class ProgramListActivity extends AppCompatActivity implements
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.user_icon:
-			Intent intent = new Intent(ProgramListActivity.this,
-					PrivateMainActivity.class);
+			Intent intent = new Intent();
+			//访问个人主页需要当前用户id
+			mid = UserUtils.getUid();
+			if(mid == null){
+				intent.setClass(ProgramListActivity.this, LoginActivity.class);
+				ToastUtils.show(this, "请先登录", Toast.LENGTH_SHORT);
+			}else{
+				intent.setClass(ProgramListActivity.this, PrivateMainActivity.class);
+				intent.putExtra("host_id", bean.row.member_id);
+			}
+			intent.setClass(ProgramListActivity.this, PrivateMainActivity.class);
 			intent.putExtra("host_id", bean.row.member_id);
 			startActivity(intent);
 			// finish();
@@ -527,9 +606,6 @@ public class ProgramListActivity extends AppCompatActivity implements
 			
 			@Override
 			public void onClick(View v) {
-//				for( Map<String, String> map : downloadInfo.values()){
-//					Log.i("ProgramListAcivity", map.get("title")+"------>"+map.get("url"));
-//				}
 				for(ProgramListInfo l : downloadList){
 					downloadProgram(l);
 				}
@@ -596,11 +672,12 @@ public class ProgramListActivity extends AppCompatActivity implements
 	}
 	
 	/**
-	 * 提交更改信息
+	 * 提交编辑信息
 	 * @param mid
 	 * @param programme_id
 	 */
 	private void submitEditInfo(String mid,String programme_id){
+		String url = HttpManage.editProgrammeUrl;
 		ArrayList<ProgrammeEditInfo> list =new ArrayList<ProgrammeEditInfo>();
 		String json;
 		for(int i=0;i<bean.list.size();i++){
@@ -617,31 +694,57 @@ public class ProgramListActivity extends AppCompatActivity implements
 		Log.i("ProgramListActivity", "提交的json:"+json);
 		json=json.replace("\"", "-");
 		
-		HttpManage.editProgramme(mid, programme_id, json, 
-				new AsyncHttpResponseHandler() {
-					
-					@Override
-					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-						// TODO Auto-generated method stub
-						isPlayingThisList = false;
-						deleteProgramList.clear();
+		Map<String,Object> paramsMap;
+		paramsMap = new HashMap<String, Object>();
+		paramsMap.put("mid", mid);
+		paramsMap.put("program_ids", json);
+		paramsMap.put("programme_id", programme_id);
+		HttpManage.getNetData(url, paramsMap, 0, new OnCallBack() {
+			
+			@Override
+			public void onSuccess(byte[] arg2) {
+				isPlayingThisList = false;
+				deleteProgramList.clear();
+//				mProgramListAdapter.notifyDataSetChanged();
+				initData();
+				progress.setVisibility(View.GONE);
+				ToastUtils.show(ProgramListActivity.this, "节目编辑成功", Toast.LENGTH_SHORT);
+			}
+			
+			@Override
+			public void onFailure(byte[] arg2, Throwable arg3) {
+				ToastUtils.show(ProgramListActivity.this, "节目编辑信息上传失败", Toast.LENGTH_SHORT);
+				mProgramListAdapter.notifyDataSetChanged();
+				progress.setVisibility(View.GONE);
+			}
+		});
+		
+//		HttpManage.editProgramme(mid, programme_id, json, 
+//				new AsyncHttpResponseHandler() {
+//					
+//					@Override
+//					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//						// TODO Auto-generated method stub
+//						isPlayingThisList = false;
+//						deleteProgramList.clear();
+////						mProgramListAdapter.notifyDataSetChanged();
+//						initData();
+//						progress.setVisibility(View.GONE);
+//						ToastUtils.show(ProgramListActivity.this, "节目编辑成功", Toast.LENGTH_SHORT);
+//					}
+//					
+//					@Override
+//					public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+//						// TODO Auto-generated method stub
+//						ToastUtils.show(ProgramListActivity.this, "节目编辑信息上传失败", Toast.LENGTH_SHORT);
 //						mProgramListAdapter.notifyDataSetChanged();
-						initData();
-						progress.setVisibility(View.GONE);
-						ToastUtils.show(ProgramListActivity.this, "节目编辑成功", Toast.LENGTH_SHORT);
-					}
-					
-					@Override
-					public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
-						// TODO Auto-generated method stub
-						ToastUtils.show(ProgramListActivity.this, "节目编辑信息上传失败", Toast.LENGTH_SHORT);
-						mProgramListAdapter.notifyDataSetChanged();
-						progress.setVisibility(View.GONE);
-					}
-				});
+//						progress.setVisibility(View.GONE);
+//					}
+//				});
 	}
 
 	private void programSort(final String programme_id) {
+		String url = HttpManage.programListSortUrl;
 		String program_ids = "";
 		for (int i = 0; i < bean.list.size(); i++) {
 			program_ids += bean.list.get(i).id;
@@ -649,36 +752,68 @@ public class ProgramListActivity extends AppCompatActivity implements
 				program_ids += ",";
 			}
 		}
-
 		progress.setVisibility(View.VISIBLE);
-		HttpManage.programListSort(programme_id, program_ids,
-				new AsyncHttpResponseHandler() {
+		Map<String,Object> paramsMap;
+		paramsMap = new HashMap<String, Object>();
+		paramsMap.put("program_ids", program_ids);
+		paramsMap.put("programme_id", programme_id);
+		HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+			
+			@Override
+			public void onSuccess(byte[] arg2) {
 
-					@Override
-					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-						String result = new String(arg2);
-						Log.i("programListSort", result);
-						Map<String,String> map = Common.str3map(result);
-						int status = Integer.valueOf(map.get("status"));
-						switch (status) {
-						case 0://操作成功
-							// 排完序再操作
-							submitEditInfo(mid, programme_id);
-							break;
+				String result = new String(arg2);
+				Log.i("programListSort", result);
+				Map<String,String> map = Common.str3map(result);
+				int status = Integer.valueOf(map.get("status"));
+				switch (status) {
+				case 0://操作成功
+					// 排完序再操作
+					submitEditInfo(mid, programme_id);
+					break;
 
-						default:
-							break;
-						}
-						
-					}
+				default:
+					break;
+				}
+			}
+			
+			@Override
+			public void onFailure(byte[] arg2, Throwable arg3) {
 
-					@Override
-					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-							Throwable arg3) {
-						progress.setVisibility(View.GONE);
-						ToastUtils.show(ProgramListActivity.this, "排序结果提交失败", Toast.LENGTH_SHORT);
-					}
-				});
+				progress.setVisibility(View.GONE);
+				ToastUtils.show(ProgramListActivity.this, "排序结果提交失败", Toast.LENGTH_SHORT);
+			}
+		});
+		
+		
+//		HttpManage.programListSort(programme_id, program_ids,
+//				new AsyncHttpResponseHandler() {
+//
+//					@Override
+//					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//						String result = new String(arg2);
+//						Log.i("programListSort", result);
+//						Map<String,String> map = Common.str3map(result);
+//						int status = Integer.valueOf(map.get("status"));
+//						switch (status) {
+//						case 0://操作成功
+//							// 排完序再操作
+//							submitEditInfo(mid, programme_id);
+//							break;
+//
+//						default:
+//							break;
+//						}
+//						
+//					}
+//
+//					@Override
+//					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+//							Throwable arg3) {
+//						progress.setVisibility(View.GONE);
+//						ToastUtils.show(ProgramListActivity.this, "排序结果提交失败", Toast.LENGTH_SHORT);
+//					}
+//				});
 	}
 
 
@@ -686,72 +821,75 @@ public class ProgramListActivity extends AppCompatActivity implements
 			R.drawable.icon_collect_small_line };
 
 	private void favoriteProgramListAdd() {
-		HttpManage.FavoriteListAdd(programme_id, mid, "1",
-				new AsyncHttpResponseHandler() {
+		String url = HttpManage.favoriteListAddUrl;
+		Map<String,Object> paramsMap;
+		paramsMap = new HashMap<String, Object>();
+		paramsMap.put("mid", mid);
+		paramsMap.put("type_id", 1);
+		paramsMap.put("programme_id", programme_id);
+		HttpManage.getNetData(url, paramsMap, 0, new OnCallBack() {
+			
+			@Override
+			public void onSuccess(byte[] arg2) {
 
-					@Override
-					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-						String result = new String(arg2);
-						Log.i("ProgramListActivity", "收藏返回的数据：" + result);
-						Map<String, String> map = Common.str3map(result);
-						switch (Integer.valueOf(map.get("status"))) {
-						case 0:
-							changeDrawable(id[0]);
-							Toast.makeText(ProgramListActivity.this, "节目单收藏成功",
-									0).show();
-							return;
+				String result = new String(arg2);
+				Log.i("ProgramListActivity", "收藏返回的数据：" + result);
+				Map<String, String> map = Common.str3map(result);
+				switch (Integer.valueOf(map.get("status"))) {
+				case 0:
+					changeDrawable(id[0]);
+					Toast.makeText(ProgramListActivity.this, "节目单收藏成功",
+							0).show();
+					return;
 
-						default:
-							break;
-						}
-					}
-
-					@Override
-					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-							Throwable arg3) {
-						// TODO Auto-generated method stub
-						Log.i("ProgramListActivity", "收藏失败");
-					}
-				});
+				default:
+					break;
+				}
+				
+			}
+			
+			@Override
+			public void onFailure(byte[] arg2, Throwable arg3) {
+				// TODO Auto-generated method stub
+				Log.i("ProgramListActivity", "收藏失败");
+			}
+		});
+		
 	}
 
 	private void favoriteProgramListDel() {
-		HttpManage.FavoriteListDel(programme_id, mid, "1",
-				new AsyncHttpResponseHandler() {
+		String url = HttpManage.favoriteDelUrls;
+		Map<String,Object> paramsMap;
+		paramsMap = new HashMap<String, Object>();
+		paramsMap.put("mid", mid);
+		paramsMap.put("type_id", 1);
+		paramsMap.put("programme_id", programme_id);
+		HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+			
+			@Override
+			public void onSuccess(byte[] arg2) {
 
-					@Override
-					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-						String result = new String(arg2);
-						Log.i("ProgramListActivity", "取消收藏返回的数据：" + result);
-						Map<String, String> map = Common.str3map(result);
-						switch (Integer.valueOf(map.get("status"))) {
-						case 0:
-							// 更换TextView上的图片
-							// Drawable rightDrawable =
-							// getResources().getDrawable(R.drawable.icon_collect_small_line);
-							// rightDrawable.setBounds(0, 0,
-							// rightDrawable.getMinimumWidth(),
-							// rightDrawable.getMinimumHeight());
-							// collect_number.setCompoundDrawables(null,
-							// rightDrawable, null,null);
-							changeDrawable(id[1]);
-							Toast.makeText(ProgramListActivity.this,
-									"节目单取消收藏成功", 0).show();
-							return;
+				String result = new String(arg2);
+				Log.i("ProgramListActivity", "取消收藏返回的数据：" + result);
+				Map<String, String> map = Common.str3map(result);
+				switch (Integer.valueOf(map.get("status"))) {
+				case 0:
+					changeDrawable(id[1]);
+					Toast.makeText(ProgramListActivity.this,
+							"节目单取消收藏成功", 0).show();
+					return;
 
-						default:
-							break;
-						}
-
-					}
-
-					@Override
-					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-							Throwable arg3) {
-						// TODO Auto-generated method stub
-
-					}
-				});
+				default:
+					break;
+				}
+			}
+			
+			@Override
+			public void onFailure(byte[] arg2, Throwable arg3) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 
 	// 更换TextView上的图片

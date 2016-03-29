@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.bean.DownloadedBean;
 import com.example.toolbar.common.utils.ImageLoaderHelper;
 import com.nostra13.universalimageloader.core.ImageLoader;

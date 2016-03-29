@@ -33,7 +33,7 @@ public class App extends Application {
 	 /**
 	  * 程序包名
 	  */
-	 public final static String appPacketName = "com.example.strawberryradio";
+	 public final static String appPacketName = "com.example.dolphinradio";
 
 	@Override
 	public void onCreate() {

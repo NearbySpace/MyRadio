@@ -1,13 +1,15 @@
 package com.example.toolbar.activity;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.http.Header;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.application.MyApplication;
 import com.example.toolbar.common.utils.Common;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import android.os.Bundle;
@@ -120,10 +122,16 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
 	private void subPassworldChange(String uid, String old_password,
 			String new_password) {
-		HttpManage.changePasswork(new AsyncHttpResponseHandler() {
-
+		String url = HttpManage.changePassworkUrl;
+		Map<String,Object> paramsMap = new HashMap<String, Object>();
+		paramsMap.put("uid", uid);
+		paramsMap.put("old_password", old_password);
+		paramsMap.put("new_password", new_password);
+		HttpManage.getNetData(url, paramsMap, 0, new OnCallBack() {
+			
 			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			public void onSuccess(byte[] arg2) {
+
 				String result = new String(arg2);
 				Log.i("ChangePassword", result);
 				Map<String, String> map = Common.str3map(result);
@@ -159,13 +167,59 @@ public class ChangePasswordActivity extends AppCompatActivity {
 					break;
 				}
 			}
-
+			
 			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-					Throwable arg3) {
+			public void onFailure(byte[] arg2, Throwable arg3) {
 				Toast.makeText(ChangePasswordActivity.this, "密码更换失败", 0).show();
 			}
-		}, uid, old_password, new_password);
+		});
+		
+//		HttpManage.changePasswork(new AsyncHttpResponseHandler() {
+//
+//			@Override
+//			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//				String result = new String(arg2);
+//				Log.i("ChangePassword", result);
+//				Map<String, String> map = Common.str3map(result);
+//				// 对字符串进行判断，判断密码是否更改成功
+//				switch (Integer.valueOf(map.get("status"))) {
+//				case 0:
+//					// 提示密码更换成功
+//					Toast.makeText(ChangePasswordActivity.this, "密码更换成功", 0)
+//							.show();
+//					break;
+//				case 1:
+//					Toast.makeText(ChangePasswordActivity.this, "原密码或新密码不能为空",
+//							0).show();
+//					break;
+//				case 2:
+//					Toast.makeText(ChangePasswordActivity.this, "该用户不存在", 0)
+//							.show();
+//					break;
+//				case 3:
+//					Toast.makeText(ChangePasswordActivity.this, "原密码不正确", 0)
+//							.show();
+//					break;
+//				case 4:
+//					Toast.makeText(ChangePasswordActivity.this,
+//							"对不起，出错了，请稍后再试", 0).show();
+//					break;
+//				case 5:
+//					Toast.makeText(ChangePasswordActivity.this, "原密码和新密码不能相同",
+//							0).show();
+//					break;
+//
+//				default:
+//					break;
+//				}
+//			}
+//
+//			@Override
+//			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+//					Throwable arg3) {
+//				Toast.makeText(ChangePasswordActivity.this, "密码更换失败", 0).show();
+//			}
+//		}, uid, old_password, new_password);
 
 	}
 

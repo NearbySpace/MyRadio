@@ -1,7 +1,7 @@
 package com.example.toolbar.activity;
 
-import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Timer;
@@ -11,67 +11,48 @@ import org.apache.http.Header;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
-import com.baidu.location.Poi;
-import com.example.strawberryradio.R;
-import com.example.toolbar.adapter.AddProgramSelectAdapter;
+import com.example.dolphinradio.R;
 import com.example.toolbar.application.MyApplication;
-import com.example.toolbar.bean.SelectProgram;
 import com.example.toolbar.bean.UserInfo;
-import com.example.toolbar.common.utils.Common;
-import com.example.toolbar.common.utils.FileUtils;
 import com.example.toolbar.common.utils.LogHelper;
 import com.example.toolbar.common.utils.MyJsonUtils;
-import com.example.toolbar.common.utils.NetUtil;
 import com.example.toolbar.fragment.NewFirstFragment;
 import com.example.toolbar.fragment.NewTwoFragment;
 import com.example.toolbar.framework.UpdateApk;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.example.toolbar.service.LocationService;
 import com.example.toolbar.utils.ConfigUtils;
 import com.example.toolbar.utils.ControlActivity;
 import com.example.toolbar.utils.ImageUtils;
 import com.example.toolbar.utils.IntentUtils;
 import com.example.toolbar.utils.SharePreferenceUtil;
-import com.example.toolbar.utils.ToastUtils;
 import com.example.toolbar.utils.UserUtils;
 import com.example.toolbar.widget.MaterialDialog;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -176,27 +157,50 @@ public class NewMainActivity extends AppCompatActivity implements
 		if (isToLogin) {
 			return;
 		}
+		
+		String url = HttpManage.mainUserDataUrl;
 		String uid = MyApplication.getInstance().getSpUtil().getUid();
-		HttpManage.getMainUserData(uid, new AsyncHttpResponseHandler() {
-
+		Map<String, Object> paramsMap = new HashMap<String, Object>();
+		paramsMap.put("uid", uid);
+		HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+			
 			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] bt,
-					Throwable arg3) {
-				// TODO Auto-generated method stub
-				LogHelper.e("error");
-			}
-
-			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] bt) {
-				// TODO Auto-generated method stub
-				String data = new String(bt);
+			public void onSuccess(byte[] arg2) {
+				String data = new String(arg2);
 				LogHelper.e(data);
 				Gson gson = new Gson();
 				UserInfo info = gson.fromJson(data, UserInfo.class);
 				nikename.setText(info.nickname);
 				ImageLoader.getInstance().displayImage(info.avatar, usericon);
+				
+			}
+			
+			@Override
+			public void onFailure(byte[] arg2, Throwable arg3) {
+				// TODO Auto-generated method stub
+				LogHelper.e("error");
 			}
 		});
+//		HttpManage.getMainUserData(uid, new AsyncHttpResponseHandler() {
+//
+//			@Override
+//			public void onFailure(int arg0, Header[] arg1, byte[] bt,
+//					Throwable arg3) {
+//				// TODO Auto-generated method stub
+//				LogHelper.e("error");
+//			}
+//
+//			@Override
+//			public void onSuccess(int arg0, Header[] arg1, byte[] bt) {
+//				// TODO Auto-generated method stub
+//				String data = new String(bt);
+//				LogHelper.e(data);
+//				Gson gson = new Gson();
+//				UserInfo info = gson.fromJson(data, UserInfo.class);
+//				nikename.setText(info.nickname);
+//				ImageLoader.getInstance().displayImage(info.avatar, usericon);
+//			}
+//		});
 	}
 
 	public void switchFragment(int position) {
@@ -331,37 +335,73 @@ public class NewMainActivity extends AppCompatActivity implements
 		String phone_model = sp.getString("phone_model", "null");
 		String phone_brand = sp.getString("phone_brand", "null");
 		String phone_os = "1";
-		SharePreferenceUtil spu = new SharePreferenceUtil(NewMainActivity.this,
-				ConfigUtils.appSharePreferenceName);
-		String mid = spu.getUid();
+//		SharePreferenceUtil spu = new SharePreferenceUtil(NewMainActivity.this,
+//				ConfigUtils.appSharePreferenceName);
+		String mid = MyApplication.getInstance().getSpUtil().getUid();
+		String url = HttpManage.visitStatisticsUrl;
 		if(mid.equals("")){
 			mid = "0";
 		}
+		Map<String, Object> paramsMap = new HashMap<String, Object>();
+		paramsMap.put("url", url);
+		paramsMap.put("mid", mid);
+		paramsMap.put("city", city);
+		paramsMap.put("district", district);
+		paramsMap.put("lnglat", lnglat);
+		paramsMap.put("version", getIntent().getStringExtra("version"));
+		paramsMap.put("os_version", Build.VERSION.RELEASE);
+		paramsMap.put("phone_model", phone_model);
+		paramsMap.put("phone_brand", phone_brand);
+		paramsMap.put("phone_os", phone_os);
+		paramsMap.put("isfirst", isFirst);
+		HttpManage.getNetData(url, paramsMap, 0, new OnCallBack() {
+			
+			@Override
+			public void onSuccess(byte[] arg2) {
+				// TODO Auto-generated method stub
+				String result;
+				result = new String(arg2);
+				Log.i("NewMainActivity", "访问统计返回的结果："+result);
+				isCommitSuccess = MyJsonUtils.isCheckStringState(result);
+				if(isCommitSuccess){
+					locationService.stop();
+				}else{
+					isAgainCommit = true;
+				}
+			}
+			
+			@Override
+			public void onFailure(byte[] arg2, Throwable arg3) {
+				// TODO Auto-generated method stub
+				Log.i("NewMainActivity", "访问统计返回的结果：联网失败");
+				isAgainCommit = true;
+			}
+		});
 		
-		HttpManage.visitStatistics(mid, city, district, lnglat, getIntent().getStringExtra("version"),
-				Build.VERSION.RELEASE, phone_model, phone_brand, phone_os, isFirst,
-				new AsyncHttpResponseHandler() {
-					
-					@Override
-					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-						String result;
-						result = new String(arg2);
-						Log.i("NewMainActivity", "访问统计返回的结果："+result);
-						isCommitSuccess = MyJsonUtils.isCheckStringState(result);
-						if(isCommitSuccess){
-							locationService.stop();
-						}else{
-							isAgainCommit = true;
-						}
-						
-					}
-					
-					@Override
-					public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
-						Log.i("NewMainActivity", "访问统计返回的结果：联网失败");
-						isAgainCommit = true;
-					}
-				});
+//		HttpManage.visitStatistics(mid, city, district, lnglat, getIntent().getStringExtra("version"),
+//				Build.VERSION.RELEASE, phone_model, phone_brand, phone_os, isFirst,
+//				new AsyncHttpResponseHandler() {
+//					
+//					@Override
+//					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//						String result;
+//						result = new String(arg2);
+//						Log.i("NewMainActivity", "访问统计返回的结果："+result);
+//						isCommitSuccess = MyJsonUtils.isCheckStringState(result);
+//						if(isCommitSuccess){
+//							locationService.stop();
+//						}else{
+//							isAgainCommit = true;
+//						}
+//						
+//					}
+//					
+//					@Override
+//					public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+//						Log.i("NewMainActivity", "访问统计返回的结果：联网失败");
+//						isAgainCommit = true;
+//					}
+//				});
 	}
 
 	

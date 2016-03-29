@@ -11,7 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.bean.ProgramListBean.ProgramListInfo;
 
 public class DialogDownloadSelectAdapter extends BaseAdapter {

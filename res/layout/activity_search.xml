@@ -165,7 +165,7 @@
         android:visibility="gone" />
 
     <com.example.toolbar.view.progress.CircularProgress
-        xmlns:app="http://schemas.android.com/apk/res/com.example.strawberryradio"
+        xmlns:app="http://schemas.android.com/apk/res/com.example.dolphinradio"
         android:id="@+id/search_progress"
         android:layout_width="40dp"
         android:layout_height="40dp"

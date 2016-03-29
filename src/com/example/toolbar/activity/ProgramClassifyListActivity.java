@@ -1,26 +1,15 @@
 package com.example.toolbar.activity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.http.Header;
-
-import com.example.strawberryradio.R;
-import com.example.toolbar.bean.PlayInfo;
-import com.example.toolbar.bean.ProgramClassifyListBean;
-import com.example.toolbar.bean.ProgramClassifyListBean.Info;
-import com.example.toolbar.bean.ProgramListBean.ProgramListInfo;
-import com.example.toolbar.common.utils.ImageLoaderHelper;
-import com.example.toolbar.http.HttpManage;
-import com.example.toolbar.service.PlayerManage;
-import com.example.toolbar.view.progress.CircularProgress;
-import com.google.gson.Gson;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -34,8 +23,19 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.dolphinradio.R;
+import com.example.toolbar.bean.PlayInfo;
+import com.example.toolbar.bean.ProgramClassifyListBean;
+import com.example.toolbar.bean.ProgramClassifyListBean.Info;
+import com.example.toolbar.common.utils.ImageLoaderHelper;
+import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
+import com.example.toolbar.service.PlayerManage;
+import com.example.toolbar.view.progress.CircularProgress;
+import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -148,11 +148,15 @@ public class ProgramClassifyListActivity extends AppCompatActivity{
 	}
 	
 	private void initData(){
-		
-		HttpManage.getProgramClassifyListData(page, type_id, new AsyncHttpResponseHandler() {
+		String url = HttpManage.addProgramListUrl;
+		Map<String,Object> paramsMap = new HashMap<String, Object>();
+		paramsMap.put("page", page);
+		paramsMap.put("type_id", type_id);
+		HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
 			
 			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			public void onSuccess(byte[] arg2) {
+				// TODO Auto-generated method stub
 				String result=new String(arg2);
 				Gson gson=new Gson();
 				bean=gson.fromJson(result, ProgramClassifyListBean.class);
@@ -165,16 +169,42 @@ public class ProgramClassifyListActivity extends AppCompatActivity{
 				mPullToRefreshListView.onRefreshComplete();
 				mCircularProgress.setVisibility(View.GONE);
 				tv_remind.setVisibility(View.GONE);
-				
 			}
 			
 			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+			public void onFailure(byte[] arg2, Throwable arg3) {
 				// TODO Auto-generated method stub
 				mCircularProgress.setVisibility(View.GONE);
 				tv_remind.setVisibility(View.VISIBLE);
 			}
 		});
+		
+//		HttpManage.getProgramClassifyListData(page, type_id, new AsyncHttpResponseHandler() {
+//			
+//			@Override
+//			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//				String result=new String(arg2);
+//				Gson gson=new Gson();
+//				bean=gson.fromJson(result, ProgramClassifyListBean.class);
+//				if(mAdapter==null){
+//					mAdapter=new ProgramClassifyAdapter();
+//					mListView.setAdapter(mAdapter);
+//				}else{
+//					mAdapter.notifyDataSetChanged();
+//				}
+//				mPullToRefreshListView.onRefreshComplete();
+//				mCircularProgress.setVisibility(View.GONE);
+//				tv_remind.setVisibility(View.GONE);
+//				
+//			}
+//			
+//			@Override
+//			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+//				// TODO Auto-generated method stub
+//				mCircularProgress.setVisibility(View.GONE);
+//				tv_remind.setVisibility(View.VISIBLE);
+//			}
+//		});
 	}
 	
 	class ProgramClassifyAdapter extends BaseAdapter{

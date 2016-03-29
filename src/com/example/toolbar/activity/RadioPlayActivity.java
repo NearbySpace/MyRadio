@@ -12,36 +12,26 @@ import org.apache.http.Header;
 
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.strawberryradio.R;
-import com.example.toolbar.adapter.AddProgramAdapter;
-import com.example.toolbar.adapter.FavoriteAdapter;
+import com.example.dolphinradio.R;
 import com.example.toolbar.adapter.PlayRadioAdapter;
 import com.example.toolbar.application.MyApplication;
-import com.example.toolbar.bean.AddProgram;
 import com.example.toolbar.bean.Click_Ranking;
 import com.example.toolbar.bean.DownloadEntry;
 import com.example.toolbar.bean.DownloadedBean;
@@ -49,33 +39,30 @@ import com.example.toolbar.bean.Favorite;
 import com.example.toolbar.bean.Hot;
 import com.example.toolbar.bean.PlayInfo;
 import com.example.toolbar.bean.ProgramListBean;
-import com.example.toolbar.bean.Top;
 import com.example.toolbar.bean.ProgramListBean.ProgramListInfo;
+import com.example.toolbar.bean.Top;
 import com.example.toolbar.common.utils.Common;
 import com.example.toolbar.common.utils.ImageLoaderHelper;
 import com.example.toolbar.common.utils.LogHelper;
 import com.example.toolbar.common.utils.NetUtil;
 import com.example.toolbar.db.DBUtil;
-import com.example.toolbar.db.SQLHelper;
 import com.example.toolbar.download.DownloadManager;
 import com.example.toolbar.entity.PlayButton;
 import com.example.toolbar.framework.CircleImageView;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.example.toolbar.utils.ConfigUtils;
 import com.example.toolbar.utils.ImageUtils;
 import com.example.toolbar.utils.MediaUtil;
 import com.example.toolbar.utils.SharePreferenceUtil;
-import com.example.toolbar.view.RefreshLayout;
 import com.example.toolbar.view.progress.CircularProgress;
 import com.example.toolbar.widget.SystemBarTintManager;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.lidroid.xutils.DbUtils;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 /**
  * 
@@ -295,7 +282,7 @@ public class RadioPlayActivity extends BaseActivity {
 		// LogHelper.e("changeNotifitytitle" + title);
 		Intent intent = new Intent();
 		intent.setAction("com.myradio.media.myradio_notifyservice");
-		intent.setPackage("com.example.strawberryradio");
+		intent.setPackage("com.example.dolphinradio");
 		intent.putExtra("title", title);
 		intent.putExtra("is_play", isopen);
 		intent.putExtra("host_id", host_id);
@@ -455,12 +442,18 @@ public class RadioPlayActivity extends BaseActivity {
 	 * 初始化收藏按钮，如果该节目已被收藏，则显示已被收藏的状态
 	 */
 	private void initCollect() {
+		String url = HttpManage.myFavoriteUrl;
 		if (uid.isEmpty()) {
 			return;
 		}
-		HttpManage.getMyFavorite(new AsyncHttpResponseHandler() {
+		Map<String,Object> paramsMap = new HashMap<String, Object>();
+		paramsMap.put("uid", uid);
+		paramsMap.put("type", 1);
+		paramsMap.put("page", 1);
+		HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+			
 			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			public void onSuccess(byte[] arg2) {
 				// progress.setVisibility(View.GONE);
 				String result = new String(arg2);
 				Gson gson = new Gson();
@@ -485,14 +478,48 @@ public class RadioPlayActivity extends BaseActivity {
 					isCollect = false;
 				}
 			}
-
+			
 			@Override
-			public void onFailure(int arg0,
-					@SuppressWarnings("deprecation") Header[] arg1,
-					byte[] arg2, Throwable arg3) {
-				// LogHelper.e("获取数据失败");
+			public void onFailure(byte[] arg2, Throwable arg3) {
+				// TODO Auto-generated method stub
+				
 			}
-		}, uid, 1, 1);
+		});
+//		HttpManage.getMyFavorite(new AsyncHttpResponseHandler() {
+//			@Override
+//			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//				// progress.setVisibility(View.GONE);
+//				String result = new String(arg2);
+//				Gson gson = new Gson();
+//				LogHelper.e("我收藏的节目数据：" + result);
+//
+//				favorite = gson.fromJson(result,
+//						new TypeToken<List<Favorite>>() {
+//						}.getType());
+//				for (int i = 0; i < favorite.size(); i++) {
+//					String program_id = favorite.get(i).getId();
+//					idList.add(program_id);
+//				}
+//				if (bundle != null) {
+//					id = program_id;
+//				} else {
+//					id = getIntent().getStringExtra("id");
+//				}
+//				if (idList.contains(id)) {
+//					isCollect = true;
+//					imageViewLike.setImageResource(R.drawable.iconfont_like);
+//				} else {
+//					isCollect = false;
+//				}
+//			}
+//
+//			@Override
+//			public void onFailure(int arg0,
+//					@SuppressWarnings("deprecation") Header[] arg1,
+//					byte[] arg2, Throwable arg3) {
+//				// LogHelper.e("获取数据失败");
+//			}
+//		}, uid, 1, 1);
 	}
 
 	@Override
@@ -572,10 +599,18 @@ public class RadioPlayActivity extends BaseActivity {
 		String mid = MyApplication.getInstance().getSpUtil().getUid();
 		String id = getIntent().getStringExtra("id");
 		String type_id = "1";
+		String url;
+		Map<String,Object> paramsMap;
+		paramsMap = new HashMap<String, Object>();
+		paramsMap.put("mid", mid);
+		paramsMap.put("type_id", type_id);
+		paramsMap.put("program_id", program_id);
 		if (isCollect) {
-			HttpManage.FavoriteDel(new AsyncHttpResponseHandler() {
+			url = HttpManage.favoriteDelUrl;
+			HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+				
 				@Override
-				public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+				public void onSuccess(byte[] arg2) {
 					// progress.setVisibility(View.GONE);
 					String result = new String(arg2);
 					Map<String, String> map = Common.str3map(result);
@@ -590,43 +625,93 @@ public class RadioPlayActivity extends BaseActivity {
 								.show();
 					}
 				}
-
+				
 				@Override
-				public void onFailure(int arg0,
-						@SuppressWarnings("deprecation") Header[] arg1,
-						byte[] arg2, Throwable arg3) {
-					// LogHelper.e("获取数据失败");
+				public void onFailure(byte[] arg2, Throwable arg3) {
+					// TODO Auto-generated method stub
+					
 				}
-			}, uid, program_id, type_id, "1");
+			});
+//			HttpManage.FavoriteDel(new AsyncHttpResponseHandler() {
+//				@Override
+//				public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//					// progress.setVisibility(View.GONE);
+//					String result = new String(arg2);
+//					Map<String, String> map = Common.str3map(result);
+//					if (map.get("status").equals("0")) {
+//						isCollect = false;
+//						imageViewLike
+//								.setImageResource(R.drawable.iconfont_likely);
+//						Toast.makeText(getApplicationContext(), "收藏已取消", 0)
+//								.show();
+//					} else {
+//						Toast.makeText(getApplicationContext(), "收藏取消失败", 0)
+//								.show();
+//					}
+//				}
+//
+//				@Override
+//				public void onFailure(int arg0,
+//						@SuppressWarnings("deprecation") Header[] arg1,
+//						byte[] arg2, Throwable arg3) {
+//					// LogHelper.e("获取数据失败");
+//				}
+//			}, uid, program_id, type_id, "1");
 		} else {
-			HttpManage.FavoriteAdd(uid, program_id, type_id,
-					new AsyncHttpResponseHandler() {
-
-						@Override
-						public void onSuccess(int arg0, Header[] arg1,
-								byte[] arg2) {
-							Log.i(TAG, new String(arg2));
-							String result = new String(arg2);
-							Map<String, String> map = Common.str3map(result);
-							if (map.get("status").equals("0")) {
-								isCollect = true;
-								imageViewLike
-										.setImageResource(R.drawable.iconfont_like);
-								Toast.makeText(RadioPlayActivity.this, "收藏成功",
-										0).show();
-							} else {
-								Toast.makeText(RadioPlayActivity.this, "收藏失败",
-										0).show();
-							}
-						}
-
-						@Override
-						public void onFailure(int arg0, Header[] arg1,
-								byte[] arg2, Throwable arg3) {
-							// TODO Auto-generated method stub
-
-						}
-					});
+			url = HttpManage.favoriteAddUrl;
+			HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+				
+				@Override
+				public void onSuccess(byte[] arg2) {
+					Log.i(TAG, new String(arg2));
+					String result = new String(arg2);
+					Map<String, String> map = Common.str3map(result);
+					if (map.get("status").equals("0")) {
+						isCollect = true;
+						imageViewLike
+								.setImageResource(R.drawable.iconfont_like);
+						Toast.makeText(RadioPlayActivity.this, "收藏成功",
+								0).show();
+					} else {
+						Toast.makeText(RadioPlayActivity.this, "收藏失败",
+								0).show();
+					}
+				}
+				
+				@Override
+				public void onFailure(byte[] arg2, Throwable arg3) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+//			HttpManage.FavoriteAdd(uid, program_id, type_id,
+//					new AsyncHttpResponseHandler() {
+//
+//						@Override
+//						public void onSuccess(int arg0, Header[] arg1,
+//								byte[] arg2) {
+//							Log.i(TAG, new String(arg2));
+//							String result = new String(arg2);
+//							Map<String, String> map = Common.str3map(result);
+//							if (map.get("status").equals("0")) {
+//								isCollect = true;
+//								imageViewLike
+//										.setImageResource(R.drawable.iconfont_like);
+//								Toast.makeText(RadioPlayActivity.this, "收藏成功",
+//										0).show();
+//							} else {
+//								Toast.makeText(RadioPlayActivity.this, "收藏失败",
+//										0).show();
+//							}
+//						}
+//
+//						@Override
+//						public void onFailure(int arg0, Header[] arg1,
+//								byte[] arg2, Throwable arg3) {
+//							// TODO Auto-generated method stub
+//
+//						}
+//					});
 		}
 
 	}
@@ -740,7 +825,7 @@ public class RadioPlayActivity extends BaseActivity {
 		playIV.setImageResource(R.drawable.ic_myradio_detial_pause);
 		Intent intent = new Intent();
 		intent.setAction("com.myradio.media.MUSIC_SERVICE");
-		intent.setPackage("com.example.strawberryradio");
+		intent.setPackage("com.example.dolphinradio");
 		intent.putExtra("url", music_url);
 		intent.putExtra("listPosition", listPosition);
 		intent.putExtra("isLocad", isLocad);
@@ -757,7 +842,7 @@ public class RadioPlayActivity extends BaseActivity {
 			playIV.setImageResource(R.drawable.ic_myradio_detial_open);
 			Intent intent = new Intent();
 			intent.setAction("com.myradio.media.MUSIC_SERVICE");
-			intent.setPackage("com.example.strawberryradio");
+			intent.setPackage("com.example.dolphinradio");
 			intent.putExtra("MSG", PlayButton.PlayerMsg.PAUSE_MSG);
 			startService(intent);
 		} else {
@@ -772,7 +857,7 @@ public class RadioPlayActivity extends BaseActivity {
 			playIV.setImageResource(R.drawable.ic_myradio_detial_pause);
 			Intent intent = new Intent();
 			intent.setAction("com.myradio.media.MUSIC_SERVICE");
-			intent.setPackage("com.example.strawberryradio");
+			intent.setPackage("com.example.dolphinradio");
 			intent.putExtra("url", music_url);
 			intent.putExtra("MSG", PlayButton.PlayerMsg.CONTINUE_MSG);
 			startService(intent);
@@ -789,7 +874,7 @@ public class RadioPlayActivity extends BaseActivity {
 	public void audioTrackChange(int progress) {
 		Intent intent = new Intent();
 		intent.setAction("com.myradio.media.MUSIC_SERVICE");
-		intent.setPackage("com.example.strawberryradio");
+		intent.setPackage("com.example.dolphinradio");
 		intent.putExtra("url", music_url);
 		intent.putExtra("listPosition", listPosition);
 		intent.putExtra("MSG", PlayButton.PlayerMsg.PROGRESS_CHANGE);
@@ -838,7 +923,7 @@ public class RadioPlayActivity extends BaseActivity {
 			// music_id = map.get("id").toString();
 			Intent intent = new Intent();
 			intent.setAction("com.myradio.media.MUSIC_SERVICE");
-			intent.setPackage("com.example.strawberryradio");
+			intent.setPackage("com.example.dolphinradio");
 			intent.putExtra("url", music_url);
 			intent.putExtra("listPosition", listPosition);
 			intent.putExtra("MSG", PlayButton.PlayerMsg.PLAY_MSG);
@@ -885,7 +970,7 @@ public class RadioPlayActivity extends BaseActivity {
 			initCollect();
 			Intent intent = new Intent();
 			intent.setAction("com.myradio.media.MUSIC_SERVICE");
-			intent.setPackage("com.example.strawberryradio");
+			intent.setPackage("com.example.dolphinradio");
 			intent.putExtra("url", music_url);
 			intent.putExtra("listPosition", listPosition);
 			intent.putExtra("MSG", PlayButton.PlayerMsg.PLAY_MSG);

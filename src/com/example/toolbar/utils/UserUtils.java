@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.activity.LoginActivity;
 import com.example.toolbar.activity.MyProgramActivity;
 import com.example.toolbar.activity.SettingActivity;

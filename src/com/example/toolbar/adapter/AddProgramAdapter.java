@@ -19,7 +19,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.bean.AddProgram;
 import com.example.toolbar.bean.AddProgram.AddProgramInfo;
 import com.example.toolbar.common.utils.ImageLoaderHelper;

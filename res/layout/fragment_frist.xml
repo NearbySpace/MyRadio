@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:orientation="vertical" xmlns:app="http://schemas.android.com/apk/res/com.example.strawberryradio">
+    android:orientation="vertical" xmlns:app="http://schemas.android.com/apk/res/com.example.dolphinradio">
 
     <com.handmark.pulltorefresh.library.PullToRefreshScrollView
         xmlns:ptr="http://schemas.android.com/apk/res-auto"
@@ -29,7 +29,7 @@
                     android:background="#ffffff" >
 
                     <com.example.toolbar.view.loopviewpager.LoopViewPager
-                        xmlns:app="http://schemas.android.com/apk/res/com.example.strawberryradio"
+                        xmlns:app="http://schemas.android.com/apk/res/com.example.dolphinradio"
                         android:id="@+id/loop_viewpager"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
@@ -71,7 +71,7 @@
                     </LinearLayout>
 
                     <com.example.toolbar.view.progress.CircularProgress
-                        xmlns:app="http://schemas.android.com/apk/res/com.example.strawberryradio"
+                        xmlns:app="http://schemas.android.com/apk/res/com.example.dolphinradio"
                         android:id="@+id/progress"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
@@ -111,7 +111,7 @@
                     </com.example.toolbar.view.MyGridView>
 
                     <com.example.toolbar.widget.flowview.MyViewFlow
-                        xmlns:app="http://schemas.android.com/apk/res/com.example.strawberryradio"
+                        xmlns:app="http://schemas.android.com/apk/res/com.example.dolphinradio"
                         android:id="@+id/top_viewflow"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"

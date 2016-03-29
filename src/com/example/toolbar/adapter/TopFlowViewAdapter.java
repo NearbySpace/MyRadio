@@ -20,7 +20,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.androidquery.AQuery;
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.activity.ProgramListActivity;
 import com.example.toolbar.activity.RadioPlayActivity;
 import com.example.toolbar.bean.Top;

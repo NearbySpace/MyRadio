@@ -30,7 +30,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.bean.Top;
 import com.example.toolbar.common.utils.ImageLoaderHelper;
 import com.nostra13.universalimageloader.core.ImageLoader;

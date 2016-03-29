@@ -1,6 +1,5 @@
 package com.example.toolbar.activity;
 
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,10 +8,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import org.apache.http.Header;
-import org.apache.http.entity.ByteArrayEntity;
-import org.apache.http.entity.StringEntity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
@@ -32,21 +28,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.adapter.AddProgramSelectAdapter;
 import com.example.toolbar.application.MyApplication;
 import com.example.toolbar.bean.SelectProgram;
 import com.example.toolbar.bean.UploadProgramList;
-import com.example.toolbar.bean.UploadProgramList.ProgramListInfo;
-import com.example.toolbar.bean.UploadProgramList.ProgramListInfo.ProgramClassifyInfo;
-import com.example.toolbar.bean.UploadProgramList.ProgramListInfo.ProgramInfo;
 import com.example.toolbar.common.utils.LogHelper;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.example.toolbar.pulltorefreshlistview.PullToRefreshBase.OnRefreshListener;
 import com.example.toolbar.pulltorefreshlistview.PullToRefreshListView;
-import com.example.toolbar.utils.IntentUtils;
 import com.example.toolbar.utils.ToastUtils;
-import com.example.toolbar.view.MyToast;
 import com.example.toolbar.view.progress.CircularProgress;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -231,9 +223,14 @@ public class SelectProgramActivity extends AppCompatActivity implements OnClickL
 	}
 
 	private void initData() {
-		HttpManage.getSelectProgram(new AsyncHttpResponseHandler() {
+		String url = HttpManage.selectProgramUrl;
+		Map<String,Object> paramsMap = new HashMap<String, Object>();
+		paramsMap.put("page", 1);
+		HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+			
 			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			public void onSuccess(byte[] arg2) {
+
 				progress.setVisibility(View.GONE);
 				remind_net.setVisibility(View.GONE);
 				String result = new String(arg2);
@@ -250,15 +247,42 @@ public class SelectProgramActivity extends AppCompatActivity implements OnClickL
 				// LogHelper.e("获取节目数据：" + show.toString());
 				mPullRefreshListView.onRefreshComplete();
 			}
-
+			
 			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-					Throwable arg3) {
-				// LogHelper.e("获取数据失败");
+			public void onFailure(byte[] arg2, Throwable arg3) {
+				// TODO Auto-generated method stub
 				progress.setVisibility(View.GONE);
 				remind_net.setVisibility(View.VISIBLE);
 			}
-		}, page);
+		});
+//		HttpManage.getSelectProgram(new AsyncHttpResponseHandler() {
+//			@Override
+//			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//				progress.setVisibility(View.GONE);
+//				remind_net.setVisibility(View.GONE);
+//				String result = new String(arg2);
+//				Gson gson = new Gson();
+//				LogHelper.e("选择节目数据：" + result);
+//
+//				show = gson.fromJson(result,
+//						new TypeToken<List<SelectProgram>>() {
+//						}.getType());
+//
+//				adapter = new AddProgramSelectAdapter(
+//						SelectProgramActivity.this, show);
+//				listView.setAdapter(adapter);
+//				// LogHelper.e("获取节目数据：" + show.toString());
+//				mPullRefreshListView.onRefreshComplete();
+//			}
+//
+//			@Override
+//			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+//					Throwable arg3) {
+//				// LogHelper.e("获取数据失败");
+//				progress.setVisibility(View.GONE);
+//				remind_net.setVisibility(View.VISIBLE);
+//			}
+//		}, page);
 	}
 
 	// 控制toolbar菜单项
@@ -316,50 +340,95 @@ public class SelectProgramActivity extends AppCompatActivity implements OnClickL
 			idList.addAll(l);
 		}
 		Log.i("SelectProgramActivity", "idList--------->"+idList);
+		Map<String,Object> paramsMap = new HashMap<String, Object>();
+		
 		if(idList != null && idList.size() != 0 || map_classify.size() != 0){
 			String result;
 			result=initUploadProgramList(idList);
 			if(getIntent().getStringExtra("from") !=null){
 				if(getIntent().getStringExtra("from").equals("Programme")){
 					String programme_id=getIntent().getStringExtra("programme_id");
-					HttpManage.addProgramInProgramme(mid, programme_id, result, 
-							new AsyncHttpResponseHandler() {
-								
-								@Override
-								public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-									// TODO Auto-generated method stub
-									Toast.makeText(SelectProgramActivity.this, "节目添加成功", Toast.LENGTH_SHORT).show();
-									setResult(RESULT_OK);
-									finish();
-								}
-								
-								@Override
-								public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
-									
-									idList.clear();
-								}
-							});
+					String url = HttpManage.addProgramInProgrammeUrl;
+					paramsMap.put("programme_id", programme_id);
+					paramsMap.put("program_ids", result);
+					paramsMap.put("mid", mid);
+					HttpManage.getNetData(url, paramsMap, 0, new OnCallBack() {
+						
+						@Override
+						public void onSuccess(byte[] arg2) {
+							// TODO Auto-generated method stub
+							Toast.makeText(SelectProgramActivity.this, "节目添加成功", Toast.LENGTH_SHORT).show();
+							setResult(RESULT_OK);
+							finish();
+						
+						}
+						
+						@Override
+						public void onFailure(byte[] arg2, Throwable arg3) {
+							// TODO Auto-generated method stub
+							idList.clear();
+						}
+					});
+//					HttpManage.addProgramInProgramme(mid, programme_id, result, 
+//							new AsyncHttpResponseHandler() {
+//								
+//								@Override
+//								public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//									// TODO Auto-generated method stub
+//									Toast.makeText(SelectProgramActivity.this, "节目添加成功", Toast.LENGTH_SHORT).show();
+//									setResult(RESULT_OK);
+//									finish();
+//								}
+//								
+//								@Override
+//								public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+//									
+//									idList.clear();
+//								}
+//							});
 				}
 			}else{
-				HttpManage.sendProgram(new AsyncHttpResponseHandler() {
-
+				String url = HttpManage.buildProgramUrl;
+				paramsMap.put("mid", mid);
+				paramsMap.put("title", show_titel);
+				paramsMap.put("program_ids", result);
+				HttpManage.getNetData(url, paramsMap, 0, new OnCallBack() {
+					
 					@Override
-					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+					public void onSuccess(byte[] arg2) {
 //						progress.setVisibility(View.GONE);
 						String result = new String(arg2);
 						LogHelper.e("返回的结果："+result);
 						Toast.makeText(SelectProgramActivity.this, "节目添加成功", Toast.LENGTH_SHORT).show();
 						isSendSuccess=true;
 					}
-
+					
 					@Override
-					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-							Throwable arg3) {
+					public void onFailure(byte[] arg2, Throwable arg3) {
 						String result = new String(arg2);
 						idList.clear();
 						Toast.makeText(SelectProgramActivity.this, "添加节目失败，请重试一次", 0).show();
 					}
-				}, mid, result, show_titel);
+				});
+//				HttpManage.sendProgram(new AsyncHttpResponseHandler() {
+//
+//					@Override
+//					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+////						progress.setVisibility(View.GONE);
+//						String result = new String(arg2);
+//						LogHelper.e("返回的结果："+result);
+//						Toast.makeText(SelectProgramActivity.this, "节目添加成功", Toast.LENGTH_SHORT).show();
+//						isSendSuccess=true;
+//					}
+//
+//					@Override
+//					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+//							Throwable arg3) {
+//						String result = new String(arg2);
+//						idList.clear();
+//						Toast.makeText(SelectProgramActivity.this, "添加节目失败，请重试一次", 0).show();
+//					}
+//				}, mid, result, show_titel);
 			}
 		}else{
 			Toast.makeText(SelectProgramActivity.this, "没有选择要添加的节目，请选择", 0).show();

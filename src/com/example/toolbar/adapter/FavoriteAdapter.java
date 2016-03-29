@@ -19,7 +19,7 @@ import com.example.toolbar.bean.Click_Ranking;
 import com.example.toolbar.bean.Favorite;
 import com.example.toolbar.bean.Program;
 import com.example.toolbar.bean.SelectProgram;
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.common.utils.ImageLoaderHelper;
 import com.example.toolbar.common.utils.LogHelper;
 import com.example.toolbar.fragment.ProgramFragment;

@@ -21,7 +21,7 @@ import android.os.Message;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.google.gson.Gson;
 
 public class SplashActivity extends Activity {
@@ -93,7 +93,7 @@ public class SplashActivity extends Activity {
 	private String getVersionName() {
 		PackageManager pm = getPackageManager();
 		try {
-			PackageInfo info = pm.getPackageInfo("com.example.strawberryradio",
+			PackageInfo info = pm.getPackageInfo("com.example.dolphinradio",
 					0);
 			return info.versionName;
 		} catch (NameNotFoundException e) {

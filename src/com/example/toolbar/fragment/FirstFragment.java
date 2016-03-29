@@ -12,7 +12,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,13 +21,12 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.activity.RadioPlayActivity;
 import com.example.toolbar.adapter.FirstHotAdapter;
 import com.example.toolbar.adapter.TopFlowViewAdapter;
 import com.example.toolbar.adapter.TopGridViewAdapter;
 import com.example.toolbar.bean.Click_Ranking;
-import com.example.toolbar.bean.Hot;
 import com.example.toolbar.bean.MainShows;
 import com.example.toolbar.bean.Top;
 import com.example.toolbar.common.utils.Common;
@@ -36,6 +34,7 @@ import com.example.toolbar.common.utils.LogHelper;
 import com.example.toolbar.common.utils.MyJsonUtils;
 import com.example.toolbar.common.utils.NetUtil;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.example.toolbar.http.HttpUtils;
 import com.example.toolbar.utils.ToastUtils;
 import com.example.toolbar.view.MyListView;
@@ -138,9 +137,12 @@ public class FirstFragment extends BaseFragment {
 	}
 
 	private void initData() {
-		HttpManage.getMainData(new AsyncHttpResponseHandler() {
+		String url = HttpManage.mainDataUrl;
+		HttpManage.getNetData(url, null, 1, new OnCallBack() {
+			
 			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			public void onSuccess(byte[] arg2) {
+				// TODO Auto-generated method stub
 				mPullRefreshScrollView.onRefreshComplete();	
 				progress.setVisibility(View.GONE);
 				String result = new String(arg2);
@@ -200,16 +202,86 @@ public class FirstFragment extends BaseFragment {
 
 					}
 				});
-
 			}
-
+			
 			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-					Throwable arg3) {
+			public void onFailure(byte[] arg2, Throwable arg3) {
 				// TODO Auto-generated method stub
-
+				
 			}
 		});
+//		HttpManage.getMainData(new AsyncHttpResponseHandler() {
+//			@Override
+//			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//				mPullRefreshScrollView.onRefreshComplete();	
+//				progress.setVisibility(View.GONE);
+//				String result = new String(arg2);
+//
+//				Gson gson = new Gson();
+//				mMainShow = gson.fromJson(result, MainShows.class);				
+//				mAdapter = new TopGridViewAdapter(mContext, mMainShow.getHot());
+//				gridView.setAdapter(mAdapter);
+//
+//				List<Top> top = mMainShow.getTop();
+//				if (top != null && top.size() != 0) {
+//					mViewFlow.setAdapter(new TopFlowViewAdapter(mContext, top));
+//					mViewFlow.setmSideBuffer(top.size()); // 实际图片张数，
+//					mViewFlow.startAutoFlowTimer(); // 启动自动播放 //
+//					LogHelper.e("count:" + top.size());
+//				}
+//				
+//				hotAdapter = new FirstHotAdapter(mContext, mMainShow
+//						.getRanking());
+//				listView.setAdapter(hotAdapter);
+//							
+//				gridView.setOnItemClickListener(new OnItemClickListener() {
+//
+//					@Override
+//					public void onItemClick(AdapterView<?> parent, View view,
+//							int position, long id) {
+//						Intent intent = new Intent(getActivity(),
+//								RadioPlayActivity.class);
+//						Bundle bundle = new Bundle();
+//						bundle.putParcelableArrayList("music_list",
+//								(ArrayList) mMainShow.getHot());
+//						bundle.putInt("position", position);
+//						bundle.putString("type", "hot");
+//						intent.putExtra("bundle", bundle);
+//						startActivity(intent);
+//					}
+//				});
+//
+//				listView.setOnItemClickListener(new OnItemClickListener() {
+//
+//					@Override
+//					public void onItemClick(AdapterView<?> adapterView, View view,
+//							int position, long arg3) {
+//						Intent intent = new Intent();
+//						LogHelper.e("节目id："
+//								+ ((Click_Ranking) adapterView.getAdapter().getItem(
+//										position)).getId());
+//
+//						Bundle bundle = new Bundle();
+//						intent.setClass(getActivity(), RadioPlayActivity.class);
+//						bundle.putParcelableArrayList("music_list",
+//								(ArrayList) mMainShow.getRanking());
+//						bundle.putInt("position", position);
+//						intent.putExtra("bundle", bundle);
+//						bundle.putString("type", "ranking");
+//						startActivity(intent);
+//
+//					}
+//				});
+//
+//			}
+//
+//			@Override
+//			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+//					Throwable arg3) {
+//				// TODO Auto-generated method stub
+//
+//			}
+//		});
 		
 	}
 

@@ -23,7 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.fragment.DownloadedFragment;
 import com.example.toolbar.fragment.DownloadingFragment;
 

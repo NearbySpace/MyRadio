@@ -11,10 +11,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.example.toolbar.bean.Click_Ranking;
 import com.example.toolbar.bean.Program;
 import com.example.toolbar.bean.SelectProgram;
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.common.utils.ImageLoaderHelper;
 import com.example.toolbar.common.utils.LogHelper;
 import com.nostra13.universalimageloader.core.ImageLoader;

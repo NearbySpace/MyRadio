@@ -18,7 +18,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 
 @SuppressLint("NewApi")
 public class CircularProgress extends View {

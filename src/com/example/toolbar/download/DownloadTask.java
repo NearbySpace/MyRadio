@@ -21,7 +21,7 @@ import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.activity.MyDownLoadActivity;
 import com.example.toolbar.bean.DownloadEntry;
 import com.example.toolbar.db.DBUtil;

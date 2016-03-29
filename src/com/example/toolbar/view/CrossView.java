@@ -20,7 +20,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 
 public class CrossView extends View {
     /**

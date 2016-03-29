@@ -1,28 +1,22 @@
 package com.example.toolbar.activity;
 
-import java.io.InputStream;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.http.Header;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BitmapFactory.Options;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
@@ -30,12 +24,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
-import com.example.toolbar.application.MyApplication;
+import com.example.dolphinradio.R;
 import com.example.toolbar.common.utils.Common;
 import com.example.toolbar.common.utils.LogHelper;
 import com.example.toolbar.common.utils.NetUtil;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.example.toolbar.utils.ConfigUtils;
 import com.example.toolbar.utils.ImageUtils;
 import com.example.toolbar.utils.IntentUtils;
@@ -199,7 +193,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
 	// 提交登陆表单
 	private void postLogin() {
-
+		String url = HttpManage.loginUrl;
 		if (!NetUtil.isNetConnected(this)) {
 			return;
 		}
@@ -224,10 +218,14 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 		loadingDialog.show();
 		String getUserName = userName.getText().toString();
 		String getPassWord = passWord.getText().toString();
-		HttpManage.getLogin(new AsyncHttpResponseHandler() {
-
+		Map<String,Object> paramsMap = new HashMap<String, Object>();
+		paramsMap.put("username", getUserName);
+		paramsMap.put("password", getPassWord);
+		HttpManage.getNetData(url, paramsMap, 0, new OnCallBack() {
+			
 			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			public void onSuccess(byte[] arg2) {
+
 				// TODO Auto-generated method stub
 				String result = new String(arg2);
 				// Gson gson = new Gson();
@@ -287,10 +285,10 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 				ToastUtils.showShort(LoginActivity.this, "已登录");
 				finish();
 			}
-
+			
 			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-					Throwable arg3) {
+			public void onFailure(byte[] arg2, Throwable arg3) {
+
 				if (arg2 == null) {
 					ToastUtils.showShort(LoginActivity.this,
 							getString(R.string.error_internet));
@@ -304,7 +302,89 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 				// TODO Auto-generated method stub
 				loadingDialog.dismiss();
 			}
-		}, getUserName, getPassWord);
+		});
+		
+//		HttpManage.getLogin(new AsyncHttpResponseHandler() {
+//
+//			@Override
+//			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//				// TODO Auto-generated method stub
+//				String result = new String(arg2);
+//				// Gson gson = new Gson();
+//				LogHelper.e("登录返回值：" + result);
+//				Map<String, String> data = Common.str2mapstr(result);
+//				if (data.get("status")!=null) {
+//					loadingDialog.dismiss();
+//					switch (Integer.parseInt( data.get("status") )) {
+//					case 8:
+//							//账号不存在
+//							ToastUtils.showShort(LoginActivity.this, data.get("msg")+",请注册");
+//							return;
+//					case 2:
+//						//密码错误
+//						ToastUtils.showShort(LoginActivity.this, data.get("msg")+"，请重新输入");
+//						return;
+//					case 3:
+//						//账号已被锁定，请联系管理员
+//						ToastUtils.showShort(LoginActivity.this, data.get("msg")+"，账号已被锁定，请联系管理员");
+//						return;
+//					case 5:
+//						//用户名和密码不能为空
+//						ToastUtils.showShort(LoginActivity.this, data.get("msg")+",请输入账号密码");
+//						return;
+//
+//					default:
+//						break;
+//					}
+//				}
+//				
+//				
+//
+//				if (remember.isChecked()) { // 记住登录 先更新数据
+//					sharePreferenceUtil.setSavePassword(true);
+//					sharePreferenceUtil.setIsAutoLogin(true);
+//				} else {
+//					sharePreferenceUtil.setSavePassword(false);
+//					sharePreferenceUtil.setIsAutoLogin(false);
+//				}
+//				
+//				sharePreferenceUtil.setUid(data.get("id"));
+//				Log.i("LoginActivity", data.get("id"));
+//				sharePreferenceUtil.setEmail(data.get("email"));
+//				sharePreferenceUtil.setNick(data.get("nickname"));
+//				sharePreferenceUtil.setHeadIcon(data.get("thumb"));
+//				sharePreferenceUtil.setSign(data.get("sign"));
+//				sharePreferenceUtil.setPhone(data.get("tel"));
+//				sharePreferenceUtil.setisLogin(true);
+//				//切换或注销账户时所传过来的参数，MainActivity已被关闭，需重启
+//				boolean again=getIntent().getBooleanExtra("again", false);
+//				if(again){
+//					IntentUtils.startActivity(LoginActivity.this,
+//					NewMainActivity.class);
+//					finish();
+//				}
+//				setResult(Activity.RESULT_OK);
+//				ToastUtils.showShort(LoginActivity.this, "已登录");
+//				finish();
+//			}
+//
+//			@Override
+//			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+//					Throwable arg3) {
+//				if (arg2 == null) {
+//					ToastUtils.showShort(LoginActivity.this,
+//							getString(R.string.error_internet));
+//					return;
+//				}
+//				if (arg2.equals("")) {
+//					ToastUtils.showShort(LoginActivity.this,
+//							getString(R.string.error_internet));
+//					return;
+//				}
+//				// TODO Auto-generated method stub
+//				loadingDialog.dismiss();
+//			}
+//		}, getUserName, getPassWord);
 
 	}
 	

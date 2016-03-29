@@ -24,11 +24,14 @@ import android.view.View.OnClickListener;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
+import com.example.toolbar.adapter.FindClassAdapter;
+import com.example.toolbar.adapter.FindImgAdapter;
 import com.example.toolbar.application.MyApplication;
 import com.example.toolbar.bean.FindBean;
 import com.example.toolbar.framework.UpdateApk;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.example.toolbar.utils.ControlActivity;
 import com.example.toolbar.utils.UserUtils;
 import com.google.gson.Gson;
@@ -85,7 +88,7 @@ public class SettingActivity extends AppCompatActivity implements
 	private String getVesionName() {
 		PackageManager pm = getPackageManager();
 		try {
-			PackageInfo info = pm.getPackageInfo("com.example.strawberryradio",
+			PackageInfo info = pm.getPackageInfo("com.example.dolphinradio",
 					0);
 			return info.versionName;
 		} catch (NameNotFoundException e) {
@@ -154,10 +157,12 @@ public class SettingActivity extends AppCompatActivity implements
 	
 
 	private void initProgramData() {
-		HttpManage.getFindData(new AsyncHttpResponseHandler() {
-
+		String url = HttpManage.findDataUrl;
+		HttpManage.getNetData(url, null, 1, new OnCallBack() {
+			
 			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			public void onSuccess(byte[] arg2) {
+
 				String result = new String(arg2);
 				Log.i("setting", result);
 				Gson gson = new Gson();
@@ -171,15 +176,42 @@ public class SettingActivity extends AppCompatActivity implements
 					}
 				}
 				showChoiceDialog();
+			
+				
 			}
-
+			
 			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-					Throwable arg3) {
+			public void onFailure(byte[] arg2, Throwable arg3) {
+				// TODO Auto-generated method stub
 				Log.i("Setting", "获取数据失败");
-
 			}
 		});
+//		HttpManage.getFindData(new AsyncHttpResponseHandler() {
+//
+//			@Override
+//			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//				String result = new String(arg2);
+//				Log.i("setting", result);
+//				Gson gson = new Gson();
+//				bean = gson.fromJson(result, FindBean.class);
+//				mProgramClassify = bean.type_list;
+//				if(mProgramClassify!=null && mProgramClassify.size()!=0){
+//					
+//					mProgramData=new String[mProgramClassify.size()];
+//					for (int i = 0; i < mProgramClassify.size(); i++) {
+//						mProgramData[i] = mProgramClassify.get(i).title;
+//					}
+//				}
+//				showChoiceDialog();
+//			}
+//
+//			@Override
+//			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+//					Throwable arg3) {
+//				Log.i("Setting", "获取数据失败");
+//
+//			}
+//		});
 	}
 
 	// private void showLoginDialog(){

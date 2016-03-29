@@ -13,7 +13,7 @@ public class ConfigUtils {
 	public static String SDcardPath = SDRootPath + "/DolphinRadio/"; // App主目录	
 	public static String SDDownloadPath = SDcardPath + "Download/"; // App文件下载目录	
 	public static String SDImageCachePath = SDcardPath + "/ImageCache/"; // 图片缓存目录
-//	public static String ROMDownloadPath="/data/data/com.example.strawberryradio/Download/";//内存中的下载路径
+//	public static String ROMDownloadPath="/data/data/com.example.dolphinradio/Download/";//内存中的下载路径
 	public static String cameraimagepath = "cameratemp.jpg";
 	public static String avatar = "avatar.jpg";
 	public static String pickimagepath = "picktemp.jpg";

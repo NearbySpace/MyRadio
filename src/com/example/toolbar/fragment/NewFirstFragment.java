@@ -1,14 +1,10 @@
 package com.example.toolbar.fragment;
 
-import java.io.File;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.Vector;
 
 import org.apache.http.Header;
 
@@ -20,21 +16,14 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
-import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.renderscript.Allocation;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
-import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,21 +31,16 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.PopupWindow;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.activity.NewMainActivity;
-import com.example.toolbar.activity.ProgramListActivity;
-import com.example.toolbar.activity.RadioPlayActivity;
 import com.example.toolbar.adapter.PlayRadioAdapter;
 import com.example.toolbar.application.MyApplication;
 import com.example.toolbar.bean.DownloadEntry;
@@ -72,8 +56,8 @@ import com.example.toolbar.download.DownloadManager;
 import com.example.toolbar.download.DownloadUtils;
 import com.example.toolbar.entity.PlayButton;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.example.toolbar.service.PlayerManage;
-import com.example.toolbar.service.PlayerService;
 import com.example.toolbar.utils.ConfigUtils;
 import com.example.toolbar.utils.DialogUtils;
 import com.example.toolbar.utils.MediaUtil;
@@ -333,16 +317,18 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	}
 
 	private void initMainData() {
+		String url = HttpManage.mainPickerDataUrl;
 		picker_string = new ArrayList<String>();
 		// map = MyApplication.getInstance().getSpUtil().getDefaultProgram();
 		// channelName = map.get("classifyName");
 		listPosition = 0;
 		// getOneClassifyContent(1, map.get("classifyID"));
 		mProgressBar.setVisibility(View.VISIBLE);
-		HttpManage.getNewMainPickerData(new AsyncHttpResponseHandler() {
-
+		HttpManage.getNetData(url, null, 1, new OnCallBack() {
+			
 			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			public void onSuccess(byte[] arg2) {
+
 				String result = new String(arg2);
 				Log.i(TAG, "result:" + result);
 				Gson gson = new Gson();
@@ -370,18 +356,66 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 					isReload = false;
 				}
 				mProgressBar.setVisibility(View.GONE);
+			
+				
 			}
-
+			
 			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-					Throwable arg3) {
+			public void onFailure(byte[] arg2, Throwable arg3) {
+				// TODO Auto-generated method stub
+
 				mPickerView.setVisibility(View.GONE);
 				tv_channelName.setVisibility(View.VISIBLE);
 				tv_channelName.setText("数据加载失败，请点击重新加载");
 				isReload = true;
 				mProgressBar.setVisibility(View.GONE);
+			
 			}
 		});
+		
+//		HttpManage.getNewMainPickerData(new AsyncHttpResponseHandler() {
+//
+//			@Override
+//			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//				String result = new String(arg2);
+//				Log.i(TAG, "result:" + result);
+//				Gson gson = new Gson();
+//				mPickerBean = gson.fromJson(result, PickerBean.class);
+//				for (int i = 0; i < mPickerBean.list.size(); i++) {
+//					picker_string.add(mPickerBean.list.get(i).title);
+//					Log.i(TAG, mPickerBean.list.get(i).title);
+//				}
+//				if (mPickerBean.list == null) {
+//					tv_channelName.setVisibility(View.VISIBLE);
+//					tv_channelName.setText("数据加载失败，请点击重新加载");
+//					isReload = true;
+//					mPickerView.setVisibility(View.GONE);
+//				} else {
+//					mPickerView.setVisibility(View.VISIBLE);
+//					mPickerView.setData(mPickerBean);
+//					mPickerView.setSelected(0);
+//					tv_introduction.setText(mPickerBean.list
+//							.get(mPickerBean.list.size() / 2).content);
+//					tv_channelName.setVisibility(View.GONE);
+//					getOneClassifyContent(
+//							1,
+//							mPickerBean.list.get(mPickerBean.list.size() / 2).id);
+//					channelName = mPickerBean.list.get(0).title;
+//					isReload = false;
+//				}
+//				mProgressBar.setVisibility(View.GONE);
+//			}
+//
+//			@Override
+//			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+//					Throwable arg3) {
+//				mPickerView.setVisibility(View.GONE);
+//				tv_channelName.setVisibility(View.VISIBLE);
+//				tv_channelName.setText("数据加载失败，请点击重新加载");
+//				isReload = true;
+//				mProgressBar.setVisibility(View.GONE);
+//			}
+//		});
 
 	}
 
@@ -394,65 +428,117 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	 * @param classifyID
 	 */
 	private void getOneClassifyContent(int page, String classifyID) {
+		String url = HttpManage.addProgramListUrl;
 		// 重置数据
 		PlayerManage.position = 0;
 		if (bean != null) {
 			bean = null;
 			isCompleteGetOneClassifyContent = false;
 		}
-
-		HttpManage.getProgramClassifyListData(page, classifyID,
-				new AsyncHttpResponseHandler() {
-
-					@Override
-					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-						String result = new String(arg2);
-						Gson gson = new Gson();
-						bean = gson.fromJson(result,
-								ProgramClassifyListBean.class);
-						if (bean.list.size() <= 0) {
-							Toast.makeText(getActivity(), "不存在节目",
-									Toast.LENGTH_SHORT).show();
-							isCompleteGetOneClassifyContent = true;
-							return;
-						} else {
-							PlayerManage.getInstance().getPlayInfos().clear();
-						}
-						for (int i = 0; i < bean.list.size(); i++) {
-							PlayInfo playInfo = new PlayInfo(
-									bean.list.get(i).id,
-									bean.list.get(i).title, "", bean.list
-											.get(i).path, "", "", "", "",
-									bean.list.get(i).thumb, "", "", bean.list
-											.get(i).owner, "", "");
-							PlayerManage.getInstance().addPlayInfo(playInfo);
-						}
-						mList = PlayerManage.getInstance().getPlayInfos();
-						Log.i(TAG, "mList长度：" + mList.size());
-						listPosition = PlayerManage.position;
-						if (mList.size() == 0) {
-							getOneClassifyContent(1, pickerCurrentId);
-						} else {
-							initData();//初始化播放数据
-						}
-						if (adapter != null) {
-							adapter.setCurrentPosition(0);
-						}
-						isCompleteGetOneClassifyContent = true;
-						tv_channelName.setVisibility(View.GONE);
-						isReload = false;
-					}
-
-					@Override
-					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-							Throwable arg3) {
-						// TODO Auto-generated method stub
-						isCompleteGetOneClassifyContent = true;
-						tv_channelName.setVisibility(View.VISIBLE);
-						tv_channelName.setText("数据加载失败，请点击重新加载");
-						isReload = true;
-					}
-				});
+		Map<String,Object> paramsMap = new HashMap<String, Object>();
+		paramsMap.put("page",page);
+		paramsMap.put("type_id", classifyID);
+		HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+			
+			@Override
+			public void onSuccess(byte[] arg2) {
+				String result = new String(arg2);
+				Gson gson = new Gson();
+				bean = gson.fromJson(result,
+						ProgramClassifyListBean.class);
+				if (bean.list.size() <= 0) {
+					Toast.makeText(getActivity(), "不存在节目",
+							Toast.LENGTH_SHORT).show();
+					isCompleteGetOneClassifyContent = true;
+					return;
+				} else {
+					PlayerManage.getInstance().getPlayInfos().clear();
+				}
+				for (int i = 0; i < bean.list.size(); i++) {
+					PlayInfo playInfo = new PlayInfo(
+							bean.list.get(i).id,
+							bean.list.get(i).title, "", bean.list
+									.get(i).path, "", "", "", "",
+							bean.list.get(i).thumb, "", "", bean.list
+									.get(i).owner, "", "");
+					PlayerManage.getInstance().addPlayInfo(playInfo);
+				}
+				mList = PlayerManage.getInstance().getPlayInfos();
+				Log.i(TAG, "mList长度：" + mList.size());
+				listPosition = PlayerManage.position;
+				if (mList.size() == 0) {
+					getOneClassifyContent(1, pickerCurrentId);
+				} else {
+					initData();//初始化播放数据
+				}
+				if (adapter != null) {
+					adapter.setCurrentPosition(0);
+				}
+				isCompleteGetOneClassifyContent = true;
+				tv_channelName.setVisibility(View.GONE);
+				isReload = false;
+			}
+			
+			@Override
+			public void onFailure(byte[] arg2, Throwable arg3) {
+				isCompleteGetOneClassifyContent = true;
+				tv_channelName.setVisibility(View.VISIBLE);
+				tv_channelName.setText("数据加载失败，请点击重新加载");
+				isReload = true;
+			}
+		});
+//		HttpManage.getProgramClassifyListData(page, classifyID,
+//				new AsyncHttpResponseHandler() {
+//
+//					@Override
+//					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//						String result = new String(arg2);
+//						Gson gson = new Gson();
+//						bean = gson.fromJson(result,
+//								ProgramClassifyListBean.class);
+//						if (bean.list.size() <= 0) {
+//							Toast.makeText(getActivity(), "不存在节目",
+//									Toast.LENGTH_SHORT).show();
+//							isCompleteGetOneClassifyContent = true;
+//							return;
+//						} else {
+//							PlayerManage.getInstance().getPlayInfos().clear();
+//						}
+//						for (int i = 0; i < bean.list.size(); i++) {
+//							PlayInfo playInfo = new PlayInfo(
+//									bean.list.get(i).id,
+//									bean.list.get(i).title, "", bean.list
+//											.get(i).path, "", "", "", "",
+//									bean.list.get(i).thumb, "", "", bean.list
+//											.get(i).owner, "", "");
+//							PlayerManage.getInstance().addPlayInfo(playInfo);
+//						}
+//						mList = PlayerManage.getInstance().getPlayInfos();
+//						Log.i(TAG, "mList长度：" + mList.size());
+//						listPosition = PlayerManage.position;
+//						if (mList.size() == 0) {
+//							getOneClassifyContent(1, pickerCurrentId);
+//						} else {
+//							initData();//初始化播放数据
+//						}
+//						if (adapter != null) {
+//							adapter.setCurrentPosition(0);
+//						}
+//						isCompleteGetOneClassifyContent = true;
+//						tv_channelName.setVisibility(View.GONE);
+//						isReload = false;
+//					}
+//
+//					@Override
+//					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+//							Throwable arg3) {
+//						// TODO Auto-generated method stub
+//						isCompleteGetOneClassifyContent = true;
+//						tv_channelName.setVisibility(View.VISIBLE);
+//						tv_channelName.setText("数据加载失败，请点击重新加载");
+//						isReload = true;
+//					}
+//				});
 	}
 
 	public void initHeadActionBar() {
@@ -529,12 +615,18 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	 * 初始化收藏按钮，如果该节目已被收藏，则显示已被收藏的状态
 	 */
 	private void initCollect() {
+		String url = HttpManage.myFavoriteUrl;
 		if (uid.isEmpty()) {
 			return;
 		}
-		HttpManage.getMyFavorite(new AsyncHttpResponseHandler() {
+		Map<String,Object> paramsMap = new HashMap<String, Object>();
+		paramsMap.put("uid", uid);
+		paramsMap.put("type", 1);
+		paramsMap.put("page", 1);
+		HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+			
 			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			public void onSuccess(byte[] arg2) {
 				// progress.setVisibility(View.GONE);
 				String result = new String(arg2);
 				Gson gson = new Gson();
@@ -549,14 +641,38 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 				}
 				setCollectIcon(program_id);
 			}
-
+			
 			@Override
-			public void onFailure(int arg0,
-					@SuppressWarnings("deprecation") Header[] arg1,
-					byte[] arg2, Throwable arg3) {
-				// LogHelper.e("获取数据失败");
+			public void onFailure(byte[] arg2, Throwable arg3) {
+				// TODO Auto-generated method stub
+				
 			}
-		}, uid, 1, 1);
+		});
+//		HttpManage.getMyFavorite(new AsyncHttpResponseHandler() {
+//			@Override
+//			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//				// progress.setVisibility(View.GONE);
+//				String result = new String(arg2);
+//				Gson gson = new Gson();
+//				favorite = gson.fromJson(result,
+//						new TypeToken<List<Favorite>>() {
+//						}.getType());
+//				for (int i = 0; i < favorite.size(); i++) {
+//					String program_id = favorite.get(i).getId();
+//					if (!idListOfFavorite.contains(program_id)) {
+//						idListOfFavorite.add(program_id);
+//					}
+//				}
+//				setCollectIcon(program_id);
+//			}
+//
+//			@Override
+//			public void onFailure(int arg0,
+//					@SuppressWarnings("deprecation") Header[] arg1,
+//					byte[] arg2, Throwable arg3) {
+//				// LogHelper.e("获取数据失败");
+//			}
+//		}, uid, 1, 1);
 	}
 
 	private void setCollectIcon(String program_id) {
@@ -696,11 +812,18 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 	private void collection() {
 		String mid = MyApplication.getInstance().getSpUtil().getUid();
 		String type_id = "1";
+		String url;
+		Map<String,Object> paramsMap;
+		paramsMap = new HashMap<String, Object>();
+		paramsMap.put("mid", mid);
+		paramsMap.put("type_id", type_id);
+		paramsMap.put("program_id", program_id);
 		if (isCollect) {
-			HttpManage.FavoriteDel(new AsyncHttpResponseHandler() {
+			url = HttpManage.favoriteDelUrl;
+			HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+				
 				@Override
-				public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-					// progress.setVisibility(View.GONE);
+				public void onSuccess(byte[] arg2) {
 					String result = new String(arg2);
 					Map<String, String> map = Common.str3map(result);
 					if (map.get("status").equals("0")) {
@@ -711,42 +834,42 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 						Toast.makeText(getActivity(), "收藏取消失败", 0).show();
 					}
 				}
-
+				
 				@Override
-				public void onFailure(int arg0,
-						@SuppressWarnings("deprecation") Header[] arg1,
-						byte[] arg2, Throwable arg3) {
-					// LogHelper.e("获取数据失败");
+				public void onFailure(byte[] arg2, Throwable arg3) {
+					// TODO Auto-generated method stub
+					
 				}
-			}, mid, program_id, type_id, "1");
+			});
+			
 		} else {
-			HttpManage.FavoriteAdd(mid, program_id, type_id,
-					new AsyncHttpResponseHandler() {
-
-						@Override
-						public void onSuccess(int arg0, Header[] arg1,
-								byte[] arg2) {
-							Log.i(TAG, new String(arg2));
-							String result = new String(arg2);
-							Map<String, String> map = Common.str3map(result);
-							if (map.get("status").equals("0")) {
-								isCollect = true;
-								collect.setImageResource(R.drawable.collected_first);
-								Toast.makeText(getActivity(), "收藏成功", 0).show();
-							} else {
-								Toast.makeText(getActivity(), "收藏失败", 0).show();
-							}
-						}
-
-						@Override
-						public void onFailure(int arg0, Header[] arg1,
-								byte[] arg2, Throwable arg3) {
-							// TODO Auto-generated method stub
-
-						}
-					});
+			url = HttpManage.favoriteAddUrl;
+			HttpManage.getNetData(url, paramsMap, 0, new OnCallBack() {
+				
+				@Override
+				public void onSuccess(byte[] arg2) {
+					Log.i(TAG, new String(arg2));
+					String result = new String(arg2);
+					Map<String, String> map = Common.str3map(result);
+					if (map.get("status").equals("0")) {
+						isCollect = true;
+						collect.setImageResource(R.drawable.collected_first);
+						Toast.makeText(getActivity(), "收藏成功", 0).show();
+					} else {
+						Toast.makeText(getActivity(), "收藏失败", 0).show();
+					}
+					
+				}
+				
+				@Override
+				public void onFailure(byte[] arg2, Throwable arg3) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+			
+			
 		}
-
 	}
 
 	private void getDownloadInfo(String program_id) {
@@ -915,7 +1038,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 			// music_id = map.get("id").toString();
 			Intent intent = new Intent();
 			intent.setAction("com.myradio.media.MUSIC_SERVICE");
-			intent.setPackage("com.example.strawberryradio");
+			intent.setPackage("com.example.dolphinradio");
 			// intent.putExtra("url", music_url);
 			// intent.putExtra("listPosition", listPosition);
 			// intent.putExtra("time_limit", time_limit);
@@ -976,7 +1099,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 			setCollectIcon(program_id);
 			Intent intent = new Intent();
 			intent.setAction("com.myradio.media.MUSIC_SERVICE");
-			intent.setPackage("com.example.strawberryradio");
+			intent.setPackage("com.example.dolphinradio");
 			intent.putExtra("time_limit", time_limit);
 			intent.putExtra("listPosition", listPosition);
 			intent.putExtra("MSG", PlayButton.PlayerMsg.PLAY_MSG);
@@ -1025,7 +1148,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		playIV.setImageResource(R.drawable.play_pause_white);
 		Intent intent = new Intent();
 		intent.setAction("com.myradio.media.MUSIC_SERVICE");
-		intent.setPackage("com.example.strawberryradio");
+		intent.setPackage("com.example.dolphinradio");
 		// intent.putExtra("url", music_url);
 		// intent.putExtra("time_limit", time_limit);
 		// intent.putExtra("listPosition", listPosition);
@@ -1043,7 +1166,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 			// playIV.setImageResource(R.drawable.play_grey);
 			Intent intent = new Intent();
 			intent.setAction("com.myradio.media.MUSIC_SERVICE");
-			intent.setPackage("com.example.strawberryradio");
+			intent.setPackage("com.example.dolphinradio");
 			intent.putExtra("MSG", PlayButton.PlayerMsg.PAUSE_MSG);
 			getActivity().startService(intent);
 		} else {
@@ -1059,7 +1182,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 			// playIV.setImageResource(R.drawable.play_pause_grey);
 			Intent intent = new Intent();
 			intent.setAction("com.myradio.media.MUSIC_SERVICE");
-			intent.setPackage("com.example.strawberryradio");
+			intent.setPackage("com.example.dolphinradio");
 			intent.putExtra("url", music_url);
 			intent.putExtra("MSG", PlayButton.PlayerMsg.CONTINUE_MSG);
 			intent.putExtra("isAgain", isAgain);
@@ -1091,7 +1214,7 @@ public class NewFirstFragment extends Fragment implements OnClickListener {
 		// LogHelper.e("changeNotifitytitle" + title);
 		Intent intent = new Intent();
 		intent.setAction("com.myradio.media.myradio_notifyservice");
-		intent.setPackage("com.example.strawberryradio");
+		intent.setPackage("com.example.dolphinradio");
 		intent.putExtra("title", title);
 		intent.putExtra("is_play", isopen);
 		intent.putExtra("host_id", host_id);

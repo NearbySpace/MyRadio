@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.adapter.PlayRadioAdapter;
 import com.example.toolbar.application.MyApplication;
 import com.example.toolbar.bean.Click_Ranking;
@@ -432,7 +432,7 @@ public class NewRadioPlayActivity extends FragmentActivity {
 //			// music_id = map.get("id").toString();
 //			Intent intent = new Intent();
 //			intent.setAction("com.myradio.media.MUSIC_SERVICE");
-//			intent.setPackage("com.example.strawberryradio");
+//			intent.setPackage("com.example.dolphinradio");
 //			intent.putExtra("url", music_url);
 //			intent.putExtra("listPosition", listPosition);
 //			intent.putExtra("MSG", PlayButton.PlayerMsg.PLAY_MSG);
@@ -484,7 +484,7 @@ public class NewRadioPlayActivity extends FragmentActivity {
 //			cancelTimer();
 //			Intent intent = new Intent();
 //			intent.setAction("com.myradio.media.MUSIC_SERVICE");
-//			intent.setPackage("com.example.strawberryradio");
+//			intent.setPackage("com.example.dolphinradio");
 //			intent.putExtra("url", music_url);
 //			intent.putExtra("listPosition", listPosition);
 //			intent.putExtra("MSG", PlayButton.PlayerMsg.PLAY_MSG);
@@ -530,7 +530,7 @@ public class NewRadioPlayActivity extends FragmentActivity {
 //		playIV.setImageResource(R.drawable.play_pause_grey);
 //		Intent intent = new Intent();
 //		intent.setAction("com.myradio.media.MUSIC_SERVICE");
-//		intent.setPackage("com.example.strawberryradio");
+//		intent.setPackage("com.example.dolphinradio");
 //		intent.putExtra("url", music_url);
 //		intent.putExtra("listPosition", listPosition);
 //		intent.putExtra("isLocad", isLocad);
@@ -551,7 +551,7 @@ public class NewRadioPlayActivity extends FragmentActivity {
 //			playIV.setImageResource(R.drawable.play_grey);
 //			Intent intent = new Intent();
 //			intent.setAction("com.myradio.media.MUSIC_SERVICE");
-//			intent.setPackage("com.example.strawberryradio");
+//			intent.setPackage("com.example.dolphinradio");
 //			intent.putExtra("MSG", PlayButton.PlayerMsg.PAUSE_MSG);
 //			startService(intent);
 //			cancelTimer();
@@ -567,7 +567,7 @@ public class NewRadioPlayActivity extends FragmentActivity {
 //			playIV.setImageResource(R.drawable.play_pause_grey);
 //			Intent intent = new Intent();
 //			intent.setAction("com.myradio.media.MUSIC_SERVICE");
-//			intent.setPackage("com.example.strawberryradio");
+//			intent.setPackage("com.example.dolphinradio");
 //			intent.putExtra("url", music_url);
 //			intent.putExtra("MSG", PlayButton.PlayerMsg.CONTINUE_MSG);
 //			startService(intent);
@@ -598,7 +598,7 @@ public class NewRadioPlayActivity extends FragmentActivity {
 //		// LogHelper.e("changeNotifitytitle" + title);
 //		Intent intent = new Intent();
 //		intent.setAction("com.myradio.media.myradio_notifyservice");
-//		intent.setPackage("com.example.strawberryradio");
+//		intent.setPackage("com.example.dolphinradio");
 //		intent.putExtra("title", title);
 //		intent.putExtra("is_play", isopen);
 //		intent.putExtra("host_id", host_id);

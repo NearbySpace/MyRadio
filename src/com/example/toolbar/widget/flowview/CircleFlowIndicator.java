@@ -29,7 +29,7 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 
 /**
  * A FlowIndicator which draws circles (one for each view). 

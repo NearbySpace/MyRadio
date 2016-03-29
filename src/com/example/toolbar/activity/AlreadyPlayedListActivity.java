@@ -1,6 +1,8 @@
 package com.example.toolbar.activity;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.http.Header;
 
@@ -18,12 +20,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.application.MyApplication;
 import com.example.toolbar.bean.AlreadyPlayedList;
 import com.example.toolbar.common.utils.ImageLoaderHelper;
 import com.example.toolbar.common.utils.LogHelper;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.example.toolbar.view.SlideCutListView;
 import com.example.toolbar.view.SlideCutListView.RemoveDirection;
 import com.example.toolbar.view.SlideCutListView.RemoveListener;
@@ -54,11 +57,17 @@ public class AlreadyPlayedListActivity extends AppCompatActivity implements
 
 	
 	private void initData() {
+		String url = HttpManage.alreadyPlayedListUrl;
 		String uid = MyApplication.getInstance().getSpUtil().getUid();
-		HttpManage.getMyFavorite(new AsyncHttpResponseHandler() {
-
+		Map<String,Object> paramsMap = new HashMap<String, Object>();
+		paramsMap.put("uid", uid);
+		paramsMap.put("type", type);
+		paramsMap.put("page", page);
+		HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+			
 			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			public void onSuccess(byte[] arg2) {
+
 				String result = new String(arg2);
 				Gson gson = new Gson();
 				LogHelper.e("已播过的节目数据：" + result);
@@ -67,16 +76,36 @@ public class AlreadyPlayedListActivity extends AppCompatActivity implements
 						}.getType());
 				adapter = new MyAdapter();
 				slideCutListView.setAdapter(new MyAdapter());
-
 			}
-
+			
 			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-					Throwable arg3) {
+			public void onFailure(byte[] arg2, Throwable arg3) {
 				LogHelper.e("获取已播过的节目数据失败：" + new String(arg2));
-
 			}
-		}, uid, type, page);
+		});
+		
+//		HttpManage.getMyFavorite(new AsyncHttpResponseHandler() {
+//
+//			@Override
+//			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//				String result = new String(arg2);
+//				Gson gson = new Gson();
+//				LogHelper.e("已播过的节目数据：" + result);
+//				beans = gson.fromJson(result,
+//						new TypeToken<List<AlreadyPlayedList>>() {
+//						}.getType());
+//				adapter = new MyAdapter();
+//				slideCutListView.setAdapter(new MyAdapter());
+//
+//			}
+//
+//			@Override
+//			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+//					Throwable arg3) {
+//				LogHelper.e("获取已播过的节目数据失败：" + new String(arg2));
+//
+//			}
+//		}, uid, type, page);
 
 	}
 

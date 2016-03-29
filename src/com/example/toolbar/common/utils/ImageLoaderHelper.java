@@ -2,7 +2,7 @@ package com.example.toolbar.common.utils;
 
 import android.graphics.Bitmap;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;

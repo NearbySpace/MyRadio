@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.example.strawberryradio;
+package com.example.dolphinradio;
 
 public final class R {
     public static final class anim {
@@ -3760,7 +3760,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int downloadProgress=0x7f07011c;
         public static final int downloadSumText=0x7f07011b;
         public static final int downloadText=0x7f07011a;
-        public static final int download_ll_tabs=0x7f070092;
+        public static final int download_ll_tabs=0x7f070091;
         public static final int download_pb_item=0x7f070192;
         public static final int download_percent_item=0x7f070191;
         public static final int download_speed_item=0x7f070190;
@@ -3768,23 +3768,23 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int download_wait_item=0x7f070193;
         public static final int downloaded_cancel=0x7f070120;
         public static final int downloaded_checkbox_item=0x7f070198;
-        public static final int downloaded_iv=0x7f070098;
+        public static final int downloaded_iv=0x7f070097;
         public static final int downloaded_ll_editor=0x7f07011f;
-        public static final int downloaded_ll_tabs2=0x7f070096;
+        public static final int downloaded_ll_tabs2=0x7f070095;
         public static final int downloaded_lv=0x7f07011e;
         public static final int downloaded_size_item=0x7f070195;
         public static final int downloaded_source_item=0x7f070196;
         public static final int downloaded_sure=0x7f070121;
         public static final int downloaded_time_item=0x7f070197;
         public static final int downloaded_title_item=0x7f070194;
-        public static final int downloaded_tv=0x7f070097;
+        public static final int downloaded_tv=0x7f070096;
         public static final int downloading_fragment_tv=0x7f070123;
-        public static final int downloading_iv=0x7f070095;
-        public static final int downloading_ll_tabs1=0x7f070093;
+        public static final int downloading_iv=0x7f070094;
+        public static final int downloading_ll_tabs1=0x7f070092;
         public static final int downloading_lv=0x7f070122;
-        public static final int downloading_tv=0x7f070094;
-        public static final int drawer=0x7f07008e;
-        public static final int drawer_view=0x7f070091;
+        public static final int downloading_tv=0x7f070093;
+        public static final int drawer=0x7f07008d;
+        public static final int drawer_view=0x7f070090;
         public static final int editText2=0x7f070107;
         public static final int edit_query=0x7f07005e;
         public static final int emailText=0x7f0700d2;
@@ -3797,10 +3797,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int expand_activities_button=0x7f070040;
         public static final int expanded_menu=0x7f070053;
         public static final int fans_number=0x7f0700c0;
-        public static final int favorite_progress=0x7f07009c;
-        public static final int favorite_tv_number=0x7f07009a;
+        public static final int favorite_progress=0x7f07009b;
+        public static final int favorite_remind=0x7f07009c;
+        public static final int favorite_tv_number=0x7f070099;
         public static final int fenxiang=0x7f0700a7;
-        public static final int fenxiang_num=0x7f070082;
+        public static final int fenxiang_num=0x7f070081;
         public static final int fill=0x7f07003a;
         public static final int find_fragment_gridview_clssify_item=0x7f070180;
         public static final int find_img=0x7f07019a;
@@ -3812,12 +3813,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int focus=0x7f0700c6;
         public static final int focus_number=0x7f0700bd;
         public static final int framelayout=0x7f070134;
-        public static final int framelayout_download=0x7f070099;
+        public static final int framelayout_download=0x7f070098;
         public static final int front=0x7f070144;
         public static final int gridView1=0x7f07013a;
         public static final int gridview=0x7f070000;
         public static final int guide_container=0x7f07000c;
-        public static final int gv_guess_you_like=0x7f070079;
+        public static final int gv_guess_you_like=0x7f070078;
         public static final int head_action_backimage=0x7f07017a;
         public static final int head_action_left_progressBar=0x7f07017c;
         public static final int head_action_rel=0x7f070179;
@@ -3833,7 +3834,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int id_card=0x7f0700d3;
         public static final int ifRoom=0x7f07002e;
         public static final int image=0x7f070041;
-        public static final int imageView1=0x7f07007a;
+        public static final int imageView1=0x7f070079;
         public static final int imageView12=0x7f0701d6;
         public static final int imgView=0x7f07019b;
         public static final int info=0x7f0701f1;
@@ -3863,15 +3864,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ll_bottom=0x7f0700a4;
         public static final int ll_download_info=0x7f07018f;
         public static final int loading=0x7f0701a4;
-        public static final int login_activity_layout=0x7f070085;
-        public static final int login_activity_layout_without=0x7f070087;
-        public static final int login_activity_password=0x7f070089;
-        public static final int login_activity_submit=0x7f07008a;
-        public static final int login_activity_username=0x7f070088;
-        public static final int login_back=0x7f070086;
-        public static final int login_register=0x7f07008d;
-        public static final int login_remember=0x7f07008b;
-        public static final int login_resetpassword=0x7f07008c;
+        public static final int login_activity_layout=0x7f070084;
+        public static final int login_activity_layout_without=0x7f070086;
+        public static final int login_activity_password=0x7f070088;
+        public static final int login_activity_submit=0x7f070089;
+        public static final int login_activity_username=0x7f070087;
+        public static final int login_back=0x7f070085;
+        public static final int login_register=0x7f07008c;
+        public static final int login_remember=0x7f07008a;
+        public static final int login_resetpassword=0x7f07008b;
         public static final int loop_viewpager=0x7f070135;
         public static final int lunbo=0x7f070137;
         public static final int lv=0x7f070072;
@@ -3892,7 +3893,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int more_setting_ll=0x7f070163;
         public static final int more_shre=0x7f070166;
         public static final int multiply=0x7f070027;
-        public static final int myListView1=0x7f070084;
+        public static final int myListView1=0x7f070083;
         public static final int myTextView1=0x7f0701f3;
         public static final int my_favorite=0x7f070165;
         public static final int my_program=0x7f070164;
@@ -3948,19 +3949,19 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int new_two_ranking=0x7f07016d;
         public static final int new_usericon=0x7f07016f;
         public static final int nickname=0x7f0700c4;
-        public static final int nike_name=0x7f07007c;
+        public static final int nike_name=0x7f07007b;
         public static final int nikename=0x7f070161;
         public static final int none=0x7f070022;
         public static final int normal=0x7f07001e;
         public static final int onDown=0x7f070019;
         public static final int onLongPress=0x7f07001a;
         public static final int onMove=0x7f07001b;
-        public static final int pager=0x7f070090;
+        public static final int pager=0x7f07008f;
         public static final int parentPanel=0x7f070048;
         public static final int password=0x7f0700d4;
         public static final int password2=0x7f0700d5;
-        public static final int pinglun=0x7f070080;
-        public static final int pinglun_num=0x7f070081;
+        public static final int pinglun=0x7f07007f;
+        public static final int pinglun_num=0x7f070080;
         public static final int play_number=0x7f0701bd;
         public static final int play_radio_imageView2=0x7f0700b6;
         public static final int play_radio_item_iv_download=0x7f0701b8;
@@ -4085,8 +4086,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int setting_tv_vesion=0x7f0700f0;
         public static final int share_number=0x7f0700f9;
         public static final int shortcut=0x7f070055;
-        public static final int shoucan=0x7f07007e;
-        public static final int shoucan_num=0x7f07007f;
+        public static final int shoucan=0x7f07007d;
+        public static final int shoucan_num=0x7f07007e;
         public static final int shoutin=0x7f07019e;
         public static final int show=0x7f0700bb;
         public static final int showCustom=0x7f070023;
@@ -4109,7 +4110,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int shows_played_host=0x7f07018a;
         public static final int shows_played_time=0x7f07018b;
         public static final int shows_titel=0x7f0701bb;
-        public static final int slideCutListView=0x7f07009b;
+        public static final int slideCutListView=0x7f07009a;
         public static final int song_name_find=0x7f070128;
         public static final int spacer=0x7f070047;
         public static final int split_action_bar=0x7f070007;
@@ -4132,7 +4133,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int sv=0x7f07012c;
         public static final int swipe_container=0x7f070141;
         public static final int tabMode=0x7f07001f;
-        public static final int tabs=0x7f07008f;
+        public static final int tabs=0x7f07008e;
         public static final int tel=0x7f0700d1;
         public static final int text=0x7f0701ae;
         public static final int text2=0x7f0701ef;
@@ -4141,10 +4142,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int textView12=0x7f0700c1;
         public static final int textView122=0x7f0700be;
         public static final int textView13=0x7f0700bf;
-        public static final int textView2=0x7f07007d;
+        public static final int textView2=0x7f07007c;
         public static final int textView3=0x7f0700bc;
         public static final int textView6=0x7f070162;
-        public static final int textViewlin=0x7f070083;
+        public static final int textViewlin=0x7f070082;
         public static final int time=0x7f0701ed;
         public static final int tips=0x7f0700d6;
         public static final int titel=0x7f070199;
@@ -4155,7 +4156,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int top=0x7f0700a2;
         public static final int topPanel=0x7f070049;
         public static final int topVp=0x7f070201;
-        public static final int top_guess=0x7f070078;
         public static final int top_image=0x7f07019d;
         public static final int top_text=0x7f070139;
         public static final int top_viewflow=0x7f07013b;
@@ -4176,7 +4176,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int updateapk_tv2=0x7f070205;
         public static final int updateapk_tv3=0x7f070206;
         public static final int useLogo=0x7f070026;
-        public static final int user_icon=0x7f07007b;
+        public static final int user_icon=0x7f07007a;
         public static final int user_nikename=0x7f0700f7;
         public static final int usericon=0x7f070160;
         public static final int username=0x7f0700d0;
@@ -4965,35 +4965,35 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ActionBar_background com.example.strawberryradio:background}</code></td><td> Specifies a background drawable for the action bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_backgroundSplit com.example.strawberryradio:backgroundSplit}</code></td><td> Specifies a background drawable for the bottom component of a split action bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_backgroundStacked com.example.strawberryradio:backgroundStacked}</code></td><td> Specifies a background drawable for a second stacked row of the action bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_contentInsetEnd com.example.strawberryradio:contentInsetEnd}</code></td><td> Minimum inset for content views within a bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_contentInsetLeft com.example.strawberryradio:contentInsetLeft}</code></td><td> Minimum inset for content views within a bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_contentInsetRight com.example.strawberryradio:contentInsetRight}</code></td><td> Minimum inset for content views within a bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_contentInsetStart com.example.strawberryradio:contentInsetStart}</code></td><td> Minimum inset for content views within a bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_customNavigationLayout com.example.strawberryradio:customNavigationLayout}</code></td><td> Specifies a layout for custom navigation.</td></tr>
-           <tr><td><code>{@link #ActionBar_displayOptions com.example.strawberryradio:displayOptions}</code></td><td> Options affecting how the action bar is displayed.</td></tr>
-           <tr><td><code>{@link #ActionBar_divider com.example.strawberryradio:divider}</code></td><td> Specifies the drawable used for item dividers.</td></tr>
-           <tr><td><code>{@link #ActionBar_elevation com.example.strawberryradio:elevation}</code></td><td> Elevation for the action bar itself </td></tr>
-           <tr><td><code>{@link #ActionBar_height com.example.strawberryradio:height}</code></td><td> Specifies a fixed height.</td></tr>
-           <tr><td><code>{@link #ActionBar_hideOnContentScroll com.example.strawberryradio:hideOnContentScroll}</code></td><td> Set true to hide the action bar on a vertical nested scroll of content.</td></tr>
-           <tr><td><code>{@link #ActionBar_homeAsUpIndicator com.example.strawberryradio:homeAsUpIndicator}</code></td><td> Up navigation glyph </td></tr>
-           <tr><td><code>{@link #ActionBar_homeLayout com.example.strawberryradio:homeLayout}</code></td><td> Specifies a layout to use for the "home" section of the action bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_icon com.example.strawberryradio:icon}</code></td><td> Specifies the drawable used for the application icon.</td></tr>
-           <tr><td><code>{@link #ActionBar_indeterminateProgressStyle com.example.strawberryradio:indeterminateProgressStyle}</code></td><td> Specifies a style resource to use for an indeterminate progress spinner.</td></tr>
-           <tr><td><code>{@link #ActionBar_itemPadding com.example.strawberryradio:itemPadding}</code></td><td> Specifies padding that should be applied to the left and right sides of
+           <tr><td><code>{@link #ActionBar_background com.example.dolphinradio:background}</code></td><td> Specifies a background drawable for the action bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_backgroundSplit com.example.dolphinradio:backgroundSplit}</code></td><td> Specifies a background drawable for the bottom component of a split action bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_backgroundStacked com.example.dolphinradio:backgroundStacked}</code></td><td> Specifies a background drawable for a second stacked row of the action bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_contentInsetEnd com.example.dolphinradio:contentInsetEnd}</code></td><td> Minimum inset for content views within a bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_contentInsetLeft com.example.dolphinradio:contentInsetLeft}</code></td><td> Minimum inset for content views within a bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_contentInsetRight com.example.dolphinradio:contentInsetRight}</code></td><td> Minimum inset for content views within a bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_contentInsetStart com.example.dolphinradio:contentInsetStart}</code></td><td> Minimum inset for content views within a bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_customNavigationLayout com.example.dolphinradio:customNavigationLayout}</code></td><td> Specifies a layout for custom navigation.</td></tr>
+           <tr><td><code>{@link #ActionBar_displayOptions com.example.dolphinradio:displayOptions}</code></td><td> Options affecting how the action bar is displayed.</td></tr>
+           <tr><td><code>{@link #ActionBar_divider com.example.dolphinradio:divider}</code></td><td> Specifies the drawable used for item dividers.</td></tr>
+           <tr><td><code>{@link #ActionBar_elevation com.example.dolphinradio:elevation}</code></td><td> Elevation for the action bar itself </td></tr>
+           <tr><td><code>{@link #ActionBar_height com.example.dolphinradio:height}</code></td><td> Specifies a fixed height.</td></tr>
+           <tr><td><code>{@link #ActionBar_hideOnContentScroll com.example.dolphinradio:hideOnContentScroll}</code></td><td> Set true to hide the action bar on a vertical nested scroll of content.</td></tr>
+           <tr><td><code>{@link #ActionBar_homeAsUpIndicator com.example.dolphinradio:homeAsUpIndicator}</code></td><td> Up navigation glyph </td></tr>
+           <tr><td><code>{@link #ActionBar_homeLayout com.example.dolphinradio:homeLayout}</code></td><td> Specifies a layout to use for the "home" section of the action bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_icon com.example.dolphinradio:icon}</code></td><td> Specifies the drawable used for the application icon.</td></tr>
+           <tr><td><code>{@link #ActionBar_indeterminateProgressStyle com.example.dolphinradio:indeterminateProgressStyle}</code></td><td> Specifies a style resource to use for an indeterminate progress spinner.</td></tr>
+           <tr><td><code>{@link #ActionBar_itemPadding com.example.dolphinradio:itemPadding}</code></td><td> Specifies padding that should be applied to the left and right sides of
              system-provided items in the bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_logo com.example.strawberryradio:logo}</code></td><td> Specifies the drawable used for the application logo.</td></tr>
-           <tr><td><code>{@link #ActionBar_navigationMode com.example.strawberryradio:navigationMode}</code></td><td> The type of navigation to use.</td></tr>
-           <tr><td><code>{@link #ActionBar_popupTheme com.example.strawberryradio:popupTheme}</code></td><td> Reference to a theme that should be used to inflate popups
+           <tr><td><code>{@link #ActionBar_logo com.example.dolphinradio:logo}</code></td><td> Specifies the drawable used for the application logo.</td></tr>
+           <tr><td><code>{@link #ActionBar_navigationMode com.example.dolphinradio:navigationMode}</code></td><td> The type of navigation to use.</td></tr>
+           <tr><td><code>{@link #ActionBar_popupTheme com.example.dolphinradio:popupTheme}</code></td><td> Reference to a theme that should be used to inflate popups
              shown by widgets in the action bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_progressBarPadding com.example.strawberryradio:progressBarPadding}</code></td><td> Specifies the horizontal padding on either end for an embedded progress bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_progressBarStyle com.example.strawberryradio:progressBarStyle}</code></td><td> Specifies a style resource to use for an embedded progress bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_subtitle com.example.strawberryradio:subtitle}</code></td><td> Specifies subtitle text used for navigationMode="normal" </td></tr>
-           <tr><td><code>{@link #ActionBar_subtitleTextStyle com.example.strawberryradio:subtitleTextStyle}</code></td><td> Specifies a style to use for subtitle text.</td></tr>
-           <tr><td><code>{@link #ActionBar_title com.example.strawberryradio:title}</code></td><td> Specifies title text used for navigationMode="normal" </td></tr>
-           <tr><td><code>{@link #ActionBar_titleTextStyle com.example.strawberryradio:titleTextStyle}</code></td><td> Specifies a style to use for title text.</td></tr>
+           <tr><td><code>{@link #ActionBar_progressBarPadding com.example.dolphinradio:progressBarPadding}</code></td><td> Specifies the horizontal padding on either end for an embedded progress bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_progressBarStyle com.example.dolphinradio:progressBarStyle}</code></td><td> Specifies a style resource to use for an embedded progress bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_subtitle com.example.dolphinradio:subtitle}</code></td><td> Specifies subtitle text used for navigationMode="normal" </td></tr>
+           <tr><td><code>{@link #ActionBar_subtitleTextStyle com.example.dolphinradio:subtitleTextStyle}</code></td><td> Specifies a style to use for subtitle text.</td></tr>
+           <tr><td><code>{@link #ActionBar_title com.example.dolphinradio:title}</code></td><td> Specifies title text used for navigationMode="normal" </td></tr>
+           <tr><td><code>{@link #ActionBar_titleTextStyle com.example.dolphinradio:titleTextStyle}</code></td><td> Specifies a style to use for title text.</td></tr>
            </table>
            @see #ActionBar_background
            @see #ActionBar_backgroundSplit
@@ -5041,7 +5041,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:background
+          @attr name com.example.dolphinradio:background
         */
         public static final int ActionBar_background = 11;
         /**
@@ -5055,7 +5055,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:backgroundSplit
+          @attr name com.example.dolphinradio:backgroundSplit
         */
         public static final int ActionBar_backgroundSplit = 13;
         /**
@@ -5069,7 +5069,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:backgroundStacked
+          @attr name com.example.dolphinradio:backgroundStacked
         */
         public static final int ActionBar_backgroundStacked = 12;
         /**
@@ -5088,7 +5088,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:contentInsetEnd
+          @attr name com.example.dolphinradio:contentInsetEnd
         */
         public static final int ActionBar_contentInsetEnd = 22;
         /**
@@ -5107,7 +5107,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:contentInsetLeft
+          @attr name com.example.dolphinradio:contentInsetLeft
         */
         public static final int ActionBar_contentInsetLeft = 23;
         /**
@@ -5126,7 +5126,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:contentInsetRight
+          @attr name com.example.dolphinradio:contentInsetRight
         */
         public static final int ActionBar_contentInsetRight = 24;
         /**
@@ -5145,7 +5145,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:contentInsetStart
+          @attr name com.example.dolphinradio:contentInsetStart
         */
         public static final int ActionBar_contentInsetStart = 21;
         /**
@@ -5157,7 +5157,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:customNavigationLayout
+          @attr name com.example.dolphinradio:customNavigationLayout
         */
         public static final int ActionBar_customNavigationLayout = 14;
         /**
@@ -5181,7 +5181,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>disableHome</code></td><td>0x20</td><td></td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:displayOptions
+          @attr name com.example.dolphinradio:displayOptions
         */
         public static final int ActionBar_displayOptions = 4;
         /**
@@ -5193,7 +5193,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:divider
+          @attr name com.example.dolphinradio:divider
         */
         public static final int ActionBar_divider = 10;
         /**
@@ -5211,7 +5211,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:elevation
+          @attr name com.example.dolphinradio:elevation
         */
         public static final int ActionBar_elevation = 25;
         /**
@@ -5229,7 +5229,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:height
+          @attr name com.example.dolphinradio:height
         */
         public static final int ActionBar_height = 1;
         /**
@@ -5245,7 +5245,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:hideOnContentScroll
+          @attr name com.example.dolphinradio:hideOnContentScroll
         */
         public static final int ActionBar_hideOnContentScroll = 20;
         /**
@@ -5257,7 +5257,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:homeAsUpIndicator
+          @attr name com.example.dolphinradio:homeAsUpIndicator
         */
         public static final int ActionBar_homeAsUpIndicator = 2;
         /**
@@ -5269,7 +5269,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:homeLayout
+          @attr name com.example.dolphinradio:homeLayout
         */
         public static final int ActionBar_homeLayout = 15;
         /**
@@ -5281,7 +5281,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:icon
+          @attr name com.example.dolphinradio:icon
         */
         public static final int ActionBar_icon = 8;
         /**
@@ -5293,7 +5293,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:indeterminateProgressStyle
+          @attr name com.example.dolphinradio:indeterminateProgressStyle
         */
         public static final int ActionBar_indeterminateProgressStyle = 17;
         /**
@@ -5312,7 +5312,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:itemPadding
+          @attr name com.example.dolphinradio:itemPadding
         */
         public static final int ActionBar_itemPadding = 19;
         /**
@@ -5324,7 +5324,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:logo
+          @attr name com.example.dolphinradio:logo
         */
         public static final int ActionBar_logo = 9;
         /**
@@ -5344,7 +5344,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>tabMode</code></td><td>2</td><td> The action bar will use a series of horizontal tabs for navigation. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:navigationMode
+          @attr name com.example.dolphinradio:navigationMode
         */
         public static final int ActionBar_navigationMode = 3;
         /**
@@ -5357,7 +5357,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:popupTheme
+          @attr name com.example.dolphinradio:popupTheme
         */
         public static final int ActionBar_popupTheme = 26;
         /**
@@ -5375,7 +5375,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:progressBarPadding
+          @attr name com.example.dolphinradio:progressBarPadding
         */
         public static final int ActionBar_progressBarPadding = 18;
         /**
@@ -5387,7 +5387,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:progressBarStyle
+          @attr name com.example.dolphinradio:progressBarStyle
         */
         public static final int ActionBar_progressBarStyle = 16;
         /**
@@ -5403,7 +5403,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:subtitle
+          @attr name com.example.dolphinradio:subtitle
         */
         public static final int ActionBar_subtitle = 5;
         /**
@@ -5415,7 +5415,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:subtitleTextStyle
+          @attr name com.example.dolphinradio:subtitleTextStyle
         */
         public static final int ActionBar_subtitleTextStyle = 7;
         /**
@@ -5431,7 +5431,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:title
+          @attr name com.example.dolphinradio:title
         */
         public static final int ActionBar_title = 0;
         /**
@@ -5443,7 +5443,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:titleTextStyle
+          @attr name com.example.dolphinradio:titleTextStyle
         */
         public static final int ActionBar_titleTextStyle = 6;
         /**  Valid LayoutParams for views placed in the action bar as custom views. 
@@ -5495,12 +5495,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ActionMode_background com.example.strawberryradio:background}</code></td><td> Specifies a background for the action mode bar.</td></tr>
-           <tr><td><code>{@link #ActionMode_backgroundSplit com.example.strawberryradio:backgroundSplit}</code></td><td> Specifies a background for the split action mode bar.</td></tr>
-           <tr><td><code>{@link #ActionMode_closeItemLayout com.example.strawberryradio:closeItemLayout}</code></td><td> Specifies a layout to use for the "close" item at the starting edge.</td></tr>
-           <tr><td><code>{@link #ActionMode_height com.example.strawberryradio:height}</code></td><td> Specifies a fixed height for the action mode bar.</td></tr>
-           <tr><td><code>{@link #ActionMode_subtitleTextStyle com.example.strawberryradio:subtitleTextStyle}</code></td><td> Specifies a style to use for subtitle text.</td></tr>
-           <tr><td><code>{@link #ActionMode_titleTextStyle com.example.strawberryradio:titleTextStyle}</code></td><td> Specifies a style to use for title text.</td></tr>
+           <tr><td><code>{@link #ActionMode_background com.example.dolphinradio:background}</code></td><td> Specifies a background for the action mode bar.</td></tr>
+           <tr><td><code>{@link #ActionMode_backgroundSplit com.example.dolphinradio:backgroundSplit}</code></td><td> Specifies a background for the split action mode bar.</td></tr>
+           <tr><td><code>{@link #ActionMode_closeItemLayout com.example.dolphinradio:closeItemLayout}</code></td><td> Specifies a layout to use for the "close" item at the starting edge.</td></tr>
+           <tr><td><code>{@link #ActionMode_height com.example.dolphinradio:height}</code></td><td> Specifies a fixed height for the action mode bar.</td></tr>
+           <tr><td><code>{@link #ActionMode_subtitleTextStyle com.example.dolphinradio:subtitleTextStyle}</code></td><td> Specifies a style to use for subtitle text.</td></tr>
+           <tr><td><code>{@link #ActionMode_titleTextStyle com.example.dolphinradio:titleTextStyle}</code></td><td> Specifies a style to use for title text.</td></tr>
            </table>
            @see #ActionMode_background
            @see #ActionMode_backgroundSplit
@@ -5522,7 +5522,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:background
+          @attr name com.example.dolphinradio:background
         */
         public static final int ActionMode_background = 3;
         /**
@@ -5536,7 +5536,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:backgroundSplit
+          @attr name com.example.dolphinradio:backgroundSplit
         */
         public static final int ActionMode_backgroundSplit = 4;
         /**
@@ -5548,7 +5548,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:closeItemLayout
+          @attr name com.example.dolphinradio:closeItemLayout
         */
         public static final int ActionMode_closeItemLayout = 5;
         /**
@@ -5566,7 +5566,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:height
+          @attr name com.example.dolphinradio:height
         */
         public static final int ActionMode_height = 0;
         /**
@@ -5578,7 +5578,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:subtitleTextStyle
+          @attr name com.example.dolphinradio:subtitleTextStyle
         */
         public static final int ActionMode_subtitleTextStyle = 2;
         /**
@@ -5590,7 +5590,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:titleTextStyle
+          @attr name com.example.dolphinradio:titleTextStyle
         */
         public static final int ActionMode_titleTextStyle = 1;
         /**  Attrbitutes for a ActivityChooserView. 
@@ -5599,8 +5599,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ActivityChooserView_expandActivityOverflowButtonDrawable com.example.strawberryradio:expandActivityOverflowButtonDrawable}</code></td><td> The drawable to show in the button for expanding the activities overflow popup.</td></tr>
-           <tr><td><code>{@link #ActivityChooserView_initialActivityCount com.example.strawberryradio:initialActivityCount}</code></td><td> The maximal number of items initially shown in the activity list.</td></tr>
+           <tr><td><code>{@link #ActivityChooserView_expandActivityOverflowButtonDrawable com.example.dolphinradio:expandActivityOverflowButtonDrawable}</code></td><td> The drawable to show in the button for expanding the activities overflow popup.</td></tr>
+           <tr><td><code>{@link #ActivityChooserView_initialActivityCount com.example.dolphinradio:initialActivityCount}</code></td><td> The maximal number of items initially shown in the activity list.</td></tr>
            </table>
            @see #ActivityChooserView_expandActivityOverflowButtonDrawable
            @see #ActivityChooserView_initialActivityCount
@@ -5622,7 +5622,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:expandActivityOverflowButtonDrawable
+          @attr name com.example.dolphinradio:expandActivityOverflowButtonDrawable
         */
         public static final int ActivityChooserView_expandActivityOverflowButtonDrawable = 1;
         /**
@@ -5638,7 +5638,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:initialActivityCount
+          @attr name com.example.dolphinradio:initialActivityCount
         */
         public static final int ActivityChooserView_initialActivityCount = 0;
         /**  The set of attributes that describe a AlertDialog's theme. 
@@ -5648,11 +5648,11 @@ containing a value of this type.
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #AlertDialog_android_layout android:layout}</code></td><td></td></tr>
-           <tr><td><code>{@link #AlertDialog_buttonPanelSideLayout com.example.strawberryradio:buttonPanelSideLayout}</code></td><td></td></tr>
-           <tr><td><code>{@link #AlertDialog_listItemLayout com.example.strawberryradio:listItemLayout}</code></td><td></td></tr>
-           <tr><td><code>{@link #AlertDialog_listLayout com.example.strawberryradio:listLayout}</code></td><td></td></tr>
-           <tr><td><code>{@link #AlertDialog_multiChoiceItemLayout com.example.strawberryradio:multiChoiceItemLayout}</code></td><td></td></tr>
-           <tr><td><code>{@link #AlertDialog_singleChoiceItemLayout com.example.strawberryradio:singleChoiceItemLayout}</code></td><td></td></tr>
+           <tr><td><code>{@link #AlertDialog_buttonPanelSideLayout com.example.dolphinradio:buttonPanelSideLayout}</code></td><td></td></tr>
+           <tr><td><code>{@link #AlertDialog_listItemLayout com.example.dolphinradio:listItemLayout}</code></td><td></td></tr>
+           <tr><td><code>{@link #AlertDialog_listLayout com.example.dolphinradio:listLayout}</code></td><td></td></tr>
+           <tr><td><code>{@link #AlertDialog_multiChoiceItemLayout com.example.dolphinradio:multiChoiceItemLayout}</code></td><td></td></tr>
+           <tr><td><code>{@link #AlertDialog_singleChoiceItemLayout com.example.dolphinradio:singleChoiceItemLayout}</code></td><td></td></tr>
            </table>
            @see #AlertDialog_android_layout
            @see #AlertDialog_buttonPanelSideLayout
@@ -5672,53 +5672,53 @@ containing a value of this type.
         */
         public static final int AlertDialog_android_layout = 0;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#buttonPanelSideLayout}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#buttonPanelSideLayout}
           attribute's value can be found in the {@link #AlertDialog} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:buttonPanelSideLayout
+          @attr name com.example.dolphinradio:buttonPanelSideLayout
         */
         public static final int AlertDialog_buttonPanelSideLayout = 1;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#listItemLayout}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#listItemLayout}
           attribute's value can be found in the {@link #AlertDialog} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:listItemLayout
+          @attr name com.example.dolphinradio:listItemLayout
         */
         public static final int AlertDialog_listItemLayout = 5;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#listLayout}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#listLayout}
           attribute's value can be found in the {@link #AlertDialog} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:listLayout
+          @attr name com.example.dolphinradio:listLayout
         */
         public static final int AlertDialog_listLayout = 2;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#multiChoiceItemLayout}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#multiChoiceItemLayout}
           attribute's value can be found in the {@link #AlertDialog} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:multiChoiceItemLayout
+          @attr name com.example.dolphinradio:multiChoiceItemLayout
         */
         public static final int AlertDialog_multiChoiceItemLayout = 3;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#singleChoiceItemLayout}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#singleChoiceItemLayout}
           attribute's value can be found in the {@link #AlertDialog} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:singleChoiceItemLayout
+          @attr name com.example.dolphinradio:singleChoiceItemLayout
         */
         public static final int AlertDialog_singleChoiceItemLayout = 4;
         /** Attributes that can be used with a AppCompatTextView.
@@ -5728,7 +5728,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #AppCompatTextView_android_textAppearance android:textAppearance}</code></td><td></td></tr>
-           <tr><td><code>{@link #AppCompatTextView_textAllCaps com.example.strawberryradio:textAllCaps}</code></td><td> Present the text in ALL CAPS.</td></tr>
+           <tr><td><code>{@link #AppCompatTextView_textAllCaps com.example.dolphinradio:textAllCaps}</code></td><td> Present the text in ALL CAPS.</td></tr>
            </table>
            @see #AppCompatTextView_android_textAppearance
            @see #AppCompatTextView_textAllCaps
@@ -5752,7 +5752,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:textAllCaps
+          @attr name com.example.dolphinradio:textAllCaps
         */
         public static final int AppCompatTextView_textAllCaps = 1;
         /**  @hide 
@@ -5761,7 +5761,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ButtonBarLayout_allowStacking com.example.strawberryradio:allowStacking}</code></td><td> Whether to automatically stack the buttons when there is not
+           <tr><td><code>{@link #ButtonBarLayout_allowStacking com.example.dolphinradio:allowStacking}</code></td><td> Whether to automatically stack the buttons when there is not
              enough space to lay them out side-by-side.</td></tr>
            </table>
            @see #ButtonBarLayout_allowStacking
@@ -5783,7 +5783,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:allowStacking
+          @attr name com.example.dolphinradio:allowStacking
         */
         public static final int ButtonBarLayout_allowStacking = 0;
         /** Attributes that can be used with a CircleFlowIndicator.
@@ -5792,15 +5792,15 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #CircleFlowIndicator_activeColor com.example.strawberryradio:activeColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #CircleFlowIndicator_activeRadius com.example.strawberryradio:activeRadius}</code></td><td></td></tr>
-           <tr><td><code>{@link #CircleFlowIndicator_activeType com.example.strawberryradio:activeType}</code></td><td></td></tr>
-           <tr><td><code>{@link #CircleFlowIndicator_centered_circel com.example.strawberryradio:centered_circel}</code></td><td></td></tr>
-           <tr><td><code>{@link #CircleFlowIndicator_circleSeparation com.example.strawberryradio:circleSeparation}</code></td><td></td></tr>
-           <tr><td><code>{@link #CircleFlowIndicator_fadeOut com.example.strawberryradio:fadeOut}</code></td><td></td></tr>
-           <tr><td><code>{@link #CircleFlowIndicator_inactiveColor com.example.strawberryradio:inactiveColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #CircleFlowIndicator_inactiveType com.example.strawberryradio:inactiveType}</code></td><td></td></tr>
-           <tr><td><code>{@link #CircleFlowIndicator_radius_circel com.example.strawberryradio:radius_circel}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleFlowIndicator_activeColor com.example.dolphinradio:activeColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleFlowIndicator_activeRadius com.example.dolphinradio:activeRadius}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleFlowIndicator_activeType com.example.dolphinradio:activeType}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleFlowIndicator_centered_circel com.example.dolphinradio:centered_circel}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleFlowIndicator_circleSeparation com.example.dolphinradio:circleSeparation}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleFlowIndicator_fadeOut com.example.dolphinradio:fadeOut}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleFlowIndicator_inactiveColor com.example.dolphinradio:inactiveColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleFlowIndicator_inactiveType com.example.dolphinradio:inactiveType}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleFlowIndicator_radius_circel com.example.dolphinradio:radius_circel}</code></td><td></td></tr>
            </table>
            @see #CircleFlowIndicator_activeColor
            @see #CircleFlowIndicator_activeRadius
@@ -5818,7 +5818,7 @@ containing a value of this type.
             0x7f010134
         };
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#activeColor}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#activeColor}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
 
 
@@ -5829,11 +5829,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:activeColor
+          @attr name com.example.dolphinradio:activeColor
         */
         public static final int CircleFlowIndicator_activeColor = 0;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#activeRadius}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#activeRadius}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
 
 
@@ -5845,11 +5845,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:activeRadius
+          @attr name com.example.dolphinradio:activeRadius
         */
         public static final int CircleFlowIndicator_activeRadius = 8;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#activeType}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#activeType}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
 
 
@@ -5862,11 +5862,11 @@ containing a value of this type.
 <tr><td><code>stroke</code></td><td>0</td><td></td></tr>
 <tr><td><code>fill</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name com.example.strawberryradio:activeType
+          @attr name com.example.dolphinradio:activeType
         */
         public static final int CircleFlowIndicator_activeType = 6;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#centered_circel}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#centered_circel}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
 
 
@@ -5876,11 +5876,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:centered_circel
+          @attr name com.example.dolphinradio:centered_circel
         */
         public static final int CircleFlowIndicator_centered_circel = 3;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#circleSeparation}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#circleSeparation}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
 
 
@@ -5892,11 +5892,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:circleSeparation
+          @attr name com.example.dolphinradio:circleSeparation
         */
         public static final int CircleFlowIndicator_circleSeparation = 7;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#fadeOut}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#fadeOut}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
 
 
@@ -5906,11 +5906,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:fadeOut
+          @attr name com.example.dolphinradio:fadeOut
         */
         public static final int CircleFlowIndicator_fadeOut = 4;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#inactiveColor}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#inactiveColor}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
 
 
@@ -5921,11 +5921,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:inactiveColor
+          @attr name com.example.dolphinradio:inactiveColor
         */
         public static final int CircleFlowIndicator_inactiveColor = 1;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#inactiveType}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#inactiveType}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
 
 
@@ -5938,11 +5938,11 @@ containing a value of this type.
 <tr><td><code>stroke</code></td><td>0</td><td></td></tr>
 <tr><td><code>fill</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name com.example.strawberryradio:inactiveType
+          @attr name com.example.dolphinradio:inactiveType
         */
         public static final int CircleFlowIndicator_inactiveType = 5;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#radius_circel}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#radius_circel}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
 
 
@@ -5954,7 +5954,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:radius_circel
+          @attr name com.example.dolphinradio:radius_circel
         */
         public static final int CircleFlowIndicator_radius_circel = 2;
         /** Attributes that can be used with a CircleImageView.
@@ -5963,10 +5963,10 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #CircleImageView_civ_border_color com.example.strawberryradio:civ_border_color}</code></td><td></td></tr>
-           <tr><td><code>{@link #CircleImageView_civ_border_overlay com.example.strawberryradio:civ_border_overlay}</code></td><td></td></tr>
-           <tr><td><code>{@link #CircleImageView_civ_border_width com.example.strawberryradio:civ_border_width}</code></td><td></td></tr>
-           <tr><td><code>{@link #CircleImageView_civ_fill_color com.example.strawberryradio:civ_fill_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleImageView_civ_border_color com.example.dolphinradio:civ_border_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleImageView_civ_border_overlay com.example.dolphinradio:civ_border_overlay}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleImageView_civ_border_width com.example.dolphinradio:civ_border_width}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleImageView_civ_fill_color com.example.dolphinradio:civ_fill_color}</code></td><td></td></tr>
            </table>
            @see #CircleImageView_civ_border_color
            @see #CircleImageView_civ_border_overlay
@@ -5977,7 +5977,7 @@ containing a value of this type.
             0x7f01011a, 0x7f01011b, 0x7f01011c, 0x7f01011d
         };
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#civ_border_color}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#civ_border_color}
           attribute's value can be found in the {@link #CircleImageView} array.
 
 
@@ -5988,11 +5988,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:civ_border_color
+          @attr name com.example.dolphinradio:civ_border_color
         */
         public static final int CircleImageView_civ_border_color = 1;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#civ_border_overlay}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#civ_border_overlay}
           attribute's value can be found in the {@link #CircleImageView} array.
 
 
@@ -6002,11 +6002,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:civ_border_overlay
+          @attr name com.example.dolphinradio:civ_border_overlay
         */
         public static final int CircleImageView_civ_border_overlay = 2;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#civ_border_width}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#civ_border_width}
           attribute's value can be found in the {@link #CircleImageView} array.
 
 
@@ -6018,11 +6018,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:civ_border_width
+          @attr name com.example.dolphinradio:civ_border_width
         */
         public static final int CircleImageView_civ_border_width = 0;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#civ_fill_color}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#civ_fill_color}
           attribute's value can be found in the {@link #CircleImageView} array.
 
 
@@ -6033,7 +6033,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:civ_fill_color
+          @attr name com.example.dolphinradio:civ_fill_color
         */
         public static final int CircleImageView_civ_fill_color = 3;
         /** Attributes that can be used with a CircularProgress.
@@ -6042,7 +6042,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #CircularProgress_borderWidth com.example.strawberryradio:borderWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircularProgress_borderWidth com.example.dolphinradio:borderWidth}</code></td><td></td></tr>
            </table>
            @see #CircularProgress_borderWidth
          */
@@ -6050,7 +6050,7 @@ containing a value of this type.
             0x7f0100fe
         };
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#borderWidth}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#borderWidth}
           attribute's value can be found in the {@link #CircularProgress} array.
 
 
@@ -6062,7 +6062,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:borderWidth
+          @attr name com.example.dolphinradio:borderWidth
         */
         public static final int CircularProgress_borderWidth = 0;
         /** Attributes that can be used with a CompoundButton.
@@ -6072,8 +6072,8 @@ containing a value of this type.
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #CompoundButton_android_button android:button}</code></td><td></td></tr>
-           <tr><td><code>{@link #CompoundButton_buttonTint com.example.strawberryradio:buttonTint}</code></td><td> Tint to apply to the button drawable.</td></tr>
-           <tr><td><code>{@link #CompoundButton_buttonTintMode com.example.strawberryradio:buttonTintMode}</code></td><td> Blending mode used to apply the button tint.</td></tr>
+           <tr><td><code>{@link #CompoundButton_buttonTint com.example.dolphinradio:buttonTint}</code></td><td> Tint to apply to the button drawable.</td></tr>
+           <tr><td><code>{@link #CompoundButton_buttonTintMode com.example.dolphinradio:buttonTintMode}</code></td><td> Blending mode used to apply the button tint.</td></tr>
            </table>
            @see #CompoundButton_android_button
            @see #CompoundButton_buttonTint
@@ -6102,7 +6102,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:buttonTint
+          @attr name com.example.dolphinradio:buttonTint
         */
         public static final int CompoundButton_buttonTint = 1;
         /**
@@ -6128,7 +6128,7 @@ containing a value of this type.
 <tr><td><code>screen</code></td><td>15</td><td> [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:buttonTintMode
+          @attr name com.example.dolphinradio:buttonTintMode
         */
         public static final int CompoundButton_buttonTintMode = 2;
         /** Attributes that can be used with a CrossView.
@@ -6137,7 +6137,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #CrossView_lineColor com.example.strawberryradio:lineColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #CrossView_lineColor com.example.dolphinradio:lineColor}</code></td><td></td></tr>
            </table>
            @see #CrossView_lineColor
          */
@@ -6145,7 +6145,7 @@ containing a value of this type.
             0x7f01010e
         };
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#lineColor}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#lineColor}
           attribute's value can be found in the {@link #CrossView} array.
 
 
@@ -6156,7 +6156,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:lineColor
+          @attr name com.example.dolphinradio:lineColor
         */
         public static final int CrossView_lineColor = 0;
         /** Attributes that can be used with a DragSortListView.
@@ -6165,24 +6165,24 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #DragSortListView_click_remove_id com.example.strawberryradio:click_remove_id}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_collapsed_height com.example.strawberryradio:collapsed_height}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_drag_enabled com.example.strawberryradio:drag_enabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_drag_handle_id com.example.strawberryradio:drag_handle_id}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_drag_scroll_start com.example.strawberryradio:drag_scroll_start}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_drag_start_mode com.example.strawberryradio:drag_start_mode}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_drop_animation_duration com.example.strawberryradio:drop_animation_duration}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_fling_handle_id com.example.strawberryradio:fling_handle_id}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_float_alpha com.example.strawberryradio:float_alpha}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_float_background_color com.example.strawberryradio:float_background_color}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_max_drag_scroll_speed com.example.strawberryradio:max_drag_scroll_speed}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_remove_animation_duration com.example.strawberryradio:remove_animation_duration}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_remove_enabled com.example.strawberryradio:remove_enabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_remove_mode com.example.strawberryradio:remove_mode}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_slide_shuffle_speed com.example.strawberryradio:slide_shuffle_speed}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_sort_enabled com.example.strawberryradio:sort_enabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_track_drag_sort com.example.strawberryradio:track_drag_sort}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_use_default_controller com.example.strawberryradio:use_default_controller}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_click_remove_id com.example.dolphinradio:click_remove_id}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_collapsed_height com.example.dolphinradio:collapsed_height}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_drag_enabled com.example.dolphinradio:drag_enabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_drag_handle_id com.example.dolphinradio:drag_handle_id}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_drag_scroll_start com.example.dolphinradio:drag_scroll_start}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_drag_start_mode com.example.dolphinradio:drag_start_mode}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_drop_animation_duration com.example.dolphinradio:drop_animation_duration}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_fling_handle_id com.example.dolphinradio:fling_handle_id}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_float_alpha com.example.dolphinradio:float_alpha}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_float_background_color com.example.dolphinradio:float_background_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_max_drag_scroll_speed com.example.dolphinradio:max_drag_scroll_speed}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_remove_animation_duration com.example.dolphinradio:remove_animation_duration}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_remove_enabled com.example.dolphinradio:remove_enabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_remove_mode com.example.dolphinradio:remove_mode}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_slide_shuffle_speed com.example.dolphinradio:slide_shuffle_speed}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_sort_enabled com.example.dolphinradio:sort_enabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_track_drag_sort com.example.dolphinradio:track_drag_sort}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_use_default_controller com.example.dolphinradio:use_default_controller}</code></td><td></td></tr>
            </table>
            @see #DragSortListView_click_remove_id
            @see #DragSortListView_collapsed_height
@@ -6211,7 +6211,7 @@ containing a value of this type.
             0x7f010023, 0x7f010024
         };
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#click_remove_id}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#click_remove_id}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6221,11 +6221,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:click_remove_id
+          @attr name com.example.dolphinradio:click_remove_id
         */
         public static final int DragSortListView_click_remove_id = 16;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#collapsed_height}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#collapsed_height}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6237,11 +6237,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:collapsed_height
+          @attr name com.example.dolphinradio:collapsed_height
         */
         public static final int DragSortListView_collapsed_height = 0;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#drag_enabled}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#drag_enabled}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6251,11 +6251,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:drag_enabled
+          @attr name com.example.dolphinradio:drag_enabled
         */
         public static final int DragSortListView_drag_enabled = 10;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#drag_handle_id}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#drag_handle_id}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6265,11 +6265,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:drag_handle_id
+          @attr name com.example.dolphinradio:drag_handle_id
         */
         public static final int DragSortListView_drag_handle_id = 14;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#drag_scroll_start}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#drag_scroll_start}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6279,11 +6279,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:drag_scroll_start
+          @attr name com.example.dolphinradio:drag_scroll_start
         */
         public static final int DragSortListView_drag_scroll_start = 1;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#drag_start_mode}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#drag_start_mode}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6297,11 +6297,11 @@ containing a value of this type.
 <tr><td><code>onMove</code></td><td>1</td><td></td></tr>
 <tr><td><code>onLongPress</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name com.example.strawberryradio:drag_start_mode
+          @attr name com.example.dolphinradio:drag_start_mode
         */
         public static final int DragSortListView_drag_start_mode = 13;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#drop_animation_duration}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#drop_animation_duration}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6311,11 +6311,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:drop_animation_duration
+          @attr name com.example.dolphinradio:drop_animation_duration
         */
         public static final int DragSortListView_drop_animation_duration = 9;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#fling_handle_id}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#fling_handle_id}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6325,11 +6325,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:fling_handle_id
+          @attr name com.example.dolphinradio:fling_handle_id
         */
         public static final int DragSortListView_fling_handle_id = 15;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#float_alpha}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#float_alpha}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6339,11 +6339,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:float_alpha
+          @attr name com.example.dolphinradio:float_alpha
         */
         public static final int DragSortListView_float_alpha = 6;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#float_background_color}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#float_background_color}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6354,11 +6354,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:float_background_color
+          @attr name com.example.dolphinradio:float_background_color
         */
         public static final int DragSortListView_float_background_color = 3;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#max_drag_scroll_speed}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#max_drag_scroll_speed}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6368,11 +6368,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:max_drag_scroll_speed
+          @attr name com.example.dolphinradio:max_drag_scroll_speed
         */
         public static final int DragSortListView_max_drag_scroll_speed = 2;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#remove_animation_duration}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#remove_animation_duration}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6382,11 +6382,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:remove_animation_duration
+          @attr name com.example.dolphinradio:remove_animation_duration
         */
         public static final int DragSortListView_remove_animation_duration = 8;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#remove_enabled}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#remove_enabled}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6396,11 +6396,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:remove_enabled
+          @attr name com.example.dolphinradio:remove_enabled
         */
         public static final int DragSortListView_remove_enabled = 12;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#remove_mode}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#remove_mode}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6413,11 +6413,11 @@ containing a value of this type.
 <tr><td><code>clickRemove</code></td><td>0</td><td></td></tr>
 <tr><td><code>flingRemove</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name com.example.strawberryradio:remove_mode
+          @attr name com.example.dolphinradio:remove_mode
         */
         public static final int DragSortListView_remove_mode = 4;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#slide_shuffle_speed}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#slide_shuffle_speed}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6427,11 +6427,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:slide_shuffle_speed
+          @attr name com.example.dolphinradio:slide_shuffle_speed
         */
         public static final int DragSortListView_slide_shuffle_speed = 7;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#sort_enabled}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#sort_enabled}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6441,11 +6441,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:sort_enabled
+          @attr name com.example.dolphinradio:sort_enabled
         */
         public static final int DragSortListView_sort_enabled = 11;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#track_drag_sort}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#track_drag_sort}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6455,11 +6455,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:track_drag_sort
+          @attr name com.example.dolphinradio:track_drag_sort
         */
         public static final int DragSortListView_track_drag_sort = 5;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#use_default_controller}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#use_default_controller}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -6469,7 +6469,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:use_default_controller
+          @attr name com.example.dolphinradio:use_default_controller
         */
         public static final int DragSortListView_use_default_controller = 17;
         /** Attributes that can be used with a DrawerArrowToggle.
@@ -6478,14 +6478,14 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #DrawerArrowToggle_arrowHeadLength com.example.strawberryradio:arrowHeadLength}</code></td><td> The length of the arrow head when formed to make an arrow </td></tr>
-           <tr><td><code>{@link #DrawerArrowToggle_arrowShaftLength com.example.strawberryradio:arrowShaftLength}</code></td><td> The length of the shaft when formed to make an arrow </td></tr>
-           <tr><td><code>{@link #DrawerArrowToggle_barLength com.example.strawberryradio:barLength}</code></td><td> The length of the bars when they are parallel to each other </td></tr>
-           <tr><td><code>{@link #DrawerArrowToggle_color com.example.strawberryradio:color}</code></td><td> The drawing color for the bars </td></tr>
-           <tr><td><code>{@link #DrawerArrowToggle_drawableSize com.example.strawberryradio:drawableSize}</code></td><td> The total size of the drawable </td></tr>
-           <tr><td><code>{@link #DrawerArrowToggle_gapBetweenBars com.example.strawberryradio:gapBetweenBars}</code></td><td> The max gap between the bars when they are parallel to each other </td></tr>
-           <tr><td><code>{@link #DrawerArrowToggle_spinBars com.example.strawberryradio:spinBars}</code></td><td> Whether bars should rotate or not during transition </td></tr>
-           <tr><td><code>{@link #DrawerArrowToggle_thickness com.example.strawberryradio:thickness}</code></td><td> The thickness (stroke size) for the bar paint </td></tr>
+           <tr><td><code>{@link #DrawerArrowToggle_arrowHeadLength com.example.dolphinradio:arrowHeadLength}</code></td><td> The length of the arrow head when formed to make an arrow </td></tr>
+           <tr><td><code>{@link #DrawerArrowToggle_arrowShaftLength com.example.dolphinradio:arrowShaftLength}</code></td><td> The length of the shaft when formed to make an arrow </td></tr>
+           <tr><td><code>{@link #DrawerArrowToggle_barLength com.example.dolphinradio:barLength}</code></td><td> The length of the bars when they are parallel to each other </td></tr>
+           <tr><td><code>{@link #DrawerArrowToggle_color com.example.dolphinradio:color}</code></td><td> The drawing color for the bars </td></tr>
+           <tr><td><code>{@link #DrawerArrowToggle_drawableSize com.example.dolphinradio:drawableSize}</code></td><td> The total size of the drawable </td></tr>
+           <tr><td><code>{@link #DrawerArrowToggle_gapBetweenBars com.example.dolphinradio:gapBetweenBars}</code></td><td> The max gap between the bars when they are parallel to each other </td></tr>
+           <tr><td><code>{@link #DrawerArrowToggle_spinBars com.example.dolphinradio:spinBars}</code></td><td> Whether bars should rotate or not during transition </td></tr>
+           <tr><td><code>{@link #DrawerArrowToggle_thickness com.example.dolphinradio:thickness}</code></td><td> The thickness (stroke size) for the bar paint </td></tr>
            </table>
            @see #DrawerArrowToggle_arrowHeadLength
            @see #DrawerArrowToggle_arrowShaftLength
@@ -6515,7 +6515,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:arrowHeadLength
+          @attr name com.example.dolphinradio:arrowHeadLength
         */
         public static final int DrawerArrowToggle_arrowHeadLength = 4;
         /**
@@ -6533,7 +6533,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:arrowShaftLength
+          @attr name com.example.dolphinradio:arrowShaftLength
         */
         public static final int DrawerArrowToggle_arrowShaftLength = 5;
         /**
@@ -6551,7 +6551,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:barLength
+          @attr name com.example.dolphinradio:barLength
         */
         public static final int DrawerArrowToggle_barLength = 6;
         /**
@@ -6568,7 +6568,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:color
+          @attr name com.example.dolphinradio:color
         */
         public static final int DrawerArrowToggle_color = 0;
         /**
@@ -6586,7 +6586,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:drawableSize
+          @attr name com.example.dolphinradio:drawableSize
         */
         public static final int DrawerArrowToggle_drawableSize = 2;
         /**
@@ -6604,7 +6604,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:gapBetweenBars
+          @attr name com.example.dolphinradio:gapBetweenBars
         */
         public static final int DrawerArrowToggle_gapBetweenBars = 3;
         /**
@@ -6620,7 +6620,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:spinBars
+          @attr name com.example.dolphinradio:spinBars
         */
         public static final int DrawerArrowToggle_spinBars = 1;
         /**
@@ -6638,7 +6638,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:thickness
+          @attr name com.example.dolphinradio:thickness
         */
         public static final int DrawerArrowToggle_thickness = 7;
         /** Attributes that can be used with a LinearLayoutCompat.
@@ -6656,11 +6656,11 @@ containing a value of this type.
            <tr><td><code>{@link #LinearLayoutCompat_android_orientation android:orientation}</code></td><td> Should the layout be a column or a row?  Use "horizontal"
              for a row, "vertical" for a column.</td></tr>
            <tr><td><code>{@link #LinearLayoutCompat_android_weightSum android:weightSum}</code></td><td> Defines the maximum weight sum.</td></tr>
-           <tr><td><code>{@link #LinearLayoutCompat_divider com.example.strawberryradio:divider}</code></td><td> Drawable to use as a vertical divider between buttons.</td></tr>
-           <tr><td><code>{@link #LinearLayoutCompat_dividerPadding com.example.strawberryradio:dividerPadding}</code></td><td> Size of padding on either end of a divider.</td></tr>
-           <tr><td><code>{@link #LinearLayoutCompat_measureWithLargestChild com.example.strawberryradio:measureWithLargestChild}</code></td><td> When set to true, all children with a weight will be considered having
+           <tr><td><code>{@link #LinearLayoutCompat_divider com.example.dolphinradio:divider}</code></td><td> Drawable to use as a vertical divider between buttons.</td></tr>
+           <tr><td><code>{@link #LinearLayoutCompat_dividerPadding com.example.dolphinradio:dividerPadding}</code></td><td> Size of padding on either end of a divider.</td></tr>
+           <tr><td><code>{@link #LinearLayoutCompat_measureWithLargestChild com.example.dolphinradio:measureWithLargestChild}</code></td><td> When set to true, all children with a weight will be considered having
              the minimum size of the largest child.</td></tr>
-           <tr><td><code>{@link #LinearLayoutCompat_showDividers com.example.strawberryradio:showDividers}</code></td><td> Setting for which dividers to show.</td></tr>
+           <tr><td><code>{@link #LinearLayoutCompat_showDividers com.example.dolphinradio:showDividers}</code></td><td> Setting for which dividers to show.</td></tr>
            </table>
            @see #LinearLayoutCompat_android_baselineAligned
            @see #LinearLayoutCompat_android_baselineAlignedChildIndex
@@ -6738,7 +6738,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:divider
+          @attr name com.example.dolphinradio:divider
         */
         public static final int LinearLayoutCompat_divider = 5;
         /**
@@ -6756,7 +6756,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:dividerPadding
+          @attr name com.example.dolphinradio:dividerPadding
         */
         public static final int LinearLayoutCompat_dividerPadding = 8;
         /**
@@ -6774,7 +6774,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:measureWithLargestChild
+          @attr name com.example.dolphinradio:measureWithLargestChild
         */
         public static final int LinearLayoutCompat_measureWithLargestChild = 6;
         /**
@@ -6795,7 +6795,7 @@ containing a value of this type.
 <tr><td><code>end</code></td><td>4</td><td></td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:showDividers
+          @attr name com.example.dolphinradio:showDividers
         */
         public static final int LinearLayoutCompat_showDividers = 7;
         /** Attributes that can be used with a LinearLayoutCompat_Layout.
@@ -6880,12 +6880,12 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #MaterialEditText_baseColor com.example.strawberryradio:baseColor}</code></td><td> the base color of the line and the texts.</td></tr>
-           <tr><td><code>{@link #MaterialEditText_errorColor com.example.strawberryradio:errorColor}</code></td><td> the color for when something is wrong.</td></tr>
-           <tr><td><code>{@link #MaterialEditText_floatingLabel com.example.strawberryradio:floatingLabel}</code></td><td> how the floating label should be shown.</td></tr>
-           <tr><td><code>{@link #MaterialEditText_maxCharacters com.example.strawberryradio:maxCharacters}</code></td><td> characters count limit.</td></tr>
-           <tr><td><code>{@link #MaterialEditText_primaryColor com.example.strawberryradio:primaryColor}</code></td><td> the highlight color of the line, and the floating label if the highlightFloatingLabel is true.</td></tr>
-           <tr><td><code>{@link #MaterialEditText_singleLineEllipsis com.example.strawberryradio:singleLineEllipsis}</code></td><td> whether to show the bottom ellipsis in singleLine mode </td></tr>
+           <tr><td><code>{@link #MaterialEditText_baseColor com.example.dolphinradio:baseColor}</code></td><td> the base color of the line and the texts.</td></tr>
+           <tr><td><code>{@link #MaterialEditText_errorColor com.example.dolphinradio:errorColor}</code></td><td> the color for when something is wrong.</td></tr>
+           <tr><td><code>{@link #MaterialEditText_floatingLabel com.example.dolphinradio:floatingLabel}</code></td><td> how the floating label should be shown.</td></tr>
+           <tr><td><code>{@link #MaterialEditText_maxCharacters com.example.dolphinradio:maxCharacters}</code></td><td> characters count limit.</td></tr>
+           <tr><td><code>{@link #MaterialEditText_primaryColor com.example.dolphinradio:primaryColor}</code></td><td> the highlight color of the line, and the floating label if the highlightFloatingLabel is true.</td></tr>
+           <tr><td><code>{@link #MaterialEditText_singleLineEllipsis com.example.dolphinradio:singleLineEllipsis}</code></td><td> whether to show the bottom ellipsis in singleLine mode </td></tr>
            </table>
            @see #MaterialEditText_baseColor
            @see #MaterialEditText_errorColor
@@ -6912,7 +6912,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:baseColor
+          @attr name com.example.dolphinradio:baseColor
         */
         public static final int MaterialEditText_baseColor = 0;
         /**
@@ -6929,7 +6929,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:errorColor
+          @attr name com.example.dolphinradio:errorColor
         */
         public static final int MaterialEditText_errorColor = 3;
         /**
@@ -6949,7 +6949,7 @@ containing a value of this type.
 <tr><td><code>highlight</code></td><td>2</td><td></td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:floatingLabel
+          @attr name com.example.dolphinradio:floatingLabel
         */
         public static final int MaterialEditText_floatingLabel = 2;
         /**
@@ -6965,7 +6965,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:maxCharacters
+          @attr name com.example.dolphinradio:maxCharacters
         */
         public static final int MaterialEditText_maxCharacters = 4;
         /**
@@ -6982,7 +6982,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:primaryColor
+          @attr name com.example.dolphinradio:primaryColor
         */
         public static final int MaterialEditText_primaryColor = 1;
         /**
@@ -6998,7 +6998,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:singleLineEllipsis
+          @attr name com.example.dolphinradio:singleLineEllipsis
         */
         public static final int MaterialEditText_singleLineEllipsis = 5;
         /**  Base attributes that are available to all groups. 
@@ -7087,10 +7087,10 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #MenuItem_actionLayout com.example.strawberryradio:actionLayout}</code></td><td> An optional layout to be used as an action view.</td></tr>
-           <tr><td><code>{@link #MenuItem_actionProviderClass com.example.strawberryradio:actionProviderClass}</code></td><td> The name of an optional ActionProvider class to instantiate an action view
+           <tr><td><code>{@link #MenuItem_actionLayout com.example.dolphinradio:actionLayout}</code></td><td> An optional layout to be used as an action view.</td></tr>
+           <tr><td><code>{@link #MenuItem_actionProviderClass com.example.dolphinradio:actionProviderClass}</code></td><td> The name of an optional ActionProvider class to instantiate an action view
              and perform operations such as default action for that menu item.</td></tr>
-           <tr><td><code>{@link #MenuItem_actionViewClass com.example.strawberryradio:actionViewClass}</code></td><td> The name of an optional View class to instantiate and use as an
+           <tr><td><code>{@link #MenuItem_actionViewClass com.example.dolphinradio:actionViewClass}</code></td><td> The name of an optional View class to instantiate and use as an
              action view.</td></tr>
            <tr><td><code>{@link #MenuItem_android_alphabeticShortcut android:alphabeticShortcut}</code></td><td> The alphabetic shortcut key.</td></tr>
            <tr><td><code>{@link #MenuItem_android_checkable android:checkable}</code></td><td> Whether the item is capable of displaying a check mark.</td></tr>
@@ -7106,7 +7106,7 @@ containing a value of this type.
            <tr><td><code>{@link #MenuItem_android_title android:title}</code></td><td> The title associated with the item.</td></tr>
            <tr><td><code>{@link #MenuItem_android_titleCondensed android:titleCondensed}</code></td><td> The condensed title associated with the item.</td></tr>
            <tr><td><code>{@link #MenuItem_android_visible android:visible}</code></td><td> Whether the item is shown/visible.</td></tr>
-           <tr><td><code>{@link #MenuItem_showAsAction com.example.strawberryradio:showAsAction}</code></td><td> How this item should display in the Action Bar, if present.</td></tr>
+           <tr><td><code>{@link #MenuItem_showAsAction com.example.dolphinradio:showAsAction}</code></td><td> How this item should display in the Action Bar, if present.</td></tr>
            </table>
            @see #MenuItem_actionLayout
            @see #MenuItem_actionProviderClass
@@ -7144,7 +7144,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionLayout
+          @attr name com.example.dolphinradio:actionLayout
         */
         public static final int MenuItem_actionLayout = 14;
         /**
@@ -7163,7 +7163,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionProviderClass
+          @attr name com.example.dolphinradio:actionProviderClass
         */
         public static final int MenuItem_actionProviderClass = 16;
         /**
@@ -7181,7 +7181,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionViewClass
+          @attr name com.example.dolphinradio:actionViewClass
         */
         public static final int MenuItem_actionViewClass = 15;
         /**
@@ -7337,7 +7337,7 @@ containing a value of this type.
                  larger segment of its container. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:showAsAction
+          @attr name com.example.dolphinradio:showAsAction
         */
         public static final int MenuItem_showAsAction = 13;
         /** Attributes that can be used with a MenuView.
@@ -7353,7 +7353,7 @@ containing a value of this type.
            <tr><td><code>{@link #MenuView_android_itemTextAppearance android:itemTextAppearance}</code></td><td> Default appearance of menu item text.</td></tr>
            <tr><td><code>{@link #MenuView_android_verticalDivider android:verticalDivider}</code></td><td> Default vertical divider between menu items.</td></tr>
            <tr><td><code>{@link #MenuView_android_windowAnimationStyle android:windowAnimationStyle}</code></td><td> Default animations for the menu.</td></tr>
-           <tr><td><code>{@link #MenuView_preserveIconSpacing com.example.strawberryradio:preserveIconSpacing}</code></td><td> Whether space should be reserved in layout when an icon is missing.</td></tr>
+           <tr><td><code>{@link #MenuView_preserveIconSpacing com.example.dolphinradio:preserveIconSpacing}</code></td><td> Whether space should be reserved in layout when an icon is missing.</td></tr>
            </table>
            @see #MenuView_android_headerBackground
            @see #MenuView_android_horizontalDivider
@@ -7444,7 +7444,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:preserveIconSpacing
+          @attr name com.example.dolphinradio:preserveIconSpacing
         */
         public static final int MenuView_preserveIconSpacing = 7;
         /** Attributes that can be used with a MultiViewPager.
@@ -7455,7 +7455,7 @@ containing a value of this type.
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #MultiViewPager_android_maxHeight android:maxHeight}</code></td><td> Maximum size.</td></tr>
            <tr><td><code>{@link #MultiViewPager_android_maxWidth android:maxWidth}</code></td><td> Maximum size.</td></tr>
-           <tr><td><code>{@link #MultiViewPager_matchChildWidth com.example.strawberryradio:matchChildWidth}</code></td><td> Child view inside a page to match the page size against.</td></tr>
+           <tr><td><code>{@link #MultiViewPager_matchChildWidth com.example.dolphinradio:matchChildWidth}</code></td><td> Child view inside a page to match the page size against.</td></tr>
            </table>
            @see #MultiViewPager_android_maxHeight
            @see #MultiViewPager_android_maxWidth
@@ -7491,7 +7491,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:matchChildWidth
+          @attr name com.example.dolphinradio:matchChildWidth
         */
         public static final int MultiViewPager_matchChildWidth = 2;
         /** Attributes that can be used with a OpAnimationView.
@@ -7500,10 +7500,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #OpAnimationView_backgroundColor com.example.strawberryradio:backgroundColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #OpAnimationView_shapeColor com.example.strawberryradio:shapeColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #OpAnimationView_shapeRadius com.example.strawberryradio:shapeRadius}</code></td><td></td></tr>
-           <tr><td><code>{@link #OpAnimationView_shapeWidth com.example.strawberryradio:shapeWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #OpAnimationView_backgroundColor com.example.dolphinradio:backgroundColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #OpAnimationView_shapeColor com.example.dolphinradio:shapeColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #OpAnimationView_shapeRadius com.example.dolphinradio:shapeRadius}</code></td><td></td></tr>
+           <tr><td><code>{@link #OpAnimationView_shapeWidth com.example.dolphinradio:shapeWidth}</code></td><td></td></tr>
            </table>
            @see #OpAnimationView_backgroundColor
            @see #OpAnimationView_shapeColor
@@ -7514,7 +7514,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f010110, 0x7f010111, 0x7f010112, 0x7f010113
         };
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#backgroundColor}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#backgroundColor}
           attribute's value can be found in the {@link #OpAnimationView} array.
 
 
@@ -7525,11 +7525,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:backgroundColor
+          @attr name com.example.dolphinradio:backgroundColor
         */
         public static final int OpAnimationView_backgroundColor = 0;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#shapeColor}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#shapeColor}
           attribute's value can be found in the {@link #OpAnimationView} array.
 
 
@@ -7540,11 +7540,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:shapeColor
+          @attr name com.example.dolphinradio:shapeColor
         */
         public static final int OpAnimationView_shapeColor = 1;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#shapeRadius}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#shapeRadius}
           attribute's value can be found in the {@link #OpAnimationView} array.
 
 
@@ -7556,11 +7556,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:shapeRadius
+          @attr name com.example.dolphinradio:shapeRadius
         */
         public static final int OpAnimationView_shapeRadius = 3;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#shapeWidth}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#shapeWidth}
           attribute's value can be found in the {@link #OpAnimationView} array.
 
 
@@ -7572,7 +7572,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:shapeWidth
+          @attr name com.example.dolphinradio:shapeWidth
         */
         public static final int OpAnimationView_shapeWidth = 2;
         /** Attributes that can be used with a PagerSlidingTabStrip.
@@ -7581,17 +7581,17 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsDividerColor com.example.strawberryradio:pstsDividerColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsDividerPadding com.example.strawberryradio:pstsDividerPadding}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsIndicatorColor com.example.strawberryradio:pstsIndicatorColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsIndicatorHeight com.example.strawberryradio:pstsIndicatorHeight}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsScrollOffset com.example.strawberryradio:pstsScrollOffset}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsShouldExpand com.example.strawberryradio:pstsShouldExpand}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabBackground com.example.strawberryradio:pstsTabBackground}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabPaddingLeftRight com.example.strawberryradio:pstsTabPaddingLeftRight}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsTextAllCaps com.example.strawberryradio:pstsTextAllCaps}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsUnderlineColor com.example.strawberryradio:pstsUnderlineColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsUnderlineHeight com.example.strawberryradio:pstsUnderlineHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsDividerColor com.example.dolphinradio:pstsDividerColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsDividerPadding com.example.dolphinradio:pstsDividerPadding}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsIndicatorColor com.example.dolphinradio:pstsIndicatorColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsIndicatorHeight com.example.dolphinradio:pstsIndicatorHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsScrollOffset com.example.dolphinradio:pstsScrollOffset}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsShouldExpand com.example.dolphinradio:pstsShouldExpand}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabBackground com.example.dolphinradio:pstsTabBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabPaddingLeftRight com.example.dolphinradio:pstsTabPaddingLeftRight}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsTextAllCaps com.example.dolphinradio:pstsTextAllCaps}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsUnderlineColor com.example.dolphinradio:pstsUnderlineColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsUnderlineHeight com.example.dolphinradio:pstsUnderlineHeight}</code></td><td></td></tr>
            </table>
            @see #PagerSlidingTabStrip_pstsDividerColor
            @see #PagerSlidingTabStrip_pstsDividerPadding
@@ -7611,7 +7611,7 @@ containing a value of this type.
             0x7f0100fb, 0x7f0100fc, 0x7f0100fd
         };
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#pstsDividerColor}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#pstsDividerColor}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -7622,11 +7622,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:pstsDividerColor
+          @attr name com.example.dolphinradio:pstsDividerColor
         */
         public static final int PagerSlidingTabStrip_pstsDividerColor = 2;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#pstsDividerPadding}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#pstsDividerPadding}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -7638,11 +7638,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:pstsDividerPadding
+          @attr name com.example.dolphinradio:pstsDividerPadding
         */
         public static final int PagerSlidingTabStrip_pstsDividerPadding = 5;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#pstsIndicatorColor}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#pstsIndicatorColor}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -7653,11 +7653,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:pstsIndicatorColor
+          @attr name com.example.dolphinradio:pstsIndicatorColor
         */
         public static final int PagerSlidingTabStrip_pstsIndicatorColor = 0;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#pstsIndicatorHeight}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#pstsIndicatorHeight}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -7669,11 +7669,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:pstsIndicatorHeight
+          @attr name com.example.dolphinradio:pstsIndicatorHeight
         */
         public static final int PagerSlidingTabStrip_pstsIndicatorHeight = 3;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#pstsScrollOffset}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#pstsScrollOffset}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -7685,11 +7685,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:pstsScrollOffset
+          @attr name com.example.dolphinradio:pstsScrollOffset
         */
         public static final int PagerSlidingTabStrip_pstsScrollOffset = 7;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#pstsShouldExpand}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#pstsShouldExpand}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -7699,21 +7699,21 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:pstsShouldExpand
+          @attr name com.example.dolphinradio:pstsShouldExpand
         */
         public static final int PagerSlidingTabStrip_pstsShouldExpand = 9;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#pstsTabBackground}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#pstsTabBackground}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:pstsTabBackground
+          @attr name com.example.dolphinradio:pstsTabBackground
         */
         public static final int PagerSlidingTabStrip_pstsTabBackground = 8;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#pstsTabPaddingLeftRight}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#pstsTabPaddingLeftRight}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -7725,11 +7725,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:pstsTabPaddingLeftRight
+          @attr name com.example.dolphinradio:pstsTabPaddingLeftRight
         */
         public static final int PagerSlidingTabStrip_pstsTabPaddingLeftRight = 6;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#pstsTextAllCaps}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#pstsTextAllCaps}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -7739,11 +7739,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:pstsTextAllCaps
+          @attr name com.example.dolphinradio:pstsTextAllCaps
         */
         public static final int PagerSlidingTabStrip_pstsTextAllCaps = 10;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#pstsUnderlineColor}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#pstsUnderlineColor}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -7754,11 +7754,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:pstsUnderlineColor
+          @attr name com.example.dolphinradio:pstsUnderlineColor
         */
         public static final int PagerSlidingTabStrip_pstsUnderlineColor = 1;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#pstsUnderlineHeight}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#pstsUnderlineHeight}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -7770,7 +7770,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:pstsUnderlineHeight
+          @attr name com.example.dolphinradio:pstsUnderlineHeight
         */
         public static final int PagerSlidingTabStrip_pstsUnderlineHeight = 4;
         /** Attributes that can be used with a PopupWindow.
@@ -7780,7 +7780,7 @@ containing a value of this type.
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #PopupWindow_android_popupBackground android:popupBackground}</code></td><td></td></tr>
-           <tr><td><code>{@link #PopupWindow_overlapAnchor com.example.strawberryradio:overlapAnchor}</code></td><td> Whether the popup window should overlap its anchor view.</td></tr>
+           <tr><td><code>{@link #PopupWindow_overlapAnchor com.example.dolphinradio:overlapAnchor}</code></td><td> Whether the popup window should overlap its anchor view.</td></tr>
            </table>
            @see #PopupWindow_android_popupBackground
            @see #PopupWindow_overlapAnchor
@@ -7807,7 +7807,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:overlapAnchor
+          @attr name com.example.dolphinradio:overlapAnchor
         */
         public static final int PopupWindow_overlapAnchor = 1;
         /** Attributes that can be used with a PopupWindowBackgroundState.
@@ -7816,7 +7816,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #PopupWindowBackgroundState_state_above_anchor com.example.strawberryradio:state_above_anchor}</code></td><td> State identifier indicating the popup will be above the anchor.</td></tr>
+           <tr><td><code>{@link #PopupWindowBackgroundState_state_above_anchor com.example.dolphinradio:state_above_anchor}</code></td><td> State identifier indicating the popup will be above the anchor.</td></tr>
            </table>
            @see #PopupWindowBackgroundState_state_above_anchor
          */
@@ -7836,7 +7836,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:state_above_anchor
+          @attr name com.example.dolphinradio:state_above_anchor
         */
         public static final int PopupWindowBackgroundState_state_above_anchor = 0;
         /** Attributes that can be used with a PullToRefresh.
@@ -7845,31 +7845,31 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #PullToRefresh_adapterViewBackground com.example.strawberryradio:adapterViewBackground}</code></td><td></td></tr>
-           <tr><td><code>{@link #PullToRefresh_headerBackground com.example.strawberryradio:headerBackground}</code></td><td></td></tr>
-           <tr><td><code>{@link #PullToRefresh_headerTextColor com.example.strawberryradio:headerTextColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #PullToRefresh_mode com.example.strawberryradio:mode}</code></td><td></td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrAdapterViewBackground com.example.strawberryradio:ptrAdapterViewBackground}</code></td><td> BELOW HERE ARE DEPRECEATED.</td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrAnimationStyle com.example.strawberryradio:ptrAnimationStyle}</code></td><td> Style of Animation should be used displayed when pulling.</td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrDrawable com.example.strawberryradio:ptrDrawable}</code></td><td> Drawable to use as Loading Indicator.</td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrDrawableBottom com.example.strawberryradio:ptrDrawableBottom}</code></td><td></td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrDrawableEnd com.example.strawberryradio:ptrDrawableEnd}</code></td><td> Drawable to use as Loading Indicator in the Footer View.</td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrDrawableStart com.example.strawberryradio:ptrDrawableStart}</code></td><td> Drawable to use as Loading Indicator in the Header View.</td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrDrawableTop com.example.strawberryradio:ptrDrawableTop}</code></td><td></td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrHeaderBackground com.example.strawberryradio:ptrHeaderBackground}</code></td><td> A drawable to use as the background of the Header and Footer Loading Views </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrHeaderSubTextColor com.example.strawberryradio:ptrHeaderSubTextColor}</code></td><td> Text Color of the Header and Footer Loading Views Sub Header </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrHeaderTextAppearance com.example.strawberryradio:ptrHeaderTextAppearance}</code></td><td> Base text color, typeface, size, and style for Header and Footer Loading Views </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrHeaderTextColor com.example.strawberryradio:ptrHeaderTextColor}</code></td><td> Text Color of the Header and Footer Loading Views </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrListViewExtrasEnabled com.example.strawberryradio:ptrListViewExtrasEnabled}</code></td><td>
+           <tr><td><code>{@link #PullToRefresh_adapterViewBackground com.example.dolphinradio:adapterViewBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_headerBackground com.example.dolphinradio:headerBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_headerTextColor com.example.dolphinradio:headerTextColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_mode com.example.dolphinradio:mode}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrAdapterViewBackground com.example.dolphinradio:ptrAdapterViewBackground}</code></td><td> BELOW HERE ARE DEPRECEATED.</td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrAnimationStyle com.example.dolphinradio:ptrAnimationStyle}</code></td><td> Style of Animation should be used displayed when pulling.</td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrDrawable com.example.dolphinradio:ptrDrawable}</code></td><td> Drawable to use as Loading Indicator.</td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrDrawableBottom com.example.dolphinradio:ptrDrawableBottom}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrDrawableEnd com.example.dolphinradio:ptrDrawableEnd}</code></td><td> Drawable to use as Loading Indicator in the Footer View.</td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrDrawableStart com.example.dolphinradio:ptrDrawableStart}</code></td><td> Drawable to use as Loading Indicator in the Header View.</td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrDrawableTop com.example.dolphinradio:ptrDrawableTop}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrHeaderBackground com.example.dolphinradio:ptrHeaderBackground}</code></td><td> A drawable to use as the background of the Header and Footer Loading Views </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrHeaderSubTextColor com.example.dolphinradio:ptrHeaderSubTextColor}</code></td><td> Text Color of the Header and Footer Loading Views Sub Header </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrHeaderTextAppearance com.example.dolphinradio:ptrHeaderTextAppearance}</code></td><td> Base text color, typeface, size, and style for Header and Footer Loading Views </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrHeaderTextColor com.example.dolphinradio:ptrHeaderTextColor}</code></td><td> Text Color of the Header and Footer Loading Views </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrListViewExtrasEnabled com.example.dolphinradio:ptrListViewExtrasEnabled}</code></td><td>
         	Whether PullToRefreshListView has it's extras enabled.</td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrMode com.example.strawberryradio:ptrMode}</code></td><td> Mode of Pull-to-Refresh that should be used </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrOverScroll com.example.strawberryradio:ptrOverScroll}</code></td><td> Whether Android's built-in Over Scroll should be utilised for Pull-to-Refresh.</td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrRefreshableViewBackground com.example.strawberryradio:ptrRefreshableViewBackground}</code></td><td> A drawable to use as the background of the Refreshable View </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrRotateDrawableWhilePulling com.example.strawberryradio:ptrRotateDrawableWhilePulling}</code></td><td>
+           <tr><td><code>{@link #PullToRefresh_ptrMode com.example.dolphinradio:ptrMode}</code></td><td> Mode of Pull-to-Refresh that should be used </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrOverScroll com.example.dolphinradio:ptrOverScroll}</code></td><td> Whether Android's built-in Over Scroll should be utilised for Pull-to-Refresh.</td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrRefreshableViewBackground com.example.dolphinradio:ptrRefreshableViewBackground}</code></td><td> A drawable to use as the background of the Refreshable View </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrRotateDrawableWhilePulling com.example.dolphinradio:ptrRotateDrawableWhilePulling}</code></td><td>
         	Whether the Drawable should be continually rotated as you pull.</td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrScrollingWhileRefreshingEnabled com.example.strawberryradio:ptrScrollingWhileRefreshingEnabled}</code></td><td> Whether the user can scroll while the View is Refreshing </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrShowIndicator com.example.strawberryradio:ptrShowIndicator}</code></td><td> Whether the Indicator overlay(s) should be used </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrSubHeaderTextAppearance com.example.strawberryradio:ptrSubHeaderTextAppearance}</code></td><td> Base text color, typeface, size, and style for Header and Footer Loading Views Sub Header </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrScrollingWhileRefreshingEnabled com.example.dolphinradio:ptrScrollingWhileRefreshingEnabled}</code></td><td> Whether the user can scroll while the View is Refreshing </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrShowIndicator com.example.dolphinradio:ptrShowIndicator}</code></td><td> Whether the Indicator overlay(s) should be used </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrSubHeaderTextAppearance com.example.dolphinradio:ptrSubHeaderTextAppearance}</code></td><td> Base text color, typeface, size, and style for Header and Footer Loading Views Sub Header </td></tr>
            </table>
            @see #PullToRefresh_adapterViewBackground
            @see #PullToRefresh_headerBackground
@@ -7904,7 +7904,7 @@ containing a value of this type.
             0x7f01011f, 0x7f010120, 0x7f010121
         };
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#adapterViewBackground}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#adapterViewBackground}
           attribute's value can be found in the {@link #PullToRefresh} array.
 
 
@@ -7912,11 +7912,11 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          @attr name com.example.strawberryradio:adapterViewBackground
+          @attr name com.example.dolphinradio:adapterViewBackground
         */
         public static final int PullToRefresh_adapterViewBackground = 19;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#headerBackground}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#headerBackground}
           attribute's value can be found in the {@link #PullToRefresh} array.
 
 
@@ -7924,11 +7924,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          @attr name com.example.strawberryradio:headerBackground
+          @attr name com.example.dolphinradio:headerBackground
         */
         public static final int PullToRefresh_headerBackground = 20;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#headerTextColor}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#headerTextColor}
           attribute's value can be found in the {@link #PullToRefresh} array.
 
 
@@ -7939,11 +7939,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:headerTextColor
+          @attr name com.example.dolphinradio:headerTextColor
         */
         public static final int PullToRefresh_headerTextColor = 21;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#mode}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#mode}
           attribute's value can be found in the {@link #PullToRefresh} array.
 
 
@@ -7957,7 +7957,7 @@ containing a value of this type.
 <tr><td><code>pullUpFromBottom</code></td><td>0x2</td><td></td></tr>
 <tr><td><code>both</code></td><td>0x3</td><td></td></tr>
 </table>
-          @attr name com.example.strawberryradio:mode
+          @attr name com.example.dolphinradio:mode
         */
         public static final int PullToRefresh_mode = 22;
         /**
@@ -7971,7 +7971,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrAdapterViewBackground
+          @attr name com.example.dolphinradio:ptrAdapterViewBackground
         */
         public static final int PullToRefresh_ptrAdapterViewBackground = 16;
         /**
@@ -7990,7 +7990,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>flip</code></td><td>0x1</td><td></td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrAnimationStyle
+          @attr name com.example.dolphinradio:ptrAnimationStyle
         */
         public static final int PullToRefresh_ptrAnimationStyle = 12;
         /**
@@ -8002,17 +8002,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrDrawable
+          @attr name com.example.dolphinradio:ptrDrawable
         */
         public static final int PullToRefresh_ptrDrawable = 6;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#ptrDrawableBottom}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#ptrDrawableBottom}
           attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:ptrDrawableBottom
+          @attr name com.example.dolphinradio:ptrDrawableBottom
         */
         public static final int PullToRefresh_ptrDrawableBottom = 18;
         /**
@@ -8024,7 +8024,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrDrawableEnd
+          @attr name com.example.dolphinradio:ptrDrawableEnd
         */
         public static final int PullToRefresh_ptrDrawableEnd = 8;
         /**
@@ -8036,17 +8036,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrDrawableStart
+          @attr name com.example.dolphinradio:ptrDrawableStart
         */
         public static final int PullToRefresh_ptrDrawableStart = 7;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#ptrDrawableTop}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#ptrDrawableTop}
           attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:ptrDrawableTop
+          @attr name com.example.dolphinradio:ptrDrawableTop
         */
         public static final int PullToRefresh_ptrDrawableTop = 17;
         /**
@@ -8060,7 +8060,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrHeaderBackground
+          @attr name com.example.dolphinradio:ptrHeaderBackground
         */
         public static final int PullToRefresh_ptrHeaderBackground = 1;
         /**
@@ -8074,7 +8074,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrHeaderSubTextColor
+          @attr name com.example.dolphinradio:ptrHeaderSubTextColor
         */
         public static final int PullToRefresh_ptrHeaderSubTextColor = 3;
         /**
@@ -8086,7 +8086,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrHeaderTextAppearance
+          @attr name com.example.dolphinradio:ptrHeaderTextAppearance
         */
         public static final int PullToRefresh_ptrHeaderTextAppearance = 10;
         /**
@@ -8100,7 +8100,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrHeaderTextColor
+          @attr name com.example.dolphinradio:ptrHeaderTextColor
         */
         public static final int PullToRefresh_ptrHeaderTextColor = 2;
         /**
@@ -8117,7 +8117,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrListViewExtrasEnabled
+          @attr name com.example.dolphinradio:ptrListViewExtrasEnabled
         */
         public static final int PullToRefresh_ptrListViewExtrasEnabled = 14;
         /**
@@ -8141,7 +8141,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>pullUpFromBottom</code></td><td>0x2</td><td></td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrMode
+          @attr name com.example.dolphinradio:ptrMode
         */
         public static final int PullToRefresh_ptrMode = 4;
         /**
@@ -8154,7 +8154,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrOverScroll
+          @attr name com.example.dolphinradio:ptrOverScroll
         */
         public static final int PullToRefresh_ptrOverScroll = 9;
         /**
@@ -8168,7 +8168,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrRefreshableViewBackground
+          @attr name com.example.dolphinradio:ptrRefreshableViewBackground
         */
         public static final int PullToRefresh_ptrRefreshableViewBackground = 0;
         /**
@@ -8184,7 +8184,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrRotateDrawableWhilePulling
+          @attr name com.example.dolphinradio:ptrRotateDrawableWhilePulling
         */
         public static final int PullToRefresh_ptrRotateDrawableWhilePulling = 15;
         /**
@@ -8197,7 +8197,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrScrollingWhileRefreshingEnabled
+          @attr name com.example.dolphinradio:ptrScrollingWhileRefreshingEnabled
         */
         public static final int PullToRefresh_ptrScrollingWhileRefreshingEnabled = 13;
         /**
@@ -8210,7 +8210,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrShowIndicator
+          @attr name com.example.dolphinradio:ptrShowIndicator
         */
         public static final int PullToRefresh_ptrShowIndicator = 5;
         /**
@@ -8222,7 +8222,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ptrSubHeaderTextAppearance
+          @attr name com.example.dolphinradio:ptrSubHeaderTextAppearance
         */
         public static final int PullToRefresh_ptrSubHeaderTextAppearance = 11;
         /** Attributes that can be used with a PullToZoomView.
@@ -8231,10 +8231,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #PullToZoomView_contentView com.example.strawberryradio:contentView}</code></td><td></td></tr>
-           <tr><td><code>{@link #PullToZoomView_headerView com.example.strawberryradio:headerView}</code></td><td></td></tr>
-           <tr><td><code>{@link #PullToZoomView_isHeaderParallax com.example.strawberryradio:isHeaderParallax}</code></td><td></td></tr>
-           <tr><td><code>{@link #PullToZoomView_zoomView com.example.strawberryradio:zoomView}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToZoomView_contentView com.example.dolphinradio:contentView}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToZoomView_headerView com.example.dolphinradio:headerView}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToZoomView_isHeaderParallax com.example.dolphinradio:isHeaderParallax}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToZoomView_zoomView com.example.dolphinradio:zoomView}</code></td><td></td></tr>
            </table>
            @see #PullToZoomView_contentView
            @see #PullToZoomView_headerView
@@ -8245,27 +8245,27 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f010127, 0x7f010128, 0x7f010129, 0x7f01012a
         };
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#contentView}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#contentView}
           attribute's value can be found in the {@link #PullToZoomView} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:contentView
+          @attr name com.example.dolphinradio:contentView
         */
         public static final int PullToZoomView_contentView = 1;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#headerView}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#headerView}
           attribute's value can be found in the {@link #PullToZoomView} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:headerView
+          @attr name com.example.dolphinradio:headerView
         */
         public static final int PullToZoomView_headerView = 0;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#isHeaderParallax}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#isHeaderParallax}
           attribute's value can be found in the {@link #PullToZoomView} array.
 
 
@@ -8275,17 +8275,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:isHeaderParallax
+          @attr name com.example.dolphinradio:isHeaderParallax
         */
         public static final int PullToZoomView_isHeaderParallax = 3;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#zoomView}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#zoomView}
           attribute's value can be found in the {@link #PullToZoomView} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:zoomView
+          @attr name com.example.dolphinradio:zoomView
         */
         public static final int PullToZoomView_zoomView = 2;
         /** Attributes that can be used with a RoundedImageView.
@@ -8295,11 +8295,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #RoundedImageView_android_scaleType android:scaleType}</code></td><td></td></tr>
-           <tr><td><code>{@link #RoundedImageView_border_color com.example.strawberryradio:border_color}</code></td><td></td></tr>
-           <tr><td><code>{@link #RoundedImageView_border_width com.example.strawberryradio:border_width}</code></td><td></td></tr>
-           <tr><td><code>{@link #RoundedImageView_corner_radius com.example.strawberryradio:corner_radius}</code></td><td></td></tr>
-           <tr><td><code>{@link #RoundedImageView_is_oval com.example.strawberryradio:is_oval}</code></td><td></td></tr>
-           <tr><td><code>{@link #RoundedImageView_round_background com.example.strawberryradio:round_background}</code></td><td></td></tr>
+           <tr><td><code>{@link #RoundedImageView_border_color com.example.dolphinradio:border_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #RoundedImageView_border_width com.example.dolphinradio:border_width}</code></td><td></td></tr>
+           <tr><td><code>{@link #RoundedImageView_corner_radius com.example.dolphinradio:corner_radius}</code></td><td></td></tr>
+           <tr><td><code>{@link #RoundedImageView_is_oval com.example.dolphinradio:is_oval}</code></td><td></td></tr>
+           <tr><td><code>{@link #RoundedImageView_round_background com.example.dolphinradio:round_background}</code></td><td></td></tr>
            </table>
            @see #RoundedImageView_android_scaleType
            @see #RoundedImageView_border_color
@@ -8319,7 +8319,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         */
         public static final int RoundedImageView_android_scaleType = 0;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#border_color}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#border_color}
           attribute's value can be found in the {@link #RoundedImageView} array.
 
 
@@ -8330,11 +8330,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:border_color
+          @attr name com.example.dolphinradio:border_color
         */
         public static final int RoundedImageView_border_color = 3;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#border_width}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#border_width}
           attribute's value can be found in the {@link #RoundedImageView} array.
 
 
@@ -8346,11 +8346,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:border_width
+          @attr name com.example.dolphinradio:border_width
         */
         public static final int RoundedImageView_border_width = 2;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#corner_radius}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#corner_radius}
           attribute's value can be found in the {@link #RoundedImageView} array.
 
 
@@ -8362,11 +8362,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:corner_radius
+          @attr name com.example.dolphinradio:corner_radius
         */
         public static final int RoundedImageView_corner_radius = 1;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#is_oval}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#is_oval}
           attribute's value can be found in the {@link #RoundedImageView} array.
 
 
@@ -8376,11 +8376,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:is_oval
+          @attr name com.example.dolphinradio:is_oval
         */
         public static final int RoundedImageView_is_oval = 5;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#round_background}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#round_background}
           attribute's value can be found in the {@link #RoundedImageView} array.
 
 
@@ -8390,7 +8390,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:round_background
+          @attr name com.example.dolphinradio:round_background
         */
         public static final int RoundedImageView_round_background = 4;
         /** Attributes that can be used with a SearchView.
@@ -8403,20 +8403,20 @@ containing a value of this type.
            <tr><td><code>{@link #SearchView_android_imeOptions android:imeOptions}</code></td><td> The IME options to set on the query text field.</td></tr>
            <tr><td><code>{@link #SearchView_android_inputType android:inputType}</code></td><td> The input type to set on the query text field.</td></tr>
            <tr><td><code>{@link #SearchView_android_maxWidth android:maxWidth}</code></td><td> An optional maximum width of the SearchView.</td></tr>
-           <tr><td><code>{@link #SearchView_closeIcon com.example.strawberryradio:closeIcon}</code></td><td> Close button icon </td></tr>
-           <tr><td><code>{@link #SearchView_commitIcon com.example.strawberryradio:commitIcon}</code></td><td> Commit icon shown in the query suggestion row </td></tr>
-           <tr><td><code>{@link #SearchView_defaultQueryHint com.example.strawberryradio:defaultQueryHint}</code></td><td> Default query hint used when {@code queryHint} is undefined and
+           <tr><td><code>{@link #SearchView_closeIcon com.example.dolphinradio:closeIcon}</code></td><td> Close button icon </td></tr>
+           <tr><td><code>{@link #SearchView_commitIcon com.example.dolphinradio:commitIcon}</code></td><td> Commit icon shown in the query suggestion row </td></tr>
+           <tr><td><code>{@link #SearchView_defaultQueryHint com.example.dolphinradio:defaultQueryHint}</code></td><td> Default query hint used when {@code queryHint} is undefined and
              the search view's {@code SearchableInfo} does not provide a hint.</td></tr>
-           <tr><td><code>{@link #SearchView_goIcon com.example.strawberryradio:goIcon}</code></td><td> Go button icon </td></tr>
-           <tr><td><code>{@link #SearchView_iconifiedByDefault com.example.strawberryradio:iconifiedByDefault}</code></td><td> The default state of the SearchView.</td></tr>
-           <tr><td><code>{@link #SearchView_layout com.example.strawberryradio:layout}</code></td><td> The layout to use for the search view.</td></tr>
-           <tr><td><code>{@link #SearchView_queryBackground com.example.strawberryradio:queryBackground}</code></td><td> Background for the section containing the search query </td></tr>
-           <tr><td><code>{@link #SearchView_queryHint com.example.strawberryradio:queryHint}</code></td><td> An optional user-defined query hint string to be displayed in the empty query field.</td></tr>
-           <tr><td><code>{@link #SearchView_searchHintIcon com.example.strawberryradio:searchHintIcon}</code></td><td> Search icon displayed as a text field hint </td></tr>
-           <tr><td><code>{@link #SearchView_searchIcon com.example.strawberryradio:searchIcon}</code></td><td> Search icon </td></tr>
-           <tr><td><code>{@link #SearchView_submitBackground com.example.strawberryradio:submitBackground}</code></td><td> Background for the section containing the action (e.</td></tr>
-           <tr><td><code>{@link #SearchView_suggestionRowLayout com.example.strawberryradio:suggestionRowLayout}</code></td><td> Layout for query suggestion rows </td></tr>
-           <tr><td><code>{@link #SearchView_voiceIcon com.example.strawberryradio:voiceIcon}</code></td><td> Voice button icon </td></tr>
+           <tr><td><code>{@link #SearchView_goIcon com.example.dolphinradio:goIcon}</code></td><td> Go button icon </td></tr>
+           <tr><td><code>{@link #SearchView_iconifiedByDefault com.example.dolphinradio:iconifiedByDefault}</code></td><td> The default state of the SearchView.</td></tr>
+           <tr><td><code>{@link #SearchView_layout com.example.dolphinradio:layout}</code></td><td> The layout to use for the search view.</td></tr>
+           <tr><td><code>{@link #SearchView_queryBackground com.example.dolphinradio:queryBackground}</code></td><td> Background for the section containing the search query </td></tr>
+           <tr><td><code>{@link #SearchView_queryHint com.example.dolphinradio:queryHint}</code></td><td> An optional user-defined query hint string to be displayed in the empty query field.</td></tr>
+           <tr><td><code>{@link #SearchView_searchHintIcon com.example.dolphinradio:searchHintIcon}</code></td><td> Search icon displayed as a text field hint </td></tr>
+           <tr><td><code>{@link #SearchView_searchIcon com.example.dolphinradio:searchIcon}</code></td><td> Search icon </td></tr>
+           <tr><td><code>{@link #SearchView_submitBackground com.example.dolphinradio:submitBackground}</code></td><td> Background for the section containing the action (e.</td></tr>
+           <tr><td><code>{@link #SearchView_suggestionRowLayout com.example.dolphinradio:suggestionRowLayout}</code></td><td> Layout for query suggestion rows </td></tr>
+           <tr><td><code>{@link #SearchView_voiceIcon com.example.dolphinradio:voiceIcon}</code></td><td> Voice button icon </td></tr>
            </table>
            @see #SearchView_android_focusable
            @see #SearchView_android_imeOptions
@@ -8485,7 +8485,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:closeIcon
+          @attr name com.example.dolphinradio:closeIcon
         */
         public static final int SearchView_closeIcon = 8;
         /**
@@ -8497,7 +8497,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:commitIcon
+          @attr name com.example.dolphinradio:commitIcon
         */
         public static final int SearchView_commitIcon = 13;
         /**
@@ -8514,7 +8514,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:defaultQueryHint
+          @attr name com.example.dolphinradio:defaultQueryHint
         */
         public static final int SearchView_defaultQueryHint = 7;
         /**
@@ -8526,7 +8526,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:goIcon
+          @attr name com.example.dolphinradio:goIcon
         */
         public static final int SearchView_goIcon = 9;
         /**
@@ -8543,7 +8543,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:iconifiedByDefault
+          @attr name com.example.dolphinradio:iconifiedByDefault
         */
         public static final int SearchView_iconifiedByDefault = 5;
         /**
@@ -8555,7 +8555,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:layout
+          @attr name com.example.dolphinradio:layout
         */
         public static final int SearchView_layout = 4;
         /**
@@ -8567,7 +8567,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:queryBackground
+          @attr name com.example.dolphinradio:queryBackground
         */
         public static final int SearchView_queryBackground = 15;
         /**
@@ -8583,7 +8583,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:queryHint
+          @attr name com.example.dolphinradio:queryHint
         */
         public static final int SearchView_queryHint = 6;
         /**
@@ -8595,7 +8595,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:searchHintIcon
+          @attr name com.example.dolphinradio:searchHintIcon
         */
         public static final int SearchView_searchHintIcon = 11;
         /**
@@ -8607,7 +8607,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:searchIcon
+          @attr name com.example.dolphinradio:searchIcon
         */
         public static final int SearchView_searchIcon = 10;
         /**
@@ -8619,7 +8619,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:submitBackground
+          @attr name com.example.dolphinradio:submitBackground
         */
         public static final int SearchView_submitBackground = 16;
         /**
@@ -8631,7 +8631,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:suggestionRowLayout
+          @attr name com.example.dolphinradio:suggestionRowLayout
         */
         public static final int SearchView_suggestionRowLayout = 14;
         /**
@@ -8643,7 +8643,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:voiceIcon
+          @attr name com.example.dolphinradio:voiceIcon
         */
         public static final int SearchView_voiceIcon = 12;
         /** Attributes that can be used with a Spinner.
@@ -8655,7 +8655,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <tr><td><code>{@link #Spinner_android_dropDownWidth android:dropDownWidth}</code></td><td> Width of the dropdown in spinnerMode="dropdown".</td></tr>
            <tr><td><code>{@link #Spinner_android_popupBackground android:popupBackground}</code></td><td> Background drawable to use for the dropdown in spinnerMode="dropdown".</td></tr>
            <tr><td><code>{@link #Spinner_android_prompt android:prompt}</code></td><td> The prompt to display when the spinner's dialog is shown.</td></tr>
-           <tr><td><code>{@link #Spinner_popupTheme com.example.strawberryradio:popupTheme}</code></td><td> Theme to use for the drop-down or dialog popup window.</td></tr>
+           <tr><td><code>{@link #Spinner_popupTheme com.example.dolphinradio:popupTheme}</code></td><td> Theme to use for the drop-down or dialog popup window.</td></tr>
            </table>
            @see #Spinner_android_dropDownWidth
            @see #Spinner_android_popupBackground
@@ -8701,7 +8701,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:popupTheme
+          @attr name com.example.dolphinradio:popupTheme
         */
         public static final int Spinner_popupTheme = 3;
         /** Attributes that can be used with a SwipeListView.
@@ -8710,21 +8710,21 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SwipeListView_swipeActionLeft com.example.strawberryradio:swipeActionLeft}</code></td><td></td></tr>
-           <tr><td><code>{@link #SwipeListView_swipeActionRight com.example.strawberryradio:swipeActionRight}</code></td><td></td></tr>
-           <tr><td><code>{@link #SwipeListView_swipeAnimationTime com.example.strawberryradio:swipeAnimationTime}</code></td><td></td></tr>
-           <tr><td><code>{@link #SwipeListView_swipeBackView com.example.strawberryradio:swipeBackView}</code></td><td></td></tr>
-           <tr><td><code>{@link #SwipeListView_swipeCloseAllItemsWhenMoveList com.example.strawberryradio:swipeCloseAllItemsWhenMoveList}</code></td><td></td></tr>
-           <tr><td><code>{@link #SwipeListView_swipeDrawableChecked com.example.strawberryradio:swipeDrawableChecked}</code></td><td></td></tr>
-           <tr><td><code>{@link #SwipeListView_swipeDrawableUnchecked com.example.strawberryradio:swipeDrawableUnchecked}</code></td><td></td></tr>
-           <tr><td><code>{@link #SwipeListView_swipeFrontView com.example.strawberryradio:swipeFrontView}</code></td><td></td></tr>
-           <tr><td><code>{@link #SwipeListView_swipeIsAutoLoadOnBottom com.example.strawberryradio:swipeIsAutoLoadOnBottom}</code></td><td></td></tr>
-           <tr><td><code>{@link #SwipeListView_swipeIsDropDownStyle com.example.strawberryradio:swipeIsDropDownStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #SwipeListView_swipeIsOnBottomStyle com.example.strawberryradio:swipeIsOnBottomStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #SwipeListView_swipeMode com.example.strawberryradio:swipeMode}</code></td><td></td></tr>
-           <tr><td><code>{@link #SwipeListView_swipeOffsetLeft com.example.strawberryradio:swipeOffsetLeft}</code></td><td></td></tr>
-           <tr><td><code>{@link #SwipeListView_swipeOffsetRight com.example.strawberryradio:swipeOffsetRight}</code></td><td></td></tr>
-           <tr><td><code>{@link #SwipeListView_swipeOpenOnLongPress com.example.strawberryradio:swipeOpenOnLongPress}</code></td><td></td></tr>
+           <tr><td><code>{@link #SwipeListView_swipeActionLeft com.example.dolphinradio:swipeActionLeft}</code></td><td></td></tr>
+           <tr><td><code>{@link #SwipeListView_swipeActionRight com.example.dolphinradio:swipeActionRight}</code></td><td></td></tr>
+           <tr><td><code>{@link #SwipeListView_swipeAnimationTime com.example.dolphinradio:swipeAnimationTime}</code></td><td></td></tr>
+           <tr><td><code>{@link #SwipeListView_swipeBackView com.example.dolphinradio:swipeBackView}</code></td><td></td></tr>
+           <tr><td><code>{@link #SwipeListView_swipeCloseAllItemsWhenMoveList com.example.dolphinradio:swipeCloseAllItemsWhenMoveList}</code></td><td></td></tr>
+           <tr><td><code>{@link #SwipeListView_swipeDrawableChecked com.example.dolphinradio:swipeDrawableChecked}</code></td><td></td></tr>
+           <tr><td><code>{@link #SwipeListView_swipeDrawableUnchecked com.example.dolphinradio:swipeDrawableUnchecked}</code></td><td></td></tr>
+           <tr><td><code>{@link #SwipeListView_swipeFrontView com.example.dolphinradio:swipeFrontView}</code></td><td></td></tr>
+           <tr><td><code>{@link #SwipeListView_swipeIsAutoLoadOnBottom com.example.dolphinradio:swipeIsAutoLoadOnBottom}</code></td><td></td></tr>
+           <tr><td><code>{@link #SwipeListView_swipeIsDropDownStyle com.example.dolphinradio:swipeIsDropDownStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #SwipeListView_swipeIsOnBottomStyle com.example.dolphinradio:swipeIsOnBottomStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #SwipeListView_swipeMode com.example.dolphinradio:swipeMode}</code></td><td></td></tr>
+           <tr><td><code>{@link #SwipeListView_swipeOffsetLeft com.example.dolphinradio:swipeOffsetLeft}</code></td><td></td></tr>
+           <tr><td><code>{@link #SwipeListView_swipeOffsetRight com.example.dolphinradio:swipeOffsetRight}</code></td><td></td></tr>
+           <tr><td><code>{@link #SwipeListView_swipeOpenOnLongPress com.example.dolphinradio:swipeOpenOnLongPress}</code></td><td></td></tr>
            </table>
            @see #SwipeListView_swipeActionLeft
            @see #SwipeListView_swipeActionRight
@@ -8749,7 +8749,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f01010b, 0x7f01010c, 0x7f01010d
         };
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#swipeActionLeft}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#swipeActionLeft}
           attribute's value can be found in the {@link #SwipeListView} array.
 
 
@@ -8763,11 +8763,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>dismiss</code></td><td>1</td><td></td></tr>
 <tr><td><code>choice</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name com.example.strawberryradio:swipeActionLeft
+          @attr name com.example.dolphinradio:swipeActionLeft
         */
         public static final int SwipeListView_swipeActionLeft = 8;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#swipeActionRight}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#swipeActionRight}
           attribute's value can be found in the {@link #SwipeListView} array.
 
 
@@ -8781,11 +8781,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>dismiss</code></td><td>1</td><td></td></tr>
 <tr><td><code>choice</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name com.example.strawberryradio:swipeActionRight
+          @attr name com.example.dolphinradio:swipeActionRight
         */
         public static final int SwipeListView_swipeActionRight = 9;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#swipeAnimationTime}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#swipeAnimationTime}
           attribute's value can be found in the {@link #SwipeListView} array.
 
 
@@ -8795,21 +8795,21 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:swipeAnimationTime
+          @attr name com.example.dolphinradio:swipeAnimationTime
         */
         public static final int SwipeListView_swipeAnimationTime = 1;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#swipeBackView}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#swipeBackView}
           attribute's value can be found in the {@link #SwipeListView} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:swipeBackView
+          @attr name com.example.dolphinradio:swipeBackView
         */
         public static final int SwipeListView_swipeBackView = 6;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#swipeCloseAllItemsWhenMoveList}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#swipeCloseAllItemsWhenMoveList}
           attribute's value can be found in the {@link #SwipeListView} array.
 
 
@@ -8819,41 +8819,41 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:swipeCloseAllItemsWhenMoveList
+          @attr name com.example.dolphinradio:swipeCloseAllItemsWhenMoveList
         */
         public static final int SwipeListView_swipeCloseAllItemsWhenMoveList = 4;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#swipeDrawableChecked}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#swipeDrawableChecked}
           attribute's value can be found in the {@link #SwipeListView} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:swipeDrawableChecked
+          @attr name com.example.dolphinradio:swipeDrawableChecked
         */
         public static final int SwipeListView_swipeDrawableChecked = 10;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#swipeDrawableUnchecked}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#swipeDrawableUnchecked}
           attribute's value can be found in the {@link #SwipeListView} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:swipeDrawableUnchecked
+          @attr name com.example.dolphinradio:swipeDrawableUnchecked
         */
         public static final int SwipeListView_swipeDrawableUnchecked = 11;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#swipeFrontView}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#swipeFrontView}
           attribute's value can be found in the {@link #SwipeListView} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:swipeFrontView
+          @attr name com.example.dolphinradio:swipeFrontView
         */
         public static final int SwipeListView_swipeFrontView = 5;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#swipeIsAutoLoadOnBottom}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#swipeIsAutoLoadOnBottom}
           attribute's value can be found in the {@link #SwipeListView} array.
 
 
@@ -8863,11 +8863,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:swipeIsAutoLoadOnBottom
+          @attr name com.example.dolphinradio:swipeIsAutoLoadOnBottom
         */
         public static final int SwipeListView_swipeIsAutoLoadOnBottom = 14;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#swipeIsDropDownStyle}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#swipeIsDropDownStyle}
           attribute's value can be found in the {@link #SwipeListView} array.
 
 
@@ -8877,11 +8877,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:swipeIsDropDownStyle
+          @attr name com.example.dolphinradio:swipeIsDropDownStyle
         */
         public static final int SwipeListView_swipeIsDropDownStyle = 12;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#swipeIsOnBottomStyle}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#swipeIsOnBottomStyle}
           attribute's value can be found in the {@link #SwipeListView} array.
 
 
@@ -8891,11 +8891,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:swipeIsOnBottomStyle
+          @attr name com.example.dolphinradio:swipeIsOnBottomStyle
         */
         public static final int SwipeListView_swipeIsOnBottomStyle = 13;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#swipeMode}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#swipeMode}
           attribute's value can be found in the {@link #SwipeListView} array.
 
 
@@ -8910,11 +8910,11 @@ containing a value of this type.
 <tr><td><code>right</code></td><td>2</td><td></td></tr>
 <tr><td><code>left</code></td><td>3</td><td></td></tr>
 </table>
-          @attr name com.example.strawberryradio:swipeMode
+          @attr name com.example.dolphinradio:swipeMode
         */
         public static final int SwipeListView_swipeMode = 7;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#swipeOffsetLeft}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#swipeOffsetLeft}
           attribute's value can be found in the {@link #SwipeListView} array.
 
 
@@ -8926,11 +8926,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:swipeOffsetLeft
+          @attr name com.example.dolphinradio:swipeOffsetLeft
         */
         public static final int SwipeListView_swipeOffsetLeft = 2;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#swipeOffsetRight}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#swipeOffsetRight}
           attribute's value can be found in the {@link #SwipeListView} array.
 
 
@@ -8942,11 +8942,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:swipeOffsetRight
+          @attr name com.example.dolphinradio:swipeOffsetRight
         */
         public static final int SwipeListView_swipeOffsetRight = 3;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#swipeOpenOnLongPress}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#swipeOpenOnLongPress}
           attribute's value can be found in the {@link #SwipeListView} array.
 
 
@@ -8956,7 +8956,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:swipeOpenOnLongPress
+          @attr name com.example.dolphinradio:swipeOpenOnLongPress
         */
         public static final int SwipeListView_swipeOpenOnLongPress = 0;
         /** Attributes that can be used with a SwitchCompat.
@@ -8968,13 +8968,13 @@ containing a value of this type.
            <tr><td><code>{@link #SwitchCompat_android_textOff android:textOff}</code></td><td> Text to use when the switch is in the unchecked/"off" state.</td></tr>
            <tr><td><code>{@link #SwitchCompat_android_textOn android:textOn}</code></td><td> Text to use when the switch is in the checked/"on" state.</td></tr>
            <tr><td><code>{@link #SwitchCompat_android_thumb android:thumb}</code></td><td> Drawable to use as the "thumb" that switches back and forth.</td></tr>
-           <tr><td><code>{@link #SwitchCompat_showText com.example.strawberryradio:showText}</code></td><td> Whether to draw on/off text.</td></tr>
-           <tr><td><code>{@link #SwitchCompat_splitTrack com.example.strawberryradio:splitTrack}</code></td><td> Whether to split the track and leave a gap for the thumb drawable.</td></tr>
-           <tr><td><code>{@link #SwitchCompat_switchMinWidth com.example.strawberryradio:switchMinWidth}</code></td><td> Minimum width for the switch component </td></tr>
-           <tr><td><code>{@link #SwitchCompat_switchPadding com.example.strawberryradio:switchPadding}</code></td><td> Minimum space between the switch and caption text </td></tr>
-           <tr><td><code>{@link #SwitchCompat_switchTextAppearance com.example.strawberryradio:switchTextAppearance}</code></td><td> TextAppearance style for text displayed on the switch thumb.</td></tr>
-           <tr><td><code>{@link #SwitchCompat_thumbTextPadding com.example.strawberryradio:thumbTextPadding}</code></td><td> Amount of padding on either side of text within the switch thumb.</td></tr>
-           <tr><td><code>{@link #SwitchCompat_track com.example.strawberryradio:track}</code></td><td> Drawable to use as the "track" that the switch thumb slides within.</td></tr>
+           <tr><td><code>{@link #SwitchCompat_showText com.example.dolphinradio:showText}</code></td><td> Whether to draw on/off text.</td></tr>
+           <tr><td><code>{@link #SwitchCompat_splitTrack com.example.dolphinradio:splitTrack}</code></td><td> Whether to split the track and leave a gap for the thumb drawable.</td></tr>
+           <tr><td><code>{@link #SwitchCompat_switchMinWidth com.example.dolphinradio:switchMinWidth}</code></td><td> Minimum width for the switch component </td></tr>
+           <tr><td><code>{@link #SwitchCompat_switchPadding com.example.dolphinradio:switchPadding}</code></td><td> Minimum space between the switch and caption text </td></tr>
+           <tr><td><code>{@link #SwitchCompat_switchTextAppearance com.example.dolphinradio:switchTextAppearance}</code></td><td> TextAppearance style for text displayed on the switch thumb.</td></tr>
+           <tr><td><code>{@link #SwitchCompat_thumbTextPadding com.example.dolphinradio:thumbTextPadding}</code></td><td> Amount of padding on either side of text within the switch thumb.</td></tr>
+           <tr><td><code>{@link #SwitchCompat_track com.example.dolphinradio:track}</code></td><td> Drawable to use as the "track" that the switch thumb slides within.</td></tr>
            </table>
            @see #SwitchCompat_android_textOff
            @see #SwitchCompat_android_textOn
@@ -9032,7 +9032,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:showText
+          @attr name com.example.dolphinradio:showText
         */
         public static final int SwitchCompat_showText = 9;
         /**
@@ -9048,7 +9048,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:splitTrack
+          @attr name com.example.dolphinradio:splitTrack
         */
         public static final int SwitchCompat_splitTrack = 8;
         /**
@@ -9066,7 +9066,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:switchMinWidth
+          @attr name com.example.dolphinradio:switchMinWidth
         */
         public static final int SwitchCompat_switchMinWidth = 6;
         /**
@@ -9084,7 +9084,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:switchPadding
+          @attr name com.example.dolphinradio:switchPadding
         */
         public static final int SwitchCompat_switchPadding = 7;
         /**
@@ -9096,7 +9096,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:switchTextAppearance
+          @attr name com.example.dolphinradio:switchTextAppearance
         */
         public static final int SwitchCompat_switchTextAppearance = 5;
         /**
@@ -9114,7 +9114,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:thumbTextPadding
+          @attr name com.example.dolphinradio:thumbTextPadding
         */
         public static final int SwitchCompat_thumbTextPadding = 4;
         /**
@@ -9126,7 +9126,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:track
+          @attr name com.example.dolphinradio:track
         */
         public static final int SwitchCompat_track = 3;
         /** Attributes that can be used with a TextAppearance.
@@ -9143,7 +9143,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <tr><td><code>{@link #TextAppearance_android_textSize android:textSize}</code></td><td></td></tr>
            <tr><td><code>{@link #TextAppearance_android_textStyle android:textStyle}</code></td><td></td></tr>
            <tr><td><code>{@link #TextAppearance_android_typeface android:typeface}</code></td><td></td></tr>
-           <tr><td><code>{@link #TextAppearance_textAllCaps com.example.strawberryradio:textAllCaps}</code></td><td> Present the text in ALL CAPS.</td></tr>
+           <tr><td><code>{@link #TextAppearance_textAllCaps com.example.dolphinradio:textAllCaps}</code></td><td> Present the text in ALL CAPS.</td></tr>
            </table>
            @see #TextAppearance_android_shadowColor
            @see #TextAppearance_android_shadowDx
@@ -9218,7 +9218,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:textAllCaps
+          @attr name com.example.dolphinradio:textAllCaps
         */
         public static final int TextAppearance_textAllCaps = 8;
         /**  These are the standard attributes that make up a complete theme. 
@@ -9227,132 +9227,132 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #Theme_actionBarDivider com.example.strawberryradio:actionBarDivider}</code></td><td> Custom divider drawable to use for elements in the action bar.</td></tr>
-           <tr><td><code>{@link #Theme_actionBarItemBackground com.example.strawberryradio:actionBarItemBackground}</code></td><td> Custom item state list drawable background for action bar items.</td></tr>
-           <tr><td><code>{@link #Theme_actionBarPopupTheme com.example.strawberryradio:actionBarPopupTheme}</code></td><td> Reference to a theme that should be used to inflate popups
+           <tr><td><code>{@link #Theme_actionBarDivider com.example.dolphinradio:actionBarDivider}</code></td><td> Custom divider drawable to use for elements in the action bar.</td></tr>
+           <tr><td><code>{@link #Theme_actionBarItemBackground com.example.dolphinradio:actionBarItemBackground}</code></td><td> Custom item state list drawable background for action bar items.</td></tr>
+           <tr><td><code>{@link #Theme_actionBarPopupTheme com.example.dolphinradio:actionBarPopupTheme}</code></td><td> Reference to a theme that should be used to inflate popups
              shown by widgets in the action bar.</td></tr>
-           <tr><td><code>{@link #Theme_actionBarSize com.example.strawberryradio:actionBarSize}</code></td><td> Size of the Action Bar, including the contextual
+           <tr><td><code>{@link #Theme_actionBarSize com.example.dolphinradio:actionBarSize}</code></td><td> Size of the Action Bar, including the contextual
              bar used to present Action Modes.</td></tr>
-           <tr><td><code>{@link #Theme_actionBarSplitStyle com.example.strawberryradio:actionBarSplitStyle}</code></td><td> Reference to a style for the split Action Bar.</td></tr>
-           <tr><td><code>{@link #Theme_actionBarStyle com.example.strawberryradio:actionBarStyle}</code></td><td> Reference to a style for the Action Bar </td></tr>
-           <tr><td><code>{@link #Theme_actionBarTabBarStyle com.example.strawberryradio:actionBarTabBarStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #Theme_actionBarTabStyle com.example.strawberryradio:actionBarTabStyle}</code></td><td> Default style for tabs within an action bar </td></tr>
-           <tr><td><code>{@link #Theme_actionBarTabTextStyle com.example.strawberryradio:actionBarTabTextStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #Theme_actionBarTheme com.example.strawberryradio:actionBarTheme}</code></td><td> Reference to a theme that should be used to inflate the
+           <tr><td><code>{@link #Theme_actionBarSplitStyle com.example.dolphinradio:actionBarSplitStyle}</code></td><td> Reference to a style for the split Action Bar.</td></tr>
+           <tr><td><code>{@link #Theme_actionBarStyle com.example.dolphinradio:actionBarStyle}</code></td><td> Reference to a style for the Action Bar </td></tr>
+           <tr><td><code>{@link #Theme_actionBarTabBarStyle com.example.dolphinradio:actionBarTabBarStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #Theme_actionBarTabStyle com.example.dolphinradio:actionBarTabStyle}</code></td><td> Default style for tabs within an action bar </td></tr>
+           <tr><td><code>{@link #Theme_actionBarTabTextStyle com.example.dolphinradio:actionBarTabTextStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #Theme_actionBarTheme com.example.dolphinradio:actionBarTheme}</code></td><td> Reference to a theme that should be used to inflate the
              action bar.</td></tr>
-           <tr><td><code>{@link #Theme_actionBarWidgetTheme com.example.strawberryradio:actionBarWidgetTheme}</code></td><td> Reference to a theme that should be used to inflate widgets
+           <tr><td><code>{@link #Theme_actionBarWidgetTheme com.example.dolphinradio:actionBarWidgetTheme}</code></td><td> Reference to a theme that should be used to inflate widgets
              and layouts destined for the action bar.</td></tr>
-           <tr><td><code>{@link #Theme_actionButtonStyle com.example.strawberryradio:actionButtonStyle}</code></td><td> Default action button style.</td></tr>
-           <tr><td><code>{@link #Theme_actionDropDownStyle com.example.strawberryradio:actionDropDownStyle}</code></td><td> Default ActionBar dropdown style.</td></tr>
-           <tr><td><code>{@link #Theme_actionMenuTextAppearance com.example.strawberryradio:actionMenuTextAppearance}</code></td><td> TextAppearance style that will be applied to text that
+           <tr><td><code>{@link #Theme_actionButtonStyle com.example.dolphinradio:actionButtonStyle}</code></td><td> Default action button style.</td></tr>
+           <tr><td><code>{@link #Theme_actionDropDownStyle com.example.dolphinradio:actionDropDownStyle}</code></td><td> Default ActionBar dropdown style.</td></tr>
+           <tr><td><code>{@link #Theme_actionMenuTextAppearance com.example.dolphinradio:actionMenuTextAppearance}</code></td><td> TextAppearance style that will be applied to text that
              appears within action menu items.</td></tr>
-           <tr><td><code>{@link #Theme_actionMenuTextColor com.example.strawberryradio:actionMenuTextColor}</code></td><td> Color for text that appears within action menu items.</td></tr>
-           <tr><td><code>{@link #Theme_actionModeBackground com.example.strawberryradio:actionModeBackground}</code></td><td> Background drawable to use for action mode UI </td></tr>
-           <tr><td><code>{@link #Theme_actionModeCloseButtonStyle com.example.strawberryradio:actionModeCloseButtonStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #Theme_actionModeCloseDrawable com.example.strawberryradio:actionModeCloseDrawable}</code></td><td> Drawable to use for the close action mode button </td></tr>
-           <tr><td><code>{@link #Theme_actionModeCopyDrawable com.example.strawberryradio:actionModeCopyDrawable}</code></td><td> Drawable to use for the Copy action button in Contextual Action Bar </td></tr>
-           <tr><td><code>{@link #Theme_actionModeCutDrawable com.example.strawberryradio:actionModeCutDrawable}</code></td><td> Drawable to use for the Cut action button in Contextual Action Bar </td></tr>
-           <tr><td><code>{@link #Theme_actionModeFindDrawable com.example.strawberryradio:actionModeFindDrawable}</code></td><td> Drawable to use for the Find action button in WebView selection action modes </td></tr>
-           <tr><td><code>{@link #Theme_actionModePasteDrawable com.example.strawberryradio:actionModePasteDrawable}</code></td><td> Drawable to use for the Paste action button in Contextual Action Bar </td></tr>
-           <tr><td><code>{@link #Theme_actionModePopupWindowStyle com.example.strawberryradio:actionModePopupWindowStyle}</code></td><td> PopupWindow style to use for action modes when showing as a window overlay.</td></tr>
-           <tr><td><code>{@link #Theme_actionModeSelectAllDrawable com.example.strawberryradio:actionModeSelectAllDrawable}</code></td><td> Drawable to use for the Select all action button in Contextual Action Bar </td></tr>
-           <tr><td><code>{@link #Theme_actionModeShareDrawable com.example.strawberryradio:actionModeShareDrawable}</code></td><td> Drawable to use for the Share action button in WebView selection action modes </td></tr>
-           <tr><td><code>{@link #Theme_actionModeSplitBackground com.example.strawberryradio:actionModeSplitBackground}</code></td><td> Background drawable to use for action mode UI in the lower split bar </td></tr>
-           <tr><td><code>{@link #Theme_actionModeStyle com.example.strawberryradio:actionModeStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #Theme_actionModeWebSearchDrawable com.example.strawberryradio:actionModeWebSearchDrawable}</code></td><td> Drawable to use for the Web Search action button in WebView selection action modes </td></tr>
-           <tr><td><code>{@link #Theme_actionOverflowButtonStyle com.example.strawberryradio:actionOverflowButtonStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #Theme_actionOverflowMenuStyle com.example.strawberryradio:actionOverflowMenuStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #Theme_activityChooserViewStyle com.example.strawberryradio:activityChooserViewStyle}</code></td><td> Default ActivityChooserView style.</td></tr>
-           <tr><td><code>{@link #Theme_alertDialogButtonGroupStyle com.example.strawberryradio:alertDialogButtonGroupStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #Theme_alertDialogCenterButtons com.example.strawberryradio:alertDialogCenterButtons}</code></td><td></td></tr>
-           <tr><td><code>{@link #Theme_alertDialogStyle com.example.strawberryradio:alertDialogStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #Theme_alertDialogTheme com.example.strawberryradio:alertDialogTheme}</code></td><td> Theme to use for alert dialogs spawned from this theme.</td></tr>
+           <tr><td><code>{@link #Theme_actionMenuTextColor com.example.dolphinradio:actionMenuTextColor}</code></td><td> Color for text that appears within action menu items.</td></tr>
+           <tr><td><code>{@link #Theme_actionModeBackground com.example.dolphinradio:actionModeBackground}</code></td><td> Background drawable to use for action mode UI </td></tr>
+           <tr><td><code>{@link #Theme_actionModeCloseButtonStyle com.example.dolphinradio:actionModeCloseButtonStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #Theme_actionModeCloseDrawable com.example.dolphinradio:actionModeCloseDrawable}</code></td><td> Drawable to use for the close action mode button </td></tr>
+           <tr><td><code>{@link #Theme_actionModeCopyDrawable com.example.dolphinradio:actionModeCopyDrawable}</code></td><td> Drawable to use for the Copy action button in Contextual Action Bar </td></tr>
+           <tr><td><code>{@link #Theme_actionModeCutDrawable com.example.dolphinradio:actionModeCutDrawable}</code></td><td> Drawable to use for the Cut action button in Contextual Action Bar </td></tr>
+           <tr><td><code>{@link #Theme_actionModeFindDrawable com.example.dolphinradio:actionModeFindDrawable}</code></td><td> Drawable to use for the Find action button in WebView selection action modes </td></tr>
+           <tr><td><code>{@link #Theme_actionModePasteDrawable com.example.dolphinradio:actionModePasteDrawable}</code></td><td> Drawable to use for the Paste action button in Contextual Action Bar </td></tr>
+           <tr><td><code>{@link #Theme_actionModePopupWindowStyle com.example.dolphinradio:actionModePopupWindowStyle}</code></td><td> PopupWindow style to use for action modes when showing as a window overlay.</td></tr>
+           <tr><td><code>{@link #Theme_actionModeSelectAllDrawable com.example.dolphinradio:actionModeSelectAllDrawable}</code></td><td> Drawable to use for the Select all action button in Contextual Action Bar </td></tr>
+           <tr><td><code>{@link #Theme_actionModeShareDrawable com.example.dolphinradio:actionModeShareDrawable}</code></td><td> Drawable to use for the Share action button in WebView selection action modes </td></tr>
+           <tr><td><code>{@link #Theme_actionModeSplitBackground com.example.dolphinradio:actionModeSplitBackground}</code></td><td> Background drawable to use for action mode UI in the lower split bar </td></tr>
+           <tr><td><code>{@link #Theme_actionModeStyle com.example.dolphinradio:actionModeStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #Theme_actionModeWebSearchDrawable com.example.dolphinradio:actionModeWebSearchDrawable}</code></td><td> Drawable to use for the Web Search action button in WebView selection action modes </td></tr>
+           <tr><td><code>{@link #Theme_actionOverflowButtonStyle com.example.dolphinradio:actionOverflowButtonStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #Theme_actionOverflowMenuStyle com.example.dolphinradio:actionOverflowMenuStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #Theme_activityChooserViewStyle com.example.dolphinradio:activityChooserViewStyle}</code></td><td> Default ActivityChooserView style.</td></tr>
+           <tr><td><code>{@link #Theme_alertDialogButtonGroupStyle com.example.dolphinradio:alertDialogButtonGroupStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #Theme_alertDialogCenterButtons com.example.dolphinradio:alertDialogCenterButtons}</code></td><td></td></tr>
+           <tr><td><code>{@link #Theme_alertDialogStyle com.example.dolphinradio:alertDialogStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #Theme_alertDialogTheme com.example.dolphinradio:alertDialogTheme}</code></td><td> Theme to use for alert dialogs spawned from this theme.</td></tr>
            <tr><td><code>{@link #Theme_android_windowAnimationStyle android:windowAnimationStyle}</code></td><td></td></tr>
            <tr><td><code>{@link #Theme_android_windowIsFloating android:windowIsFloating}</code></td><td></td></tr>
-           <tr><td><code>{@link #Theme_autoCompleteTextViewStyle com.example.strawberryradio:autoCompleteTextViewStyle}</code></td><td> Default AutoCompleteTextView style.</td></tr>
-           <tr><td><code>{@link #Theme_borderlessButtonStyle com.example.strawberryradio:borderlessButtonStyle}</code></td><td> Style for buttons without an explicit border, often used in groups.</td></tr>
-           <tr><td><code>{@link #Theme_buttonBarButtonStyle com.example.strawberryradio:buttonBarButtonStyle}</code></td><td> Style for buttons within button bars </td></tr>
-           <tr><td><code>{@link #Theme_buttonBarNegativeButtonStyle com.example.strawberryradio:buttonBarNegativeButtonStyle}</code></td><td> Style for the "negative" buttons within button bars </td></tr>
-           <tr><td><code>{@link #Theme_buttonBarNeutralButtonStyle com.example.strawberryradio:buttonBarNeutralButtonStyle}</code></td><td> Style for the "neutral" buttons within button bars </td></tr>
-           <tr><td><code>{@link #Theme_buttonBarPositiveButtonStyle com.example.strawberryradio:buttonBarPositiveButtonStyle}</code></td><td> Style for the "positive" buttons within button bars </td></tr>
-           <tr><td><code>{@link #Theme_buttonBarStyle com.example.strawberryradio:buttonBarStyle}</code></td><td> Style for button bars </td></tr>
-           <tr><td><code>{@link #Theme_buttonStyle com.example.strawberryradio:buttonStyle}</code></td><td> Normal Button style.</td></tr>
-           <tr><td><code>{@link #Theme_buttonStyleSmall com.example.strawberryradio:buttonStyleSmall}</code></td><td> Small Button style.</td></tr>
-           <tr><td><code>{@link #Theme_checkboxStyle com.example.strawberryradio:checkboxStyle}</code></td><td> Default Checkbox style.</td></tr>
-           <tr><td><code>{@link #Theme_checkedTextViewStyle com.example.strawberryradio:checkedTextViewStyle}</code></td><td> Default CheckedTextView style.</td></tr>
-           <tr><td><code>{@link #Theme_colorAccent com.example.strawberryradio:colorAccent}</code></td><td> Bright complement to the primary branding color.</td></tr>
-           <tr><td><code>{@link #Theme_colorButtonNormal com.example.strawberryradio:colorButtonNormal}</code></td><td> The color applied to framework buttons in their normal state.</td></tr>
-           <tr><td><code>{@link #Theme_colorControlActivated com.example.strawberryradio:colorControlActivated}</code></td><td> The color applied to framework controls in their activated (ex.</td></tr>
-           <tr><td><code>{@link #Theme_colorControlHighlight com.example.strawberryradio:colorControlHighlight}</code></td><td> The color applied to framework control highlights (ex.</td></tr>
-           <tr><td><code>{@link #Theme_colorControlNormal com.example.strawberryradio:colorControlNormal}</code></td><td> The color applied to framework controls in their normal state.</td></tr>
-           <tr><td><code>{@link #Theme_colorPrimary com.example.strawberryradio:colorPrimary}</code></td><td> The primary branding color for the app.</td></tr>
-           <tr><td><code>{@link #Theme_colorPrimaryDark com.example.strawberryradio:colorPrimaryDark}</code></td><td> Dark variant of the primary branding color.</td></tr>
-           <tr><td><code>{@link #Theme_colorSwitchThumbNormal com.example.strawberryradio:colorSwitchThumbNormal}</code></td><td> The color applied to framework switch thumbs in their normal state.</td></tr>
-           <tr><td><code>{@link #Theme_controlBackground com.example.strawberryradio:controlBackground}</code></td><td> The background used by framework controls.</td></tr>
-           <tr><td><code>{@link #Theme_dialogPreferredPadding com.example.strawberryradio:dialogPreferredPadding}</code></td><td> Preferred padding for dialog content.</td></tr>
-           <tr><td><code>{@link #Theme_dialogTheme com.example.strawberryradio:dialogTheme}</code></td><td> Theme to use for dialogs spawned from this theme.</td></tr>
-           <tr><td><code>{@link #Theme_dividerHorizontal com.example.strawberryradio:dividerHorizontal}</code></td><td> A drawable that may be used as a horizontal divider between visual elements.</td></tr>
-           <tr><td><code>{@link #Theme_dividerVertical com.example.strawberryradio:dividerVertical}</code></td><td> A drawable that may be used as a vertical divider between visual elements.</td></tr>
-           <tr><td><code>{@link #Theme_dropDownListViewStyle com.example.strawberryradio:dropDownListViewStyle}</code></td><td> ListPopupWindow compatibility </td></tr>
-           <tr><td><code>{@link #Theme_dropdownListPreferredItemHeight com.example.strawberryradio:dropdownListPreferredItemHeight}</code></td><td> The preferred item height for dropdown lists.</td></tr>
-           <tr><td><code>{@link #Theme_editTextBackground com.example.strawberryradio:editTextBackground}</code></td><td> EditText background drawable.</td></tr>
-           <tr><td><code>{@link #Theme_editTextColor com.example.strawberryradio:editTextColor}</code></td><td> EditText text foreground color.</td></tr>
-           <tr><td><code>{@link #Theme_editTextStyle com.example.strawberryradio:editTextStyle}</code></td><td> Default EditText style.</td></tr>
-           <tr><td><code>{@link #Theme_homeAsUpIndicator com.example.strawberryradio:homeAsUpIndicator}</code></td><td> Specifies a drawable to use for the 'home as up' indicator.</td></tr>
-           <tr><td><code>{@link #Theme_imageButtonStyle com.example.strawberryradio:imageButtonStyle}</code></td><td> ImageButton background drawable.</td></tr>
-           <tr><td><code>{@link #Theme_listChoiceBackgroundIndicator com.example.strawberryradio:listChoiceBackgroundIndicator}</code></td><td> Drawable used as a background for selected list items.</td></tr>
-           <tr><td><code>{@link #Theme_listDividerAlertDialog com.example.strawberryradio:listDividerAlertDialog}</code></td><td> The list divider used in alert dialogs.</td></tr>
-           <tr><td><code>{@link #Theme_listPopupWindowStyle com.example.strawberryradio:listPopupWindowStyle}</code></td><td></td></tr>
-           <tr><td><code>{@link #Theme_listPreferredItemHeight com.example.strawberryradio:listPreferredItemHeight}</code></td><td> The preferred list item height.</td></tr>
-           <tr><td><code>{@link #Theme_listPreferredItemHeightLarge com.example.strawberryradio:listPreferredItemHeightLarge}</code></td><td> A larger, more robust list item height.</td></tr>
-           <tr><td><code>{@link #Theme_listPreferredItemHeightSmall com.example.strawberryradio:listPreferredItemHeightSmall}</code></td><td> A smaller, sleeker list item height.</td></tr>
-           <tr><td><code>{@link #Theme_listPreferredItemPaddingLeft com.example.strawberryradio:listPreferredItemPaddingLeft}</code></td><td> The preferred padding along the left edge of list items.</td></tr>
-           <tr><td><code>{@link #Theme_listPreferredItemPaddingRight com.example.strawberryradio:listPreferredItemPaddingRight}</code></td><td> The preferred padding along the right edge of list items.</td></tr>
-           <tr><td><code>{@link #Theme_panelBackground com.example.strawberryradio:panelBackground}</code></td><td> The background of a panel when it is inset from the left and right edges of the screen.</td></tr>
-           <tr><td><code>{@link #Theme_panelMenuListTheme com.example.strawberryradio:panelMenuListTheme}</code></td><td> Default Panel Menu style.</td></tr>
-           <tr><td><code>{@link #Theme_panelMenuListWidth com.example.strawberryradio:panelMenuListWidth}</code></td><td> Default Panel Menu width.</td></tr>
-           <tr><td><code>{@link #Theme_popupMenuStyle com.example.strawberryradio:popupMenuStyle}</code></td><td> Default PopupMenu style.</td></tr>
-           <tr><td><code>{@link #Theme_popupWindowStyle com.example.strawberryradio:popupWindowStyle}</code></td><td> Default PopupWindow style.</td></tr>
-           <tr><td><code>{@link #Theme_radioButtonStyle com.example.strawberryradio:radioButtonStyle}</code></td><td> Default RadioButton style.</td></tr>
-           <tr><td><code>{@link #Theme_ratingBarStyle com.example.strawberryradio:ratingBarStyle}</code></td><td> Default RatingBar style.</td></tr>
-           <tr><td><code>{@link #Theme_searchViewStyle com.example.strawberryradio:searchViewStyle}</code></td><td> Style for the search query widget.</td></tr>
-           <tr><td><code>{@link #Theme_seekBarStyle com.example.strawberryradio:seekBarStyle}</code></td><td> Default SeekBar style.</td></tr>
-           <tr><td><code>{@link #Theme_selectableItemBackground com.example.strawberryradio:selectableItemBackground}</code></td><td> A style that may be applied to buttons or other selectable items
+           <tr><td><code>{@link #Theme_autoCompleteTextViewStyle com.example.dolphinradio:autoCompleteTextViewStyle}</code></td><td> Default AutoCompleteTextView style.</td></tr>
+           <tr><td><code>{@link #Theme_borderlessButtonStyle com.example.dolphinradio:borderlessButtonStyle}</code></td><td> Style for buttons without an explicit border, often used in groups.</td></tr>
+           <tr><td><code>{@link #Theme_buttonBarButtonStyle com.example.dolphinradio:buttonBarButtonStyle}</code></td><td> Style for buttons within button bars </td></tr>
+           <tr><td><code>{@link #Theme_buttonBarNegativeButtonStyle com.example.dolphinradio:buttonBarNegativeButtonStyle}</code></td><td> Style for the "negative" buttons within button bars </td></tr>
+           <tr><td><code>{@link #Theme_buttonBarNeutralButtonStyle com.example.dolphinradio:buttonBarNeutralButtonStyle}</code></td><td> Style for the "neutral" buttons within button bars </td></tr>
+           <tr><td><code>{@link #Theme_buttonBarPositiveButtonStyle com.example.dolphinradio:buttonBarPositiveButtonStyle}</code></td><td> Style for the "positive" buttons within button bars </td></tr>
+           <tr><td><code>{@link #Theme_buttonBarStyle com.example.dolphinradio:buttonBarStyle}</code></td><td> Style for button bars </td></tr>
+           <tr><td><code>{@link #Theme_buttonStyle com.example.dolphinradio:buttonStyle}</code></td><td> Normal Button style.</td></tr>
+           <tr><td><code>{@link #Theme_buttonStyleSmall com.example.dolphinradio:buttonStyleSmall}</code></td><td> Small Button style.</td></tr>
+           <tr><td><code>{@link #Theme_checkboxStyle com.example.dolphinradio:checkboxStyle}</code></td><td> Default Checkbox style.</td></tr>
+           <tr><td><code>{@link #Theme_checkedTextViewStyle com.example.dolphinradio:checkedTextViewStyle}</code></td><td> Default CheckedTextView style.</td></tr>
+           <tr><td><code>{@link #Theme_colorAccent com.example.dolphinradio:colorAccent}</code></td><td> Bright complement to the primary branding color.</td></tr>
+           <tr><td><code>{@link #Theme_colorButtonNormal com.example.dolphinradio:colorButtonNormal}</code></td><td> The color applied to framework buttons in their normal state.</td></tr>
+           <tr><td><code>{@link #Theme_colorControlActivated com.example.dolphinradio:colorControlActivated}</code></td><td> The color applied to framework controls in their activated (ex.</td></tr>
+           <tr><td><code>{@link #Theme_colorControlHighlight com.example.dolphinradio:colorControlHighlight}</code></td><td> The color applied to framework control highlights (ex.</td></tr>
+           <tr><td><code>{@link #Theme_colorControlNormal com.example.dolphinradio:colorControlNormal}</code></td><td> The color applied to framework controls in their normal state.</td></tr>
+           <tr><td><code>{@link #Theme_colorPrimary com.example.dolphinradio:colorPrimary}</code></td><td> The primary branding color for the app.</td></tr>
+           <tr><td><code>{@link #Theme_colorPrimaryDark com.example.dolphinradio:colorPrimaryDark}</code></td><td> Dark variant of the primary branding color.</td></tr>
+           <tr><td><code>{@link #Theme_colorSwitchThumbNormal com.example.dolphinradio:colorSwitchThumbNormal}</code></td><td> The color applied to framework switch thumbs in their normal state.</td></tr>
+           <tr><td><code>{@link #Theme_controlBackground com.example.dolphinradio:controlBackground}</code></td><td> The background used by framework controls.</td></tr>
+           <tr><td><code>{@link #Theme_dialogPreferredPadding com.example.dolphinradio:dialogPreferredPadding}</code></td><td> Preferred padding for dialog content.</td></tr>
+           <tr><td><code>{@link #Theme_dialogTheme com.example.dolphinradio:dialogTheme}</code></td><td> Theme to use for dialogs spawned from this theme.</td></tr>
+           <tr><td><code>{@link #Theme_dividerHorizontal com.example.dolphinradio:dividerHorizontal}</code></td><td> A drawable that may be used as a horizontal divider between visual elements.</td></tr>
+           <tr><td><code>{@link #Theme_dividerVertical com.example.dolphinradio:dividerVertical}</code></td><td> A drawable that may be used as a vertical divider between visual elements.</td></tr>
+           <tr><td><code>{@link #Theme_dropDownListViewStyle com.example.dolphinradio:dropDownListViewStyle}</code></td><td> ListPopupWindow compatibility </td></tr>
+           <tr><td><code>{@link #Theme_dropdownListPreferredItemHeight com.example.dolphinradio:dropdownListPreferredItemHeight}</code></td><td> The preferred item height for dropdown lists.</td></tr>
+           <tr><td><code>{@link #Theme_editTextBackground com.example.dolphinradio:editTextBackground}</code></td><td> EditText background drawable.</td></tr>
+           <tr><td><code>{@link #Theme_editTextColor com.example.dolphinradio:editTextColor}</code></td><td> EditText text foreground color.</td></tr>
+           <tr><td><code>{@link #Theme_editTextStyle com.example.dolphinradio:editTextStyle}</code></td><td> Default EditText style.</td></tr>
+           <tr><td><code>{@link #Theme_homeAsUpIndicator com.example.dolphinradio:homeAsUpIndicator}</code></td><td> Specifies a drawable to use for the 'home as up' indicator.</td></tr>
+           <tr><td><code>{@link #Theme_imageButtonStyle com.example.dolphinradio:imageButtonStyle}</code></td><td> ImageButton background drawable.</td></tr>
+           <tr><td><code>{@link #Theme_listChoiceBackgroundIndicator com.example.dolphinradio:listChoiceBackgroundIndicator}</code></td><td> Drawable used as a background for selected list items.</td></tr>
+           <tr><td><code>{@link #Theme_listDividerAlertDialog com.example.dolphinradio:listDividerAlertDialog}</code></td><td> The list divider used in alert dialogs.</td></tr>
+           <tr><td><code>{@link #Theme_listPopupWindowStyle com.example.dolphinradio:listPopupWindowStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #Theme_listPreferredItemHeight com.example.dolphinradio:listPreferredItemHeight}</code></td><td> The preferred list item height.</td></tr>
+           <tr><td><code>{@link #Theme_listPreferredItemHeightLarge com.example.dolphinradio:listPreferredItemHeightLarge}</code></td><td> A larger, more robust list item height.</td></tr>
+           <tr><td><code>{@link #Theme_listPreferredItemHeightSmall com.example.dolphinradio:listPreferredItemHeightSmall}</code></td><td> A smaller, sleeker list item height.</td></tr>
+           <tr><td><code>{@link #Theme_listPreferredItemPaddingLeft com.example.dolphinradio:listPreferredItemPaddingLeft}</code></td><td> The preferred padding along the left edge of list items.</td></tr>
+           <tr><td><code>{@link #Theme_listPreferredItemPaddingRight com.example.dolphinradio:listPreferredItemPaddingRight}</code></td><td> The preferred padding along the right edge of list items.</td></tr>
+           <tr><td><code>{@link #Theme_panelBackground com.example.dolphinradio:panelBackground}</code></td><td> The background of a panel when it is inset from the left and right edges of the screen.</td></tr>
+           <tr><td><code>{@link #Theme_panelMenuListTheme com.example.dolphinradio:panelMenuListTheme}</code></td><td> Default Panel Menu style.</td></tr>
+           <tr><td><code>{@link #Theme_panelMenuListWidth com.example.dolphinradio:panelMenuListWidth}</code></td><td> Default Panel Menu width.</td></tr>
+           <tr><td><code>{@link #Theme_popupMenuStyle com.example.dolphinradio:popupMenuStyle}</code></td><td> Default PopupMenu style.</td></tr>
+           <tr><td><code>{@link #Theme_popupWindowStyle com.example.dolphinradio:popupWindowStyle}</code></td><td> Default PopupWindow style.</td></tr>
+           <tr><td><code>{@link #Theme_radioButtonStyle com.example.dolphinradio:radioButtonStyle}</code></td><td> Default RadioButton style.</td></tr>
+           <tr><td><code>{@link #Theme_ratingBarStyle com.example.dolphinradio:ratingBarStyle}</code></td><td> Default RatingBar style.</td></tr>
+           <tr><td><code>{@link #Theme_searchViewStyle com.example.dolphinradio:searchViewStyle}</code></td><td> Style for the search query widget.</td></tr>
+           <tr><td><code>{@link #Theme_seekBarStyle com.example.dolphinradio:seekBarStyle}</code></td><td> Default SeekBar style.</td></tr>
+           <tr><td><code>{@link #Theme_selectableItemBackground com.example.dolphinradio:selectableItemBackground}</code></td><td> A style that may be applied to buttons or other selectable items
              that should react to pressed and focus states, but that do not
              have a clear visual border along the edges.</td></tr>
-           <tr><td><code>{@link #Theme_selectableItemBackgroundBorderless com.example.strawberryradio:selectableItemBackgroundBorderless}</code></td><td> Background drawable for borderless standalone items that need focus/pressed states.</td></tr>
-           <tr><td><code>{@link #Theme_spinnerDropDownItemStyle com.example.strawberryradio:spinnerDropDownItemStyle}</code></td><td> Default Spinner style.</td></tr>
-           <tr><td><code>{@link #Theme_spinnerStyle com.example.strawberryradio:spinnerStyle}</code></td><td> Default Spinner style.</td></tr>
-           <tr><td><code>{@link #Theme_switchStyle com.example.strawberryradio:switchStyle}</code></td><td> Default style for the Switch widget.</td></tr>
-           <tr><td><code>{@link #Theme_textAppearanceLargePopupMenu com.example.strawberryradio:textAppearanceLargePopupMenu}</code></td><td> Text color, typeface, size, and style for the text inside of a popup menu.</td></tr>
-           <tr><td><code>{@link #Theme_textAppearanceListItem com.example.strawberryradio:textAppearanceListItem}</code></td><td> The preferred TextAppearance for the primary text of list items.</td></tr>
-           <tr><td><code>{@link #Theme_textAppearanceListItemSmall com.example.strawberryradio:textAppearanceListItemSmall}</code></td><td> The preferred TextAppearance for the primary text of small list items.</td></tr>
-           <tr><td><code>{@link #Theme_textAppearanceSearchResultSubtitle com.example.strawberryradio:textAppearanceSearchResultSubtitle}</code></td><td> Text color, typeface, size, and style for system search result subtitle.</td></tr>
-           <tr><td><code>{@link #Theme_textAppearanceSearchResultTitle com.example.strawberryradio:textAppearanceSearchResultTitle}</code></td><td> Text color, typeface, size, and style for system search result title.</td></tr>
-           <tr><td><code>{@link #Theme_textAppearanceSmallPopupMenu com.example.strawberryradio:textAppearanceSmallPopupMenu}</code></td><td> Text color, typeface, size, and style for small text inside of a popup menu.</td></tr>
-           <tr><td><code>{@link #Theme_textColorAlertDialogListItem com.example.strawberryradio:textColorAlertDialogListItem}</code></td><td> Color of list item text in alert dialogs.</td></tr>
-           <tr><td><code>{@link #Theme_textColorSearchUrl com.example.strawberryradio:textColorSearchUrl}</code></td><td> Text color for urls in search suggestions, used by things like global search </td></tr>
-           <tr><td><code>{@link #Theme_toolbarNavigationButtonStyle com.example.strawberryradio:toolbarNavigationButtonStyle}</code></td><td> Default Toolar NavigationButtonStyle </td></tr>
-           <tr><td><code>{@link #Theme_toolbarStyle com.example.strawberryradio:toolbarStyle}</code></td><td> Default Toolbar style.</td></tr>
-           <tr><td><code>{@link #Theme_windowActionBar com.example.strawberryradio:windowActionBar}</code></td><td> Flag indicating whether this window should have an Action Bar
+           <tr><td><code>{@link #Theme_selectableItemBackgroundBorderless com.example.dolphinradio:selectableItemBackgroundBorderless}</code></td><td> Background drawable for borderless standalone items that need focus/pressed states.</td></tr>
+           <tr><td><code>{@link #Theme_spinnerDropDownItemStyle com.example.dolphinradio:spinnerDropDownItemStyle}</code></td><td> Default Spinner style.</td></tr>
+           <tr><td><code>{@link #Theme_spinnerStyle com.example.dolphinradio:spinnerStyle}</code></td><td> Default Spinner style.</td></tr>
+           <tr><td><code>{@link #Theme_switchStyle com.example.dolphinradio:switchStyle}</code></td><td> Default style for the Switch widget.</td></tr>
+           <tr><td><code>{@link #Theme_textAppearanceLargePopupMenu com.example.dolphinradio:textAppearanceLargePopupMenu}</code></td><td> Text color, typeface, size, and style for the text inside of a popup menu.</td></tr>
+           <tr><td><code>{@link #Theme_textAppearanceListItem com.example.dolphinradio:textAppearanceListItem}</code></td><td> The preferred TextAppearance for the primary text of list items.</td></tr>
+           <tr><td><code>{@link #Theme_textAppearanceListItemSmall com.example.dolphinradio:textAppearanceListItemSmall}</code></td><td> The preferred TextAppearance for the primary text of small list items.</td></tr>
+           <tr><td><code>{@link #Theme_textAppearanceSearchResultSubtitle com.example.dolphinradio:textAppearanceSearchResultSubtitle}</code></td><td> Text color, typeface, size, and style for system search result subtitle.</td></tr>
+           <tr><td><code>{@link #Theme_textAppearanceSearchResultTitle com.example.dolphinradio:textAppearanceSearchResultTitle}</code></td><td> Text color, typeface, size, and style for system search result title.</td></tr>
+           <tr><td><code>{@link #Theme_textAppearanceSmallPopupMenu com.example.dolphinradio:textAppearanceSmallPopupMenu}</code></td><td> Text color, typeface, size, and style for small text inside of a popup menu.</td></tr>
+           <tr><td><code>{@link #Theme_textColorAlertDialogListItem com.example.dolphinradio:textColorAlertDialogListItem}</code></td><td> Color of list item text in alert dialogs.</td></tr>
+           <tr><td><code>{@link #Theme_textColorSearchUrl com.example.dolphinradio:textColorSearchUrl}</code></td><td> Text color for urls in search suggestions, used by things like global search </td></tr>
+           <tr><td><code>{@link #Theme_toolbarNavigationButtonStyle com.example.dolphinradio:toolbarNavigationButtonStyle}</code></td><td> Default Toolar NavigationButtonStyle </td></tr>
+           <tr><td><code>{@link #Theme_toolbarStyle com.example.dolphinradio:toolbarStyle}</code></td><td> Default Toolbar style.</td></tr>
+           <tr><td><code>{@link #Theme_windowActionBar com.example.dolphinradio:windowActionBar}</code></td><td> Flag indicating whether this window should have an Action Bar
              in place of the usual title bar.</td></tr>
-           <tr><td><code>{@link #Theme_windowActionBarOverlay com.example.strawberryradio:windowActionBarOverlay}</code></td><td> Flag indicating whether this window's Action Bar should overlay
+           <tr><td><code>{@link #Theme_windowActionBarOverlay com.example.dolphinradio:windowActionBarOverlay}</code></td><td> Flag indicating whether this window's Action Bar should overlay
              application content.</td></tr>
-           <tr><td><code>{@link #Theme_windowActionModeOverlay com.example.strawberryradio:windowActionModeOverlay}</code></td><td> Flag indicating whether action modes should overlay window content
+           <tr><td><code>{@link #Theme_windowActionModeOverlay com.example.dolphinradio:windowActionModeOverlay}</code></td><td> Flag indicating whether action modes should overlay window content
              when there is not reserved space for their UI (such as an Action Bar).</td></tr>
-           <tr><td><code>{@link #Theme_windowFixedHeightMajor com.example.strawberryradio:windowFixedHeightMajor}</code></td><td> A fixed height for the window along the major axis of the screen,
+           <tr><td><code>{@link #Theme_windowFixedHeightMajor com.example.dolphinradio:windowFixedHeightMajor}</code></td><td> A fixed height for the window along the major axis of the screen,
              that is, when in portrait.</td></tr>
-           <tr><td><code>{@link #Theme_windowFixedHeightMinor com.example.strawberryradio:windowFixedHeightMinor}</code></td><td> A fixed height for the window along the minor axis of the screen,
+           <tr><td><code>{@link #Theme_windowFixedHeightMinor com.example.dolphinradio:windowFixedHeightMinor}</code></td><td> A fixed height for the window along the minor axis of the screen,
              that is, when in landscape.</td></tr>
-           <tr><td><code>{@link #Theme_windowFixedWidthMajor com.example.strawberryradio:windowFixedWidthMajor}</code></td><td> A fixed width for the window along the major axis of the screen,
+           <tr><td><code>{@link #Theme_windowFixedWidthMajor com.example.dolphinradio:windowFixedWidthMajor}</code></td><td> A fixed width for the window along the major axis of the screen,
              that is, when in landscape.</td></tr>
-           <tr><td><code>{@link #Theme_windowFixedWidthMinor com.example.strawberryradio:windowFixedWidthMinor}</code></td><td> A fixed width for the window along the minor axis of the screen,
+           <tr><td><code>{@link #Theme_windowFixedWidthMinor com.example.dolphinradio:windowFixedWidthMinor}</code></td><td> A fixed width for the window along the minor axis of the screen,
              that is, when in portrait.</td></tr>
-           <tr><td><code>{@link #Theme_windowMinWidthMajor com.example.strawberryradio:windowMinWidthMajor}</code></td><td> The minimum width the window is allowed to be, along the major
+           <tr><td><code>{@link #Theme_windowMinWidthMajor com.example.dolphinradio:windowMinWidthMajor}</code></td><td> The minimum width the window is allowed to be, along the major
              axis of the screen.</td></tr>
-           <tr><td><code>{@link #Theme_windowMinWidthMinor com.example.strawberryradio:windowMinWidthMinor}</code></td><td> The minimum width the window is allowed to be, along the minor
+           <tr><td><code>{@link #Theme_windowMinWidthMinor com.example.dolphinradio:windowMinWidthMinor}</code></td><td> The minimum width the window is allowed to be, along the minor
              axis of the screen.</td></tr>
-           <tr><td><code>{@link #Theme_windowNoTitle com.example.strawberryradio:windowNoTitle}</code></td><td> Flag indicating whether there should be no title on this window.</td></tr>
+           <tr><td><code>{@link #Theme_windowNoTitle com.example.dolphinradio:windowNoTitle}</code></td><td> Flag indicating whether there should be no title on this window.</td></tr>
            </table>
            @see #Theme_actionBarDivider
            @see #Theme_actionBarItemBackground
@@ -9504,7 +9504,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionBarDivider
+          @attr name com.example.dolphinradio:actionBarDivider
         */
         public static final int Theme_actionBarDivider = 23;
         /**
@@ -9516,7 +9516,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionBarItemBackground
+          @attr name com.example.dolphinradio:actionBarItemBackground
         */
         public static final int Theme_actionBarItemBackground = 24;
         /**
@@ -9529,7 +9529,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionBarPopupTheme
+          @attr name com.example.dolphinradio:actionBarPopupTheme
         */
         public static final int Theme_actionBarPopupTheme = 17;
         /**
@@ -9556,7 +9556,7 @@ containing a value of this type.
 <tr><td><code>wrap_content</code></td><td>0</td><td></td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionBarSize
+          @attr name com.example.dolphinradio:actionBarSize
         */
         public static final int Theme_actionBarSize = 22;
         /**
@@ -9571,7 +9571,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionBarSplitStyle
+          @attr name com.example.dolphinradio:actionBarSplitStyle
         */
         public static final int Theme_actionBarSplitStyle = 19;
         /**
@@ -9583,17 +9583,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionBarStyle
+          @attr name com.example.dolphinradio:actionBarStyle
         */
         public static final int Theme_actionBarStyle = 18;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#actionBarTabBarStyle}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#actionBarTabBarStyle}
           attribute's value can be found in the {@link #Theme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:actionBarTabBarStyle
+          @attr name com.example.dolphinradio:actionBarTabBarStyle
         */
         public static final int Theme_actionBarTabBarStyle = 13;
         /**
@@ -9605,17 +9605,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionBarTabStyle
+          @attr name com.example.dolphinradio:actionBarTabStyle
         */
         public static final int Theme_actionBarTabStyle = 12;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#actionBarTabTextStyle}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#actionBarTabTextStyle}
           attribute's value can be found in the {@link #Theme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:actionBarTabTextStyle
+          @attr name com.example.dolphinradio:actionBarTabTextStyle
         */
         public static final int Theme_actionBarTabTextStyle = 14;
         /**
@@ -9629,7 +9629,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionBarTheme
+          @attr name com.example.dolphinradio:actionBarTheme
         */
         public static final int Theme_actionBarTheme = 20;
         /**
@@ -9647,7 +9647,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionBarWidgetTheme
+          @attr name com.example.dolphinradio:actionBarWidgetTheme
         */
         public static final int Theme_actionBarWidgetTheme = 21;
         /**
@@ -9659,7 +9659,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionButtonStyle
+          @attr name com.example.dolphinradio:actionButtonStyle
         */
         public static final int Theme_actionButtonStyle = 49;
         /**
@@ -9671,7 +9671,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionDropDownStyle
+          @attr name com.example.dolphinradio:actionDropDownStyle
         */
         public static final int Theme_actionDropDownStyle = 45;
         /**
@@ -9684,7 +9684,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionMenuTextAppearance
+          @attr name com.example.dolphinradio:actionMenuTextAppearance
         */
         public static final int Theme_actionMenuTextAppearance = 25;
         /**
@@ -9699,7 +9699,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionMenuTextColor
+          @attr name com.example.dolphinradio:actionMenuTextColor
         */
         public static final int Theme_actionMenuTextColor = 26;
         /**
@@ -9711,17 +9711,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionModeBackground
+          @attr name com.example.dolphinradio:actionModeBackground
         */
         public static final int Theme_actionModeBackground = 29;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#actionModeCloseButtonStyle}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#actionModeCloseButtonStyle}
           attribute's value can be found in the {@link #Theme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:actionModeCloseButtonStyle
+          @attr name com.example.dolphinradio:actionModeCloseButtonStyle
         */
         public static final int Theme_actionModeCloseButtonStyle = 28;
         /**
@@ -9733,7 +9733,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionModeCloseDrawable
+          @attr name com.example.dolphinradio:actionModeCloseDrawable
         */
         public static final int Theme_actionModeCloseDrawable = 31;
         /**
@@ -9745,7 +9745,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionModeCopyDrawable
+          @attr name com.example.dolphinradio:actionModeCopyDrawable
         */
         public static final int Theme_actionModeCopyDrawable = 33;
         /**
@@ -9757,7 +9757,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionModeCutDrawable
+          @attr name com.example.dolphinradio:actionModeCutDrawable
         */
         public static final int Theme_actionModeCutDrawable = 32;
         /**
@@ -9769,7 +9769,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionModeFindDrawable
+          @attr name com.example.dolphinradio:actionModeFindDrawable
         */
         public static final int Theme_actionModeFindDrawable = 37;
         /**
@@ -9781,7 +9781,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionModePasteDrawable
+          @attr name com.example.dolphinradio:actionModePasteDrawable
         */
         public static final int Theme_actionModePasteDrawable = 34;
         /**
@@ -9793,7 +9793,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionModePopupWindowStyle
+          @attr name com.example.dolphinradio:actionModePopupWindowStyle
         */
         public static final int Theme_actionModePopupWindowStyle = 39;
         /**
@@ -9805,7 +9805,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionModeSelectAllDrawable
+          @attr name com.example.dolphinradio:actionModeSelectAllDrawable
         */
         public static final int Theme_actionModeSelectAllDrawable = 35;
         /**
@@ -9817,7 +9817,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionModeShareDrawable
+          @attr name com.example.dolphinradio:actionModeShareDrawable
         */
         public static final int Theme_actionModeShareDrawable = 36;
         /**
@@ -9829,17 +9829,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionModeSplitBackground
+          @attr name com.example.dolphinradio:actionModeSplitBackground
         */
         public static final int Theme_actionModeSplitBackground = 30;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#actionModeStyle}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#actionModeStyle}
           attribute's value can be found in the {@link #Theme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:actionModeStyle
+          @attr name com.example.dolphinradio:actionModeStyle
         */
         public static final int Theme_actionModeStyle = 27;
         /**
@@ -9851,27 +9851,27 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:actionModeWebSearchDrawable
+          @attr name com.example.dolphinradio:actionModeWebSearchDrawable
         */
         public static final int Theme_actionModeWebSearchDrawable = 38;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#actionOverflowButtonStyle}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#actionOverflowButtonStyle}
           attribute's value can be found in the {@link #Theme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:actionOverflowButtonStyle
+          @attr name com.example.dolphinradio:actionOverflowButtonStyle
         */
         public static final int Theme_actionOverflowButtonStyle = 15;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#actionOverflowMenuStyle}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#actionOverflowMenuStyle}
           attribute's value can be found in the {@link #Theme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:actionOverflowMenuStyle
+          @attr name com.example.dolphinradio:actionOverflowMenuStyle
         */
         public static final int Theme_actionOverflowMenuStyle = 16;
         /**
@@ -9883,21 +9883,21 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:activityChooserViewStyle
+          @attr name com.example.dolphinradio:activityChooserViewStyle
         */
         public static final int Theme_activityChooserViewStyle = 57;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#alertDialogButtonGroupStyle}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#alertDialogButtonGroupStyle}
           attribute's value can be found in the {@link #Theme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:alertDialogButtonGroupStyle
+          @attr name com.example.dolphinradio:alertDialogButtonGroupStyle
         */
         public static final int Theme_alertDialogButtonGroupStyle = 92;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#alertDialogCenterButtons}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#alertDialogCenterButtons}
           attribute's value can be found in the {@link #Theme} array.
 
 
@@ -9907,17 +9907,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:alertDialogCenterButtons
+          @attr name com.example.dolphinradio:alertDialogCenterButtons
         */
         public static final int Theme_alertDialogCenterButtons = 93;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#alertDialogStyle}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#alertDialogStyle}
           attribute's value can be found in the {@link #Theme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:alertDialogStyle
+          @attr name com.example.dolphinradio:alertDialogStyle
         */
         public static final int Theme_alertDialogStyle = 91;
         /**
@@ -9929,7 +9929,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:alertDialogTheme
+          @attr name com.example.dolphinradio:alertDialogTheme
         */
         public static final int Theme_alertDialogTheme = 94;
         /**
@@ -9953,7 +9953,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:autoCompleteTextViewStyle
+          @attr name com.example.dolphinradio:autoCompleteTextViewStyle
         */
         public static final int Theme_autoCompleteTextViewStyle = 99;
         /**
@@ -9965,7 +9965,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:borderlessButtonStyle
+          @attr name com.example.dolphinradio:borderlessButtonStyle
         */
         public static final int Theme_borderlessButtonStyle = 54;
         /**
@@ -9977,7 +9977,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:buttonBarButtonStyle
+          @attr name com.example.dolphinradio:buttonBarButtonStyle
         */
         public static final int Theme_buttonBarButtonStyle = 51;
         /**
@@ -9989,7 +9989,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:buttonBarNegativeButtonStyle
+          @attr name com.example.dolphinradio:buttonBarNegativeButtonStyle
         */
         public static final int Theme_buttonBarNegativeButtonStyle = 97;
         /**
@@ -10001,7 +10001,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:buttonBarNeutralButtonStyle
+          @attr name com.example.dolphinradio:buttonBarNeutralButtonStyle
         */
         public static final int Theme_buttonBarNeutralButtonStyle = 98;
         /**
@@ -10013,7 +10013,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:buttonBarPositiveButtonStyle
+          @attr name com.example.dolphinradio:buttonBarPositiveButtonStyle
         */
         public static final int Theme_buttonBarPositiveButtonStyle = 96;
         /**
@@ -10025,7 +10025,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:buttonBarStyle
+          @attr name com.example.dolphinradio:buttonBarStyle
         */
         public static final int Theme_buttonBarStyle = 50;
         /**
@@ -10037,7 +10037,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:buttonStyle
+          @attr name com.example.dolphinradio:buttonStyle
         */
         public static final int Theme_buttonStyle = 100;
         /**
@@ -10049,7 +10049,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:buttonStyleSmall
+          @attr name com.example.dolphinradio:buttonStyleSmall
         */
         public static final int Theme_buttonStyleSmall = 101;
         /**
@@ -10061,7 +10061,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:checkboxStyle
+          @attr name com.example.dolphinradio:checkboxStyle
         */
         public static final int Theme_checkboxStyle = 102;
         /**
@@ -10073,7 +10073,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:checkedTextViewStyle
+          @attr name com.example.dolphinradio:checkedTextViewStyle
         */
         public static final int Theme_checkedTextViewStyle = 103;
         /**
@@ -10091,7 +10091,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:colorAccent
+          @attr name com.example.dolphinradio:colorAccent
         */
         public static final int Theme_colorAccent = 84;
         /**
@@ -10108,7 +10108,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:colorButtonNormal
+          @attr name com.example.dolphinradio:colorButtonNormal
         */
         public static final int Theme_colorButtonNormal = 88;
         /**
@@ -10125,7 +10125,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:colorControlActivated
+          @attr name com.example.dolphinradio:colorControlActivated
         */
         public static final int Theme_colorControlActivated = 86;
         /**
@@ -10142,7 +10142,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:colorControlHighlight
+          @attr name com.example.dolphinradio:colorControlHighlight
         */
         public static final int Theme_colorControlHighlight = 87;
         /**
@@ -10159,7 +10159,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:colorControlNormal
+          @attr name com.example.dolphinradio:colorControlNormal
         */
         public static final int Theme_colorControlNormal = 85;
         /**
@@ -10177,7 +10177,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:colorPrimary
+          @attr name com.example.dolphinradio:colorPrimary
         */
         public static final int Theme_colorPrimary = 82;
         /**
@@ -10195,7 +10195,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:colorPrimaryDark
+          @attr name com.example.dolphinradio:colorPrimaryDark
         */
         public static final int Theme_colorPrimaryDark = 83;
         /**
@@ -10212,7 +10212,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:colorSwitchThumbNormal
+          @attr name com.example.dolphinradio:colorSwitchThumbNormal
         */
         public static final int Theme_colorSwitchThumbNormal = 89;
         /**
@@ -10224,7 +10224,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:controlBackground
+          @attr name com.example.dolphinradio:controlBackground
         */
         public static final int Theme_controlBackground = 90;
         /**
@@ -10242,7 +10242,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:dialogPreferredPadding
+          @attr name com.example.dolphinradio:dialogPreferredPadding
         */
         public static final int Theme_dialogPreferredPadding = 43;
         /**
@@ -10254,7 +10254,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:dialogTheme
+          @attr name com.example.dolphinradio:dialogTheme
         */
         public static final int Theme_dialogTheme = 42;
         /**
@@ -10266,7 +10266,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:dividerHorizontal
+          @attr name com.example.dolphinradio:dividerHorizontal
         */
         public static final int Theme_dividerHorizontal = 56;
         /**
@@ -10278,7 +10278,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:dividerVertical
+          @attr name com.example.dolphinradio:dividerVertical
         */
         public static final int Theme_dividerVertical = 55;
         /**
@@ -10290,7 +10290,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:dropDownListViewStyle
+          @attr name com.example.dolphinradio:dropDownListViewStyle
         */
         public static final int Theme_dropDownListViewStyle = 74;
         /**
@@ -10308,7 +10308,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:dropdownListPreferredItemHeight
+          @attr name com.example.dolphinradio:dropdownListPreferredItemHeight
         */
         public static final int Theme_dropdownListPreferredItemHeight = 46;
         /**
@@ -10320,7 +10320,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:editTextBackground
+          @attr name com.example.dolphinradio:editTextBackground
         */
         public static final int Theme_editTextBackground = 63;
         /**
@@ -10334,7 +10334,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:editTextColor
+          @attr name com.example.dolphinradio:editTextColor
         */
         public static final int Theme_editTextColor = 62;
         /**
@@ -10346,7 +10346,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:editTextStyle
+          @attr name com.example.dolphinradio:editTextStyle
         */
         public static final int Theme_editTextStyle = 104;
         /**
@@ -10358,7 +10358,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:homeAsUpIndicator
+          @attr name com.example.dolphinradio:homeAsUpIndicator
         */
         public static final int Theme_homeAsUpIndicator = 48;
         /**
@@ -10370,7 +10370,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:imageButtonStyle
+          @attr name com.example.dolphinradio:imageButtonStyle
         */
         public static final int Theme_imageButtonStyle = 64;
         /**
@@ -10382,7 +10382,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:listChoiceBackgroundIndicator
+          @attr name com.example.dolphinradio:listChoiceBackgroundIndicator
         */
         public static final int Theme_listChoiceBackgroundIndicator = 81;
         /**
@@ -10394,17 +10394,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:listDividerAlertDialog
+          @attr name com.example.dolphinradio:listDividerAlertDialog
         */
         public static final int Theme_listDividerAlertDialog = 44;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#listPopupWindowStyle}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#listPopupWindowStyle}
           attribute's value can be found in the {@link #Theme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:listPopupWindowStyle
+          @attr name com.example.dolphinradio:listPopupWindowStyle
         */
         public static final int Theme_listPopupWindowStyle = 75;
         /**
@@ -10422,7 +10422,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:listPreferredItemHeight
+          @attr name com.example.dolphinradio:listPreferredItemHeight
         */
         public static final int Theme_listPreferredItemHeight = 69;
         /**
@@ -10440,7 +10440,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:listPreferredItemHeightLarge
+          @attr name com.example.dolphinradio:listPreferredItemHeightLarge
         */
         public static final int Theme_listPreferredItemHeightLarge = 71;
         /**
@@ -10458,7 +10458,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:listPreferredItemHeightSmall
+          @attr name com.example.dolphinradio:listPreferredItemHeightSmall
         */
         public static final int Theme_listPreferredItemHeightSmall = 70;
         /**
@@ -10476,7 +10476,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:listPreferredItemPaddingLeft
+          @attr name com.example.dolphinradio:listPreferredItemPaddingLeft
         */
         public static final int Theme_listPreferredItemPaddingLeft = 72;
         /**
@@ -10494,7 +10494,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:listPreferredItemPaddingRight
+          @attr name com.example.dolphinradio:listPreferredItemPaddingRight
         */
         public static final int Theme_listPreferredItemPaddingRight = 73;
         /**
@@ -10506,7 +10506,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:panelBackground
+          @attr name com.example.dolphinradio:panelBackground
         */
         public static final int Theme_panelBackground = 78;
         /**
@@ -10518,7 +10518,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:panelMenuListTheme
+          @attr name com.example.dolphinradio:panelMenuListTheme
         */
         public static final int Theme_panelMenuListTheme = 80;
         /**
@@ -10536,7 +10536,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:panelMenuListWidth
+          @attr name com.example.dolphinradio:panelMenuListWidth
         */
         public static final int Theme_panelMenuListWidth = 79;
         /**
@@ -10548,7 +10548,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:popupMenuStyle
+          @attr name com.example.dolphinradio:popupMenuStyle
         */
         public static final int Theme_popupMenuStyle = 60;
         /**
@@ -10560,7 +10560,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:popupWindowStyle
+          @attr name com.example.dolphinradio:popupWindowStyle
         */
         public static final int Theme_popupWindowStyle = 61;
         /**
@@ -10572,7 +10572,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:radioButtonStyle
+          @attr name com.example.dolphinradio:radioButtonStyle
         */
         public static final int Theme_radioButtonStyle = 105;
         /**
@@ -10584,7 +10584,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:ratingBarStyle
+          @attr name com.example.dolphinradio:ratingBarStyle
         */
         public static final int Theme_ratingBarStyle = 106;
         /**
@@ -10596,7 +10596,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:searchViewStyle
+          @attr name com.example.dolphinradio:searchViewStyle
         */
         public static final int Theme_searchViewStyle = 68;
         /**
@@ -10608,7 +10608,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:seekBarStyle
+          @attr name com.example.dolphinradio:seekBarStyle
         */
         public static final int Theme_seekBarStyle = 107;
         /**
@@ -10622,7 +10622,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:selectableItemBackground
+          @attr name com.example.dolphinradio:selectableItemBackground
         */
         public static final int Theme_selectableItemBackground = 52;
         /**
@@ -10634,7 +10634,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:selectableItemBackgroundBorderless
+          @attr name com.example.dolphinradio:selectableItemBackgroundBorderless
         */
         public static final int Theme_selectableItemBackgroundBorderless = 53;
         /**
@@ -10646,7 +10646,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:spinnerDropDownItemStyle
+          @attr name com.example.dolphinradio:spinnerDropDownItemStyle
         */
         public static final int Theme_spinnerDropDownItemStyle = 47;
         /**
@@ -10658,7 +10658,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:spinnerStyle
+          @attr name com.example.dolphinradio:spinnerStyle
         */
         public static final int Theme_spinnerStyle = 108;
         /**
@@ -10670,7 +10670,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:switchStyle
+          @attr name com.example.dolphinradio:switchStyle
         */
         public static final int Theme_switchStyle = 109;
         /**
@@ -10682,7 +10682,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:textAppearanceLargePopupMenu
+          @attr name com.example.dolphinradio:textAppearanceLargePopupMenu
         */
         public static final int Theme_textAppearanceLargePopupMenu = 40;
         /**
@@ -10694,7 +10694,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:textAppearanceListItem
+          @attr name com.example.dolphinradio:textAppearanceListItem
         */
         public static final int Theme_textAppearanceListItem = 76;
         /**
@@ -10706,7 +10706,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:textAppearanceListItemSmall
+          @attr name com.example.dolphinradio:textAppearanceListItemSmall
         */
         public static final int Theme_textAppearanceListItemSmall = 77;
         /**
@@ -10718,7 +10718,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:textAppearanceSearchResultSubtitle
+          @attr name com.example.dolphinradio:textAppearanceSearchResultSubtitle
         */
         public static final int Theme_textAppearanceSearchResultSubtitle = 66;
         /**
@@ -10730,7 +10730,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:textAppearanceSearchResultTitle
+          @attr name com.example.dolphinradio:textAppearanceSearchResultTitle
         */
         public static final int Theme_textAppearanceSearchResultTitle = 65;
         /**
@@ -10742,7 +10742,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:textAppearanceSmallPopupMenu
+          @attr name com.example.dolphinradio:textAppearanceSmallPopupMenu
         */
         public static final int Theme_textAppearanceSmallPopupMenu = 41;
         /**
@@ -10756,7 +10756,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:textColorAlertDialogListItem
+          @attr name com.example.dolphinradio:textColorAlertDialogListItem
         */
         public static final int Theme_textColorAlertDialogListItem = 95;
         /**
@@ -10770,7 +10770,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:textColorSearchUrl
+          @attr name com.example.dolphinradio:textColorSearchUrl
         */
         public static final int Theme_textColorSearchUrl = 67;
         /**
@@ -10782,7 +10782,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:toolbarNavigationButtonStyle
+          @attr name com.example.dolphinradio:toolbarNavigationButtonStyle
         */
         public static final int Theme_toolbarNavigationButtonStyle = 59;
         /**
@@ -10794,7 +10794,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:toolbarStyle
+          @attr name com.example.dolphinradio:toolbarStyle
         */
         public static final int Theme_toolbarStyle = 58;
         /**
@@ -10811,7 +10811,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:windowActionBar
+          @attr name com.example.dolphinradio:windowActionBar
         */
         public static final int Theme_windowActionBar = 2;
         /**
@@ -10829,7 +10829,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:windowActionBarOverlay
+          @attr name com.example.dolphinradio:windowActionBarOverlay
         */
         public static final int Theme_windowActionBarOverlay = 4;
         /**
@@ -10846,7 +10846,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:windowActionModeOverlay
+          @attr name com.example.dolphinradio:windowActionModeOverlay
         */
         public static final int Theme_windowActionModeOverlay = 5;
         /**
@@ -10869,7 +10869,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:windowFixedHeightMajor
+          @attr name com.example.dolphinradio:windowFixedHeightMajor
         */
         public static final int Theme_windowFixedHeightMajor = 9;
         /**
@@ -10892,7 +10892,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:windowFixedHeightMinor
+          @attr name com.example.dolphinradio:windowFixedHeightMinor
         */
         public static final int Theme_windowFixedHeightMinor = 7;
         /**
@@ -10915,7 +10915,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:windowFixedWidthMajor
+          @attr name com.example.dolphinradio:windowFixedWidthMajor
         */
         public static final int Theme_windowFixedWidthMajor = 6;
         /**
@@ -10938,7 +10938,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:windowFixedWidthMinor
+          @attr name com.example.dolphinradio:windowFixedWidthMinor
         */
         public static final int Theme_windowFixedWidthMinor = 8;
         /**
@@ -10962,7 +10962,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:windowMinWidthMajor
+          @attr name com.example.dolphinradio:windowMinWidthMajor
         */
         public static final int Theme_windowMinWidthMajor = 10;
         /**
@@ -10986,7 +10986,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:windowMinWidthMinor
+          @attr name com.example.dolphinradio:windowMinWidthMinor
         */
         public static final int Theme_windowMinWidthMinor = 11;
         /**
@@ -11002,7 +11002,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:windowNoTitle
+          @attr name com.example.dolphinradio:windowNoTitle
         */
         public static final int Theme_windowNoTitle = 3;
         /** Attributes that can be used with a Toolbar.
@@ -11013,34 +11013,34 @@ containing a value of this type.
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #Toolbar_android_gravity android:gravity}</code></td><td></td></tr>
            <tr><td><code>{@link #Toolbar_android_minHeight android:minHeight}</code></td><td> Allows us to read in the minHeight attr pre-v16 </td></tr>
-           <tr><td><code>{@link #Toolbar_collapseContentDescription com.example.strawberryradio:collapseContentDescription}</code></td><td> Text to set as the content description for the collapse button.</td></tr>
-           <tr><td><code>{@link #Toolbar_collapseIcon com.example.strawberryradio:collapseIcon}</code></td><td></td></tr>
-           <tr><td><code>{@link #Toolbar_contentInsetEnd com.example.strawberryradio:contentInsetEnd}</code></td><td> Minimum inset for content views within a bar.</td></tr>
-           <tr><td><code>{@link #Toolbar_contentInsetLeft com.example.strawberryradio:contentInsetLeft}</code></td><td> Minimum inset for content views within a bar.</td></tr>
-           <tr><td><code>{@link #Toolbar_contentInsetRight com.example.strawberryradio:contentInsetRight}</code></td><td> Minimum inset for content views within a bar.</td></tr>
-           <tr><td><code>{@link #Toolbar_contentInsetStart com.example.strawberryradio:contentInsetStart}</code></td><td> Minimum inset for content views within a bar.</td></tr>
-           <tr><td><code>{@link #Toolbar_logo com.example.strawberryradio:logo}</code></td><td> Drawable to set as the logo that appears at the starting side of
+           <tr><td><code>{@link #Toolbar_collapseContentDescription com.example.dolphinradio:collapseContentDescription}</code></td><td> Text to set as the content description for the collapse button.</td></tr>
+           <tr><td><code>{@link #Toolbar_collapseIcon com.example.dolphinradio:collapseIcon}</code></td><td></td></tr>
+           <tr><td><code>{@link #Toolbar_contentInsetEnd com.example.dolphinradio:contentInsetEnd}</code></td><td> Minimum inset for content views within a bar.</td></tr>
+           <tr><td><code>{@link #Toolbar_contentInsetLeft com.example.dolphinradio:contentInsetLeft}</code></td><td> Minimum inset for content views within a bar.</td></tr>
+           <tr><td><code>{@link #Toolbar_contentInsetRight com.example.dolphinradio:contentInsetRight}</code></td><td> Minimum inset for content views within a bar.</td></tr>
+           <tr><td><code>{@link #Toolbar_contentInsetStart com.example.dolphinradio:contentInsetStart}</code></td><td> Minimum inset for content views within a bar.</td></tr>
+           <tr><td><code>{@link #Toolbar_logo com.example.dolphinradio:logo}</code></td><td> Drawable to set as the logo that appears at the starting side of
              the Toolbar, just after the navigation button.</td></tr>
-           <tr><td><code>{@link #Toolbar_logoDescription com.example.strawberryradio:logoDescription}</code></td><td> A content description string to describe the appearance of the
+           <tr><td><code>{@link #Toolbar_logoDescription com.example.dolphinradio:logoDescription}</code></td><td> A content description string to describe the appearance of the
              associated logo image.</td></tr>
-           <tr><td><code>{@link #Toolbar_maxButtonHeight com.example.strawberryradio:maxButtonHeight}</code></td><td></td></tr>
-           <tr><td><code>{@link #Toolbar_navigationContentDescription com.example.strawberryradio:navigationContentDescription}</code></td><td> Text to set as the content description for the navigation button
+           <tr><td><code>{@link #Toolbar_maxButtonHeight com.example.dolphinradio:maxButtonHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #Toolbar_navigationContentDescription com.example.dolphinradio:navigationContentDescription}</code></td><td> Text to set as the content description for the navigation button
              located at the start of the toolbar.</td></tr>
-           <tr><td><code>{@link #Toolbar_navigationIcon com.example.strawberryradio:navigationIcon}</code></td><td> Icon drawable to use for the navigation button located at
+           <tr><td><code>{@link #Toolbar_navigationIcon com.example.dolphinradio:navigationIcon}</code></td><td> Icon drawable to use for the navigation button located at
              the start of the toolbar.</td></tr>
-           <tr><td><code>{@link #Toolbar_popupTheme com.example.strawberryradio:popupTheme}</code></td><td> Reference to a theme that should be used to inflate popups
+           <tr><td><code>{@link #Toolbar_popupTheme com.example.dolphinradio:popupTheme}</code></td><td> Reference to a theme that should be used to inflate popups
              shown by widgets in the toolbar.</td></tr>
-           <tr><td><code>{@link #Toolbar_subtitle com.example.strawberryradio:subtitle}</code></td><td> Specifies subtitle text used for navigationMode="normal" </td></tr>
-           <tr><td><code>{@link #Toolbar_subtitleTextAppearance com.example.strawberryradio:subtitleTextAppearance}</code></td><td></td></tr>
-           <tr><td><code>{@link #Toolbar_subtitleTextColor com.example.strawberryradio:subtitleTextColor}</code></td><td> A color to apply to the subtitle string.</td></tr>
-           <tr><td><code>{@link #Toolbar_title com.example.strawberryradio:title}</code></td><td></td></tr>
-           <tr><td><code>{@link #Toolbar_titleMarginBottom com.example.strawberryradio:titleMarginBottom}</code></td><td></td></tr>
-           <tr><td><code>{@link #Toolbar_titleMarginEnd com.example.strawberryradio:titleMarginEnd}</code></td><td></td></tr>
-           <tr><td><code>{@link #Toolbar_titleMarginStart com.example.strawberryradio:titleMarginStart}</code></td><td></td></tr>
-           <tr><td><code>{@link #Toolbar_titleMarginTop com.example.strawberryradio:titleMarginTop}</code></td><td></td></tr>
-           <tr><td><code>{@link #Toolbar_titleMargins com.example.strawberryradio:titleMargins}</code></td><td></td></tr>
-           <tr><td><code>{@link #Toolbar_titleTextAppearance com.example.strawberryradio:titleTextAppearance}</code></td><td></td></tr>
-           <tr><td><code>{@link #Toolbar_titleTextColor com.example.strawberryradio:titleTextColor}</code></td><td> A color to apply to the title string.</td></tr>
+           <tr><td><code>{@link #Toolbar_subtitle com.example.dolphinradio:subtitle}</code></td><td> Specifies subtitle text used for navigationMode="normal" </td></tr>
+           <tr><td><code>{@link #Toolbar_subtitleTextAppearance com.example.dolphinradio:subtitleTextAppearance}</code></td><td></td></tr>
+           <tr><td><code>{@link #Toolbar_subtitleTextColor com.example.dolphinradio:subtitleTextColor}</code></td><td> A color to apply to the subtitle string.</td></tr>
+           <tr><td><code>{@link #Toolbar_title com.example.dolphinradio:title}</code></td><td></td></tr>
+           <tr><td><code>{@link #Toolbar_titleMarginBottom com.example.dolphinradio:titleMarginBottom}</code></td><td></td></tr>
+           <tr><td><code>{@link #Toolbar_titleMarginEnd com.example.dolphinradio:titleMarginEnd}</code></td><td></td></tr>
+           <tr><td><code>{@link #Toolbar_titleMarginStart com.example.dolphinradio:titleMarginStart}</code></td><td></td></tr>
+           <tr><td><code>{@link #Toolbar_titleMarginTop com.example.dolphinradio:titleMarginTop}</code></td><td></td></tr>
+           <tr><td><code>{@link #Toolbar_titleMargins com.example.dolphinradio:titleMargins}</code></td><td></td></tr>
+           <tr><td><code>{@link #Toolbar_titleTextAppearance com.example.dolphinradio:titleTextAppearance}</code></td><td></td></tr>
+           <tr><td><code>{@link #Toolbar_titleTextColor com.example.dolphinradio:titleTextColor}</code></td><td> A color to apply to the title string.</td></tr>
            </table>
            @see #Toolbar_android_gravity
            @see #Toolbar_android_minHeight
@@ -11105,17 +11105,17 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:collapseContentDescription
+          @attr name com.example.dolphinradio:collapseContentDescription
         */
         public static final int Toolbar_collapseContentDescription = 19;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#collapseIcon}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#collapseIcon}
           attribute's value can be found in the {@link #Toolbar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:collapseIcon
+          @attr name com.example.dolphinradio:collapseIcon
         */
         public static final int Toolbar_collapseIcon = 18;
         /**
@@ -11134,7 +11134,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:contentInsetEnd
+          @attr name com.example.dolphinradio:contentInsetEnd
         */
         public static final int Toolbar_contentInsetEnd = 6;
         /**
@@ -11153,7 +11153,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:contentInsetLeft
+          @attr name com.example.dolphinradio:contentInsetLeft
         */
         public static final int Toolbar_contentInsetLeft = 7;
         /**
@@ -11172,7 +11172,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:contentInsetRight
+          @attr name com.example.dolphinradio:contentInsetRight
         */
         public static final int Toolbar_contentInsetRight = 8;
         /**
@@ -11191,7 +11191,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:contentInsetStart
+          @attr name com.example.dolphinradio:contentInsetStart
         */
         public static final int Toolbar_contentInsetStart = 5;
         /**
@@ -11204,7 +11204,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:logo
+          @attr name com.example.dolphinradio:logo
         */
         public static final int Toolbar_logo = 4;
         /**
@@ -11221,11 +11221,11 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:logoDescription
+          @attr name com.example.dolphinradio:logoDescription
         */
         public static final int Toolbar_logoDescription = 22;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#maxButtonHeight}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#maxButtonHeight}
           attribute's value can be found in the {@link #Toolbar} array.
 
 
@@ -11237,7 +11237,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:maxButtonHeight
+          @attr name com.example.dolphinradio:maxButtonHeight
         */
         public static final int Toolbar_maxButtonHeight = 17;
         /**
@@ -11254,7 +11254,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:navigationContentDescription
+          @attr name com.example.dolphinradio:navigationContentDescription
         */
         public static final int Toolbar_navigationContentDescription = 21;
         /**
@@ -11267,7 +11267,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:navigationIcon
+          @attr name com.example.dolphinradio:navigationIcon
         */
         public static final int Toolbar_navigationIcon = 20;
         /**
@@ -11280,7 +11280,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:popupTheme
+          @attr name com.example.dolphinradio:popupTheme
         */
         public static final int Toolbar_popupTheme = 9;
         /**
@@ -11296,17 +11296,17 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:subtitle
+          @attr name com.example.dolphinradio:subtitle
         */
         public static final int Toolbar_subtitle = 3;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#subtitleTextAppearance}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#subtitleTextAppearance}
           attribute's value can be found in the {@link #Toolbar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:subtitleTextAppearance
+          @attr name com.example.dolphinradio:subtitleTextAppearance
         */
         public static final int Toolbar_subtitleTextAppearance = 11;
         /**
@@ -11323,11 +11323,11 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:subtitleTextColor
+          @attr name com.example.dolphinradio:subtitleTextColor
         */
         public static final int Toolbar_subtitleTextColor = 24;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#title}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#title}
           attribute's value can be found in the {@link #Toolbar} array.
 
 
@@ -11337,11 +11337,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:title
+          @attr name com.example.dolphinradio:title
         */
         public static final int Toolbar_title = 2;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#titleMarginBottom}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#titleMarginBottom}
           attribute's value can be found in the {@link #Toolbar} array.
 
 
@@ -11353,11 +11353,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:titleMarginBottom
+          @attr name com.example.dolphinradio:titleMarginBottom
         */
         public static final int Toolbar_titleMarginBottom = 16;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#titleMarginEnd}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#titleMarginEnd}
           attribute's value can be found in the {@link #Toolbar} array.
 
 
@@ -11369,11 +11369,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:titleMarginEnd
+          @attr name com.example.dolphinradio:titleMarginEnd
         */
         public static final int Toolbar_titleMarginEnd = 14;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#titleMarginStart}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#titleMarginStart}
           attribute's value can be found in the {@link #Toolbar} array.
 
 
@@ -11385,11 +11385,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:titleMarginStart
+          @attr name com.example.dolphinradio:titleMarginStart
         */
         public static final int Toolbar_titleMarginStart = 13;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#titleMarginTop}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#titleMarginTop}
           attribute's value can be found in the {@link #Toolbar} array.
 
 
@@ -11401,11 +11401,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:titleMarginTop
+          @attr name com.example.dolphinradio:titleMarginTop
         */
         public static final int Toolbar_titleMarginTop = 15;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#titleMargins}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#titleMargins}
           attribute's value can be found in the {@link #Toolbar} array.
 
 
@@ -11417,17 +11417,17 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:titleMargins
+          @attr name com.example.dolphinradio:titleMargins
         */
         public static final int Toolbar_titleMargins = 12;
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#titleTextAppearance}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#titleTextAppearance}
           attribute's value can be found in the {@link #Toolbar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.example.strawberryradio:titleTextAppearance
+          @attr name com.example.dolphinradio:titleTextAppearance
         */
         public static final int Toolbar_titleTextAppearance = 10;
         /**
@@ -11444,7 +11444,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:titleTextColor
+          @attr name com.example.dolphinradio:titleTextColor
         */
         public static final int Toolbar_titleTextColor = 23;
         /** Attributes that can be used with a View.
@@ -11455,9 +11455,9 @@ containing a value of this type.
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #View_android_focusable android:focusable}</code></td><td> Boolean that controls whether a view can take focus.</td></tr>
            <tr><td><code>{@link #View_android_theme android:theme}</code></td><td> Specifies a theme override for a view.</td></tr>
-           <tr><td><code>{@link #View_paddingEnd com.example.strawberryradio:paddingEnd}</code></td><td> Sets the padding, in pixels, of the end edge; see {@link android.R.attr#padding}.</td></tr>
-           <tr><td><code>{@link #View_paddingStart com.example.strawberryradio:paddingStart}</code></td><td> Sets the padding, in pixels, of the start edge; see {@link android.R.attr#padding}.</td></tr>
-           <tr><td><code>{@link #View_theme com.example.strawberryradio:theme}</code></td><td> Deprecated.</td></tr>
+           <tr><td><code>{@link #View_paddingEnd com.example.dolphinradio:paddingEnd}</code></td><td> Sets the padding, in pixels, of the end edge; see {@link android.R.attr#padding}.</td></tr>
+           <tr><td><code>{@link #View_paddingStart com.example.dolphinradio:paddingStart}</code></td><td> Sets the padding, in pixels, of the start edge; see {@link android.R.attr#padding}.</td></tr>
+           <tr><td><code>{@link #View_theme com.example.dolphinradio:theme}</code></td><td> Deprecated.</td></tr>
            </table>
            @see #View_android_focusable
            @see #View_android_theme
@@ -11509,7 +11509,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:paddingEnd
+          @attr name com.example.dolphinradio:paddingEnd
         */
         public static final int View_paddingEnd = 3;
         /**
@@ -11527,7 +11527,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:paddingStart
+          @attr name com.example.dolphinradio:paddingStart
         */
         public static final int View_paddingStart = 2;
         /**
@@ -11539,7 +11539,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:theme
+          @attr name com.example.dolphinradio:theme
         */
         public static final int View_theme = 4;
         /** Attributes that can be used with a ViewBackgroundHelper.
@@ -11549,8 +11549,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #ViewBackgroundHelper_android_background android:background}</code></td><td></td></tr>
-           <tr><td><code>{@link #ViewBackgroundHelper_backgroundTint com.example.strawberryradio:backgroundTint}</code></td><td> Tint to apply to the background.</td></tr>
-           <tr><td><code>{@link #ViewBackgroundHelper_backgroundTintMode com.example.strawberryradio:backgroundTintMode}</code></td><td> Blending mode used to apply the background tint.</td></tr>
+           <tr><td><code>{@link #ViewBackgroundHelper_backgroundTint com.example.dolphinradio:backgroundTint}</code></td><td> Tint to apply to the background.</td></tr>
+           <tr><td><code>{@link #ViewBackgroundHelper_backgroundTintMode com.example.dolphinradio:backgroundTintMode}</code></td><td> Blending mode used to apply the background tint.</td></tr>
            </table>
            @see #ViewBackgroundHelper_android_background
            @see #ViewBackgroundHelper_backgroundTint
@@ -11579,7 +11579,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:backgroundTint
+          @attr name com.example.dolphinradio:backgroundTint
         */
         public static final int ViewBackgroundHelper_backgroundTint = 1;
         /**
@@ -11605,7 +11605,7 @@ containing a value of this type.
 <tr><td><code>screen</code></td><td>15</td><td> [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.example.strawberryradio:backgroundTintMode
+          @attr name com.example.dolphinradio:backgroundTintMode
         */
         public static final int ViewBackgroundHelper_backgroundTintMode = 2;
         /** Attributes that can be used with a ViewFlow.
@@ -11614,7 +11614,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ViewFlow_sidebuffer com.example.strawberryradio:sidebuffer}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewFlow_sidebuffer com.example.dolphinradio:sidebuffer}</code></td><td></td></tr>
            </table>
            @see #ViewFlow_sidebuffer
          */
@@ -11622,7 +11622,7 @@ containing a value of this type.
             0x7f01012b
         };
         /**
-          <p>This symbol is the offset where the {@link com.example.strawberryradio.R.attr#sidebuffer}
+          <p>This symbol is the offset where the {@link com.example.dolphinradio.R.attr#sidebuffer}
           attribute's value can be found in the {@link #ViewFlow} array.
 
 
@@ -11632,7 +11632,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.example.strawberryradio:sidebuffer
+          @attr name com.example.dolphinradio:sidebuffer
         */
         public static final int ViewFlow_sidebuffer = 0;
         /** Attributes that can be used with a ViewStubCompat.

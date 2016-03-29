@@ -10,7 +10,7 @@ import android.graphics.BitmapFactory;
 import com.chechezhi.ui.guide.AbsGuideActivity;
 import com.chechezhi.ui.guide.SingleElement;
 import com.chechezhi.ui.guide.SinglePage;
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.fragment.EntryFragment;
 
 public class ExampleGuideActivity extends AbsGuideActivity {

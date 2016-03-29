@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.activity.ProgramListActivity;
 import com.example.toolbar.bean.ProgramListBean.ProgramListInfo;
 import com.example.toolbar.utils.MediaUtil;

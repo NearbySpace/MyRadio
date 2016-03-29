@@ -18,7 +18,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.nineoldandroids.animation.ArgbEvaluator;
 import com.nineoldandroids.animation.ObjectAnimator;
 

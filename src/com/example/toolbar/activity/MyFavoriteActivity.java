@@ -1,6 +1,7 @@
 package com.example.toolbar.activity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -24,15 +25,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.adapter.FavoriteAdapter;
 import com.example.toolbar.application.MyApplication;
 import com.example.toolbar.bean.Favorite;
 import com.example.toolbar.bean.PlayInfo;
-import com.example.toolbar.bean.ProgramListBean.ProgramListInfo;
 import com.example.toolbar.common.utils.Common;
 import com.example.toolbar.common.utils.LogHelper;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.example.toolbar.service.PlayerManage;
 import com.example.toolbar.view.SlideCutListView;
 import com.example.toolbar.view.SlideCutListView.RemoveDirection;
@@ -50,6 +51,7 @@ public class MyFavoriteActivity extends AppCompatActivity implements
 
 	private CircularProgress progress;
 	private TextView tv_show_number;
+	private TextView tv_remind;
 	private FavoriteAdapter adapter;
 	private int page = 1;
 	private List<Favorite> show;
@@ -73,6 +75,7 @@ public class MyFavoriteActivity extends AppCompatActivity implements
 		slideCutListView = (SlideCutListView) findViewById(R.id.slideCutListView);
 		progress=(CircularProgress) findViewById(R.id.favorite_progress);
 		tv_show_number=(TextView) findViewById(R.id.favorite_tv_number);
+		tv_remind = (TextView) findViewById(R.id.favorite_remind);
 		slideCutListView.setRemoveListener(this);
 		mToolbar.setNavigationContentDescription(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -122,12 +125,18 @@ public class MyFavoriteActivity extends AppCompatActivity implements
 	}
 
 	private void initData() {
+		String url = HttpManage.myFavoriteUrl;
 		String uid = MyApplication.getInstance().getSpUtil().getUid();
 		int type = 1;
-
-		HttpManage.getMyFavorite(new AsyncHttpResponseHandler() {
+		Map<String,Object> paramsMap = new HashMap<String, Object>();
+		paramsMap.put("uid", uid);
+		paramsMap.put("page", page);
+		paramsMap.put("type", type);
+		HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+			
 			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			public void onSuccess(byte[] arg2) {
+
 				// progress.setVisibility(View.GONE);
 				String result = new String(arg2);
 				Gson gson = new Gson();
@@ -149,17 +158,54 @@ public class MyFavoriteActivity extends AppCompatActivity implements
 					tv_show_number.setText("您还没有收藏的节目");
 				}
 				tv_show_number.setVisibility(View.VISIBLE);
+				tv_remind.setVisibility(View.GONE);
 				progress.setVisibility(View.GONE);
 				// LogHelper.e("获取节目数据：" + show.toString());
 			}
-
+			
 			@Override
-			public void onFailure(int arg0,
-					@SuppressWarnings("deprecation") Header[] arg1,
-					byte[] arg2, Throwable arg3) {
-				// LogHelper.e("获取数据失败");
+			public void onFailure(byte[] arg2, Throwable arg3) {
+				// TODO Auto-generated method stub
+				tv_remind.setVisibility(View.VISIBLE);
+				progress.setVisibility(View.GONE);
 			}
-		}, uid, type, page);
+		});
+
+//		HttpManage.getMyFavorite(new AsyncHttpResponseHandler() {
+//			@Override
+//			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//				// progress.setVisibility(View.GONE);
+//				String result = new String(arg2);
+//				Gson gson = new Gson();
+//				LogHelper.e("我收藏的节目数据：" + result);
+//				show = gson.fromJson(result, new TypeToken<List<Favorite>>() {
+//				}.getType());
+//				if(show!=null&&show.size()!=0){
+//					classifyProgram();
+//					if(programLists.size()!=0){
+//						tv_show_number.setText("节目单共："+programLists.size()+"个");
+//					}else{
+//						tv_show_number.setText("节目共："+programs.size()+"个");
+//					}
+//					adapter = new FavoriteAdapter(MyFavoriteActivity.this, 
+//							programLists,programs);
+//					slideCutListView.setAdapter(adapter);
+//				}else{
+//					//提示用户没有收藏有节目
+//					tv_show_number.setText("您还没有收藏的节目");
+//				}
+//				tv_show_number.setVisibility(View.VISIBLE);
+//				progress.setVisibility(View.GONE);
+//				// LogHelper.e("获取节目数据：" + show.toString());
+//			}
+//
+//			@Override
+//			public void onFailure(int arg0,
+//					@SuppressWarnings("deprecation") Header[] arg1,
+//					byte[] arg2, Throwable arg3) {
+//				// LogHelper.e("获取数据失败");
+//			}
+//		}, uid, type, page);
 	}
 	
 	//对节目单和节目分类
@@ -301,9 +347,16 @@ public class MyFavoriteActivity extends AppCompatActivity implements
 		String program_id = data.getId();
 		String type_id= "1";
 		LogHelper.e("节目ID：" + data.getId());
-		HttpManage.FavoriteDel(new AsyncHttpResponseHandler() {
+		String url = HttpManage.favoriteDelUrls;
+		Map<String,Object> paramsMap;
+		paramsMap = new HashMap<String, Object>();
+		paramsMap.put("mid", uid);
+		paramsMap.put("type_id", type_id);
+		paramsMap.put("programme_id", program_id);
+		HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+			
 			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			public void onSuccess(byte[] arg2) {
 				// progress.setVisibility(View.GONE);
 				String result = new String(arg2);
 				Map<String,String> map=Common.str3map(result);
@@ -320,13 +373,39 @@ public class MyFavoriteActivity extends AppCompatActivity implements
 					Toast.makeText(getApplicationContext(), "取消收藏失败",0).show();
 				}
 			}
-
+			
 			@Override
-			public void onFailure(int arg0,
-					@SuppressWarnings("deprecation") Header[] arg1,
-					byte[] arg2, Throwable arg3) {
-				// LogHelper.e("获取数据失败");
+			public void onFailure(byte[] arg2, Throwable arg3) {
+				// TODO Auto-generated method stub
+				
 			}
-		}, uid, program_id, type_id,data.getList_type());
+		});
+//		HttpManage.FavoriteDel(new AsyncHttpResponseHandler() {
+//			@Override
+//			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//				// progress.setVisibility(View.GONE);
+//				String result = new String(arg2);
+//				Map<String,String> map=Common.str3map(result);
+//				if(map.get("status").equals("0")){
+//					Toast.makeText(getApplicationContext(), "取消收藏成功",0).show();
+//					if(programLists.contains(data)){
+//						programLists.remove(data);
+//					}else if(programs.contains(data)){
+//						programs.remove(data);
+//					}
+//					adapter.uploadMsg(programLists,programs);
+//					isPlayingThisList=false;
+//				}else{
+//					Toast.makeText(getApplicationContext(), "取消收藏失败",0).show();
+//				}
+//			}
+//
+//			@Override
+//			public void onFailure(int arg0,
+//					@SuppressWarnings("deprecation") Header[] arg1,
+//					byte[] arg2, Throwable arg3) {
+//				// LogHelper.e("获取数据失败");
+//			}
+//		}, uid, program_id, type_id,data.getList_type());
 	}
 }

@@ -37,7 +37,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.application.MyApplication;
 import com.example.toolbar.common.utils.Common;
 import com.example.toolbar.common.utils.ImageLoaderHelper;
@@ -345,6 +345,7 @@ public class UpUserIconActivity extends AppCompatActivity implements
 	 */
 	private void uploadUserIcon(final String imageurl) {
 		if (!NetUtil.isNetConnected(this)) {
+			ToastUtils.show(UpUserIconActivity.this, "网络无效", Toast.LENGTH_SHORT);
 			return;
 		}
 		uploadDialog = showUploadWaitDialog();

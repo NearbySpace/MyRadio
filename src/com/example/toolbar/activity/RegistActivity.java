@@ -1,35 +1,32 @@
 package com.example.toolbar.activity;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.http.Header;
 
 import android.app.ProgressDialog;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.bean.RegistBean;
 import com.example.toolbar.common.utils.Common;
 import com.example.toolbar.common.utils.LogHelper;
-import com.example.toolbar.common.utils.MyHttpUtils;
 import com.example.toolbar.common.utils.NetUtil;
 import com.example.toolbar.common.utils.StringUtils;
 import com.example.toolbar.http.HttpManage;
-import com.example.toolbar.utils.ConfigUtils;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.example.toolbar.utils.IntentUtils;
 import com.example.toolbar.utils.ToastUtils;
 import com.google.gson.Gson;
-import com.lidroid.xutils.http.RequestParams;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
 /**
@@ -110,6 +107,7 @@ public class RegistActivity extends AppCompatActivity implements
 		// return;
 		// }
 		if (!NetUtil.isNetConnected(this)) {
+			tips.setText("网络连接不可用");
 			return;
 		}
 		
@@ -163,60 +161,121 @@ public class RegistActivity extends AppCompatActivity implements
 		
 		tips.setText("请稍等，提交中...");
 		submit.setEnabled(false);
-		HttpManage.getRegistResult(usernameTv.getText().toString().trim(),
-				password.getText().toString().trim(), 
-				nickname.getText().toString().trim(),
-				tel.getText().toString().trim(), 
-				emailText.getText().toString().trim(), 
-				idCard.getText().toString().trim(), 
-				new AsyncHttpResponseHandler() {
-					
-					@Override
-					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-						String result=new String(arg2);
-						submit.setEnabled(true);
-						LogHelper.e(result);
-						if (dialog.isShowing()) {
-							dialog.dismiss();
-						}
-						if (result == null) {
-							return;
-						}
-						Map<String, String> data = Common.str2mapstr(result);
-						switch (Integer.parseInt(data.get("status"))) {
-						case 0:
-							Gson gson = new Gson();
-							bean=gson.fromJson(result, RegistBean.class);
-							break;
-						case 1:
-							tips.setText(data.get("msg"));
-							return;
-						case 2:
-							tips.setText(data.get("msg"));
-							return;
-						case 3:
-							tips.setText(data.get("msg"));
-							return;
-						case 4:
-							tips.setText(data.get("msg"));
-							return;
-						default:
-							break;
-						}
-						
-						ToastUtils.showShort(RegistActivity.this, "注册成功!");
-						Log.i("RegistActivity", "bean.status---->"+bean.status);
-						IntentUtils.startActivity(RegistActivity.this,
-								LoginActivity.class);
-						
-						RegistActivity.this.finish();
-					}
-					
-					@Override
-					public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
-						
-					}
-				});
+		String url = HttpManage.registUrl;
+		Map<String,Object> paramsMap = new HashMap<String, Object>();
+		paramsMap.put("username", usernameTv.getText().toString().trim());
+		paramsMap.put("password", password.getText().toString().trim());
+		paramsMap.put("nickname", nickname.getText().toString().trim());
+		paramsMap.put("email", emailText.getText().toString().trim());
+		paramsMap.put("tel", tel.getText().toString().trim());
+		if(!idCard.getText().toString().trim().isEmpty()){
+			paramsMap.put("IDcard", idCard.getText().toString().trim());
+		}
+		HttpManage.getNetData(url, paramsMap, 0, new OnCallBack() {
+			
+			@Override
+			public void onSuccess(byte[] arg2) {
+
+				String result=new String(arg2);
+				submit.setEnabled(true);
+				LogHelper.e(result);
+				if (dialog.isShowing()) {
+					dialog.dismiss();
+				}
+				if (result == null) {
+					return;
+				}
+				Map<String, String> data = Common.str2mapstr(result);
+				switch (Integer.parseInt(data.get("status"))) {
+				case 0:
+					Gson gson = new Gson();
+					bean=gson.fromJson(result, RegistBean.class);
+					break;
+				case 1:
+					tips.setText(data.get("msg"));
+					return;
+				case 2:
+					tips.setText(data.get("msg"));
+					return;
+				case 3:
+					tips.setText(data.get("msg"));
+					return;
+				case 4:
+					tips.setText(data.get("msg"));
+					return;
+				default:
+					break;
+				}
+				
+				ToastUtils.showShort(RegistActivity.this, "注册成功!");
+				Log.i("RegistActivity", "bean.status---->"+bean.status);
+				IntentUtils.startActivity(RegistActivity.this,
+						LoginActivity.class);
+				
+				RegistActivity.this.finish();
+			}
+			
+			@Override
+			public void onFailure(byte[] arg2, Throwable arg3) {
+				tips.setText("网络连接失败");
+				
+			}
+		});
+		
+//		HttpManage.getRegistResult(usernameTv.getText().toString().trim(),
+//				password.getText().toString().trim(), 
+//				nickname.getText().toString().trim(),
+//				tel.getText().toString().trim(), 
+//				emailText.getText().toString().trim(), 
+//				idCard.getText().toString().trim(), 
+//				new AsyncHttpResponseHandler() {
+//					
+//					@Override
+//					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//						String result=new String(arg2);
+//						submit.setEnabled(true);
+//						LogHelper.e(result);
+//						if (dialog.isShowing()) {
+//							dialog.dismiss();
+//						}
+//						if (result == null) {
+//							return;
+//						}
+//						Map<String, String> data = Common.str2mapstr(result);
+//						switch (Integer.parseInt(data.get("status"))) {
+//						case 0:
+//							Gson gson = new Gson();
+//							bean=gson.fromJson(result, RegistBean.class);
+//							break;
+//						case 1:
+//							tips.setText(data.get("msg"));
+//							return;
+//						case 2:
+//							tips.setText(data.get("msg"));
+//							return;
+//						case 3:
+//							tips.setText(data.get("msg"));
+//							return;
+//						case 4:
+//							tips.setText(data.get("msg"));
+//							return;
+//						default:
+//							break;
+//						}
+//						
+//						ToastUtils.showShort(RegistActivity.this, "注册成功!");
+//						Log.i("RegistActivity", "bean.status---->"+bean.status);
+//						IntentUtils.startActivity(RegistActivity.this,
+//								LoginActivity.class);
+//						
+//						RegistActivity.this.finish();
+//					}
+//					
+//					@Override
+//					public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+//						
+//					}
+//				});
 //		new AsyncTask<Object, String, String>() {
 //			String result;
 //			protected String doInBackground(Object... params) {

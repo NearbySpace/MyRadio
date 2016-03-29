@@ -39,7 +39,7 @@ import android.provider.MediaStore;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.common.utils.LogHelper;
 
 /**

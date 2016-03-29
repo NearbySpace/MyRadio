@@ -21,7 +21,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 
 
 /**

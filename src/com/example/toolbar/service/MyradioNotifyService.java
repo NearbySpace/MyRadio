@@ -12,7 +12,7 @@ import android.os.IBinder;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.activity.RadioPlayActivity;
 import com.example.toolbar.application.MyApplication;
 import com.example.toolbar.entity.PlayButton;
@@ -185,7 +185,7 @@ public class MyradioNotifyService extends Service {
 			MyApplication.myradio_music_is_open = false;
 			Intent intent = new Intent();
 			intent.setAction("com.myradio.media.MUSIC_SERVICE");
-			intent.setPackage("com.example.strawberryradio");
+			intent.setPackage("com.example.dolphinradio");
 			intent.putExtra("MSG", PlayButton.PlayerMsg.PAUSE_MSG);
 			startService(intent);
 
@@ -200,7 +200,7 @@ public class MyradioNotifyService extends Service {
 			MyApplication.myradio_music_is_open = true;
 			Intent intent = new Intent();
 			intent.setAction("com.myradio.media.MUSIC_SERVICE");
-			intent.setPackage("com.example.strawberryradio");
+			intent.setPackage("com.example.dolphinradio");
 			intent.putExtra("MSG", PlayButton.PlayerMsg.CONTINUE_MSG);
 //			intent.putExtra("isAgain", isAgain);
 //			intent.putExtra("isFromNotify", true);
@@ -219,7 +219,7 @@ public class MyradioNotifyService extends Service {
 		// 5.0后服务要以显示的方式启动
 		Intent intent = new Intent();
 		intent.setAction("com.myradio.media.MUSIC_SERVICE");
-		intent.setPackage("com.example.strawberryradio");
+		intent.setPackage("com.example.dolphinradio");
 		stopService(intent);
 		if (mNotificationManager != null) {
 			mNotificationManager.cancel(MUSIC_NOTIFY_ID);

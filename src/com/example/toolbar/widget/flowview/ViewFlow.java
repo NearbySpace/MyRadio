@@ -36,7 +36,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Scroller;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 
 /**
  * A horizontally scrollable {@link ViewGroup} with items populated from an

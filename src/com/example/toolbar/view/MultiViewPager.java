@@ -23,7 +23,7 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 
 public class MultiViewPager extends ViewPager {
 

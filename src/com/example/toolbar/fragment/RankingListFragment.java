@@ -1,6 +1,6 @@
 package com.example.toolbar.fragment;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 
 import android.graphics.Color;
 import android.os.Bundle;

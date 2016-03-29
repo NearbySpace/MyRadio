@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.apache.http.Header;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.adapter.SearchAdapter;
 import com.example.toolbar.common.utils.Common;
 import com.example.toolbar.http.HttpManage;

@@ -11,7 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.bean.PlayInfo;
 import com.example.toolbar.download.DownloadUtils;
 import com.example.toolbar.service.PlayerManage;

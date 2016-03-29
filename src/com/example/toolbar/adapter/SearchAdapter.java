@@ -3,7 +3,8 @@ package com.example.toolbar.adapter;
 import java.util.List;
 import java.util.Map;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

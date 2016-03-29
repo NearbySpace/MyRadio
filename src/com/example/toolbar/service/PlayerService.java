@@ -93,7 +93,7 @@ public class PlayerService extends Service {
 				}
 				Intent intent = new Intent();
 				intent.setAction("com.myradio.media.MUSIC_SERVICE");
-				intent.setPackage("com.example.strawberryradio");
+				intent.setPackage("com.example.dolphinradio");
 				intent.putExtra("MSG", PlayButton.PlayerMsg.NEXT_MSG);
 				intent.putExtra("isFromAlarmManager", true);
 				startService(intent);
@@ -114,7 +114,7 @@ public class PlayerService extends Service {
 		mAlarmManager=(AlarmManager)getApplicationContext().getSystemService(Context.ALARM_SERVICE);
 		Intent intent = new Intent();
 		intent.setAction("com.myradio.media.MUSIC_SERVICE");
-		intent.setPackage("com.example.strawberryradio");
+		intent.setPackage("com.example.dolphinradio");
 		intent.putExtra("MSG", PlayButton.PlayerMsg.NEXT_MSG);
 		intent.putExtra("isFromAlarmManager", true);
 		pendingIntent = PendingIntent.getService(getApplicationContext(),
@@ -189,7 +189,7 @@ public class PlayerService extends Service {
 //			public void run() {
 //				Intent intent = new Intent();
 //				intent.setAction("com.myradio.media.MUSIC_SERVICE");
-//				intent.setPackage("com.example.strawberryradio");
+//				intent.setPackage("com.example.dolphinradio");
 //				intent.putExtra("MSG", PlayButton.PlayerMsg.NEXT_MSG);
 //				intent.putExtra("isFromAlarmManager", true);
 //				startService(intent);

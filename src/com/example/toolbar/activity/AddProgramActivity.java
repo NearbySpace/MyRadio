@@ -1,7 +1,9 @@
 package com.example.toolbar.activity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -27,7 +29,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.adapter.AddProgramAdapter;
 import com.example.toolbar.adapter.AddProgramAdapter.OnItemClickClass;
 import com.example.toolbar.application.MyApplication;
@@ -35,6 +37,7 @@ import com.example.toolbar.bean.AddProgram;
 import com.example.toolbar.bean.AddProgram.AddProgramInfo;
 import com.example.toolbar.common.utils.LogHelper;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.example.toolbar.pulltorefreshlistview.PullToRefreshBase.OnRefreshListener;
 import com.example.toolbar.pulltorefreshlistview.PullToRefreshListView;
 import com.example.toolbar.view.MyToast;
@@ -165,6 +168,7 @@ public class AddProgramActivity extends AppCompatActivity implements
 	}
 
 	private void initData() {
+		String url = HttpManage.addProgramListUrl;
 		String uid = MyApplication.getInstance().getSpUtil().getUid();
 		Bundle bundle = this.getIntent().getExtras(); /* 获取Bundle中的数据 */
 		typeId = bundle.getString("id");
@@ -177,10 +181,14 @@ public class AddProgramActivity extends AppCompatActivity implements
 			isChecked=true;
 		}
 		LogHelper.e("获取节目标题：" + titel);
-		HttpManage.getAddProgramlist(new AsyncHttpResponseHandler() {
-
+		Map<String, Object> paramsMap = new HashMap<String, Object>();
+		paramsMap.put("type_id", typeId);
+		paramsMap.put("page", 1);
+		HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+			
 			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			public void onSuccess(byte[] arg2) {
+
 				progress.setVisibility(View.GONE);
 				String result = new String(arg2);
 				Gson gson = new Gson();
@@ -201,13 +209,44 @@ public class AddProgramActivity extends AppCompatActivity implements
 				mPullRefreshListView.onRefreshComplete();
 				load_fail_remind.setVisibility(View.GONE);
 			}
-
+			
 			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-					Throwable arg3) {
+			public void onFailure(byte[] arg2, Throwable arg3) {
 				load_fail_remind.setVisibility(View.VISIBLE);
 			}
-		}, typeId);
+		});
+		
+//		HttpManage.getAddProgramlist(new AsyncHttpResponseHandler() {
+//
+//			@Override
+//			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//				progress.setVisibility(View.GONE);
+//				String result = new String(arg2);
+//				Gson gson = new Gson();
+//				bean = gson.fromJson(result, AddProgram.class);
+//				for(AddProgramInfo info : bean.list){
+//					if(idList.isEmpty()){
+//						break;
+//					}
+//					for(String id :idList){
+//						if(info.id.equals(id)){
+//							info.checkBox_status = true;
+//						}
+//					}
+//				}
+//				adapter = new AddProgramAdapter(AddProgramActivity.this,
+//						bean.list, onItemClickClass);
+//				listView.setAdapter(adapter);
+//				mPullRefreshListView.onRefreshComplete();
+//				load_fail_remind.setVisibility(View.GONE);
+//			}
+//
+//			@Override
+//			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+//					Throwable arg3) {
+//				load_fail_remind.setVisibility(View.VISIBLE);
+//			}
+//		}, typeId);
 	}
 
 	@Override
@@ -307,59 +346,60 @@ public class AddProgramActivity extends AppCompatActivity implements
 	//
 	// }
 
-	private void sendProgram() {
-		String uid = MyApplication.getInstance().getSpUtil().getUid();
-		String id;
-		Log.i(TAG, "idList--------->" + idList);
-		if (idList != null && idList.size() != 0) {
-			LogHelper.e("获取节目ID：" + idList.get(0));
-			// LogHelper.e("获取节目标题：" + titel);
-			id = idList.get(0);
-			// StringBuffer s4 = new StringBuffer(idList.get(0));
-			if (idList.size() >= 1) {
-				for (int i = 1; i < idList.size(); i++) {
-					id += "," + idList.get(i).toString();
-					// s4.append(","+idList.get(i).toString());
-					// id = (new
-					// StringBuilder(",")).append(idList.get(i)).toString();
-				}
-				LogHelper.e("节目ID数组---->" + id);
-			}
-			HttpManage.sendProgram(new AsyncHttpResponseHandler() {
-
-				@Override
-				public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-					progress.setVisibility(View.GONE);
-					String result = new String(arg2);
-					LogHelper.e(result);
-					MyToast.show("节目添加成功", getApplicationContext());
-					task = new TimerTask() {
-
-						@Override
-						public void run() {
-							MyToast.removeView();
-
-						}
-
-					};
-					timer.schedule(task, 2000);
-					// finish();
-				}
-
-				@Override
-				public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-						Throwable arg3) {
-					String result = new String(arg2);
-					LogHelper.e(result);
-					Toast.makeText(AddProgramActivity.this, "添加节目失败，请重试一次", 0)
-							.show();
-				}
-			}, uid, id, titel);
-		} else {
-			Toast.makeText(AddProgramActivity.this, "没有选择要添加的节目，请选择", 0).show();
-		}
-
-	}
+//	private void sendProgram() {
+//		String uid = MyApplication.getInstance().getSpUtil().getUid();
+//		String id;
+//		Log.i(TAG, "idList--------->" + idList);
+//		if (idList != null && idList.size() != 0) {
+//			LogHelper.e("获取节目ID：" + idList.get(0));
+//			// LogHelper.e("获取节目标题：" + titel);
+//			id = idList.get(0);
+//			// StringBuffer s4 = new StringBuffer(idList.get(0));
+//			if (idList.size() >= 1) {
+//				for (int i = 1; i < idList.size(); i++) {
+//					id += "," + idList.get(i).toString();
+//					// s4.append(","+idList.get(i).toString());
+//					// id = (new
+//					// StringBuilder(",")).append(idList.get(i)).toString();
+//				}
+//				LogHelper.e("节目ID数组---->" + id);
+//			}
+//			
+//			HttpManage.sendProgram(new AsyncHttpResponseHandler() {
+//
+//				@Override
+//				public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//					progress.setVisibility(View.GONE);
+//					String result = new String(arg2);
+//					LogHelper.e(result);
+//					MyToast.show("节目添加成功", getApplicationContext());
+//					task = new TimerTask() {
+//
+//						@Override
+//						public void run() {
+//							MyToast.removeView();
+//
+//						}
+//
+//					};
+//					timer.schedule(task, 2000);
+//					// finish();
+//				}
+//
+//				@Override
+//				public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+//						Throwable arg3) {
+//					String result = new String(arg2);
+//					LogHelper.e(result);
+//					Toast.makeText(AddProgramActivity.this, "添加节目失败，请重试一次", 0)
+//							.show();
+//				}
+//			}, uid, id, titel);
+//		} else {
+//			Toast.makeText(AddProgramActivity.this, "没有选择要添加的节目，请选择", 0).show();
+//		}
+//
+//	}
 
 	public void onClick(View arg0) {
 		switch (arg0.getId()) {
@@ -399,28 +439,28 @@ public class AddProgramActivity extends AppCompatActivity implements
 
 	}
 
-	private void dialog() {
-		mMaterialDialog = new MaterialDialog(this);
-		if (mMaterialDialog != null) {
-			// 不包含标题
-			// final MaterialDialog materialDialog = new MaterialDialog(this);
-			mMaterialDialog.setMessage("是否添加已选节目")
-					.setPositiveButton("确定", new View.OnClickListener() {
-						@Override
-						public void onClick(View v) {
-							sendProgram();
-							Toast.makeText(AddProgramActivity.this, "上传中",
-									Toast.LENGTH_LONG).show();
-							mMaterialDialog.dismiss();
-						}
-					}).setNegativeButton("取消", new View.OnClickListener() {
-						@Override
-						public void onClick(View v) {
-							Toast.makeText(AddProgramActivity.this, "取消",
-									Toast.LENGTH_LONG).show();
-							mMaterialDialog.dismiss();
-						}
-					}).setCanceledOnTouchOutside(false).show();
+//	private void dialog() {
+//		mMaterialDialog = new MaterialDialog(this);
+//		if (mMaterialDialog != null) {
+//			// 不包含标题
+//			// final MaterialDialog materialDialog = new MaterialDialog(this);
+//			mMaterialDialog.setMessage("是否添加已选节目")
+//					.setPositiveButton("确定", new View.OnClickListener() {
+//						@Override
+//						public void onClick(View v) {
+//							sendProgram();
+//							Toast.makeText(AddProgramActivity.this, "上传中",
+//									Toast.LENGTH_LONG).show();
+//							mMaterialDialog.dismiss();
+//						}
+//					}).setNegativeButton("取消", new View.OnClickListener() {
+//						@Override
+//						public void onClick(View v) {
+//							Toast.makeText(AddProgramActivity.this, "取消",
+//									Toast.LENGTH_LONG).show();
+//							mMaterialDialog.dismiss();
+//						}
+//					}).setCanceledOnTouchOutside(false).show();
 			// You can change the message anytime.
 			// mMaterialDialog.setTitle("提示");
 			// .setOnDismissListener(
@@ -432,7 +472,7 @@ public class AddProgramActivity extends AppCompatActivity implements
 			// .show();
 			// }
 			// }).show();
-
-		}
-	}
+//
+//		}
+//	}
 }

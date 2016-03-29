@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.bean.Program;
 import com.example.toolbar.bean.Top;
 import com.example.toolbar.common.utils.ImageLoaderHelper;

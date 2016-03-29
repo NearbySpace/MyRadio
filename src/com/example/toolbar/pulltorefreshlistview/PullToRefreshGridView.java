@@ -6,7 +6,7 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View;
 import android.widget.GridView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 
 public class PullToRefreshGridView extends PullToRefreshAdapterViewBase<GridView> {
 

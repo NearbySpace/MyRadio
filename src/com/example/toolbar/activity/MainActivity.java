@@ -57,7 +57,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.adapter.PagerAdapter;
 import com.example.toolbar.application.MyApplication;
 import com.example.toolbar.bean.UserInfo;
@@ -70,6 +70,7 @@ import com.example.toolbar.common.utils.NetUtil;
 import com.example.toolbar.fragment.FirstFragment;
 import com.example.toolbar.framework.UpdateApk;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.example.toolbar.utils.ConfigUtils;
 import com.example.toolbar.utils.ControlActivity;
 import com.example.toolbar.utils.ImageUtils;
@@ -194,7 +195,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 	private String getVesionName() {
 		PackageManager pm = getPackageManager();
 		try {
-			PackageInfo info = pm.getPackageInfo("com.example.strawberryradio",
+			PackageInfo info = pm.getPackageInfo("com.example.dolphinradio",
 					0);
 			return info.versionName;
 		} catch (NameNotFoundException e) {
@@ -396,31 +397,27 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 			return;
 		}
 		String uid = MyApplication.getInstance().getSpUtil().getUid();
-		HttpManage.getMainUserData(uid, new AsyncHttpResponseHandler() {
-
+		String url = HttpManage.mainUserDataUrl;
+		Map<String, Object> paramsMap = new HashMap<String, Object>();
+		paramsMap.put("uid", uid);
+		HttpManage.getNetData(url, paramsMap, 1, new OnCallBack() {
+			
 			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] bt,
-					Throwable arg3) {
-				// TODO Auto-generated method stub
-				LogHelper.e("error");
-			}
-
-			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] bt) {
-				// TODO Auto-generated method stub
-				String data = new String(bt);
+			public void onSuccess(byte[] arg2) {
+				String data = new String(arg2);
 				LogHelper.e(data);
 				Gson gson = new Gson();
 				UserInfo info = gson.fromJson(data, UserInfo.class);
 				nikename.setText(info.nickname);
-				ImageLoader.getInstance().displayImage(info.avatar,
-						usericon);
-				attentionTv.setText(info.favorite);
-				fansTv.setText(info.is_favorite);
-				messageTv.setText(info.private_letter);
+				ImageLoader.getInstance().displayImage(info.avatar, usericon);
 				
 			}
-
+			
+			@Override
+			public void onFailure(byte[] arg2, Throwable arg3) {
+				// TODO Auto-generated method stub
+				LogHelper.e("error");
+			}
 		});
 
 	}

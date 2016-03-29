@@ -11,7 +11,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.activity.ProgramListActivity;
 import com.example.toolbar.adapter.ProgerAdapter_Cg;
 import com.example.toolbar.bean.Program;
@@ -28,6 +27,7 @@ import com.example.toolbar.common.utils.LogHelper;
 import com.example.toolbar.common.utils.MyJsonUtils;
 import com.example.toolbar.common.utils.NetUtil;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.example.toolbar.http.HttpUtils;
 import com.example.toolbar.utils.ToastUtils;
 import com.example.toolbar.view.progress.CircularProgress;
@@ -119,24 +119,25 @@ public class ProgramFragment extends BaseFragment {
 	}
 
 	private void initData() {
-		HttpManage.getProgram(new TextHttpResponseHandler() {
-
+		String url = HttpManage.address + "?d=android&c=program&m=play_lists";
+		HttpManage.getNetData(url, null, 1, new OnCallBack() {
+			
 			@Override
-			public void onSuccess(int arg0, Header[] arg1, String arg2) {
-				// TODO Auto-generated method stub
+			public void onSuccess(byte[] arg2) {
 				progress.setVisibility(View.GONE);
-				jsonData(arg2);
+				String result = new String(arg2);
+				jsonData(result);
 //				Log.i(TAG, arg2);
 				mPullToRefreshGridView.onRefreshComplete();
 			}
-
+			
 			@Override
-			public void onFailure(int arg0, Header[] arg1, String arg2,
-					Throwable arg3) {
+			public void onFailure(byte[] arg2, Throwable arg3) {
 				// TODO Auto-generated method stub
-
+				
 			}
 		});
+		
 	}
 
 	private void jsonData(String json) {

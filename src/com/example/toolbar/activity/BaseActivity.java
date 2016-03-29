@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
 import com.example.toolbar.common.utils.AppManager;
 import com.example.toolbar.utils.ConfigUtils;
 import com.example.toolbar.utils.SharePreferenceUtil;

@@ -1,5 +1,8 @@
 package com.example.toolbar.fragment;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.http.Header;
 
 import android.content.Context;
@@ -16,7 +19,8 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.example.strawberryradio.R;
+import com.example.dolphinradio.R;
+import com.example.toolbar.activity.GuessYouLikeActivity;
 import com.example.toolbar.activity.PrivateMainActivity;
 import com.example.toolbar.activity.ProgramClassifyListActivity;
 import com.example.toolbar.adapter.FindClassAdapter;
@@ -25,6 +29,7 @@ import com.example.toolbar.bean.FindBean;
 import com.example.toolbar.bean.FindBean.IconTop;
 import com.example.toolbar.bean.MainShows;
 import com.example.toolbar.http.HttpManage;
+import com.example.toolbar.http.HttpManage.OnCallBack;
 import com.example.toolbar.utils.DensityUtil;
 import com.example.toolbar.utils.UserUtils;
 import com.example.toolbar.view.MyGridView;
@@ -123,6 +128,7 @@ public class FindFragment extends BaseFragment {
 				startActivity(intent);
 			}
 		});
+		tv_guess_find.setOnClickListener(this);
 		
 		gridView_top.setOnItemClickListener(clickListener);
 
@@ -147,10 +153,12 @@ public class FindFragment extends BaseFragment {
 	}
 
 	private void initData() {
-		HttpManage.getFindData(new AsyncHttpResponseHandler() {
-
+		String url = HttpManage.findDataUrl;
+		HttpManage.getNetData(url, null, 1, new OnCallBack() {
+			
 			@Override
-			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			public void onSuccess(byte[] arg2) {
+
 				refresh.setRefreshing(false);
 				String result = new String(arg2);
 				Gson gson = new Gson();
@@ -161,25 +169,50 @@ public class FindFragment extends BaseFragment {
 				gridView_top.setAdapter(mAdapter);
 				tv_remind.setVisibility(View.GONE);
 			}
-
+			
 			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-					Throwable arg3) {
+			public void onFailure(byte[] arg2, Throwable arg3) {
+				// TODO Auto-generated method stub
 				tv_remind.setVisibility(View.VISIBLE);
 			}
 		});
+		
+//		HttpManage.getFindData(new AsyncHttpResponseHandler() {
+//
+//			@Override
+//			public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+//				refresh.setRefreshing(false);
+//				String result = new String(arg2);
+//				Gson gson = new Gson();
+//				bean = gson.fromJson(result, FindBean.class);
+//				mAdapter = new FindImgAdapter(mLayoutInflater, bean.radio_list);
+//				gridView_classify.setAdapter(new FindClassAdapter(
+//						getActivity(), bean.type_list));
+//				gridView_top.setAdapter(mAdapter);
+//				tv_remind.setVisibility(View.GONE);
+//			}
+//
+//			@Override
+//			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+//					Throwable arg3) {
+//				tv_remind.setVisibility(View.VISIBLE);
+//			}
+//		});
 	}
 
 	@Override
 	public void onClick(View v) {
+		Intent intent = new Intent();
 		switch (v.getId()) {
 		case R.id.tv_guess_find:
-
+			intent.setClass(getActivity(), GuessYouLikeActivity.class);
+			startActivity(intent);
 			break;
 
 		default:
 			break;
 		}
+		
 	}
 
 	@Override
