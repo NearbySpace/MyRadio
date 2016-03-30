@@ -205,8 +205,8 @@ public class FindFragment extends BaseFragment {
 		Intent intent = new Intent();
 		switch (v.getId()) {
 		case R.id.tv_guess_find:
-			intent.setClass(getActivity(), GuessYouLikeActivity.class);
-			startActivity(intent);
+//			intent.setClass(getActivity(), GuessYouLikeActivity.class);
+//			startActivity(intent);
 			break;
 
 		default:
