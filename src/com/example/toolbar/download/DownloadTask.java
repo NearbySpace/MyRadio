@@ -146,7 +146,8 @@ public class DownloadTask extends AsyncTask<Void, Object, Integer>{
 				}).start();
 				
 				while((offset=is.read(buffer))!=-1){
-					fos.write(buffer);
+					//需按照buffer的实际大小写入，不然文件可能要比实际大小要大
+					fos.write(buffer,0,offset);
 					downloadedSize+=offset;
 				}
 				this.isFinish=true;
